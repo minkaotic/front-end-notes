@@ -6,9 +6,9 @@
 - [CSS notes](#css-notes)
   - [Selectors](#selectors)
   - [Rule overriding](#rule-overriding)
-  - [Text & Fonts](#text-fonts)
+  - [Text & Fonts](#text--fonts)
   - [Box Model Elements](#box-model-elements)
-  - [Colour & Background Images](#colour-background-images)
+  - [Colour & Background Images](#colour--background-images)
   - [Fancy Design](#fancy-design)
 
 
