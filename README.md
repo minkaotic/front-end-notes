@@ -51,12 +51,18 @@ ________________________________________
 
 ![CSS Box Model](https://github.com/minkaotic/front-end-notes/blob/master/box_model.png)
 
+**Block vs inline display**
 - Most common values for the `display` property are `block` (creating a new line after element), `inline` (not breaking into a new line), and `inline-block`
 - `inline-block` is useful in cases when we want items to appear next to each other, but still want top/bottom margin to be applied as if the whole set was a block element 
 - `li { display: inline; }` to keep list items next to each other on one line, then use padding and margin to neaten up visually (for more advanced list manipulation, see: https://teamtreehouse.com/library/lists-5)
+
+**Borders**
 - **border shorthand**: 'border: [width] [style] [color]' - or do each of them individually for control over each side, eg.: `border-width: 10px 20px`, or `border-top: 2px solid lightgrey;`
 - When using **2 value shorthand**, the first value refers to top/bottom and the second to left/right.
 - When using **3 value shorthand**, the values refer in order to: TOP, LEFT/RIGHT, BOTTOM
+- *Similar rules apply to settings for margin and padding*
+
+**Margin, padding and box-sizing**
 - **`margin: auto`** will generally **centre** content on the page!
 - `width` values provided as **percentages** are applied in relation to the *parent container* - and `width` generally applies only to the *content* of the box, i.e. not including its padding and border, however...
 - **`box-sizing: border-box`** dynamically subtracts the borders and paddings of the element from the width and height properties we set, making it easier to define flexible widths and heights in our project (it's one of the few good uses for the universal selector!) *
