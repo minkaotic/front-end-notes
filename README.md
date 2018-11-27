@@ -86,10 +86,23 @@ In addition, **rgba functions** allow setting transparency via alpha value, eg. 
 ### Fancy Design
 
 #### Floats
+Floats are one of the most commonly used methods for laying out a page with CSS. When an element is floated, the element is taken out of the normal flow of the page and placed along the left or right side of its container, causing other elements to wrap around it.
+
 - First, change the element's `width` to something less than 50% (just like width, floats are relative to the parent container!)
 - **`float: right`** will float something to the right, vice versa for left
-- Common issues: If a block element contains floated children, its height will collapse, causing elements to overlap where they shouldn't...
-- **Clearfix** is the most reliable way to prevent these issues! - Targeting the parent element of the elements that are floated, it looks like this: `[parent selector]:after {clear: both;}`
+
+**Common issues:** If a block element contains floated children, its height will collapse, causing elements to overlap where they shouldn't... options for resolving this:
+- Add `overflow: auto;` for the parent element. Possible downsides: in some browsers, unwanted scroll bars might appear, or bits of content might be cut off
+- **Clearfix** is the most reliable way to prevent these issues! - Targeting the parent element of the elements that are floated, it looks like this: 
+
+```
+[parent selector]:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+```
+
 - cf. https://developer.mozilla.org/en-US/docs/Web/CSS/clear and http://nicolasgallagher.com/micro-clearfix-hack/
 
 #### Shadow effects
