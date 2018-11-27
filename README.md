@@ -116,10 +116,23 @@ Floats are one of the most commonly used methods for laying out a page with CSS.
 - Neat **inner** shadow effect: `box-shadow: inset 0 0 50px 10px rgba(0,0,0, 1);`
 
 #### Rounded corners
-- use `border-radius` - takes any absolute or relative length value (px, em, % etc.)
+- use `border-radius` - takes any absolute or relative length value (px, em, % etc.), e.g. `border-radius: 50px 10px;`
 
 #### Gradients
-- add depth to designs by creating smooth and gradual transitions between two or more colours
+Gradients create smooth and gradual transitions between two or more colours.
+
+Examples:
+- Simple gradient with default top-to-bottom angle: `background-image: linear-gradient(#ffa949, firebrick);`
+- With specific angle defined: `linear-gradient(to left, #ffa949, firebrick)` or `linear-gradient(45deg, #ffa949, firebrick)`
+- Radial gradient with circular centre: `background-image: radial-gradient(circle, #ffa949, firebrick);`
+- Radial gradient with 3 colours & moved centre circle: `radial-gradient(circle at top right, #ffa949, firebrick, dodgerblue)`
+- As above, plus specificed colour stops: `radial-gradient(circle at top right, #ffa949 0%, firebrick 20%, dodgerblue 100%)`
+
+It is also possible to layer a number of gradients on top of each other, or layer a gradient over a background image:
+```
+background: linear-gradient(#ffa949, transparent 60%),
+            #ffa949 url('../img/mountains.jpg') no-repeat center;
+```
 
 #### Animations
 - requires....
