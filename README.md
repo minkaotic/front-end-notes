@@ -130,7 +130,7 @@ For more detail see: https://developer.mozilla.org/en-US/docs/Web/CSS/@media
 
 #### Viewport meta tag
 
-Using **mobile device emulation in Chrome dev tools**, you'll notice that often our CSS rules for responsive design using media queries might not be applied to certain mobile phones, as they may be using virtual viewports rather than the real viewport size. To get around this, we need to use the HTML `viewport` meta tag in our head:
+Using **mobile device emulation in Chrome dev tools**, you'll notice that often our CSS rules for responsive design using media queries might not be applied to certain mobile phones, as they may be using virtual viewports rather than the real viewport size. To get around this, we need to use the HTML `viewport` meta tag in the head of any HTML pages:
 
 ```
 <head>
