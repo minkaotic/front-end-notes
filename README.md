@@ -45,12 +45,15 @@ ________________________________________
 ### Text & Fonts
 - Create a **font stack** to make sure we have fallbacks of *websafe fonts* as well as *generic font families* defined in case our desired font doesn't work on a given machine
 - When using **`font-family`** with multi-word name, use " "s
-- use `text-decoration: none;` to get rid of underlines on links
-- The default `font-weight` of headlines is bold
 - Use **font** property as shorthand to specify weight, size (obligatory), line height and family (obligatory), eg.: `font: normal 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;`
+
 - `em`s are relative to parent element's pixel size, but the default of 1 "em" is 16px (which is the value of em at the root value) 
 - `rem`s are relative to root element's pixel size, i.e. avoid compounding issues when sizing up or down
-- **`line-height`** (takes unit-less values like 1.5 or 2)
+\
+Other tips:
+- Use `text-decoration: none;` to get rid of underlines on links
+- The default `font-weight` of headlines is bold
+- Adjust **`line-height`** with unit-less values like 1.5 or 2
 - You can also adjust letter spacing, e.g.: `letter-spacing: .065em;`
 
 #### Web fonts
