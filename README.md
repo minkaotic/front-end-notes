@@ -5,7 +5,7 @@
 - [HTML notes](#html-notes)
 - [CSS notes](#css-notes)
   - [Selectors](#selectors)
-  - [Rule overriding](#rule-overriding)
+  - [Rule Precedence](#rule-precedence)
   - [Text & Fonts](#text--fonts)
   - [Box Model Elements](#box-model-elements)
   - [Colour & Background Images](#colour--background-images)
@@ -33,8 +33,13 @@ ________________________________________
 - *Multiple selectors*, separated by commas, can be used in a rule, such as `.primary-content, .secondary-content`
 
 
-### Rule overriding
-- Rules for id selectors will override rules for any other selectors
+### Rule Precedence
+- The **cascade** determines which styles are assigned to a HTML element; follows 3 main steps to determine which rule to apply:
+  - **Importance:** User agent styles < User styles < Author styles
+  - **Specificity:** Styles with more specific selectors will override styles with less specific selectors: universal selector < element selectors < class selectors < id selectors < inline styles
+  - **Source order:** If there are two or more conflicting declarations within the same rule or level of specificity, the one appearing latest in the source takes precedence. (If there are multiple style sheets, the one linked in last takes precedance.)
+
+- **Inheritance:** if no specific rules are in place for them, elements will inherit the style values of their parent element.
 
 
 ### Text & Fonts
