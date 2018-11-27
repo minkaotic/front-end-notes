@@ -46,10 +46,9 @@ ________________________________________
 - Create a **font stack** to make sure we have fallbacks of *websafe fonts* as well as *generic font families* defined in case our desired font doesn't work on a given machine
 - When using **`font-family`** with multi-word name, use " "s
 - Use **font** property as shorthand to specify weight, size (obligatory), line height and family (obligatory), eg.: `font: normal 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;`
-
 - `em`s are relative to parent element's pixel size, but the default of 1 "em" is 16px (which is the value of em at the root value) 
 - `rem`s are relative to root element's pixel size, i.e. avoid compounding issues when sizing up or down
-\
+
 Other tips:
 - Use `text-decoration: none;` to get rid of underlines on links
 - The default `font-weight` of headlines is bold
