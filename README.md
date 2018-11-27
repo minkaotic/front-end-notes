@@ -9,6 +9,7 @@
   - [Text & Fonts](#text--fonts)
   - [Box Model Elements](#box-model-elements)
   - [Colour & Background Images](#colour--background-images)
+  - [Media Queries for Responsive Design](#media-queries-for-responsive-design)
   - [Fancy Design](#fancy-design)
 
 
@@ -106,6 +107,26 @@ In addition, **rgba functions** allow setting transparency via alpha value, eg. 
 - `background-size: cover` adjusts the background area so that it's **completely covered by the background image** (if using), while maintaining its width and height proportions
 - Best practice: set background colour as well when using background images, to preserve the contrast between the background and content in case the image isn't available
 - Handy all-in-one **background shorthand:** `background: #ffa949 url('../img/mountains.jpg') no-repeat center / cover;`
+
+
+### Media Queries for Responsive Design
+Media queries allow us to tailor our content to a wide range of devices and viewport sizes without having to change anything in the HTML. For example, to set up various media query breakpoints for different styles depending on browser size:
+
+```
+@media all and (max-width: 960px) {
+  [selector] {
+    [style declaration]
+  }
+}
+
+@media all and (max-width: 480px) {
+  [selector] {
+    [style declaration]
+  }
+}
+```
+
+For more detail see: https://developer.mozilla.org/en-US/docs/Web/CSS/@media
 
 
 ### Fancy Design
