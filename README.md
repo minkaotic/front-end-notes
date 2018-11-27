@@ -75,7 +75,9 @@ Colours can be set as either:
 In addition, **rgba functions** allow setting transparency via alpha value, eg. `rgba(255, 255, 255, .5)`
 
 - Every HTML element has a background layer that is transparent by default, but can be filled using `background-image` or `background-color`
-- By default, `background-image`s are tiled and repeated
+- Specify a background image with `background-image: url('../img/mountains.jpg')`
+- By default, `background-image`s are left aligned and repeated (aka tiled)
+- Specify the size of the background image as a percentage of the containing element width with `background-size: 60%;`
 - `background-size: cover` adjusts the background area so that it's **completely covered by the background image** (if using), while maintaining its width and height proportions
 - Best practice: set background colour as well when using background images, to preserve the contrast between the background and content in case the image isn't available
 - Handy all-in-one **background shorthand:** `background: #ffa949 url('../img/mountains.jpg') no-repeat center / cover;`
