@@ -111,9 +111,9 @@ Floats are one of the most commonly used methods for laying out a page with CSS.
 - cf. https://developer.mozilla.org/en-US/docs/Web/CSS/clear and http://nicolasgallagher.com/micro-clearfix-hack/
 
 #### Shadow effects
-- using either **`text-shadow:`** `[horizontal offset] [vertical offset] [blur radius] [colour]` or **`box-shadow`** (as text shadow, but with optional value of [spread] before the colour value)
-- Example of a small bottom box-shadow: `box-shadow: 0 20px 10px -12px rgba(0,0,0, .8);`
-- Nice inner shadow: `box-shadow: inset 0 0 50px 10px rgba(0,0,0, 1);`
+- **Text shadow** takes 4 values: *horizontal offset, vertical offset, blur radius (optional) and colour*, e.g. `text-shadow: 5px 8px 10px #222;`. Multiple sets of values, separated by commas, will build more complex shadow effects.
+- **Box shadow** is similar to text shadow but with optional value of *spread* before the colour value, e.g. for a small bottom box-shadow: `box-shadow: 0 20px 10px -12px rgba(0,0,0, .8);`
+- Neat **inner** shadow effect: `box-shadow: inset 0 0 50px 10px rgba(0,0,0, 1);`
 
 #### Rounded corners
 - use `border-radius` - takes any absolute or relative length value (px, em, % etc.)
