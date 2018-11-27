@@ -40,12 +40,31 @@ ________________________________________
 - Create a **font stack** to make sure we have fallbacks of *websafe fonts* as well as *generic font families* defined in case our desired font doesn't work on a given machine
 - When using **`font-family`** with multi-word name, use " "s
 - use `text-decoration: none;` to get rid of underlines on links
-- the default `font-weight` of headlines is bold
-- use **font** property as shorthand to specify weight, size (obligatory), line height and family (obligatory), eg.: `font: normal 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;`
+- The default `font-weight` of headlines is bold
+- Use **font** property as shorthand to specify weight, size (obligatory), line height and family (obligatory), eg.: `font: normal 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;`
 - `em`s are relative to parent element's pixel size, but the default of 1 "em" is 16px (which is the value of em at the root value) 
 - `rem`s are relative to root element's pixel size, i.e. avoid compounding issues when sizing up or down
 - **`line-height`** (takes unit-less values like 1.5 or 2)
+- You can also adjust letter spacing, e.g.: `letter-spacing: .065em;`
 
+#### Web fonts
+Web fonts are special types of fonts optimized for screen display, and linked to our web pages from an external source. They eliminate the need to depend on the limited number of fonts installed on a user's computer.
+
+Web font formats:
+- `.eot` - proprietary Internext Explorer format
+- `.woff` - open format developed by Mozilla and compatible with most modern browsers
+- `.ttf` - used for Safari, Android & iOS display
+
+Add a web font to your style sheet like this:
+```
+@font-face {
+  font-family: 'Abolition Regular';
+  src: url('../fonts/abolition-regular-webfont.eot');
+  src: url('../fonts/abolition-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/abolition-regular-webfont.woff') format('woff'),
+       url('../fonts/abolition-regular-webfont.ttf') format('truetype');
+}
+```
 
 ### Box Model Elements
 
@@ -57,9 +76,10 @@ ________________________________________
 - `li { display: inline; }` to keep list items next to each other on one line, then use padding and margin to neaten up visually (for more advanced list manipulation, see: https://teamtreehouse.com/library/lists-5)
 
 #### Borders
-- **border shorthand**: 'border: [width] [style] [color]' - or do each of them individually for control over each side, eg.: `border-width: 10px 20px`, or `border-top: 2px solid lightgrey;`
-- When using **2 value shorthand**, the first value refers to top/bottom and the second to left/right.
-- When using **3 value shorthand**, the values refer in order to: TOP, LEFT/RIGHT, BOTTOM
+- **Border shorthand**: `border: [width] [style] [color]` - or do each of them individually for control over each side, eg.: `border-width: 10px 20px`, or `border-top: 2px solid lightgrey;`. NB:
+  - when not specifying a colour, the colour is inherited from the element's text colour.
+  - When using **2 value shorthand**, the first value refers to top/bottom and the second to left/right.
+  - When using **3 value shorthand**, the values refer in order to: TOP, LEFT/RIGHT, BOTTOM
 - *Similar rules apply to settings for margin and padding*
 
 #### Margin, padding and box-sizing
@@ -119,9 +139,7 @@ Floats are one of the most commonly used methods for laying out a page with CSS.
 - use `border-radius` - takes any absolute or relative length value (px, em, % etc.), e.g. `border-radius: 50px 10px;`
 
 #### Gradients
-Gradients create smooth and gradual transitions between two or more colours.
-
-Examples:
+Gradients create smooth and gradual transitions between two or more colours. Some examples:
 - Simple gradient with default top-to-bottom angle: `background-image: linear-gradient(#ffa949, firebrick);`
 - With specific angle defined: `linear-gradient(to left, #ffa949, firebrick)` or `linear-gradient(45deg, #ffa949, firebrick)`
 - Radial gradient with circular centre: `background-image: radial-gradient(circle, #ffa949, firebrick);`
