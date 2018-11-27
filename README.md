@@ -128,6 +128,20 @@ Media queries allow us to tailor our content to a wide range of devices and view
 
 For more detail see: https://developer.mozilla.org/en-US/docs/Web/CSS/@media
 
+#### Viewport meta tag
+
+Using **mobile device emulation in Chrome dev tools**, you'll notice that often our CSS rules for responsive design using media queries might not be applied to certain mobile phones, as they may be using virtual viewports rather than the real viewport size. To get around this, we need to use the HTML `viewport` meta tag in our head:
+
+```
+<head>
+    <title>...</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name "viewport" content="width=device-width">
+</head>
+```
+
+For more information, see: https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
+
 
 ### Fancy Design
 
