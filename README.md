@@ -53,8 +53,7 @@ ________________________________________
 
 - Most common values for the `display` property are `block` (creating a new line after element), `inline` (not breaking into a new line), and `inline-block`
 - `inline-block` is useful in cases when we want items to appear next to each other, but still want top/bottom margin to be applied as if the whole set was a block element 
-- `li { display: inline; }` to keep list items next to each other on one line, then use padding and margin to neaten up visually
-
+- `li { display: inline; }` to keep list items next to each other on one line, then use padding and margin to neaten up visually (for more advanced list manipulation, see: https://teamtreehouse.com/library/lists-5)
 - **border shorthand**: 'border: [width] [style] [color]' - or do each of them individually for control over each side, eg.: `border-width: 10px 20px`, or `border-top: 2px solid lightgrey;`
 - When using **2 value shorthand**, the first value refers to top/bottom and the second to left/right.
 - When using **3 value shorthand**, the values refer in order to: TOP, LEFT/RIGHT, BOTTOM
@@ -102,7 +101,7 @@ Floats are one of the most commonly used methods for laying out a page with CSS.
   clear: both;
 }
 ```
-
+- often, a new `.group` class is used for clearfix, which can be assigned to any parent requiring it
 - cf. https://developer.mozilla.org/en-US/docs/Web/CSS/clear and http://nicolasgallagher.com/micro-clearfix-hack/
 
 #### Shadow effects
