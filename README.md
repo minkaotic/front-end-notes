@@ -11,11 +11,12 @@
   - [Colour & Background Images](#colour--background-images)
   - [Media Queries for Responsive Design](#media-queries-for-responsive-design)
   - [Fancy Design](#fancy-design)
-
+- [JS notes](#js-notes)
 
 ## HTML notes
 - A comment is denoted by `<!-- ...... -->`
 ________________________________________
+
 
 ## CSS notes
 - A **CSS rule** is comprised of a *selector*, and a *declaration block* containing one or more declarations; each declaration contains a *property* and its chosen value
@@ -196,3 +197,10 @@ background: linear-gradient(#ffa949, transparent 60%),
 
 #### Animations
 - requires....
+
+________________________________________
+
+
+## JS notes
+- link any JS files in the html file to execute them when the page loads, like so: `<script src="file-name.js"></script>`
+- link at bottom of `<head>` to run script before the content of the page loads, or at bottom of `<body>` to run script once page has loaded
