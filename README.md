@@ -204,3 +204,16 @@ ________________________________________
 ## JS notes
 - link any JS files in the html file to execute them when the page loads, like so: `<script src="file-name.js"></script>`
 - link at bottom of `<head>` to run script before the content of the page loads, or at bottom of `<body>` to run script once page has loaded
+
+*To add lines of content to a page:*
+```
+document.write("<h2>My first JavaScript program</h2>");
+document.write("<p>I'm practicing 'debugging'.</p>");
+```
+
+*JS also allows to make pages interactive, through:*
+- selecting elements on the page
+- manipulating elements
+- listening for user actions
+
+This is based on the **DOM (Document Object Model)**
