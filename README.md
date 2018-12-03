@@ -1,7 +1,7 @@
 # Notes & Learnings about Front End Development
 *Based on https://teamtreehouse.com/tracks/front-end-web-development*
 
-## Table of Contents
+## Contents
 - [HTML notes](#html-notes)
 - [CSS notes](#css-notes)
   - [Selectors](#selectors)
