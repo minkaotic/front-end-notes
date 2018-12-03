@@ -217,3 +217,7 @@ document.write("<p>I'm practicing 'debugging'.</p>");
 - listening for user actions
 
 This is based on the **DOM (Document Object Model)**
+
+The browser has a **global environment** which contains a great number of global variables, such as `location.href`, `alert()` and loads more. All of these are properties of a single global object called **window**. (It can be explored by typing `window` in the browser's JS console.) The **`document` object** is another key property of the browser's `window`:
+- can be used to select and control elements of the currently loaded web page
+- i.e. `document.getElementById('myHeading').style.color = 'red'`
