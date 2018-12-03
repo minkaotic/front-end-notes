@@ -1,6 +1,6 @@
 # JS notes
 
-List of contents:
+## Contents:
 - [Intro](#intro)
 - [The DOM](#the-dom)
 
@@ -17,13 +17,37 @@ This is based on the **DOM (Document Object Model)**
 
 ## The DOM
 
-The browser has a **global environment** which contains a great number of global variables, such as `location.href`, `alert()` and loads more. All of these are properties of a single global object called **window**. (It can be explored by typing `window` in the browser's JS console.) The **`document` object** is another key property of the browser's `window`:
-- can be used to select and control elements of the currently loaded web page
+The browser has a **global environment** (global scope) which contains a great number of global variables, such as `location.href`, `alert()` and loads more. All of these are properties of a single global object called **window**. (It can be explored by typing `window` in the browser's JS console.) The **`document` object** is another key property of the browser's `window`:
+
+- it is a representation of a webpage which JS can use
+- changes that JavaScript makes to the DOM alter the web page
+- this is done by selecting and controlling elements of the currently loaded web page
 - i.e. `document.getElementById('myHeading').style.color = 'red'`
 
+### Basic interactions
 
 *To add lines of content to a page:*
 ```
-document.write("<h2>My first JavaScript program</h2>");
-document.write("<p>I'm practicing 'debugging'.</p>");
+document.write("<h2>Sudden new headline</h2>");
+document.write("<p>I'm practicing interacting with the DOM.</p>");
+```
+
+*To listen for a user interaction and make a change in response:*
+```
+const myHeading = document.getElementById('myHeading');
+
+myHeading.addEventListener('click', () => {
+  myHeading.style.color = 'red';
+});
+```
+
+*More involved version incl. an input field for the color & button to apply:*
+```
+const myHeading = document.getElementById('myHeading');
+const myButton = document.getElementById('myButton');
+const myTextInput = document.getElementById('myTextInput');
+
+myButton.addEventListener('click', () => {
+  myHeading.style.color = myTextInput.value;
+  });
 ```
