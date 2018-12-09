@@ -6,6 +6,7 @@
   - [Example Interactions](#example-interactions)
   - [Different Selectors](#different-selectors)
   - [Various DOM Manipulation Methods](#various-dom-manipulation-methods)
+  - [Events](#Events)
 
 
 ## Intro
@@ -34,6 +35,7 @@ The browser has a **global environment** (global scope) which contains a great n
 - Nodes belong to the DOM
 - Elements are plain HTML
 - ...but both are conceptually often interchangeable
+
 
 ### Example Interactions
 
@@ -143,3 +145,7 @@ ul.appendChild(li);
 - Remove an element with `Node.removeChild(childElement`).
 
 
+### Events
+Any time users interact with a webpage, they generate all kinds of events: moving the mouse around, scrolling, or clicking a link. Browsers "listen" for events and, with JavaScript, we can do something in response to an event.
+
+- See also: [Thorough list of DOM events on MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
