@@ -30,6 +30,10 @@ The browser has a **global environment** (global scope) which contains a great n
 - this is done by selecting and controlling elements of the currently loaded web page
 - i.e. `document.getElementById('myHeading').style.color = 'red'`
 
+#### Nodes vs. Elements
+- Nodes belong to the DOM
+- Elements are plain HTML
+- ...but both are conceptually often interchangeable
 
 ### Example Interactions
 
@@ -56,7 +60,8 @@ const myTextInput = document.getElementById('myTextInput');
 
 myButton.addEventListener('click', () => {
   myHeading.style.color = myTextInput.value;
-  });
+  myTextInput.value = '';         // to clear input field after submission
+});
 ```
 
 
@@ -78,7 +83,7 @@ const body = document.getElementsByTagName('body')[0];
   - element class - `querySelector('.myClass')`
   - element attribute - `querySelector('[title="fun"]')`
   - elements of a particular nesting rule - `querySelectorAll('nav ul li a')` (= all links in the nav bar)
-  - CSS pseudo class queries - `querySelector('li:nth-child(odd)')`
+  - CSS pseudo class queries - `querySelector('li:nth-child(odd)')` or `querySelector('li:last-child')`
 
 It's often possible to use different selectors to achieve the same thing. To decide which one is the best option, consider browser compatibility as well as other details in a given selector's spec.
 
@@ -125,13 +130,16 @@ Examples:
 - Change background colour: `element.style.backgroundcolor = 'blue'`
 - Hide (and unhide) elements from the page: `element.style.display = 'none'`
 
-#### Creating new DOM elements
-- Create a new element with `document.createElement()`, for example:
+#### Adding and removing new DOM elements
+- Create a new element with `document.createElement()`, then insert it with `Node.appendChild(childElement)` for example:
 ```
 const addItemInput = document.querySelector('button.addItemButton');
+let ul = document.getElementsByTagName('ul')[0];
 let li = document.createElement('li');
 li.textContent = addItemInput.value;
+ul.appendChild(li);
 ```
 
+- Remove an element with `Node.removeChild(childElement`).
 
 
