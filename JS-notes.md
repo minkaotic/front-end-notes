@@ -90,7 +90,7 @@ Resources:
 
 ### Various DOM Manipulation Methods
 #### Getting & setting text
-- Get & set an element's text using `element.textContent`:
+- Get & set an element's text using the `element.textContent` property:
 ```
 let myHeading = document.querySelector('h1');
 console.log(myHeading.textContent);                     //retrieve and use element's text
@@ -116,4 +116,22 @@ console.log(input.type);          //returns "text"
 input.type = 'checkbox'           // changes input type
 ```
 
-NB: class attributes are a special case and are accessed via `element.className`.
+***NB:*** class attributes are a special case and are accessed via the `element.className` property.
+
+#### Changing element styles
+The `element.style` property and its sub-properties are usually used to **set** styles only, not to retrieve them. This is because it will *only* retrieve active *in-line* styles for a given element, and won't show e.g. styles applied from a separate CSS stylesheet!
+
+Examples:
+- Change background colour: `element.style.backgroundcolor = 'blue'`
+- Hide (and unhide) elements from the page: `element.style.display = 'none'`
+
+#### Creating new DOM elements
+- Create a new element with `document.createElement()`, for example:
+```
+const addItemInput = document.querySelector('button.addItemButton');
+let li = document.createElement('li');
+li.textContent = addItemInput.value;
+```
+
+
+
