@@ -3,14 +3,15 @@
 ## Contents:
 - [Intro](#intro)
 - [The DOM](#the-dom)
-  - [Basic Interactions](#basic-interactions)
+  - [Example Interactions](#example-interactions)
   - [Different Selectors](#different-selectors)
-  - [Getting & Setting Text](#getting--setting-text)
+  - [Various DOM Manipulation Methods](#various-dom-manipulation-methods)
 
 
 ## Intro
 - link any JS files in the html file to execute them when the page loads, like so: `<script src="file-name.js"></script>`
 - link at bottom of `<head>` to run script before the content of the page loads, or at bottom of `<body>` to run script once page has loaded
+- **Fun fact:** variables declared in the JS script will be accessible in the browser's JS console too!
 
 *JS also allows to make pages interactive, through:*
 - selecting elements on the page
@@ -30,7 +31,7 @@ The browser has a **global environment** (global scope) which contains a great n
 - i.e. `document.getElementById('myHeading').style.color = 'red'`
 
 
-### Basic interactions
+### Example Interactions
 
 *To add lines of content to a page:*
 ```
@@ -87,7 +88,8 @@ Resources:
 - [Babel](https://babeljs.io/)
 
 
-### Getting & Setting Text
+### Various DOM Manipulation Methods
+#### Getting & setting text
 - Get & set an element's text using `element.textContent`:
 ```
 let myHeading = document.querySelector('h1');
@@ -96,3 +98,22 @@ myHeading.textContent = 'This is the new headline';     //change element's text
 ```
 
 - `element.innerHTML` can be (mis)used for this too, but is more commonly used to alter the actual HTML of parts of the page
+
+#### Changing element attributes
+Attributes, like the href attribute on a link, or the action attribute on a form, exist as properties of an element object. These can be manipulated with `Element.attribute`, for example:
+
+**HTML**
+```
+...
+<input type="text" class="description">
+...
+```
+
+**Javascript**
+```
+const input = document.querySelector('input');
+console.log(input.type);          //returns "text"
+input.type = 'checkbox'           // changes input type
+```
+
+NB: class attributes are a special case and are accessed via `element.className`.
