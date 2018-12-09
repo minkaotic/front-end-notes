@@ -7,7 +7,8 @@
   - [Different Selectors](#different-selectors)
   - [Various DOM Manipulation Methods](#various-dom-manipulation-methods)
   - [Events](#Events)
-
+  
+__________
 
 ## Intro
 - link any JS files in the html file to execute them when the page loads, like so: `<script src="file-name.js"></script>`
@@ -21,6 +22,7 @@
 
 This is based on the **DOM (Document Object Model)**
 
+__________
 
 ## The DOM
 
@@ -36,6 +38,7 @@ The browser has a **global environment** (global scope) which contains a great n
 - Elements are plain HTML
 - ...but both are conceptually often interchangeable
 
+__________
 
 ### Example Interactions
 
@@ -65,7 +68,7 @@ myButton.addEventListener('click', () => {
   myTextInput.value = '';         // to clear input field after submission
 });
 ```
-
+__________
 
 ### Different Selectors
 #### Specific element selectors
@@ -94,6 +97,7 @@ Resources:
 - [Can I Use...](https://caniuse.com/#)
 - [Babel](https://babeljs.io/)
 
+__________
 
 ### Various DOM Manipulation Methods
 #### Getting & setting text
@@ -144,6 +148,7 @@ ul.appendChild(li);
 
 - Remove an element with `Node.removeChild(childElement`).
 
+__________
 
 ### Events
 Any time users interact with a webpage, they generate all kinds of events: moving the mouse around, scrolling, or clicking a link. Browsers "listen" for events and, with JavaScript, we can do something in response to an event.
