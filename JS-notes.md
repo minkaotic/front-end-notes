@@ -5,6 +5,8 @@
 - [The DOM](#the-dom)
   - [Basic Interactions](#basic-interactions)
   - [Different Selectors](#different-selectors)
+  - [Getting & Setting Text](#getting--setting-text)
+
 
 ## Intro
 - link any JS files in the html file to execute them when the page loads, like so: `<script src="file-name.js"></script>`
@@ -17,6 +19,7 @@
 
 This is based on the **DOM (Document Object Model)**
 
+
 ## The DOM
 
 The browser has a **global environment** (global scope) which contains a great number of global variables, such as `location.href`, `alert()` and loads more. All of these are properties of a single global object called **window**. (It can be explored by typing `window` in the browser's JS console.) The **`document` object** is another key property of the browser's `window`:
@@ -25,6 +28,7 @@ The browser has a **global environment** (global scope) which contains a great n
 - changes that JavaScript makes to the DOM alter the web page
 - this is done by selecting and controlling elements of the currently loaded web page
 - i.e. `document.getElementById('myHeading').style.color = 'red'`
+
 
 ### Basic interactions
 
@@ -54,6 +58,7 @@ myButton.addEventListener('click', () => {
   });
 ```
 
+
 ### Different Selectors
 #### Specific element selectors
 - Element selectors like `getElementById()` return a **HTML element**.
@@ -80,3 +85,14 @@ Resources:
 - [MSDN](https://developer.mozilla.org/en-US/)
 - [Can I Use...](https://caniuse.com/#)
 - [Babel](https://babeljs.io/)
+
+
+### Getting & Setting Text
+- Get & set an element's text using `element.textContent`:
+```
+let myHeading = document.querySelector('h1');
+console.log(myHeading.textContent);                     //retrieve and use element's text
+myHeading.textContent = 'This is the new headline';     //change element's text
+```
+
+- `element.innerHTML` can be (mis)used for this too, but is more commonly used to alter the actual HTML of parts of the page
