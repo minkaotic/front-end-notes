@@ -3,6 +3,8 @@
 ## Contents:
 - [Intro](#intro)
 - [The DOM](#the-dom)
+  - [Basic Interactions](#basic-interactions)
+  - [Different Selectors](#different-selectors)
 
 ## Intro
 - link any JS files in the html file to execute them when the page loads, like so: `<script src="file-name.js"></script>`
