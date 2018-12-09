@@ -55,6 +55,7 @@ myButton.addEventListener('click', () => {
 ```
 
 ### Different Selectors
+#### Specific element selectors
 - Element selectors like `getElementById()` return a **HTML element**.
 - Element selectors like `getElementsByClassName()` or `getElementsByTagName()` return a **HTML collection**.
 
