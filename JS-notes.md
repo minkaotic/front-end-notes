@@ -70,7 +70,8 @@ const body = document.getElementsByTagName('body')[0];
   - tag name - `querySelector('li')`
   - element id - `querySelector('#myId')`
   - element class - `querySelector('.myClass')`
-  - element atrribute - `querySelector('[title="fun"]')`
+  - element attribute - `querySelector('[title="fun"]')`
+  - elements of a particular nesting rule - `querySelectorAll('nav ul li a')` (= all links in the nav bar)
   - CSS pseudo class queries - `querySelector('li:nth-child(odd)')`
 
 It's often possible to use different selectors to achieve the same thing. To decide which one is the best option, consider browser compatibility as well as other details in a given selector's spec.
