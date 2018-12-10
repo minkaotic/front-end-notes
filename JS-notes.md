@@ -213,3 +213,5 @@ document.addEventListener('click', (event) => {
   console.log(event.target);
 });
 ```
+
+To make decisions based on the properties of the element that triggered the event, you can access these directly via the `target`, for example: `event.target.tagName`.
