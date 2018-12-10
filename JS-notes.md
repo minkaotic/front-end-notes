@@ -8,6 +8,7 @@
   - [Various DOM Manipulation Methods](#various-dom-manipulation-methods)
 - [Events](#Events)
   - [First Class Functions in JS](#first-class-functions-in-js)
+  - [Listening for Events](#listening-for-events)
   
 __________
 
@@ -190,3 +191,19 @@ exec((something) => {
   console.log(something);
 }, 'Hello!');
 ```
+
+_______________
+
+### Listening for Events
+`EventTarget.addEventListener(eventType, function)` allows to pass a function for callback any time the event takes place. See [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) for more details.
+
+The callback function that is passed to `addEventListener` is often called an *event handler*.
+
+#### Event bubbling and delegation
+An event received by an element doesn't stop with that one element. That event moves to other elements like the parent, and other ancestors of the element. This is called "event bubbling".
+
+This is useful because it allows us to add an event listener to a parent element and let it handle events on its children:
+- without the need for for loops for each child that we want the event to be handled for
+- makes the code resilient to changes to the DOM that add or remove children
+- **But: How does the parent know which child triggered the event?**
+
