@@ -205,5 +205,11 @@ An event received by an element doesn't stop with that one element. That event m
 This is useful because it allows us to add an event listener to a parent element and let it handle events on its children:
 - without the need for for loops for each child that we want the event to be handled for
 - makes the code resilient to changes to the DOM that add or remove children
-- **But: How does the parent know which child triggered the event?**
+- ***But: How does the parent know which child triggered the event?***
 
+...by passing the `event` object as an argument to the `eventListener`! This allows us to call the `event`'s `target`. E.g.:
+```
+document.addEventListener('click', (event) => {
+  console.log(event.target);
+});
+```
