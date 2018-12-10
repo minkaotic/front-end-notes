@@ -86,7 +86,8 @@ const body = document.getElementsByTagName('body')[0];
   - tag name - `querySelector('li')`
   - element id - `querySelector('#myId')`
   - element class - `querySelector('.myClass')`
-  - element attribute - `querySelector('[title="fun"]')`
+  - element attribute value - `querySelector('[title="fun"]')`
+  - elements with a certain attribute - `querySelectorAll('a[title]')`
   - elements of a particular nesting rule - `querySelectorAll('nav ul li a')` (= all links in the nav bar)
   - CSS pseudo class queries - `querySelector('li:nth-child(odd)')` or `querySelector('li:last-child')`
 
