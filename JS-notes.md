@@ -157,10 +157,14 @@ __________
 ### Traversing the DOM
 DOM traversal refers to the selection of elements based on their relationship to another element within the DOM.
 
-- To get a reference to an elements parent node, use its `parentNode` property.
-- To get the sibling immediately prior to the element in its sibling list, use its `previousElementSibling` property.
-- To get the sibling immediately after the element in its sibling list, use its `nextElementSibling` property.
+- To get a reference to an elements **parent** node, use its `parentNode` property.
+- To get the **sibling** immediately prior to the element in its sibling list, use its `previousElementSibling` property.
+- To get the **sibling** immediately after the element in its sibling list, use its `nextElementSibling` property.
 - To insert a node before a given reference node in a list of children of a parent node, use `parentNode.insertBefore(newNode, referenceNode)`.
+- To get children of an element:
+  - `children` to get a HTML collection of all the children of an element
+  - `firstElementChild` to get its first child
+  - `lastElementChild` to get its last child
 
 __________
 
