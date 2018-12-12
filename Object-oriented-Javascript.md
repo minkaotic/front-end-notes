@@ -1,10 +1,11 @@
 # Object-Oriented Javascript
-##
-- [Object-Oriented Javascript](#object-oriented-javascript)
+
+## Contents
+- [Basics](#basics)
 
 _______________
 
-## Object-Oriented Javascript
+## Basics
 - ***Object literals*** are useful when modelling one single, specific thing. E.g.:
 ```
 const ernie = {
