@@ -10,10 +10,6 @@
 - [Events](#Events)
   - [First Class Functions in JS](#first-class-functions-in-js)
   - [Listening for Events](#listening-for-events)
-- [Object-Oriented Javascript](#object-oriented-javascript)
-- [AngularJS](#angularjs)
-  - [AJAX vs Angular](#ajax-vs-angular)
-- [Vue.js](#vuejs)
   
 __________
 
@@ -234,44 +230,3 @@ document.addEventListener('click', (event) => {
 ```
 
 To make decisions based on the properties of the element that triggered the event, you can access these directly via the `target`, for example: `event.target.tagName`.
-
-_______________
-
-## Object-Oriented Javascript
-- ***Object literals*** are useful when modelling one single, specific thing. E.g.:
-```
-const ernie = {
-  species: 'dog',
-  age: 1,
-  breed: 'pug',
-  bark: function(){
-    console.log('Woof!');
-  }
-}
-```
-
-- Object properties can be accessed through either dot notation or bracket notation:
-
-| ***dot notation***         | ***bracket notation***        |
-| -------------------------- |-------------------------------|
-| `console.log(ernie.age);`  | `console.log(ernie['age']);`  |
-| `console.log(ernie.breed);`| `console.log(ernie['breed']);`|
-| `ernie.bark();`            | `ernie['bark']();`            |
-
-
-_______________
-
-## AngularJS
-
-### AJAX vs Angular
-AJAX is a technology that allows to get data from a server without the need to refresh a webpage.
-
-Angular extends this idea with two-way data binding. So the HTML elements on your front end page are in constant communication with your back end server--and vice versa. Angular can achieve other things as well and is useful for separating your concerns, i.e. separating your data, the functions performed on that data, and how the user sees the data.
-
-
-_______________
-
-## Vue.js
-Vue helps separate a website's *data* from the user's *view* of the website and provides better seperation from the *view logic* (where, when and how certain information is displayed). Vue also allows you to define behaviour and connect data to a template, that is used to render the view.
-
-![Vue.js purpose overview](https://github.com/minkaotic/front-end-notes/blob/master/vue_overview.png)
