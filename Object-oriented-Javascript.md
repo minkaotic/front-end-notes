@@ -26,7 +26,7 @@ _______________
   | `console.log(ernie.breed);`| `console.log(ernie['breed']);`|
   | `ernie.bark();`            | `ernie['bark']();`            |
 
-- *Bracket notation* is useful when there is a need to generate dynamic properties, as the property name can be stored in a variable, and the objects property can then be accessed via that variable (see example below). It also allows you to create and access properties that have spaces in the property key.
+- *Bracket notation* is useful when there is a need to generate dynamic properties, as the property name can be stored in a variable, and the objects property can then be accessed via that variable (*see example below*). It also allows you to create and access properties that may have spaces in the property key - perfect for handling JSON data.
 
   ```
   var prop = 'breed';
