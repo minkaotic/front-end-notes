@@ -12,7 +12,7 @@
   - [Listening for Events](#listening-for-events)
 - [AngularJS](#angularjs)
   - [AJAX vs Angular](#ajax-vs-angular)
-- [Vue.js](#vue-js)
+- [Vue.js](#vuejs)
   
 __________
 
