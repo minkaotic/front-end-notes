@@ -217,6 +217,8 @@ The callback function that is passed to `addEventListener` is often called an *e
 #### Event bubbling and delegation
 An event received by an element doesn't stop with that one element. That event moves to other elements like the parent, and other ancestors of the element. This is called "event bubbling".
 
+![DOM tree](https://github.com/minkaotic/front-end-notes/blob/master/dom_tree.png)
+
 This is useful because it allows us to add an event listener to a parent element and let it handle events on its children:
 - without the need for for loops for each child that we want the event to be handled for
 - makes the code resilient to changes to the DOM that add or remove children
