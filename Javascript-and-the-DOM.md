@@ -1,4 +1,4 @@
-# JS notes
+# Javascript and the DOM
 
 ## Contents:
 - [Intro](#intro)
