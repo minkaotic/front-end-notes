@@ -249,3 +249,4 @@ _______________
 ## Vue.js
 Vue helps separate a website's *data* from the user's *view* of the website and provides better seperation from the *view logic* (where, when and how certain information is displayed). Vue also allows you to define behaviour and connect data to a template, that is used to render the view.
 
+![Vue.js purpose overview](https://github.com/minkaotic/front-end-notes/blob/master/vue_overview.png)
