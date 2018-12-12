@@ -10,6 +10,7 @@
 - [Events](#Events)
   - [First Class Functions in JS](#first-class-functions-in-js)
   - [Listening for Events](#listening-for-events)
+- [Object-Oriented Javascript](#object-oriented-javascript)
 - [AngularJS](#angularjs)
   - [AJAX vs Angular](#ajax-vs-angular)
 - [Vue.js](#vuejs)
@@ -233,6 +234,30 @@ document.addEventListener('click', (event) => {
 ```
 
 To make decisions based on the properties of the element that triggered the event, you can access these directly via the `target`, for example: `event.target.tagName`.
+
+_______________
+
+## Object-Oriented Javascript
+- ***Object literals*** are useful when modelling one single, specific thing. E.g.:
+```
+const ernie = {
+  species: 'dog',
+  age: 1,
+  breed: 'pug',
+  bark: function(){
+    console.log('Woof!');
+  }
+}
+```
+
+- Object properties can be accessed through either dot notation or bracket notation:
+
+| ***dot notation***         | ***bracket notation***        |
+| -------------------------- |-------------------------------|
+| `console.log(ernie.age);`  | `console.log(ernie['age']);`  |
+| `console.log(ernie.breed);`| `console.log(ernie['breed']);`|
+| `ernie.bark();`            | `ernie['bark']();`            |
+
 
 _______________
 
