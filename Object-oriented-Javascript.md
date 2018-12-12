@@ -6,7 +6,8 @@
 _______________
 
 ## Basics
-- ***Object literals*** are useful when modelling one single, specific thing. E.g.:
+#### Object literals
+- *Object literals* are useful when modelling one single, specific thing. E.g.:
   ```
   const ernie = {
     species: 'dog',
@@ -17,7 +18,9 @@ _______________
     }
   }
   ```
+- To add a property or method to an object literal, simply assign it to the object: `ernie.color = 'black';`
 
+#### Accessing object properties & methods
 - Object properties can be accessed through either dot notation or bracket notation:
 
   | ***dot notation***         | ***bracket notation***        |
