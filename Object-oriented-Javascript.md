@@ -40,7 +40,7 @@ _______________
 ## JS Class Syntax
 To represent types with the same (or similar) properties, classes are much more robust than object literals. Class syntax was **introduced to Javascript in ES2015**, and comprises syntactic sugar on top of its original prototype syntax.
 
-**Simple example**
+***A simple example***
 ```
 class Pet {
   constructor(species, age, breed, sound) {
@@ -59,7 +59,7 @@ const ernie = new Pet('dog', 1, 'pug', 'woof!');
 ernie.speak();
 ```
 
-**Things to note**
+***Things to note***
 - In JS, a class *can only have one constructor*. 
 - In order to create an instance without any arguments, you can however set defaults, for example:
   ```
