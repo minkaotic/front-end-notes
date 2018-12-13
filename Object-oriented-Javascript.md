@@ -2,6 +2,7 @@
 
 ## Contents
 - [Basics](#basics)
+- [JS Class Syntax](#js-class-syntax)
 
 _______________
 
@@ -35,3 +36,33 @@ _______________
   var prop = 'breed';
   console.log(ernie[prop]);
   ```
+  
+## JS Class Syntax
+To represent types with the same (or similar) properties, classes are much more robust than object literals. Class syntax was **introduced to Javascript in ES2015**, and comprises syntactic sugar on top of its original prototype syntax.
+
+**Simple example**
+```
+class Pet {
+  constructor(species, age, breed, sound) {
+    this.species = animal;
+    this.age = age;
+    this.breed = breed;
+    this.sound = sound;
+  }
+  
+  speak() {
+    console.log(this.sound);
+  }
+}
+
+const ernie = new Pet('dog', 1, 'pug', 'woof!');
+ernie.speak();
+```
+
+**Things to note**
+- In JS, a class *can only have one constructor*. 
+- In order to create an instance without any arguments, you can however set defaults, for example:
+  ```
+  constructor(species = 'dog', age = 0, breed = 'unknown')
+  ```
+- **NB:** Declaring methods inside a class *doesn't* use the function keyword!
