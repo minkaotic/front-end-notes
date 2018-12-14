@@ -2,12 +2,16 @@
 
 ## Contents
 - [Basics](#basics)
+  - [Object literals](#object-literals)
+  - [Accessing object properties & methods](#accessing-object-properties--methods)
+  - ['this' in Javascript](#this-in-javascript)
 - [JS Class Syntax](#js-class-syntax)
+  - [Getters & Setters](#getters--setters)
 
 _______________
 
 ## Basics
-#### Object literals
+### Object literals
 - *Object literals* are useful when modelling one single, specific thing. E.g.:
   ```
   const ernie = {
@@ -21,7 +25,7 @@ _______________
   ```
 - To add a property or method to an object literal, simply assign it to the object: `ernie.color = 'black';`
 
-#### Accessing object properties & methods
+### Accessing object properties & methods
 - Object properties can be accessed through either dot notation or bracket notation:
 
   | ***dot notation***         | ***bracket notation***        |
@@ -36,7 +40,11 @@ _______________
   var prop = 'breed';
   console.log(ernie[prop]);
   ```
-  
+
+### 'this' in Javascript
+
+
+
 ## JS Class Syntax
 To represent types with the same (or similar) properties, classes are much more robust than object literals. Class syntax was **introduced to Javascript in ES2015**, and comprises syntactic sugar on top of its original prototype syntax.
 
@@ -66,3 +74,13 @@ ernie.speak();
   constructor(species = 'dog', age = 0, breed = 'unknown')
   ```
 - **NB:** Declaring methods inside a class *doesn't* use the function keyword!
+
+### Getters & Setters
+
+Use `get` keyword, followed by property name:
+```
+get activity() {
+  ///code
+}
+```
+
