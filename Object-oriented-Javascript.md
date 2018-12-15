@@ -102,10 +102,41 @@ ernie.speak();
 
 ### Getters & Setters
 
-Use `get` keyword, followed by property name:
+**Definition & usage of a getter:**
+- use `get` keyword to define a getter
+- no parentheses when getter is accessed
 ```
-get activity() {
-  ///code
+class Pet {
+  get activity() {
+    ///code to return something
+  }
 }
+
+const elsie = new Pet();
+console.log(elsie.activity);
 ```
+
+**Definition & usage of a setter:**
+- Use `set` keyword to define a setter.
+- Setters always receive exactly 1 parameter.
+- Setters can receive a value, perform some optional logic on it, then assign it to *either a new or existing property of the object*.
+- The name of a property can never be the same as the name of a getter or setter method, so by convention, the backing property of a setter uses an underscore in front of it.
+- Typically, a matching getter method will be defined that returns the value of the backing property.
+```
+class Pet {
+  set owner(owner) {
+    this._owner = owner;
+  }
+  
+  get owner() {
+    return this._owner;
+  }
+}
+
+const elsie = new Pet();
+elsie.owner = 'Mia';
+console.log(elsie.owner);
+```
+
+
 
