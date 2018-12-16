@@ -118,7 +118,7 @@ console.log(elsie.activity);
 
 **Definition & usage of a setter:**
 - Use `set` keyword to define a setter.
-- Setters always receive exactly 1 parameter.
+- Setters always receive exactly 1 parameter, which is the value that is assigned to the setter when called (i.e. `elsie.owner = 'Mia';`).
 - Setters can receive a value, perform some optional logic on it, then assign it to *either a new or existing property of the object*.
 - The name of a property can never be the same as the name of a getter or setter method, so by convention, the backing property of a setter uses an underscore in front of it.
 - Typically, a matching getter method will be defined that returns the value of the backing property.
