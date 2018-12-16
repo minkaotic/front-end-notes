@@ -56,6 +56,7 @@ Instead of the 'mustache syntax' used in the examples above, i.e. `<h1>{{ title 
 A ***Vue directive*** is a special attribute that you add to an HTML element in a Vue template. These are like special instructions just for Vue: used to define certain behaviors such as when a method should be called in response to an event, or when to show/not show pieces of a UI element.
 
 ***Vue directive syntax examples***
+
 Vue directives start with v-, for example: `v-text`, `v-html`, `v-bind`.
 
 *In the template:*
