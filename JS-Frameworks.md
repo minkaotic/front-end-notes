@@ -48,6 +48,8 @@ You can also use Javascript directly in the HTML template, or bind multiple piec
 ```
 - More about [using JS expressions in Vue](https://vuejs.org/v2/guide/syntax.html#Using-JavaScript-Expressions) - including possibilities and limitations.
 
+_______________
+
 ### Directives
 Instead of the 'mustache syntax' used in the examples above, i.e. `<h1>{{ title }}</h1>`, we could achieve the same result by using the directive **`v-text`**: `<h1 v-text="title"></h1>`
 
