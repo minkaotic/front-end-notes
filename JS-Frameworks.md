@@ -2,7 +2,6 @@
 ## Contents
 - [Vue.js](#vuejs)
   - [Templates & Data](#templates--data)
-
 - [AngularJS](#angularjs)
   - [AJAX vs Angular](#ajax-vs-angular)
 
@@ -14,16 +13,18 @@ Vue helps separate a website's *data* from the user's *view* of the website and 
 
 ![Vue.js purpose overview](https://github.com/minkaotic/front-end-notes/blob/master/vue_overview.png)
 
-Every Vue app starts with at least 2 things: some data, and a template (= the representation of how you want the structure of your application - i.e. the HTML - to relate to your data):
+Every Vue app starts with at least 2 things: some data, and a template (= the representation of how you want the structure of your application - i.e. the HTML - to relate to your data), for example:
 
-***HTML***
+***HTML - basic syntax of a Vue template***
 ```
 <div id="helloVue">
   <h1>{{ title }}</h1>
   <p>{{ message }}</p>
 </div>
 ```
-***JS***
+- A Vue template generally consists of HTML, data bindings (`{{ title }}}`) and Vue directives. This is where you lay out the rules of how Vue should display your data. In our example, we've built a template that creates two data bindings: a title and a message.
+
+***JS - basic syntax of a Vue instance***
 ```
 const helloWorld = new Vue({
   el: '#helloVue',
@@ -33,7 +34,19 @@ const helloWorld = new Vue({
   }
 });
 ```
+- You pass the Vue instance an object containing options that give you the ability to store data and define methods. The data and methods you define are then used in a Vue template to control the behavior of your application.
+
 **NB: Templating and data binding is used in all JS frameworks in some way or other.**
+
+You can also use Javascript directly in the HTML template, or bind multiple pieces of data within the same element, e.g.:
+```
+<div id="example">
+  <h1>{{ title }}, {{ name.toUpperCase() }}</h1>
+  <p>{{ message }}</p>
+</div>
+```
+- More about [using JS expressions in Vue](https://vuejs.org/v2/guide/syntax.html#Using-JavaScript-Expressions) - including possibilities and limitations.
+- 
 
 _______________
 
