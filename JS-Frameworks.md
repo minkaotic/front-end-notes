@@ -2,6 +2,7 @@
 ## Contents
 - [Vue.js](#vuejs)
   - [Templates & Data](#templates--data)
+  - [Directives](#directives)
 - [AngularJS](#angularjs)
   - [AJAX vs Angular](#ajax-vs-angular)
 
@@ -46,7 +47,35 @@ You can also use Javascript directly in the HTML template, or bind multiple piec
 </div>
 ```
 - More about [using JS expressions in Vue](https://vuejs.org/v2/guide/syntax.html#Using-JavaScript-Expressions) - including possibilities and limitations.
-- 
+
+### Directives
+Instead of the 'mustache syntax' used in the examples above, i.e. `<h1>{{ title }}</h1>`, we could achieve the same result by using the directive **`v-text`**: `<h1 v-text="title"></h1>`
+
+A ***Vue directive*** is a special attribute that you add to an HTML element in a Vue template. These are like special instructions just for Vue: used to define certain behaviors such as when a method should be called in response to an event, or when to show/not show pieces of a UI element.
+
+***Vue directive syntax examples***
+Vue directives start with v-, for example: `v-text`, `v-html`, `v-bind`.
+
+*In the template:*
+```
+<p v-text="title"></p>
+<a v-bind:href="link">A link to somewhere </a>
+<img v-bind:src="img.src" v-bind:alt="img.alt">
+```
+
+*In the Vue instance:*
+ ```
+ new Vue({
+   el: '#anHTMLElement',
+   data: {
+     title: "A nice title",
+     link: "https://www.alinksomwhere.com",
+     img: {
+      src: 'https://placeimg.com/200/200/animals',
+      alt: 'A placeholder image of animals'
+  }
+});
+```
 
 _______________
 
