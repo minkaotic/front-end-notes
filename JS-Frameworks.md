@@ -83,6 +83,7 @@ Vue directives start with v-, for example: `v-text`, `v-html`, `v-bind`.
 _______________
 
 ## AngularJS
+AngularJS is a Single Page Application (SPA) framework.
 
 ### AJAX vs Angular
 AJAX is a technology that allows to get data from a server without the need to refresh a webpage.
