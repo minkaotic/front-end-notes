@@ -1,4 +1,4 @@
-# CSS Concepts
+# CSS Notes
 
 ## Contents
 - [CSS notes](#css-notes)
