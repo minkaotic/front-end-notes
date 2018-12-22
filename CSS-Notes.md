@@ -2,8 +2,8 @@
 
 ## Contents
 - **[Basics](#basics)**
-- **[Selectors](#selectors)**
-- **[Rule Precedence](#rule-precedence)**
+  - [Selectors](#selectors)
+  - [Rule Precedence](#rule-precedence)
 - **[Text & Fonts](#text--fonts)**
   - [Web fonts](#web-fonts)
 - **[Box Model Elements](#box-model-elements)**
@@ -29,8 +29,7 @@ ______________________
 - A comment is denoted by `/* ....... */`
 - **Don't repeat yourself:** If you find that a certain style declaration is repeated in lots of different rules, it might be worth breaking out a different class rule for it.
 
-
-## Selectors
+### Selectors
 - A **universal selector** can be used via the `*` character
 - **Type** or **element selectors** like `h1` or `p` will target all elements of a given HTML tag - good for defining defaults
 - **Id selectors** like `#intro-text` target the specific html element that has that id in its attributes (NB: elements can only have one id, and ids have to be unique)
@@ -39,8 +38,7 @@ ______________________
 - **Pseudo-classes** like `:link` `:visited` or `:hover` target elements dynamically based on user interaction, an element’s state
 - *Multiple selectors*, separated by commas, can be used in a rule, such as `.primary-content, .secondary-content`
 
-
-## Rule Precedence
+### Rule Precedence
 - The **cascade** determines which styles are assigned to a HTML element; follows 3 main steps to determine which rule to apply:
   - **Importance:** User agent styles < User styles < Author styles
   - **Specificity:** Styles with more specific selectors will override styles with less specific selectors: universal selector < element selectors < class selectors < id selectors < inline styles
