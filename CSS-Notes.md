@@ -240,6 +240,16 @@ Using a wrapper `div` to contain the other elements on the page:
 - Depending on the desired design, you can use this wrapper around all contents of the site, or just around the main contents, leaving the header and footer at 100% width.
 - One approach for the latter layout is to create a wrapper around the main content and, optionally, an inner wrapper for the content inside the header and footer (if they have significant amounts of content which you'd like to align with the main content). Note that all of these wrappers can use the same class name (e.g. `container`) as they will need to have the same `width` and `margin` rules applied to them.
 
+#### Creating a sticky Footer
+*Basic method:* With a `<div class="wrap">` container around all content *but* the footer, do:
+```
+.wrap {
+  min-height: calc(100vh - [height of footer]px);
+}
+```
+- `vh` is a relative unit referring to the viewport, with `100vh` making an element the full width of the viewport (screen).
+- If you still see a gap below the footer in browsers like Firefox and IE, or when you change the browser's zoom, give .main-footer a height or min-height value of `[height of footer]px`.
+
 
 ### Display Modes
 - Most common values for the `display` property are `block` (creating a new line after element), `inline` (not breaking into a new line), and `inline-block`
