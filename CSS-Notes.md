@@ -18,6 +18,8 @@
    - [Rounded corners](#rounded-corners)
    - [Gradients](#gradients)
 - **[Layout Techniques](#layout-techniques)**
+  - [CSS Reset with Normalize](#css-reset-with-normalize)
+  - [Layout Wrapper](#layout-wrapper)
   - [Display Modes](#display-modes)
   - [Floats](#floats)
 
@@ -196,6 +198,21 @@ Download the [normalize.css](https://necolas.github.io/normalize.css/)
 Other CSS reset methods
 - [Eric Meyer’s Reset CSS](https://meyerweb.com/eric/tools/css/reset/)
 - [Popular CSS resets, all in one place](https://cssreset.com/)
+
+
+### Layout Wrapper
+A *wrapper* (or *container*) is commonly used to center a layout on the page. The wrapper keeps a layout from looking too wide or too narrow depending on the device or viewport width.
+
+![Wrapper diagram](https://github.com/minkaotic/front-end-notes/blob/master/wrapper_diagram.png)
+
+Using a wrapper `div` to contain the other elements on the page:
+
+```
+.wrapper {
+  width: 70%;       /*prevents the layout from stretching too wide*/
+  margin: 0 auto;   /*setting L+R margins to auto centres the wrapper in the browser*/
+}
+```
 
 
 ### Display Modes
