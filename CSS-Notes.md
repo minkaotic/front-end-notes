@@ -11,6 +11,7 @@
   - [Margin, padding and box-sizing](#margin-padding-and-box-sizing)
 - **[Colour & Background Images](#colour--background-images)**
 - **[Media Queries for Responsive Design](#media-queries-for-responsive-design)**
+  - [Breakpoints](#breakpoints)
   - [Viewport meta tag](#viewport-meta-tag)
 - **[Fancy Design](#fancy-design)**
    - [Shadow effects](#shadow-effects)
@@ -132,8 +133,18 @@ Media queries allow us to tailor our content to a wide range of devices and view
   }
 }
 ```
+For more detail on the technical use of `@media` queries, see: https://developer.mozilla.org/en-US/docs/Web/CSS/@media
 
-For more detail see: https://developer.mozilla.org/en-US/docs/Web/CSS/@media
+### Breakpoints
+The question of where you should set your breakpoints is much debated, the three main camps can be summarised as:
+1. **Breakpoints match common screen sizes:** set breakpoints based on common screen resolutions of popular devices
+1. **Breakpoints between clusters of screen sizes:** fit breakpoints around clusters of common screen sizes - see diagram below
+1. **Breakpoints based on content:** Set breakpoints based on the ranges within which a given design works well
+
+![Breakpoints according to camp 2](https://github.com/minkaotic/front-end-notes/blob/master/breakpoints.png)
+*Breakpoints between clusters of screen sizes*
+
+- According to this breakdown, sensible breakpoints would be `600, 900, 1200, 1800`
 
 ### Viewport meta tag
 
