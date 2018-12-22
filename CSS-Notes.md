@@ -13,6 +13,7 @@
 - **[Colour & Background Images](#colour--background-images)**
 - **[Media Queries for Responsive Design](#media-queries-for-responsive-design)**
   - [Breakpoints](#breakpoints)
+  - [Mobile first](#mobile-first)
   - [Viewport meta tag](#viewport-meta-tag)
 - **[Fancy Design](#fancy-design)**
    - [Shadow effects](#shadow-effects)
@@ -156,6 +157,20 @@ The question of where you should set your breakpoints is much debated, the three
 *Breakpoints between clusters of screen sizes*
 
 - According to this breakdown, sensible breakpoints would be `600, 900, 1200, 1800`
+
+### Mobile first
+In the stylesheet, serve the basic layout styles and minimal amount of code to style a page for a small, mobile device first. Then, using media queries, you add breakpoints which successively adjust the layout for wider screens and devices.
+
+A common approach starting out a basic mobile-first design, is to use a simple 1-column approach with a little padding left & right on mobile, then add a percentage based width in the first media query (which will still be applied to higher screen sizes unless overridden in later media queries):
+```
+@media screen and (min-width: 769px) {
+  .container {
+    width: 70%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+```
+**NB:** To make this approach (where space around the content is defined by a combination of padding and width percentages) more manageable, it helps to use the `box-sizing: border-box` rule, which forces any padding and borders into the width and height of an element instead of expanding it. For more details see the [Margin, padding and box-sizing](#margin-padding-and-box-sizing) section above.
 
 ### Viewport meta tag
 
