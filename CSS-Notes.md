@@ -222,6 +222,8 @@ Using a wrapper `div` to contain the other elements on the page:
   margin: 0 auto;   /*setting L+R margins to auto centres the wrapper in the browser*/
 }
 ```
+- Depending on the desired design, you can use this wrapper around all contents of the site, or just around the main contents, leaving the header and footer at 100% width.
+- One approach for the latter layout is to create a wrapper around the main content and, optionally, an inner wrapper for the content inside the header and footer (if they have significant amounts of content which you'd like to align with the main content). Note that all of these wrappers can use the same class name (e.g. `container`) as they will need to have the same `width` and `margin` rules applied to them.
 
 
 ### Display Modes
