@@ -186,6 +186,17 @@ background: linear-gradient(#ffa949, transparent 60%),
 
 
 ## Layout Techniques
+### CSS Reset with Normalize
+- Any browser will apply its own defaults with the User Agent Stylesheet to any webpage, before other styles are applied.
+- As the defaults for things like margins, padding, line-height and font sizes are slightly different between different browsers, it is sensible practice to do a *CSS reset*, to ensure that your layout displays as consistently as possible across all browsers.
+- A modern day alternative to a classic reset is using the *Normalize* approach ([more detail about this](http://nicolasgallagher.com/about-normalize-css/))
+
+Download the [normalize.css](https://necolas.github.io/normalize.css/)
+
+Other CSS reset methods
+- [Eric Meyer’s Reset CSS](https://meyerweb.com/eric/tools/css/reset/)
+- [Popular CSS resets, all in one place](https://cssreset.com/)
+
 
 ### Display Modes
 - Most common values for the `display` property are `block` (creating a new line after element), `inline` (not breaking into a new line), and `inline-block`
