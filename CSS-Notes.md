@@ -7,7 +7,6 @@
 - **[Text & Fonts](#text--fonts)**
   - [Web fonts](#web-fonts)
 - **[Box Model Elements](#box-model-elements)**
-  - [Block vs inline display](#block-vs-inline-display)
   - [Borders](#borders)
   - [Margin, padding and box-sizing](#margin-padding-and-box-sizing)
 - **[Colour & Background Images](#colour--background-images)**
@@ -15,7 +14,13 @@
   - [Viewport meta tag](#viewport-meta-tag)
 - **[Fancy Design](#fancy-design)**
    - [Shadow effects](#shadow-effects)
-- **[Floats](#floats)**
+   - [Rounded corners](#rounded-corners)
+   - [Gradients](#gradients)
+- **[Layout Techniques](#layout-techniques)**
+  - [Display Modes](#display-modes)
+  - [Floats](#floats)
+
+...and Positioning schemes (relative absolute fixed)
 
 ______________________
 
@@ -79,11 +84,6 @@ Add a web font to your style sheet like this:
 ## Box Model Elements
 
 ![CSS Box Model](https://github.com/minkaotic/front-end-notes/blob/master/box_model.png)
-
-### Block vs inline display
-- Most common values for the `display` property are `block` (creating a new line after element), `inline` (not breaking into a new line), and `inline-block`
-- `inline-block` is useful in cases when we want items to appear next to each other, but still want top/bottom margin to be applied as if the whole set was a block element 
-- `li { display: inline; }` to keep list items next to each other on one line, then use padding and margin to neaten up visually (for more advanced list manipulation, see: https://teamtreehouse.com/library/lists-5)
 
 ### Borders
 - **Border shorthand**: `border: [width] [style] [color]` - or do each of them individually for control over each side, eg.: `border-width: 10px 20px`, or `border-top: 2px solid lightgrey;`. NB:
@@ -158,10 +158,10 @@ For more information, see: https://developer.mozilla.org/en-US/docs/Mozilla/Mobi
 - **Box shadow** is similar to text shadow but with optional value of *spread* before the colour value, e.g. for a small bottom box-shadow: `box-shadow: 0 20px 10px -12px rgba(0,0,0, .8);`
 - Neat **inner** shadow effect: `box-shadow: inset 0 0 50px 10px rgba(0,0,0, 1);`
 
-#### Rounded corners
+### Rounded corners
 - use `border-radius` - takes any absolute or relative length value (px, em, % etc.), e.g. `border-radius: 50px 10px;`
 
-#### Gradients
+### Gradients
 Gradients create smooth and gradual transitions between two or more colours. Some examples:
 - Simple gradient with default top-to-bottom angle: `background-image: linear-gradient(#ffa949, firebrick);`
 - With specific angle defined: `linear-gradient(to left, #ffa949, firebrick)` or `linear-gradient(45deg, #ffa949, firebrick)`
@@ -176,7 +176,17 @@ background: linear-gradient(#ffa949, transparent 60%),
 ```
 
 
-## Floats
+## Layout Techniques
+
+### Display Modes
+- Most common values for the `display` property are `block` (creating a new line after element), `inline` (not breaking into a new line), and `inline-block`
+- `inline-block` is useful in cases when we want items to appear next to each other, but still want top/bottom margin to be applied as if the whole set was a block element 
+
+#### Nifty examples
+- `li { display: inline; }` to keep list items next to each other on one line, then use padding and margin to neaten up visually (for more advanced list manipulation, see: https://teamtreehouse.com/library/lists-5)
+
+
+### Floats
 Floats are one of the most commonly used methods for laying out a page with CSS. When an element is floated, the element is taken out of the normal flow of the page and placed along the left or right side of its container, causing other elements to wrap around it.
 
 - First, change the element's `width` to something less than 50% (just like width, floats are relative to the parent container!)
