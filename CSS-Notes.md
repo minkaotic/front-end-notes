@@ -9,6 +9,7 @@
 - **[Box Model Elements](#box-model-elements)**
   - [Borders](#borders)
   - [Margin, padding and box-sizing](#margin-padding-and-box-sizing)
+  - [Why margins collapse](#why-margins-collapse)
 - **[Colour & Background Images](#colour--background-images)**
 - **[Media Queries for Responsive Design](#media-queries-for-responsive-design)**
   - [Breakpoints](#breakpoints)
@@ -22,8 +23,6 @@
   - [Layout Wrapper](#layout-wrapper)
   - [Display Modes](#display-modes)
   - [Floats](#floats)
-
-...and Positioning schemes (relative absolute fixed)
 
 ______________________
 
@@ -100,6 +99,16 @@ Add a web font to your style sheet like this:
 - `max-width` sets the maximum width of an element, preventing elements to become too large to look good on big screens; when set as percentage values can also be used as part of responsive design *
 
 (* for more on `box-sizing` and `max-width` see https://teamtreehouse.com/library/boxsizing-and-maxwidth)
+
+### Why margins collapse
+- If there is no content, padding, or border area to interrupt two touching margins, the margins collapse to the largest of the two margin values.
+- Depending on what causes the collapsing, the collapsed margin can end up outside the parent.
+- You may experience margins collapsing in adjacent elements like paragraphs and divs.
+- If a div's bottom margin is larger than the top margin of the div below it, the margin area between the divs collapses to the largest of the two margin values.
+- **Only vertical margins are affected by this; horizontal margins do not collapse.**
+
+NB: The margins of floating and absolutely positioned elements never collapse.
+For more info see: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing
 
 
 ## Colour & Background Images
