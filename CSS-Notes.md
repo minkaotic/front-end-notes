@@ -132,7 +132,7 @@ Every HTML element has a background layer that is transparent by default, but ca
 - Specify the size of the background image as a percentage of the containing element width with `background-size: 60%;`
 - `background-size: cover` adjusts the background area so that it's **completely covered by the background image** (if using), while maintaining its width and height proportions
 - Best practice: set background colour as well when using background images, to preserve the contrast between the background and content in case the image isn't available
-- `background-position` has a number of nifty options - *[try them out here](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position)!*s
+- `background-position` has a number of nifty options - *[try them out here](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position)!*
 - Handy all-in-one **background shorthand:** `background: #ffa949 url('../img/mountains.jpg') no-repeat center / cover;`
 
 *NB: Multiple images can be layered on top of each other*, e.g.: `background: url('rock.png'), url('header-bg.jpg');`! For an example of how do do so and then dynamically position each layer to create a neat effect, see: https://teamtreehouse.com/library/using-calc-as-background-position-offsets
