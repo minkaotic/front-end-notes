@@ -9,6 +9,7 @@
 - **[Box Model Elements](#box-model-elements)**
   - [Borders](#borders)
   - [Margin, padding, width and box-sizing](#margin-padding-width-and-box-sizing)
+  - [The calc() function](#the-calc-function)
   - [Why margins collapse](#why-margins-collapse)
 - **[Colour & Background Images](#colour--background-images)**
 - **[Media Queries for Responsive Design](#media-queries-for-responsive-design)**
@@ -93,13 +94,18 @@ Add a web font to your style sheet like this:
   - When using **3 value shorthand**, the values refer in order to: TOP, LEFT/RIGHT, BOTTOM
 - *Similar rules apply to settings for margin and padding*
 
-### Margin, padding width and box-sizing
+### Margin, padding, width and box-sizing
 - **`margin: auto`** will generally **centre** content on the page!
 - `width` values provided as **percentages** are applied in relation to the *parent container* - and `width` generally applies only to the *content* of the box, i.e. not including its padding and border, however...
 - **`box-sizing: border-box`** dynamically subtracts the borders and paddings of the element from the width and height properties we set, making it easier to define flexible widths and heights in our project (it's one of the few good uses for the universal selector!) *
 - `max-width` sets the maximum width of an element, preventing elements to become too large to look good on big screens; when set as percentage values can also be used as part of responsive design *
 
 (* for more on `box-sizing` and `max-width` see https://teamtreehouse.com/library/boxsizing-and-maxwidth)
+
+### The calc() function
+- Allows to apply mathematical operations and assign the result to any CSS property that takes a length or other number value
+- Different types of units can be mixed (`%`, `vh`, `px`, `em` etc.)
+- Leave whitespace around operator to ensure correct interpretation, e.g.: `height: calc(100% - 3em);`
 
 ### Why margins collapse
 - If there is no content, padding, or border area to interrupt two touching margins, the margins collapse to the largest of the two margin values.
@@ -126,7 +132,10 @@ Every HTML element has a background layer that is transparent by default, but ca
 - Specify the size of the background image as a percentage of the containing element width with `background-size: 60%;`
 - `background-size: cover` adjusts the background area so that it's **completely covered by the background image** (if using), while maintaining its width and height proportions
 - Best practice: set background colour as well when using background images, to preserve the contrast between the background and content in case the image isn't available
+- `background-position` has a number of nifty options - *[try them out here](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position)!*s
 - Handy all-in-one **background shorthand:** `background: #ffa949 url('../img/mountains.jpg') no-repeat center / cover;`
+
+*NB: Multiple images can be layered on top of each other*, e.g.: `background: url('rock.png'), url('header-bg.jpg');`! For an example of how do do so and then dynamically position each layer to create a neat effect, see: https://teamtreehouse.com/library/using-calc-as-background-position-offsets
 
 
 ## Media Queries for Responsive Design
