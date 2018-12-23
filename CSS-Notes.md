@@ -8,7 +8,7 @@
   - [Web fonts](#web-fonts)
 - **[Box Model Elements](#box-model-elements)**
   - [Borders](#borders)
-  - [Margin, padding and box-sizing](#margin-padding-and-box-sizing)
+  - [Margin, padding, width and box-sizing](#margin-padding-width-and-box-sizing)
   - [Why margins collapse](#why-margins-collapse)
 - **[Colour & Background Images](#colour--background-images)**
 - **[Media Queries for Responsive Design](#media-queries-for-responsive-design)**
@@ -93,7 +93,7 @@ Add a web font to your style sheet like this:
   - When using **3 value shorthand**, the values refer in order to: TOP, LEFT/RIGHT, BOTTOM
 - *Similar rules apply to settings for margin and padding*
 
-### Margin, padding and box-sizing
+### Margin, padding width and box-sizing
 - **`margin: auto`** will generally **centre** content on the page!
 - `width` values provided as **percentages** are applied in relation to the *parent container* - and `width` generally applies only to the *content* of the box, i.e. not including its padding and border, however...
 - **`box-sizing: border-box`** dynamically subtracts the borders and paddings of the element from the width and height properties we set, making it easier to define flexible widths and heights in our project (it's one of the few good uses for the universal selector!) *
