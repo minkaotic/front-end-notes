@@ -154,7 +154,7 @@ The question of where you should set your breakpoints is much debated, the three
 1. **Breakpoints based on content:** Set breakpoints based on the ranges within which a given design works well
 
 ![Breakpoints according to camp 2](https://github.com/minkaotic/front-end-notes/blob/master/breakpoints.png)
-*Breakpoints between clusters of screen sizes*
+*Breakpoints between clusters of screen sizes ([Source](https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862))*
 
 - According to this breakdown, sensible breakpoints would be `600, 900, 1200, 1800`
 
