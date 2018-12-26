@@ -25,6 +25,7 @@
   - [Layout Wrapper](#layout-wrapper)
   - [Display Modes](#display-modes)
   - [Floats](#floats)
+  - [Flexbox](#flexbox)
 
 ______________________
 
@@ -296,6 +297,7 @@ Since the default vertical alignment for inline(-block) items is `baseline`, the
 - `li { display: inline; }` to keep list items next to each other on one line, then use padding and margin to neaten up visually (for more about list manipulation, see: https://teamtreehouse.com/library/lists-5)
 - Setting an `<a>` element's display value to block makes its hover area expand within its parent (nicer for clickability) and lets you apply top and bottom padding values.
 
+
 ### Floats
 Floats are one of the most commonly used methods for laying out a page with CSS. When an element is floated, the element is taken out of the normal flow of the page and placed along the left or right side of its container, causing other elements to wrap around it.
 
@@ -315,6 +317,32 @@ Floats are one of the most commonly used methods for laying out a page with CSS.
 ```
 - often, a new `.group` class is used for clearfix, which can be assigned to any parent requiring it
 - cf. https://developer.mozilla.org/en-US/docs/Web/CSS/clear and http://nicolasgallagher.com/micro-clearfix-hack/
+
+
+### Flexbox
+CSS layout methods like floats, inline-block and absolute positioning have quirks and limitations, as they were ultimately not designed to handle the layout demands of today’s complex responsive websites. By contrast, `flexbox` was specifically designed to lay a collection of items out in one direction or another, control the dimensions of the items, and control the spacing between items.
+
+- The two most important elements in flexbox layout are **flex *containers*** (sets context for flexbox layout; contains flex items) and **flex *items*** (the actual items to be layed out).
+
+- Flexbox follows two axes that determine the layout direction of flex items: **main axis** (default direction of left-to-right) and **cross axis** (default direction of top-to-bottom).
+
+![Layout examples using Flexbox](https://github.com/minkaotic/front-end-notes/blob/master/flexbox-example.png)
+
+- ***To define a flex container***, and turn all its direct children into flex items, set the `display` property of an element to one of the flexbox layout values: `flex` or `inline-flex`:
+  ```
+  .container {
+    display: flex;
+  }
+  ```
+  - By default, flex items are laid out horizontally on the main axis from left to right.
+  - By default, flex items stretch to fill the flex container's height.
+
+
+**Further resources**
+- https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+- https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties
+- https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Typical_Use_Cases_of_Flexbox
 
 
 ________________________________________
