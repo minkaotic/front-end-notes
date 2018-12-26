@@ -279,14 +279,17 @@ Most common values for the `display` property, and elements defaulting to that d
 :sparkles: Interesting article on leveraging the display mode as an alternative to using floats: "[The Secret To Designing Website Layouts Without CSS Floats]( https://www.webdesignerdepot.com/2014/07/the-secret-to-designing-website-layouts-without-css-floats/)" :sparkles:
 
 #### Gotchas when using inline-block to lay out columns
-***Gaps between inline/inline-block elements***
+
+***- Gaps between inline/inline-block elements***
+
 The browser interprets the line breaks and spaces in the HTML as content, and adds spaces between elements displayed inline and inline-block, just like it adds spaces between words.
 
 The size of the gap is commonly `4px`, but depends on the element's font size too - the larger the font size, the larger the gap. You can remove the gaps by either:
 - applying a small, negative right margin to the elements: `margin-right: -4px;`
 - setting `font-size: 0;` on the parent element - this makes the size of the space zero as well. You'll then need to set the font size of the inline-block child elements back to your desired size.
 
-***Columns aren't top-aligned***
+***- Columns aren't top-aligned***
+
 Since the default vertical alignment for inline(-block) items is `baseline`, the lack of top-alginment will become visible in columns that are different height. To change this behaviour, set the column `div`s to `vertical-align: top;`.
 
 #### Nifty examples
