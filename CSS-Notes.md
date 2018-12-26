@@ -347,6 +347,25 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 - By default, flex items stretch to fill the flex container's height.
 
 #### Flex item properties
+- **Order:** The `order` property allows us to change the order of any flex item, without having to edit the HTML. The default `order` of all flex items is `0`, and flex items will be placed relative to the other items' `order` values;
+
+- **Width of items:**
+  - The **`flex-grow`** property determines how much of the available space inside the flex container an item should take up.
+    - Assigning a `flex-grow` value of `1` to *all* flex items expands them evenly to take up the full space of a line.
+    - The higher the `flex-grow` value, the more an item grows relative to the other items.
+    - However, contrary to common belief, `flex-grow: 2;` will not (always) make the item twice as wide as its `flex-grow: 1;` siblings. See the article ["Flex-grow is weird"](https://css-tricks.com/flex-grow-is-weird/) for a fuller explanation.
+    - A handy use for `flex-grow` is to lay out the main content of a page alongside a side bar (both of which would be flex items in a parent flex container), so they would keep the same width-ratio in various browser sizes.
+    
+  - **`flex-basis`** specifies the initial main size of a flex item, and is most useful for:
+    - making sure flex items of varying content volumes are still even sized across the main axis
+    - at the same time, setting the width value below which items will be distributed to the next line
+    
+  - Since `flex-basis` is commonly used in conjunction with `flex-grow`, the **`flex`** shorthand can be used to set both. It also sets smart defaults for the optional values. (See ["MDN - Flex"](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) for more details.)
+  ```
+  .item {
+    flex: 1 200px;  /* sets flex-grow to 1 and flex-basis to 200px */
+  }
+  ```
 
 
 **Further resources**
