@@ -328,14 +328,25 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 
 ![Layout examples using Flexbox](https://github.com/minkaotic/front-end-notes/blob/master/flexbox-example.png)
 
-- ***To define a flex container***, and turn all its direct children into flex items, set the `display` property of an element to one of the flexbox layout values: `flex` or `inline-flex`:
-  ```
-  .container {
-    display: flex;
-  }
-  ```
-  - By default, flex items are laid out horizontally on the main axis from left to right.
-  - By default, flex items stretch to fill the flex container's height.
+#### Flex container properties
+***To define a flex container***, and turn all its direct children into flex items, set the `display` property of an element to one of the flexbox layout values: `flex` or `inline-flex`:
+```
+.container {
+  display: flex;
+}
+```
+- **Direction:** By default, flex items are laid out horizontally on the main axis from left to right (equivalent to `flex-direction: row;`). You can change this by changing the `flex-direction` property to `column`, `column-reverse` or `row-reverse`.
+
+- **Automatically wrap based on available space:** With the `flex-wrap` property, you can control whether the flex container is a single-line (`flex-wrap: nowrap;`; default) or multi-line layout (`flex-wrap: wrap;`) - in the latter case, allowing items to wrap onto multiple lines as needed.
+
+- **Distribute items within available space:**
+  - The `justify-content` property will distribute the space that's available after the container's padding and items' margins are accounted for. It defaults to `flex-start`, which places items towards the start of each flex line. By contrast, `justify-content: center;` will center the items on the line, and `justify-content: space-between;` and `..space-around;` will *evenly* distribute the children across a line.
+  - If you want to distribute some items to the left and some to the right, with space in between, you can use `margin-right: auto;` on the *flex item* after which the dynamic gap should be inserted:
+  ![Flex and margin: auto](https://github.com/minkaotic/front-end-notes/blob/master/flex-and-margin-auto.png)
+
+- By default, flex items stretch to fill the flex container's height.
+
+#### Flex item properties
 
 
 **Further resources**
