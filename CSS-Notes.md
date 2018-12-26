@@ -276,17 +276,22 @@ Most common values for the `display` property, and elements defaulting to that d
 
 - `inline-block` is useful in cases when we want items to appear next to each other, but still want top/bottom margin to be applied as if the whole set was a block element 
 
-#### Gaps between inline/inline-block elements
+:sparkles: Interesting article on leveraging the display mode as an alternative to using floats: "[The Secret To Designing Website Layouts Without CSS Floats]( https://www.webdesignerdepot.com/2014/07/the-secret-to-designing-website-layouts-without-css-floats/)" :sparkles:
+
+#### Gotchas when using inline-block to lay out columns
+***Gaps between inline/inline-block elements***
 The browser interprets the line breaks and spaces in the HTML as content, and adds spaces between elements displayed inline and inline-block, just like it adds spaces between words.
 
 The size of the gap is commonly `4px`, but depends on the element's font size too - the larger the font size, the larger the gap. You can remove the gaps by either:
 - applying a small, negative right margin to the elements: `margin-right: -4px;`
 - setting `font-size: 0;` on the parent element - this makes the size of the space zero as well. You'll then need to set the font size of the inline-block child elements back to your desired size.
-  
+
+***Columns aren't top-aligned***
+Since the default vertical alignment for inline(-block) items is `baseline`, the lack of top-alginment will become visible in columns that are different height. To change this behaviour, set the column `div`s to `vertical-align: top;`.
+
 #### Nifty examples
 - `li { display: inline; }` to keep list items next to each other on one line, then use padding and margin to neaten up visually (for more about list manipulation, see: https://teamtreehouse.com/library/lists-5)
 - Setting an `<a>` element's display value to block makes its hover area expand within its parent (nicer for clickability) and lets you apply top and bottom padding values.
-- interesting article on leveraging the display mode as an alternative to using floats: "[The Secret To Designing Website Layouts Without CSS Floats]( https://www.webdesignerdepot.com/2014/07/the-secret-to-designing-website-layouts-without-css-floats/)"
 
 ### Floats
 Floats are one of the most commonly used methods for laying out a page with CSS. When an element is floated, the element is taken out of the normal flow of the page and placed along the left or right side of its container, causing other elements to wrap around it.
