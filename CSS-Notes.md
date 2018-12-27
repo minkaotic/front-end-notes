@@ -40,7 +40,8 @@ ______________________
 - **Id selectors** like `#intro-text` target the specific html element that has that id in its attributes (NB: elements can only have one id, and ids have to be unique)
 - **Class selectors** like `.primary-content` target all html elements with that class in their attributes (NB: elements can have multiple classes)
 - **Descendant selectors** like `.primary-content p` can be made up of two or more selectors and will target all elements that match that relationship, e.g. all "paragraphs" within any elements marked by the "primary-content" class
-- **Pseudo-classes** like `:link` `:visited` or `:hover` target elements dynamically based on user interaction, an element’s state
+- **Pseudo-classes** like `:link` `:visited`, `:hover` or `:first-child:` target elements dynamically based on user interaction or an element’s special state
+- **Pseudo-elements** like `::before` or `::after` for advanced styling needs (*NB:* as of CSS3 all pseudo-elements need to use the `::` syntax, as opposed to `:` used in older versions, to differentiate them from pseudo-classes.)
 - *Multiple selectors*, separated by commas, can be used in a rule, such as `.primary-content, .secondary-content`
 
 ### Rule Precedence
@@ -301,22 +302,35 @@ Since the default vertical alignment for inline(-block) items is `baseline`, the
 ### Floats
 Floats are one of the most commonly used methods for laying out a page with CSS. When an element is floated, the element is taken out of the normal flow of the page and placed along the left or right side of its container, causing other elements to wrap around it.
 
-- First, change the element's `width` to something less than 50% (just like width, floats are relative to the parent container!)
-- **`float: right`** will float something to the right, vice versa for left
+*Common use cases:* wrap text around images; float the links in a navigation; float content columns in a container.
 
-**Common issues:** If a block element contains floated children, its height will collapse, causing elements to overlap where they shouldn't... options for resolving this:
-- Add `overflow: auto;` for the parent element. Possible downsides: in some browsers, unwanted scroll bars might appear, or bits of content might be cut off
-- **Clearfix** is the most reliable way to prevent these issues! - Targeting the parent element of the elements that are floated, it looks like this: 
+- First, ensure the element's **`width`** is smaller than the parent container so there is space for other things to wrap around it after it's been floated. If you are laying out *columns* using float, use *percentages* to create evenly sized float elements.
+- **`float: right;`** will float something to the right, **`float: left;`** to the left.
 
-```
-[parent selector]:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-```
-- often, a new `.group` class is used for clearfix, which can be assigned to any parent requiring it
-- cf. https://developer.mozilla.org/en-US/docs/Web/CSS/clear and http://nicolasgallagher.com/micro-clearfix-hack/
+#### Common issues & workarounds
+If a block element contains floated children, its height will collapse (bar any `padding` or fixed `height` value), causing elements to overlap where they shouldn't...
+
+![Collapsing Height](https://github.com/minkaotic/front-end-notes/blob/master/float-collapsing-height.png)
+
+Options for resolving this:
+
+1. Set a fixed height. :zap: But this is a very clunky & inflexible solution.
+1. Add `overflow: auto;` or `overflow: hidden` for the parent element. :zap: But in some browsers, unwanted scroll bars might appear with `auto`, or bits of content might be cut off with `hidden`.
+1. **Clearfix** is the most reliable way to prevent these issues! It uses a CSS pseudo element to force a container to clear its floated children:
+  ```
+  [parent selector]::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  ```
+  - `content: "";` generates a blank pseudo element at the bottom of (*::after*) the parent container
+  - `display: table;` changes display mode from `inline` to `table`
+  - `clear: both;` clears any collapsed space on both sides of the container
+  - often, a new `.clearfix` class is used for this, which can be assigned to any parent requiring it
+  - Further resources: 
+    - https://developer.mozilla.org/en-US/docs/Web/CSS/clear
+    - http://nicolasgallagher.com/micro-clearfix-hack/
 
 
 ### Flexbox
