@@ -29,6 +29,7 @@ The MVC pattern helps create applications that separate the different aspects of
 **Sources:**
 - https://docs.microsoft.com/en-us/previous-versions/aspnet/dd381412(v=vs.108)
 - https://teamtreehouse.com/library/the-anatomy-of-an-mvc-project
+- Also see [this great analogy comparing MVC to a bar](https://medium.freecodecamp.org/model-view-controller-mvc-explained-through-ordering-drinks-at-the-bar-efcba6255053)
 
 
 ### MVC Razor vs. Angular(JS)
