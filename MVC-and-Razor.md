@@ -1,6 +1,6 @@
 # ASP.NET MVC & Razor 
 ## Contents
-- [MVC pattern recap](mvc-pattern-recap)
+- [MVC pattern recap](#mvc-pattern-recap)
 - [MVC Razor vs. Angular(JS)](#mvc-razor-vs-angularjs)
 - [ASP.NET MVC with Razor](#aspnet-mvc-with-razor)
 - [Razor syntax](#razor-syntax)
