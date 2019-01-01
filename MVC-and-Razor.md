@@ -1,12 +1,31 @@
-# MVC & Razor 
+# ASP.NET MVC & Razor 
 ## Contents
-- [Razor vs. Angular(JS)](#mvc-vs-angularjs)
-- [ASP.NET with Razor](#aspnetwith-razor)
+- [MVC pattern recap](mvc-pattern-recap)
+- [MVC Razor vs. Angular(JS)](#mvc-razor-vs-angularjs)
+- [ASP.NET MVC with Razor](#aspnet-mvc-with-razor)
 - [Razor syntax](#razor-syntax)
-- [Sources](#sources)
 
 
-## Razor vs. Angular(JS)
+## MVC pattern recap
+The *Model View Controller* design pattern is commonly used across many frameworks for front end development.
+
+- **Model** = the *data* in your website. The applications data domain is implemented through *model objects*. Model objects often retrieve and store model state in a database. For example, a Product object might retrieve information from a database, operate on it, and then write updated information back to a Products table in a SQL Server database.
+
+- **View** = the components that display the application's *user interface (UI)*. Typically, this UI is created from the model data. (An example would be an edit view of a Products table that displays text boxes, drop-down lists, and check boxes based on the current state of a Product object.)
+
+- **Controller** = the *coordinator* responsible for directing what specific actions need to be performed when a user navigates to our website, in order to send a response to that user. Controllers are the components that handle user interaction, work with the model, and ultimately select a view to render that displays UI. 
+
+In an MVC application, the view only displays information; the controller handles and responds to user input and interaction. For example, the controller handles query-string values, and passes these values to the model, which in turn might use these values to query the database.
+
+The MVC pattern helps create applications that separate the different aspects of the application: input logic (controller), business logic (model), and UI logic (view), while providing a loose coupling between these elements. 
+
+
+**Sources:**
+- https://docs.microsoft.com/en-us/previous-versions/aspnet/dd381412(v=vs.108)
+- https://teamtreehouse.com/library/the-anatomy-of-an-mvc-project
+
+
+## MVC Razor vs. Angular(JS)
 Razor renders the HTML on the server, whereas Angular(JS) renders it on the client.
 There's a whole debate about which of these are better, and modern web development is split into two camps:
 
@@ -21,7 +40,7 @@ There's a whole debate about which of these are better, and modern web developme
 One consideration for deciding between these two is that for applications with a large amount of dynamic elements, you don't want to have to call back to the server every time you want to render some new HTML. Also, any functionality that requires an interactive UI without page refreshes (i.e. a list to which you add items without a page reload, or a form where the fields defined are dependent on each other) would be best served by a client side framework.
 
 
-## ASP.NET with Razor
+## ASP.NET MVC with Razor
 ASP.NET is Microsoft's technology for running dynamic web pages on web servers. ASP.NET Razor is a server-side markup language that lets you embed server-based (C#) code into web pages.
 
 **Razor & MVC**
@@ -52,7 +71,6 @@ Razor is a general-purpose templating engine, and has no inherent ties to ASP.NE
 <p>The greeting is: @greetingMessage</p>
 ```
 
-
-## Sources
+**Sources:**
 - https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c
 - https://www.w3schools.com/asp/razor_intro.asp
