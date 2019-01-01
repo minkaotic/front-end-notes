@@ -3,7 +3,7 @@
 - [MVC pattern recap](#mvc-pattern-recap)
 - [MVC Razor vs. Angular(JS)](#mvc-razor-vs-angularjs)
 - [ASP.NET MVC with Razor](#aspnet-mvc-with-razor)
-- [Razor syntax](#razor-syntax)
+    - [Razor syntax](#razor-syntax)
 
 
 ## MVC pattern recap
@@ -46,8 +46,7 @@ ASP.NET is Microsoft's technology for running dynamic web pages on web servers. 
 **Razor & MVC**
 Razor is a general-purpose templating engine, and has no inherent ties to ASP.NET MVC. *However*, ASP.NET MVC has implemented a view engine that allows us to use Razor inside of an MVC application to produce HTML.
 
-
-## Razor syntax
+### Razor syntax
 1. Add code to a page using the `@` character: it starts inline expressions, single statement blocks, and multi-statement blocks
 1. Single or multi statement code blocks are enclosed in braces, each statement ending on a semicolon
 1. Expressions don't require braces or semicolons
