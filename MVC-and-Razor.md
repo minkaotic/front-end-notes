@@ -1,12 +1,14 @@
 # ASP.NET MVC & Razor 
 ## Contents
-- [MVC pattern recap](#mvc-pattern-recap)
-- [MVC Razor vs. Angular(JS)](#mvc-razor-vs-angularjs)
+- [Preamble](#preamble)
+    - [MVC pattern recap](#mvc-pattern-recap)
+    - [MVC Razor vs. Angular(JS)](#mvc-razor-vs-angularjs)
 - [ASP.NET MVC with Razor](#aspnet-mvc-with-razor)
     - [Razor syntax](#razor-syntax)
 
 
-## MVC pattern recap
+## Preamble
+### MVC pattern recap
 The *Model View Controller* design pattern is commonly used across many frameworks for front end development.
 
 - **Model** = the *data* in your website. The applications data domain is implemented through *model objects*. Model objects often retrieve and store model state in a database. For example, a Product object might retrieve information from a database, operate on it, and then write updated information back to a Products table in a SQL Server database.
@@ -25,7 +27,7 @@ The MVC pattern helps create applications that separate the different aspects of
 - https://teamtreehouse.com/library/the-anatomy-of-an-mvc-project
 
 
-## MVC Razor vs. Angular(JS)
+### MVC Razor vs. Angular(JS)
 Razor renders the HTML on the server, whereas Angular(JS) renders it on the client.
 There's a whole debate about which of these are better, and modern web development is split into two camps:
 
