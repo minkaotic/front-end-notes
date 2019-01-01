@@ -61,6 +61,7 @@ ASP.NET MVC has implemented a view engine that allows us to use Razor inside of 
 Razor can either be used as part of a classic MVC-structured application, or as part of an *MVVM (Model-View-ViewModel)* setup, whereby the model and controller code is also included within the Razor Page itself. For more on the differences between these, see: https://stackify.com/asp-net-razor-pages-vs-mvc/.
 
 ### Razor syntax
+#### Basics
 1. Add code to a page using the `@` character: it starts inline expressions, single statement blocks, and multi-statement blocks
 1. Single or multi statement code blocks are enclosed in braces, each statement ending on a semicolon
 1. Expressions don't require braces or semicolons
