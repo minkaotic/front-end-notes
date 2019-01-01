@@ -23,6 +23,9 @@ The *Model View Controller* design pattern is commonly used across many framewor
 
 In an MVC application, the view only displays information; the controller handles and responds to user input and interaction. For example, the controller handles query-string values, and passes these values to the model, which in turn might use these values to query the database.
 
+![MVC diagram](https://github.com/minkaotic/front-end-notes/blob/master/img/mvc.png)
+*Source: [this article](https://medium.freecodecamp.org/model-view-controller-mvc-explained-through-ordering-drinks-at-the-bar-efcba6255053)*
+
 The MVC pattern helps create applications that separate the different aspects of the application: input logic (controller), business logic (model), and UI logic (view), while providing a loose coupling between these elements. 
 
 
