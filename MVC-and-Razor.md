@@ -85,8 +85,35 @@ Razor can either be used as part of a classic MVC-structured application, or as 
 <p>The greeting is: @greetingMessage</p>
 ```
 
+#### The Request object
+You'll often work with the `Request` object, which gives you information like the values of text boxes (form fields) on the page (see [example in the next section](#reading-user-input)), what type of browser made the request, the URL of the page, the user identity, etc. 
+
+The following example shows how to access properties of the `Request` object and how to call the `MapPath()` method of the Request object, which gives you the absolute path of the page on the server:
+
+```
+<table border="1">
+<tr>
+    <td>Requested URL</td>
+    <td>Relative Path</td>
+    <td>Full Path</td>
+    <td>HTTP Request Type</td>
+</tr>
+<tr>
+    <td>@Request.Url</td>
+    <td>@Request.FilePath</td>
+    <td>@Request.MapPath(Request.FilePath)</td>
+    <td>@Request.RequestType</td>
+</tr>
+</table>
+```
+
+The result displayed in a browser:
+
+![Request object props](https://github.com/minkaotic/front-end-notes/blob/master/img/request-object-properties.PNG)
+
+
 #### Reading user input
-An important feature of dynamic web pages is that you can read user input. In Razor, input is read by the `Request[]` function, and posting input is tested by the `IsPost` condition:
+An important feature of dynamic web pages is that you can read user input. In Razor, input is read via `Request["input-name"]`, and posting input is tested by the `IsPost` condition:
 
 ```
 @{
