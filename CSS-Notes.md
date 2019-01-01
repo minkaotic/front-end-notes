@@ -87,7 +87,7 @@ Add a web font to your style sheet like this:
 
 ## Box Model Elements
 
-![CSS Box Model](https://github.com/minkaotic/front-end-notes/blob/master/box_model.png)
+![CSS Box Model](https://github.com/minkaotic/front-end-notes/blob/master/img/box_model.png)
 
 ### Borders
 - **Border shorthand**: `border: [width] [style] [color]` - or do each of them individually for control over each side, eg.: `border-width: 10px 20px`, or `border-top: 2px solid lightgrey;`. NB:
@@ -164,7 +164,7 @@ The question of where you should set your breakpoints is much debated, the three
 1. **Breakpoints between clusters of screen sizes:** fit breakpoints around clusters of common screen sizes - see diagram below
 1. **Breakpoints based on content:** Set breakpoints based on the ranges within which a given design works well
 
-![Breakpoints according to camp 2](https://github.com/minkaotic/front-end-notes/blob/master/breakpoints.png)
+![Breakpoints according to camp 2](https://github.com/minkaotic/front-end-notes/blob/master/img/breakpoints.png)
 *Breakpoints between clusters of screen sizes ([Source](https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862))*
 
 - According to this breakdown, sensible breakpoints would be `600, 900, 1200, 1800`
@@ -238,7 +238,7 @@ Other CSS reset methods
 ### Layout Wrapper
 A *wrapper* (or *container*) is commonly used to center a layout on the page. The wrapper keeps a layout from looking too wide or too narrow depending on the device or viewport width.
 
-![Wrapper diagram](https://github.com/minkaotic/front-end-notes/blob/master/wrapper_diagram.png)
+![Wrapper diagram](https://github.com/minkaotic/front-end-notes/blob/master/img/wrapper_diagram.png)
 
 Using a wrapper `div` to contain the other elements on the page:
 
@@ -310,7 +310,7 @@ Floats are one of the most commonly used methods for laying out a page with CSS.
 #### Common issues & workarounds
 If a block element contains floated children, its height will collapse (bar any `padding` or fixed `height` value), causing elements to overlap where they shouldn't...
 
-![Collapsing Height](https://github.com/minkaotic/front-end-notes/blob/master/float-collapsing-height.png)
+![Collapsing Height](https://github.com/minkaotic/front-end-notes/blob/master/img/float-collapsing-height.png)
 
 Options for resolving this:
 
@@ -340,7 +340,7 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 
 - Flexbox follows two axes that determine the layout direction of flex items: **main axis** (default direction of left-to-right) and **cross axis** (default direction of top-to-bottom).
 
-![Layout examples using Flexbox](https://github.com/minkaotic/front-end-notes/blob/master/flexbox-example.png)
+![Layout examples using Flexbox](https://github.com/minkaotic/front-end-notes/blob/master/img/flexbox-example.png)
 
 #### Flex container properties
 ***To define a flex container***, and turn all its direct children into flex items, set the `display` property of an element to one of the flexbox layout values: `flex` or `inline-flex`:
@@ -356,7 +356,7 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 - **Distribute items along main axis:**
   - The `justify-content` property will distribute the space that's available after the container's padding and items' margins are accounted for. It defaults to `flex-start`, which places items towards the start of each flex line. By contrast, `justify-content: center;` will center the items on the line, and `justify-content: space-between;` and `..space-around;` will *evenly* distribute the children across a line.
   - If you want to distribute some items to the left and some to the right, with space in between, you can use `margin-right: auto;` on the *flex item* after which the dynamic gap should be inserted:
-  ![Flex and margin: auto](https://github.com/minkaotic/front-end-notes/blob/master/flex-and-margin-auto.png)
+  ![Flex and margin: auto](https://github.com/minkaotic/front-end-notes/blob/master/img/flex-and-margin-auto.png)
 
 - **Distribute items along cross axis:**
   - The `align-items` property determines where a flex container's items are aligned along the cross axis. By default, flex items stretch to fill the flex container's height (`align-items: stretch;`), but common alternative values are `center` and `flex-start`.
