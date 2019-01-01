@@ -3,11 +3,15 @@
 - [Preamble](#preamble)
     - [MVC pattern recap](#mvc-pattern-recap)
     - [MVC Razor vs. Angular(JS)](#mvc-razor-vs-angularjs)
-- [ASP.NET MVC with Razor](#aspnet-mvc-with-razor)
+- [ASP.NET MVC](#aspnet-mvc)
+    - [Razor & MVC](#razor--mvc)
     - [Razor syntax](#razor-syntax)
+    - [Razor Helpers](#razor-helpers)
 
 
 ## Preamble
+ASP.NET is Microsoft's technology for running dynamic web pages on web servers. ASP.NET Razor is a server-side markup language that lets you embed server-based (C#) code into web pages.
+
 ### MVC pattern recap
 The *Model View Controller* design pattern is commonly used across many frameworks for front end development.
 
@@ -42,17 +46,22 @@ There's a whole debate about which of these are better, and modern web developme
 One consideration for deciding between these two is that for applications with a large amount of dynamic elements, you don't want to have to call back to the server every time you want to render some new HTML. Also, any functionality that requires an interactive UI without page refreshes (i.e. a list to which you add items without a page reload, or a form where the fields defined are dependent on each other) would be best served by a client side framework.
 
 
-## ASP.NET MVC with Razor
-ASP.NET is Microsoft's technology for running dynamic web pages on web servers. ASP.NET Razor is a server-side markup language that lets you embed server-based (C#) code into web pages.
+## ASP.NET MVC
 
-**Razor & MVC**
-Razor is a general-purpose templating engine, and has no inherent ties to ASP.NET MVC. *However*, ASP.NET MVC has implemented a view engine that allows us to use Razor inside of an MVC application to produce HTML.
+
+### Razor & MVC
+Razor is a markup syntax that lets you embed server-based code (Visual Basic and C#) into web pages. It can be seen as an evolution of the old “.aspx” style markup.
+
+ASP.NET MVC has implemented a view engine that allows us to use Razor inside of an MVC application to produce HTML. 
+
+Razor can either be used as part of a classic MVC-structured application, or as part of an *MVVM (Model-View-ViewModel)* setup, whereby the model and controller code is also included within the Razor Page itself. For more on the differences between these, see: https://stackify.com/asp-net-razor-pages-vs-mvc/.
 
 ### Razor syntax
 1. Add code to a page using the `@` character: it starts inline expressions, single statement blocks, and multi-statement blocks
 1. Single or multi statement code blocks are enclosed in braces, each statement ending on a semicolon
 1. Expressions don't require braces or semicolons
 1. Variables can be used to store values
+1. Files have the extension `.cshtml`
 
 ```
 <!-- Single statement blocks  -->
@@ -71,6 +80,48 @@ Razor is a general-purpose templating engine, and has no inherent ties to ASP.NE
 }
 <p>The greeting is: @greetingMessage</p>
 ```
+
+#### Reading user input
+An important feature of dynamic web pages is that you can read user input. In Razor, input is read by the `Request[]` function, and posting input is tested by the `IsPost` condition:
+
+```
+@{
+    var totalMessage = "";
+    if (IsPost)
+    {
+        var num1 = Request["text1"];
+        var num2 = Request["text2"];
+        var total = num1.AsInt() + num2.AsInt();
+        totalMessage = "Total = " + total;
+    }
+}
+<form action="" method="post">
+    <p>
+        <label for="text1">First Number:</label><br>
+        <input type="text" name="text1" />
+    </p>
+    <p>
+        <label for="text2">Second Number:</label><br>
+        <input type="text" name="text2" />
+    </p>
+    <p><input type="submit" value=" Add " /></p>
+</form>
+<p>@totalMessage</p>
+```
+
+### Razor Helpers
+ASP.NET helpers are components that can be accessed by single lines of Razor code. You can build your own helpers using Razor syntax, or use built-in ASP.NET helpers.
+
+Some useful built-in Razor helpers include:
+
+- Web Grid
+- Web Graphics
+- Google Analytics
+- Facebook Integration
+- Twitter Integration
+- Sending Email
+- Validation
+
 
 **Sources:**
 - https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c
