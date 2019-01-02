@@ -1,10 +1,15 @@
 # Vue.JS Notes
 
 ## Contents
+- [Setup](#setup)
 - [Templates & Data](#templates--data)
 - [Directives](#directives)
 
 _______________
+
+## Setup
+
+*[Placeholder for notes on how to add Vue to a project]*
 
 ## Templates & Data
 Vue helps separate a website's *data* from the user's *view* of the website and provides better seperation from the *view logic* (where, when and how certain information is displayed). Vue also allows you to define behaviour and connect data to a template, that is used to render the view.
