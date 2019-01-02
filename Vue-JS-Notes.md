@@ -1,14 +1,12 @@
-# Javascript Frameworks
-## Contents
-- [Vue.js](#vuejs)
-  - [Templates & Data](#templates--data)
-  - [Directives](#directives)
+# Vue.JS Notes
 
+## Contents
+- [Templates & Data](#templates--data)
+- [Directives](#directives)
 
 _______________
 
-## Vue.js
-### Templates & Data
+## Templates & Data
 Vue helps separate a website's *data* from the user's *view* of the website and provides better seperation from the *view logic* (where, when and how certain information is displayed). Vue also allows you to define behaviour and connect data to a template, that is used to render the view.
 
 ![Vue.js purpose overview](https://github.com/minkaotic/front-end-notes/blob/master/img/vue_overview.png)
@@ -49,7 +47,7 @@ You can also use Javascript directly in the HTML template, or bind multiple piec
 
 _______________
 
-### Directives
+## Directives
 Instead of the 'mustache syntax' used in the examples above, i.e. `<h1>{{ title }}</h1>`, we could achieve the same result by using the directive **`v-text`**: `<h1 v-text="title"></h1>`
 
 A ***Vue directive*** is a special attribute that you add to an HTML element in a Vue template. These are like special instructions just for Vue: used to define certain behaviors such as when a method should be called in response to an event, or when to show/not show pieces of a UI element.
