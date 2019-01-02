@@ -6,6 +6,11 @@
 - [Directives](#directives)
 
 _______________
+***Progress Tracker***
+- [ ] Complete Treehouse Course
+- [ ] Read through [Vue Essentials](https://vuejs.org/v2/guide/index.html) section in public docs
+- [ ] Work through other sources (expand this)
+_______________
 
 ## Setup
 
