@@ -11,7 +11,7 @@
 - [Object-Oriented JavaScript](https://github.com/minkaotic/front-end-notes/blob/master/Object-oriented-Javascript.md)
 - ***JS Frameworks:***
   - [Vue.JS Notes](https://github.com/minkaotic/front-end-notes/blob/master/Vue-JS-Notes.md)
-  - [Angular (& Angular JS) Notes](https://github.com/minkaotic/front-end-notes/blob/master/Angular-Notes.md)
+  - [Angular (JS) Notes](https://github.com/minkaotic/front-end-notes/blob/master/Angular-Notes.md)
   
 ### .NET
 - [ASP.NET MVC & Razor](https://github.com/minkaotic/front-end-notes/blob/master/MVC-and-Razor.md)
