@@ -2,22 +2,32 @@
 
 ## Contents
 - [Overview](#overview) 
-  - [AJAX vs Angular](#ajax-vs-angular)
+  - [AJAX & Angular](#ajax--angular)
   - [Angular vs AngularJS](#angular-vs-angularjs)
 - [AngularJS](#angularjs)
 - [Sources](#sources)
 _______________
 
 ## Overview
+Angular is a **client side application framework** built entirely with static files. This means that the entire application is loaded into the browser that the user is using. There are many performance and user experience benefits to client side frameworks, as follow-up requests to the server will only be for small amounts of data, rather than more HTML & CSS files as is the case with traditional web pages.
+
+Some other client side frameworks include:
+- Ember.js
+- Backbone.js
+
 The architecture of Angular(JS) is based on model-view-controller (MVC) design. Angular(JS) lends itself particularly well to building **Single Page Applications (SPAs)**, but can also be used to build 'traditional' multi-page applications.
 
 Google developed AngularJS in 2009 and version 1.0 was released in 2012. Angular has since dominated the world of open-source JavaScript frameworks, with enthusiastic support and widespread adoption among both enterprises and individuals. As a result, Angular has evolved from the AngularJS version 1.0 to Angular version 2.0 and now the latest Angular version 4.0, all in just five years.
 
 
-### AJAX vs Angular
+### AJAX & Angular
 - AJAX is a technology that allows to get data from a server without the need to refresh a webpage.
 
-- Angular extends this idea with two-way data binding. So the HTML elements on your front end page are in constant communication with your back end server--and vice versa. Angular can achieve other things as well and is useful for separating your concerns, i.e. separating your data, the functions performed on that data, and how the user sees the data.
+- Angular extends this idea. Even though the entire application is loaded into the browser when user requests a URL, in most cases the application will make additional requests for data back to the server via an AJAX call.
+
+- These requests will not re-send the files to the client, but just the pure data - most of the time the response will be in JSON.
+
+- The Angular app can also send data back to the server.
 
 
 ### Angular vs AngularJS
