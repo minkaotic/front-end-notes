@@ -102,6 +102,35 @@ Instead of manipulating the DOM “directly,” you annotate your DOM with metad
   angular.module("exampleApp", []);
   ```
 
+#### Adding a simple directive
+In a new JS file, create the directive as below (*NB!* the single parameter version of the `module()` method will make this directive refer back to the existing `exampleApp`, rather than creating a new one!):
+```
+angular.module('exampleApp')
+.directive('helloWorld', function() {
+  return {
+    template: "This is the hello world directive!"
+  }
+});
+```
+
+Then add this directive into the HTML file as a tag - note the change from camel case to all lower case with hyphens for the directive name:
+```
+<body ng-app="todoListApp">
+  <hello-world></hello-world>
+  ...
+</body>
+```
+Alternatively, directives can also be invoked via attributes of an existing tag:
+```
+<body ng-app="todoListApp">
+  <div hello-world></div>
+  ...
+</body>
+```
+
+Both of these will make "*This is the hello world directive!*" appear in the view (on the page)!
+
+
 
 
 ## Sources
