@@ -6,7 +6,8 @@
   - [AJAX & Angular](#ajax--angular)
   - [Angular vs AngularJS](#angular-vs-angularjs)
 - [AngularJS](#angularjs)
-  - [Templates, Directives, Controllers, Scope](#templates-directives-controllers-scope)
+  - [Core Concepts](#core-concepts)
+  - [Getting Started](#getting-started)
 - [Sources](#sources)
 _______________
 
@@ -52,7 +53,7 @@ For more differences, see [this infographic from simplilearn.com](https://www.si
 
 
 ## AngularJS
-###  Templates, Directives, Controllers, Scope
+###  Core Concepts
 
 - ***Templates*** (or *views*) hold most of the HTML, and are what structure our application
 
@@ -74,6 +75,33 @@ A controller and directive can also share scope - as in, a place where they can 
 
 #### How does Angular work?
 Instead of manipulating the DOM “directly,” you annotate your DOM with metadata (directives), and Angular manipulates the DOM for you.
+
+### Getting Started
+#### in the HTML...
+- In order to include AngularJS in your app, either:
+  - download the files from the [AngularJS website](https://angularjs.org/) and include them in your project
+  - or include a script tag with a link to the Angular file’s CDN version: `<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>`
+- Bootstrap AngularJS into the HTML using the `ng-app` directive and the application name:
+
+  ```
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <title>...</title>
+    </head>
+    <body ng-app="exampleApp">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+      <script src="scripts/app.js" type="text/javascript"></script>
+    </body>
+  </html>
+  ```
+
+#### in the JavaScript file...
+- Create the application with Angular's `module()` method, providing the name of the application (matching the name used in the `ng-app` directive), and an array of its dependencies (in this case, none):
+  ```
+  angular.module("exampleApp", []);
+  ```
+
 
 
 ## Sources
