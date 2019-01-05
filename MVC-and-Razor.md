@@ -41,6 +41,7 @@ There's a whole debate about which of these are better, and modern web developme
 
 ***Camp 1*** uses server-side technologies for its controllers and views and has JavaScript in its views for dynamic things.
 - MVC and Razor are the ASP.NET server-side technologies used for this.
+- Other server-side technologies for this approach include: Express (Javascript), Django (Python) and Rails (Ruby)
 - Client-side technologies may include things like jQuery or Dojo.
 
 ***Camp 2*** uses server-side technologies to expose REST endpoints. Client-side technologies are used to provide controllers and views.
@@ -51,7 +52,6 @@ One consideration for deciding between these two is that for applications with a
 
 
 ## ASP.NET MVC
-
 
 ### Razor & MVC
 Razor is a markup syntax that lets you embed server-based code (Visual Basic and C#) into web pages. It can be seen as an evolution of the old “.aspx” style markup.
