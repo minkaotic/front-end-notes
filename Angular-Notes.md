@@ -71,12 +71,15 @@ For more differences, see [this infographic from simplilearn.com](https://www.si
 
   ![Angular concepts](https://github.com/minkaotic/front-end-notes/blob/master/img/angular-concepts.png)
 
-A controller and directive can also share scope - as in, a place where they can access the same data and variables.
+- A controller and directive can also share scope - as in, a place where they can access the same data and variables.
 
   ![Angular shared scope](https://github.com/minkaotic/front-end-notes/blob/master/img/angular-shared-scope.png)
 
+- To get into the nitty-gritty of how scope works in Angular based on prototypical inheritance, see [this video & resources](https://teamtreehouse.com/library/understanding-scope-in-angular).
+
 #### How does Angular work?
 Instead of manipulating the DOM “directly,” you annotate your DOM with metadata (directives), and Angular manipulates the DOM for you.
+
 
 ### Getting Started
 #### in the HTML...
