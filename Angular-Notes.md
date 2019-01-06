@@ -8,6 +8,7 @@
 - [AngularJS](#angularjs)
   - [Core Concepts](#core-concepts)
   - [Getting Started](#getting-started)
+  - [Tools for Debugging AngularJS](#tools-for-debugging-angularjs)
 - [Sources](#sources)
 _______________
 
@@ -157,6 +158,14 @@ angular.module('todoListApp', [])
 - Now `mainCtrl`'s scope is within the `div`.
 - This means the controller's functions can be used within it - in this case, by associating its function with the `ng-click` directive (`ng-click="helloWorld()"`) - so when the user clicks this link, the `helloWorld()` function runs.
 
+
+## Tools For Debugging AngularJS
+Chrome Tools:
+- [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en)
+- [ng-inspector for AngularJS](https://chrome.google.com/webstore/detail/ng-inspector-for-angularj/aadgmnobpdmgmigaicncghmmoeflnamj)
+
+Firefox Tools:
+- [AngScope](https://github.com/kosprov/AngScope) - this requires installing [Firebug](https://getfirebug.com/) first
 
 
 ## Sources
