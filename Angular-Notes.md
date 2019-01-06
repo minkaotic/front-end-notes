@@ -61,9 +61,10 @@ For more differences, see [this infographic from simplilearn.com](https://www.si
   - AngularJS has built-in directives to do anything from evaluating user interactions to easily manipulating data
   - Additionally, we can create our own reusable, custom directives
   
-- ***Controllers*** contain the logic that tells our application how to behave, e.g.:
-  - What data to display on button click
-  - What elements to diplay
+- ***Controllers*** contain the logic that tells our application how to behave, they allow you to:
+  - Handle data
+  - Make changes to the UI (i.e. what data to display on button click)
+  - Control the state of the application (for example in an app with functionality to edit and update text: whether or not an item is currently in edit mode)
   
 - ***Scope*** (maybe the hardest part of Angular to understand) is the part of the application that allows you to manipulate data and make changes to the user interface. Every controller, directive and view can have its own scope.
 
