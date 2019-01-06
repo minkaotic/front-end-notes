@@ -89,7 +89,7 @@ Instead of manipulating the DOM “directly,” you annotate your DOM with metad
     <head>
       <title>...</title>
     </head>
-    <body ng-app="exampleApp">
+    <body ng-app="todoListApp">
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
       <script src="scripts/app.js" type="text/javascript"></script>
     </body>
@@ -99,13 +99,13 @@ Instead of manipulating the DOM “directly,” you annotate your DOM with metad
 #### in the JavaScript file...
 - Create the application with Angular's `module()` method, providing the name of the application (matching the name used in the `ng-app` directive), and an array of its dependencies (in this case, none):
   ```
-  angular.module("exampleApp", []);
+  angular.module("todoListApp", []);
   ```
 
 #### Adding a simple directive
-In a new JS file, create the directive as below (*NB!* the single parameter version of the `module()` method will make this directive refer back to the existing `exampleApp`, rather than creating a new one!):
+In a new JS file, create the directive as below (*NB!* the single parameter version of the `module()` method used in this example will make this directive refer back to the existing `exampleApp`, rather than creating a new one!):
 ```
-angular.module('exampleApp')
+angular.module('todoListApp')
 .directive('helloWorld', function() {
   return {
     template: "This is the hello world directive!"
@@ -130,6 +130,31 @@ Alternatively, directives can also be invoked via attributes of an existing tag:
 
 Both of these will make "*This is the hello world directive!*" appear in the view (on the page)!
 
+#### Creating & using a controller
+Use the `controller()` method of the module (back in the JS file where the app is created):
+```
+angular.module('todoListApp', [])
+.controller('mainCtrl', function($scope) {
+  $scope.helloWorld = function() {
+    console.log('Hello there! This is the helloWorld controller function in the mainCtrl!');
+  };
+});
+```
+- `controller()` takes two parameters: the controller name, and an anonymous function that in turn takes the `$scope` variable as a parameter.
+- `$scope` defines an area of operation for your controller: this controller's functions will only work in the parts of the application you allow them to.
+- In order to define a function that can be used to alter the application, we attach it to the `$scope` object (in other words: `$scope.helloWorld = function() {...}` creates a function that is attached to the `$scope` object).
+
+**In order to use this controller in our application, we have to inject it into the template**, effectively telling Angular "this is where I want my controller to be used". This is done with the built-in `ng-controller` directive, which has to be set to the name of the controller defined in the JavaScript file:
+```
+<body ng-app="todoListApp">
+  <div ng-controller="mainCtrl">
+    <a href="" ng-click="helloWorld()">Log Hello World!</a>
+  </div>
+</body>
+```
+
+- Now `mainCtrl`'s scope is within the `div`.
+- This means the controller's functions can be used within it - in this case, by associating its function with the `ng-click` directive (`ng-click="helloWorld()"`) - so when the user clicks this link, the `helloWorld()` function runs.
 
 
 
