@@ -1,12 +1,14 @@
-# ASP.NET MVC & Razor 
+# ASP.NET MVC
 ## Contents
 - [Preamble](#preamble)
     - [MVC pattern recap](#mvc-pattern-recap)
     - [MVC Razor vs. Angular(JS)](#mvc-razor-vs-angularjs)
-- [ASP.NET MVC](#aspnet-mvc)
-    - [Razor & MVC](#razor--mvc)
+- [Razor & MVC](#razor--mvc)
     - [Razor syntax](#razor-syntax)
     - [Razor Helpers](#razor-helpers)
+- [Bundling & Minification](#bundling--minification)
+    - [Enabling bundling & minification](#enabling-bundling--minification)
+    - [How to use bundling](#how-to-use-bundling)
 
 
 ## Preamble
@@ -51,9 +53,7 @@ There's a whole debate about which of these are better, and modern web developme
 One consideration for deciding between these two is that for applications with a large amount of dynamic elements, you don't want to have to call back to the server every time you want to render some new HTML. Also, any functionality that requires an interactive UI without page refreshes (i.e. a list to which you add items without a page reload, or a form where the fields defined are dependent on each other) would be best served by a client side framework.
 
 
-## ASP.NET MVC
-
-### Razor & MVC
+## Razor & MVC
 Razor is a markup syntax that lets you embed server-based code (Visual Basic and C#) into web pages. It can be seen as an evolution of the old “.aspx” style markup.
 
 ASP.NET MVC has implemented a view engine that allows us to use Razor inside of an MVC application to produce HTML. 
@@ -68,7 +68,7 @@ Razor can either be used as part of a classic MVC-structured application, or as 
 1. Variables can be used to store values
 1. Files have the extension `.cshtml`
 
-```
+```html
 <!-- Single statement blocks  -->
 @{ var total = 7; }
 @{ var myMessage = "Hello World"; }
@@ -91,7 +91,7 @@ You'll often work with the `Request` object, which gives you information like th
 
 The following example shows how to access properties of the `Request` object and how to call the `MapPath()` method of the Request object, which gives you the absolute path of the page on the server:
 
-```
+```html
 <table border="1">
 <tr>
     <td>Requested URL</td>
@@ -158,3 +158,59 @@ Some useful built-in Razor helpers include:
 **Sources:**
 - https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c
 - https://www.w3schools.com/asp/razor_intro.asp
+
+
+## Bundling & Minification
+Bundling and minification are two techniques you can use since ASP.NET 4.5 to improve request load time. Bundling and minification improve load time by reducing the number of requests to the server and reducing the size of requested assets (such as CSS and JavaScript.)
+
+Most of the current major browsers limit the number of simultaneous connections per each hostname to six. That means that while six requests are being processed, additional requests for assets on a host will be queued by the browser, so if your website is comprised of a great number of `.html`/`.css`/`.js` files, this will significantly impair page load time.
+
+- **Bundling** allows you to combine (bundle) multiple files into a single file.
+    - You can create CSS, JavaScript and other bundles. 
+    - Fewer files means fewer HTTP requests and that can improve first page load performance.
+- **Minification** performs a variety of different code optimizations to scripts or css, such as removing unnecessary white space and comments and shortening variable names to one character. 
+
+### Enabling bundling & minification
+To enable bundling & minification, set the value of the `debug` attribute in the `compilation` element in the *Web.config* file to `false`:
+```xml
+<system.web>
+    <compilation debug="false" />
+    <!-- Lines removed for clarity. -->
+</system.web>
+```
+Alternatively, you can enable bundling & minification with the `EnableOptimizations` property on the `BundleTable` class - NB this will oerride the Web.config setting:
+```c#
+public static void RegisterBundles(BundleCollection bundles)
+{
+    bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                 "~/Scripts/jquery-{version}.js"));
+
+    // Code removed for clarity.
+    BundleTable.EnableOptimizations = true;
+}
+```
+
+**NB:** Minified files have *.min.* in the file name, e.g.: *FileX.min.js*
+
+### How to use bundling
+A *BundleConfig.cs* file will be created in any new ASP.NET MVC project (the default location for this is *App\_Start\BundleConfig.cs*).
+
+Use the `RegisterBundles` method to define any new bundles, and rules for the sources they should be created from, for example:
+```c#
+public static void RegisterBundles(BundleCollection bundles)
+{
+     bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                 "~/Scripts/jquery-{version}.js"));
+         // Code removed for clarity.
+}
+```
+- This creates a new JavaScript bundle named "`~/bundles/jquery`" that includes all the appropriate files in the Scripts folder that match the wild card string "~/Scripts/jquery-{version}.js".
+- The `Bundle` class' `Include()` method takes an array of strings, where each string is a virtual path to a resource. 
+- A range of other methods exist, for example `IncludeDirectory()` to add all the files in a directory (and optionally all subdirectories) which match a search pattern.
+
+#### Referencing bundles in the view
+Bundles are referenced in views using the `Render()` method, (`Styles.Render()` for CSS and `Scripts.Render()` for JavaScript). The following markup from the *Views\Shared\_Layout.cshtml* file shows how the default ASP.NET internet project views reference CSS and JavaScript bundles.
+
+
+**Sources:**
+- https://docs.microsoft.com/en-us/aspnet/mvc/overview/performance/bundling-and-minification
