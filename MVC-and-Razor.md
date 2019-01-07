@@ -211,6 +211,26 @@ public static void RegisterBundles(BundleCollection bundles)
 #### Referencing bundles in the view
 Bundles are referenced in views using the `Render()` method, (`Styles.Render()` for CSS and `Scripts.Render()` for JavaScript). The following markup from the *Views\Shared\_Layout.cshtml* file shows how the default ASP.NET internet project views reference CSS and JavaScript bundles.
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @* Markup removed for clarity.*@    
+    @Styles.Render("~/Content/themes/base/css", "~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @* Markup removed for clarity.*@
+   
+   @Scripts.Render("~/bundles/jquery")
+   @RenderSection("scripts", required: false)
+</body>
+</html>
+```
+ 
+- The Render methods takes an array of strings, so you can add multiple bundles in one line of code.
+- The bundle names need to match the ones created in the *BundleConfig.cs*.
+
 
 **Sources:**
 - https://docs.microsoft.com/en-us/aspnet/mvc/overview/performance/bundling-and-minification
