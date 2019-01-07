@@ -28,7 +28,10 @@ Google developed AngularJS in 2009 and version 1.0 was released in 2012. Angular
 
 
 ### AJAX & Angular
-- AJAX is a technology that allows us to get data from a server without the need to refresh a webpage.
+- AJAX (Asynchronous JavaScript And XML) is a technology that allows us to get data from a server without the need to refresh a webpage.
+  - It does so by using the [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) (XHR) object to communicate with servers.
+  - It can send and receive information in various formats, including JSON, XML, HTML, and text files.
+  - [More about AJAX](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started)
 
 - Angular extends this idea. Even though the entire application is loaded into the browser when user requests a URL, in most cases the application will make additional requests for data back to the server via an AJAX call.
 
