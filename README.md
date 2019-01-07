@@ -5,6 +5,7 @@
 
 ### HTML & CSS
 - [CSS Notes](https://github.com/minkaotic/front-end-notes/blob/master/CSS-Notes.md)
+- [SASS Notes](https://github.com/minkaotic/front-end-notes/blob/master/SASS-Notes.md)
 
 ### JavaScript
 - [JavaScript & the DOM](https://github.com/minkaotic/front-end-notes/blob/master/Javascript-and-the-DOM.md)
