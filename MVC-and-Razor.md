@@ -9,6 +9,9 @@
 - [Bundling & Minification](#bundling--minification)
     - [Enabling bundling & minification](#enabling-bundling--minification)
     - [How to use bundling](#how-to-use-bundling)
+- [Tag Helpers](#tag-helpers)
+    - [Using Tag Helpers](#using-tag-helpers)
+    - [Building your own Tag Helpers](#building-your-own-tag-helpers)
 
 
 ## Preamble
@@ -234,3 +237,29 @@ Bundles are referenced in views using the `Render()` method, (`Styles.Render()` 
 
 **Sources:**
 - https://docs.microsoft.com/en-us/aspnet/mvc/overview/performance/bundling-and-minification
+
+
+## Tag Helpers
+Tag Helpers enable server-side code to participate in creating and rendering HTML elements in Razor files.
+
+- Example: The built-in ImageTagHelper can append a version number to the image name. Whenever the image changes, the server generates a new unique version for the image, so clients are guaranteed to get the current image (instead of a stale cached image).
+- There are many built-in Tag Helpers for common tasks - such as creating forms, links, loading assets and more - and even more available in public GitHub repositories and as NuGet packages.
+    - Most built-in Tag Helpers target standard HTML elements and provide server-side attributes for the element.
+- Tag Helpers are authored in C#, and they *target HTML elements* based on element name, attribute name, or parent tag.
+
+For the most part, Razor markup using Tag Helpers looks like standard HTML. A rich IntelliSense environment helps create and navigate HTML and Razor markup.
+
+### Using Tag Helpers
+
+
+
+### Building your own Tag Helpers
+Custom Tag Helpers need to implement [the abstract base class `TagHelper`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.razor.taghelpers.taghelper?view=aspnetcore-2.2).
+
+*Add notes here based on https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring?view=aspnetcore-2.2*
+
+
+**Sources:**
+- https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-2.2
+- https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring?view=aspnetcore-2.2
+
