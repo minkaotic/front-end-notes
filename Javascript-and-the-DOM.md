@@ -23,7 +23,7 @@ __________
 - manipulating elements
 - listening for user actions
 
-This is based on the **DOM (Document Object Model)**
+This is based on the **DOM (Document Object Model)**.
 
 __________
 
@@ -96,7 +96,7 @@ const body = document.getElementsByTagName('body')[0];
 
 It's often possible to use different selectors to achieve the same thing. To decide which one is the best option, consider browser compatibility as well as other details in a given selector's spec.
 
-Resources:
+Resources for this include:
 - [MSDN](https://developer.mozilla.org/en-US/)
 - [Can I Use...](https://caniuse.com/#)
 - [Babel](https://babeljs.io/)
@@ -173,7 +173,7 @@ Any time users interact with a webpage, they generate all kinds of events: movin
 
 - See also: [Thorough list of DOM events on MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
 
-__________________
+__________
 
 ### First Class Functions in JS
 Given a function that takes another function as an argument, such as:
@@ -232,3 +232,8 @@ document.addEventListener('click', (event) => {
 ```
 
 To make decisions based on the properties of the element that triggered the event, you can access these directly via the `target`, for example: `event.target.tagName`.
+
+
+***TO DO: Read more about event bubbling & add notes here:***
+- https://www.sitepoint.com/event-bubbling-javascript/
+- https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
