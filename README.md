@@ -10,6 +10,7 @@
 ### JavaScript
 - [JavaScript & the DOM](https://github.com/minkaotic/front-end-notes/blob/master/Javascript-and-the-DOM.md)
 - [Object-Oriented JavaScript](https://github.com/minkaotic/front-end-notes/blob/master/Object-oriented-Javascript.md)
+- [ES Modules](https://github.com/minkaotic/front-end-notes/blob/master/ES-Modules.md)
 - ***JS Frameworks:***
   - [Vue.JS Notes](https://github.com/minkaotic/front-end-notes/blob/master/Vue-JS-Notes.md)
   - [Angular (JS) Notes](https://github.com/minkaotic/front-end-notes/blob/master/Angular-Notes.md)
