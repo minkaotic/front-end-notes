@@ -13,6 +13,7 @@
     - [Using Tag Helpers](#using-tag-helpers)
     - [Building your own Tag Helpers](#building-your-own-tag-helpers)
 
+_________________________
 
 ## Preamble
 ASP.NET is Microsoft's technology for running dynamic web pages on web servers. ASP.NET Razor is a server-side markup language that lets you embed server-based (C#) code into web pages.
@@ -55,6 +56,7 @@ There's a whole debate about which of these are better, and modern web developme
 
 One consideration for deciding between these two is that for applications with a large amount of dynamic elements, you don't want to have to call back to the server every time you want to render some new HTML. Also, any functionality that requires an interactive UI without page refreshes (i.e. a list to which you add items without a page reload, or a form where the fields defined are dependent on each other) would be best served by a client side framework.
 
+_________________________
 
 ## Razor & MVC
 Razor is a markup syntax that lets you embed server-based code (Visual Basic and C#) into web pages. It can be seen as an evolution of the old “.aspx” style markup.
@@ -162,6 +164,7 @@ Some useful built-in Razor helpers include:
 - https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c
 - https://www.w3schools.com/asp/razor_intro.asp
 
+_________________________
 
 ## Bundling & Minification
 Bundling and minification are two techniques used to improve request load time. Bundling and minification improve load time by reducing the number of requests to the server and reducing the size of requested assets (such as CSS and JavaScript.)
@@ -233,8 +236,8 @@ public static void RegisterBundles(BundleCollection bundles)
 <body>
     @* Markup removed for clarity.*@
    
-   @Scripts.Render("~/bundles/jquery")
-   @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
 ```
@@ -246,6 +249,7 @@ public static void RegisterBundles(BundleCollection bundles)
 **Sources:**
 - https://docs.microsoft.com/en-us/aspnet/mvc/overview/performance/bundling-and-minification
 
+_________________________
 
 ## Tag Helpers
 Tag Helpers enable server-side code to participate in creating and rendering HTML elements in Razor files.
@@ -272,6 +276,7 @@ Custom Tag Helpers need to implement [the abstract base class `TagHelper`](https
 - https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-2.2
 - https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring?view=aspnetcore-2.2
 
+_________________________
 
 ## Areas in ASP.NET
 The main use of Areas is to physically partition web projects in separate units. 
