@@ -10,6 +10,7 @@
 - [Events](#Events)
   - [First Class Functions in JS](#first-class-functions-in-js)
   - [Listening for Events](#listening-for-events)
+  - [Event bubbling & delegation](#event-bubbling--delegation)
   
 __________
 
@@ -214,26 +215,32 @@ _______________
 
 The callback function that is passed to `addEventListener` is often called an *event handler*.
 
-#### Event bubbling and delegation
+_______________
+
+### Event bubbling & delegation
+
 An event received by an element doesn't stop with that one element. That event moves to other elements like the parent, and other ancestors of the element. This is called "event bubbling".
 
 ![DOM tree](https://github.com/minkaotic/front-end-notes/blob/master/img/dom_tree.png)
 
 This is useful because it allows us to add an event listener to a parent element and let it handle events on its children:
-- without the need for for loops for each child that we want the event to be handled for
+- without the need for *for loops* for each child that we want the event to be handled for
 - makes the code resilient to changes to the DOM that add or remove children
 - ***But: How does the parent know which child triggered the event?***
 
-...by passing the `event` object as an argument to the `eventListener`! This allows us to call the `event`'s `target`. E.g.:
+...by passing the `event` object as an argument to the `eventListener`! This allows us to call the **event target**. E.g.:
 ```
 document.addEventListener('click', (event) => {
   console.log(event.target);
 });
 ```
 
-To make decisions based on the properties of the element that triggered the event, you can access these directly via the `target`, for example: `event.target.tagName`.
+- You can even access the *properties* of the element that triggered the event directly via the `target`, for example: `event.target.tagName`. This is useful if you need to make decisions based on these properties.
 
+- `event.currentTarget` is the node on which the running listener was registered on. This is the same value of the listener invocation context, i.e, the value referenced by the `this` keyword.
 
-***TO DO: Read more about event bubbling & add notes here:***
-- https://www.sitepoint.com/event-bubbling-javascript/
-- https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
+***Some more notes on event propagation...***
+- *Event Propagation* is the blanket term for both event bubbling and event capturing
+- Technically, propagation doesn't only bubble up, but flows down from the Window during the capture phase first. This is explained well in the article ["What Is Event Bubbling in JavaScript? Event Propagation Explained"](https://www.sitepoint.com/event-bubbling-javascript/)
+- The event propagation can be stopped in any listener by invoking the `stopPropagation()` method of the event object. (Any other remaining listeners attached on the current target will still receive the event, but it won't be bubbled up further from there.)
+- *Event Cancellation:* Some events are associated with a default action that the browser executes at the end of the propagation. For instance, the click on a link element or the click on a form submit button causes the browser to navigate to a new page, or submit the form respectively. It is possible to avoid the execution of such default actions by calling the event object's `event.preventDefault()`, in a listener.
