@@ -7,8 +7,8 @@
     - [Razor syntax](#razor-syntax)
     - [Razor Helpers](#razor-helpers)
 - [Bundling & Minification](#bundling--minification)
-    - [Enabling bundling & minification](#enabling-bundling--minification)
-    - [How to use bundling](#how-to-use-bundling)
+    - [Webpack](#webpack)
+    - [ASP.NET bundler](#aspnet-bundler)
 - [Tag Helpers](#tag-helpers)
     - [Using Tag Helpers](#using-tag-helpers)
     - [Building your own Tag Helpers](#building-your-own-tag-helpers)
@@ -164,7 +164,7 @@ Some useful built-in Razor helpers include:
 
 
 ## Bundling & Minification
-Bundling and minification are two techniques you can use since ASP.NET 4.5 to improve request load time. Bundling and minification improve load time by reducing the number of requests to the server and reducing the size of requested assets (such as CSS and JavaScript.)
+Bundling and minification are two techniques used to improve request load time. Bundling and minification improve load time by reducing the number of requests to the server and reducing the size of requested assets (such as CSS and JavaScript.)
 
 Most of the current major browsers limit the number of simultaneous connections per each hostname to six. That means that while six requests are being processed, additional requests for assets on a host will be queued by the browser, so if your website is comprised of a great number of `.html`/`.css`/`.js` files, this will significantly impair page load time.
 
@@ -173,15 +173,25 @@ Most of the current major browsers limit the number of simultaneous connections 
     - Fewer files means fewer HTTP requests and that can improve first page load performance.
 - **Minification** performs a variety of different code optimizations to scripts or css, such as removing unnecessary white space and comments and shortening variable names to one character. 
 
-### Enabling bundling & minification
-To enable bundling & minification, set the value of the `debug` attribute in the `compilation` element in the *Web.config* file to `false`:
+
+### Webpack
+***NB: Most modern day projects tend to use WebPack*** instead of ASP.NET's built in bundler. Webpack essentially does the same thing, but works better with UI frameworks such as Angular, React etc.
+
+For more details, refer to:
+- [How to use Webpack in ASP.Net core projects](https://codeburst.io/how-to-use-webpack-in-asp-net-core-projects-a-basic-react-template-sample-25a3681a5fc2)
+
+
+### ASP.NET bundler
+Since ASP.NET 4.5, it comes with its own bundler.
+
+**To enable ASP.NET bundling & minification**, set the value of the `debug` attribute in the `compilation` element in the *Web.config* file to `false`:
 ```xml
 <system.web>
     <compilation debug="false" />
     <!-- Lines removed for clarity. -->
 </system.web>
 ```
-Alternatively, you can enable bundling & minification with the `EnableOptimizations` property on the `BundleTable` class - NB this will oerride the Web.config setting:
+Alternatively, you can enable bundling & minification with the `EnableOptimizations` property on the `BundleTable` class - NB this will override the Web.config setting:
 ```c#
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -195,8 +205,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 **NB:** Minified files have *.min.* in the file name, e.g.: *FileX.min.js*
 
-### How to use bundling
-A *BundleConfig.cs* file will be created in any new ASP.NET MVC project (the default location for this is *App\_Start\BundleConfig.cs*).
+A ***BundleConfig.cs*** file will be created in any new ASP.NET MVC project (the default location for this is *App\_Start\BundleConfig.cs*).
 
 Use the `RegisterBundles` method to define any new bundles, and rules for the sources they should be created from, for example:
 ```c#
@@ -211,8 +220,7 @@ public static void RegisterBundles(BundleCollection bundles)
 - The `Bundle` class' `Include()` method takes an array of strings, where each string is a virtual path to a resource. 
 - A range of other methods exist, for example `IncludeDirectory()` to add all the files in a directory (and optionally all subdirectories) which match a search pattern.
 
-#### Referencing bundles in the view
-Bundles are referenced in views using the `Render()` method, (`Styles.Render()` for CSS and `Scripts.Render()` for JavaScript). The following markup from the *Views\Shared\_Layout.cshtml* file shows how the default ASP.NET internet project views reference CSS and JavaScript bundles.
+**Bundles are referenced in views using the `Render()` method**, (`Styles.Render()` for CSS and `Scripts.Render()` for JavaScript). The following markup from the *Views\Shared\_Layout.cshtml* file shows how the default ASP.NET internet project views reference CSS and JavaScript bundles.
 
 ```html
 <!DOCTYPE html>
@@ -251,6 +259,7 @@ For the most part, Razor markup using Tag Helpers looks like standard HTML. A ri
 
 ### Using Tag Helpers
 
+*Add more notes here based on sources below*
 
 
 ### Building your own Tag Helpers
@@ -262,4 +271,9 @@ Custom Tag Helpers need to implement [the abstract base class `TagHelper`](https
 **Sources:**
 - https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-2.2
 - https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring?view=aspnetcore-2.2
+
+
+## Areas in ASP.NET
+The main use of Areas is to physically partition web projects in separate units. 
+
 
