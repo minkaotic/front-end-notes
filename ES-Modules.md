@@ -32,21 +32,65 @@ As an additional benefit on top of avoiding the problems above, the the ability 
 ## How ES Modules work
 Modules build up a graph of dependencies, which starts from a specified entry point. From there, the dependencies are pulled in via `import` statements.
 
-The browser uses these `import` statements to find the rest of the code needed to run. As the browser can't work with the files themselves, it parses all of code in these files to turn them into data structures called **module records**. From there, it turns the module record into a **module instance**, which combines *the code* and *the state*.
+The browser (or a transpiler like Webpack!) uses these `import` statements to find the rest of the code needed to run.
 
 
 ## How to use Modules
+ES6 modules are stored in files. There is exactly one module per file and one file per module.
 
-Add the `type=module` attribute to the script element:
+### Basic imports & exports
+To **export** a variable in the file **lib.js**:
+```javascript
+export const myVariable = 'some important text';
+export function square(x) {
+  return x * x;
+}
 ```
-<script type="module">
-  import {addTextToBody} from './utils.mjs';
 
-  addTextToBody('Modules are pretty cool.');
-</script>
+To **import variables**:
+```javascript
+import {myVariable, square} from 'lib';
 ```
+
+To **import the whole module**:
+```javascript
+import * as lib from 'lib';
+```
+
+Import if file is in a different directory:
+```javascript
+import * as lib from '../stuff/lib';
+```
+
+### Default exports
+There can be a single *default export* in a module.
+
+For example, in file **lib.js**:
+```javascript
+export default function () { ··· } // no semicolon!
+```
+Import & usage:
+```javascript
+import myFunc from 'lib';
+myFunc();
+```
+
+Another example, this time using a class - in **lib.js**:
+```javascript
+export default class { ··· } // no semicolon!
+```
+Import & usage:
+```javascript
+import MyClass from 'MyClass';
+const inst = new MyClass();
+```
+
+***NB:*** There is no semicolon at the end if you default-export a function or a class (which are anonymous declarations)!
+
+### Use of modules in browsers
+Note that the use & syntax of modules in browsers is a bit different, see "[ECMAScript modules in browsers](https://jakearchibald.com/2017/es-modules-in-browsers/)" for more details on that.
 
 
 **Sources:**
 - https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/
-- https://jakearchibald.com/2017/es-modules-in-browsers/
+- http://exploringjs.com/es6/ch_modules.html
