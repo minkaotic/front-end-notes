@@ -63,7 +63,7 @@ ______________________
 #### Some more detail on Specificity
 - **Exceptions:** When **`!important`** is used on a style declaration, this declaration overrides any other declarations. *This is bad practice and should be avoided.* 
 
-- **When using descendant selectors**, first the number of IDs are assessed, then the number of classes, then elements (including pseudo elements). The selector with the most IDs wins; if they are equal, then the selector with the most classes, and if these are equal too, then the selector with the highest number of elements.
+- **When using descendant selectors**, the selector with the most IDs in it takes precendence; if they are equal, then the selector with the greatest number of classes, attributes & pseudo-classes, and if these are equal too, then the selector with the highest number of elements (incl. pseudo elements).
   - Use this [Specificity Calculator](https://specificity.keegan.st/) if in doubt about any two selectors :).
 
 As with any other specificity calculations, if there are two `!important` rules, or two descendant selectors with the same specificity, then the decision is made on source order.
