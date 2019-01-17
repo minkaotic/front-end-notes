@@ -60,6 +60,14 @@ ______________________
 
 - **Inheritance:** if no specific rules are in place for them, elements will inherit the style values of their parent element.
 
+#### Some more detail on Specificity
+- **Exceptions:** When **`!important`** is used on a style declaration, this declaration overrides any other declarations. *This is bad practice and should be avoided.* 
+
+- **When using descendant selectors**, first the number of IDs are assessed, then the number of classes, then elements (including pseudo elements). The selector with the most IDs wins; if they are equal, then the selector with the most classes, and if these are equal too, then the selector with the highest number of elements.
+  - Use this [Specificity Calculator](https://specificity.keegan.st/) if in doubt about any two selectors :).
+
+As with any other specificity calculations, if there are two `!important` rules, or two descendant selectors with the same specificity, then the decision is made on source order.
+
 
 ## Text & Fonts
 - Create a **font stack** to make sure we have fallbacks of *websafe fonts* as well as *generic font families* defined in case our desired font doesn't work on a given machine
