@@ -4,6 +4,7 @@
 ## Contents
 
 ### HTML & CSS
+- [HTML Notes](https://github.com/minkaotic/front-end-notes/blob/master/HTML-Notes.md)
 - [CSS Notes](https://github.com/minkaotic/front-end-notes/blob/master/CSS-Notes.md)
 - [SASS Notes](https://github.com/minkaotic/front-end-notes/blob/master/SASS-Notes.md)
 
