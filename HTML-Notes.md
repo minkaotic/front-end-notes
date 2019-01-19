@@ -1,10 +1,11 @@
 # HTML Notes
 **H**yper**t**ext **M**arkup **L**anguage provides the ***content layer*** of a webpage (*cf. CSS=presentation layer, JS=behaviour layer*) and forms its structural foundation. A webpage's HTML layer is sometimes referred to as *'template'*, especially if it is used in conjunction with frameworks like Angular or ASP.NET MVC.
 
-## Contents
+### Contents
 - [Global structure of an HTML document](#global-structure-of-an-HTML-document)
 - [Semantic HTML](#semantic-html)
 
+--------------------------
 
 ## Global structure of an HTML document
 ```
