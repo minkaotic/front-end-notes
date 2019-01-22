@@ -91,7 +91,7 @@ Instead of manipulating the DOM “directly,” you annotate your DOM with metad
   - or include a script tag with a link to the Angular file’s CDN version: `<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>`
 - Bootstrap AngularJS into the HTML using the `ng-app` directive and the application name:
 
-  ```
+  ```html
   <!doctype html>
   <html lang="en">
     <head>
@@ -106,13 +106,13 @@ Instead of manipulating the DOM “directly,” you annotate your DOM with metad
 
 #### in the JavaScript file...
 - Create the application with Angular's `module()` method, providing the name of the application (matching the name used in the `ng-app` directive), and an array of its dependencies (in this case, none):
-  ```
+  ```javascript
   angular.module("todoListApp", []);
   ```
 
 #### Adding a simple directive
 In a new JS file, create the directive as below (*NB!* the single parameter version of the `module()` method used in this example will make this directive refer back to the existing `exampleApp`, rather than creating a new one!):
-```
+```javascript
 angular.module('todoListApp')
 .directive('helloWorld', function() {
   return {
@@ -122,14 +122,14 @@ angular.module('todoListApp')
 ```
 
 Then add this directive into the HTML file as a tag - note the change from camel case to all lower case with hyphens for the directive name:
-```
+```html
 <body ng-app="todoListApp">
   <hello-world></hello-world>
   ...
 </body>
 ```
 Alternatively, directives can also be invoked via attributes of an existing tag:
-```
+```html
 <body ng-app="todoListApp">
   <div hello-world></div>
   ...
@@ -140,7 +140,7 @@ Both of these will make "*This is the hello world directive!*" appear in the vie
 
 #### Creating & using a controller
 Use the `controller()` method of the module (back in the JS file where the app is created):
-```
+```javascript
 angular.module('todoListApp', [])
 .controller('mainCtrl', function($scope) {
   $scope.helloWorld = function() {
@@ -153,7 +153,7 @@ angular.module('todoListApp', [])
 - In order to define a function that can be used to alter the application, we attach it to the `$scope` object (in other words: `$scope.helloWorld = function() {...}` creates a function that is attached to the `$scope` object).
 
 **In order to use this controller in our application, we have to inject it into the template**, effectively telling Angular "this is where I want my controller to be used". This is done with the built-in `ng-controller` directive, which has to be set to the name of the controller defined in the JavaScript file:
-```
+```html
 <body ng-app="todoListApp">
   <div ng-controller="mainCtrl">
     <a href="" ng-click="helloWorld()">Log Hello World!</a>
