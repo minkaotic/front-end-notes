@@ -2,8 +2,14 @@
 
 EcmaScript modules (ESM) bring an official, standardized module system to JavaScript, allowing programmers to write independent units of code that other programmers can explicitly include (or mark as “required”) in their Javascript code.
 
+### Contents
+- [What problems do Modules solve?](#what-problems-do-modules-solve)
+- [How do Modules help?](#how-do-modules-help?)
+- [How ES Modules work](#how-es-modules-work)
+- [How to use Modules](#how-to-use-modules)
+- [History of Modules in JavaScript](#history-of-modules-in-javascript)
 
-### What problems do Modules solve?
+## What problems do Modules solve?
 All revolves around how variables are managed in ES:
 
 - JavaScript has **scope**, which means that variables defined in a given function can't be accessed by another function.
@@ -16,7 +22,7 @@ All revolves around how variables are managed in ES:
   - Malicious code can manipulate variables in the global scope to make your code do something evil, or non-malicious code could just accidentally clobber your variable.
 
 
-### How do Modules help?
+## How do Modules help?
 Modules make it possible to group the variables and functions that are related to one another, and make them available in a module scope. This can be used to share variables between the functions in the module -
 
 - But unlike function scopes, module scopes can make their variables available to *other modules* as well. 
@@ -89,6 +95,13 @@ const inst = new MyClass();
 
 ### Use of modules in browsers
 Note that the use & syntax of modules in browsers is a bit different, see "[ECMAScript modules in browsers](https://jakearchibald.com/2017/es-modules-in-browsers/)" for more details on that.
+
+
+## History of Modules in JavaScript
+
+https://flaviocopes.com/es-modules/
+https://nodejs.org/api/esm.html#esm_notable_differences_between_import_and_require
+https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
 
 
 **Sources:**
