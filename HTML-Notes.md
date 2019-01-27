@@ -4,6 +4,7 @@
 ### Contents
 - [Global structure of an HTML document](#global-structure-of-an-HTML-document)
 - [Semantic HTML](#semantic-html)
+- [SVGs](#svgs)
 
 --------------------------
 
@@ -45,3 +46,22 @@
 - `<article>` - 
 
 
+## SVGs
+**Scalable Vector Graphics** (SVG) is an XML-based markup language for describing two-dimensional based vector graphics. SVG is essentially to graphics what HTML is to text.
+
+A ***vector graphic*** is composed of points in space (=vectors) each defined by an x- & y-coordinate, that are connected to create a shape. This means that, as opposed to raster graphics (like PNGs or JPGs), it won't become pixellated, no matter how much you zoom in.
+
+**Tools for drawing vector graphics:**
+- Adobe Illustrator
+- [Method Draw](https://editor.method.ac/) (free online editor)
+- [Ballpoint](https://ballpoint.io/) (free online editor)
+- [SVG Edit](https://svg-edit.github.io/svgedit/releases/svg-edit-2.8.1/svg-editor.html) (free online editor)
+
+***SVG is a text-based open Web standard***, explicitly designed to work with other web standards such as CSS and DOM. SVG images and their related behaviors are defined in *XML text files* which means they can be searched, indexed, scripted and compressed. Additionally this means they can be created and edited with any text editor and with drawing software. 
+
+
+
+
+**Sources:**
+- [MDN SVG Documentation](https://developer.mozilla.org/en-US/docs/Web/SVG)
+- [SVG Basics on Treehouse](https://teamtreehouse.com/library/vector-graphics)
