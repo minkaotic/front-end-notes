@@ -26,6 +26,7 @@
   - [Display Modes](#display-modes)
   - [Floats](#floats)
   - [Flexbox](#flexbox)
+- **[Advanced CSS Snippets](#advanced-css-snippets)**
 
 ______________________
 
@@ -409,3 +410,15 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 
 
 ________________________________________
+
+## Advanced CSS Snippets
+
+To apply some logic to all but the first sibling, `.item-class:not(:first-child)` can be used. In the following example, this is used to apply some pipe separators between a list of inline items:
+
+```css
+.item-class:not(:first-child) {
+  border-left: 1px #d7d7d7 solid;
+  padding-left: 20px;
+  margin-left: 15px;
+}
+```
