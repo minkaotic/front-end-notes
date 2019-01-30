@@ -4,6 +4,8 @@
 ### Contents
 - [Global structure of an HTML document](#global-structure-of-an-HTML-document)
 - [Semantic HTML](#semantic-html)
+- [Complex elements](#complex-elements)
+  - [Forms & inputs](#forms--inputs)
 - [SVGs](#svgs)
 
 --------------------------
@@ -46,6 +48,25 @@
 - `<footer>` - Typically contains information about the author of the section (or page), copyright data or links to related documents. A page can have more than one footer.
 - `<section>` - A standalone [section](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section) — which doesn't have a more specific semantic element to represent it — contained within an HTML document. The first element in a section should be its heading.
 - `<article>` - 
+
+
+## Complex elements
+
+### Forms & inputs
+To create a **text input** with placeholder text:
+```html
+<input type="text" placeholder="cat photo URL">
+```
+
+*NB:* You can build **web forms** that actually submit data to a server purely using HTML. To do this, wrap the `input` element in a `form` element and specify an `action`. Then add a `button` of type `submit` to your form. Clicking this button will send the data from your form to the URL you specified with your form's `action` attribute.:
+```html
+<form action="/submit-cat-photo">
+  <input type="text" placeholder="cat photo URL">
+  <button type="submit">Submit</button>
+</form>
+```
+
+To make an input field **required**, you can just add the attribute `required` within your input element: `<input type="text" required>`. When used in combination with a `button` inside a `form`, this will actually prevent the button from being clicked until the required field is filled in.
 
 
 ## SVGs
