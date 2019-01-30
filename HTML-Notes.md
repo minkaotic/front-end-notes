@@ -20,6 +20,8 @@
 </html>
 ```
 
+- Comments in HTML starts with `<!--`, and ends with `-->`.
+
 **Further resources:**
 - [What's in the head? Metadata in HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
 - [HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
