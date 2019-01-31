@@ -9,6 +9,7 @@
 - **[Box Model Elements](#box-model-elements)**
   - [Borders](#borders)
   - [Margin, padding, width and box-sizing](#margin-padding-width-and-box-sizing)
+  - [Min-Height/Weight & Max-Height/Weight](#min-height-w)
   - [The calc() function](#the-calc-function)
   - [Why margins collapse](#why-margins-collapse)
 - **[Colour & Background Images](#colour--background-images)**
@@ -120,6 +121,8 @@ Add a web font to your style sheet like this:
 - `max-width` sets the maximum width of an element, preventing elements to become too large to look good on big screens; when set as percentage values can also be used as part of responsive design *
 
 (* for more on `box-sizing` and `max-width` see https://teamtreehouse.com/library/boxsizing-and-maxwidth)
+
+### Min-Height/Weight & Max-Height/Weight
 
 ### The calc() function
 - Allows to apply mathematical operations and assign the result to any CSS property that takes a length or other number value
