@@ -9,7 +9,7 @@
 - **[Box Model Elements](#box-model-elements)**
   - [Borders](#borders)
   - [Margin, padding, width and box-sizing](#margin-padding-width-and-box-sizing)
-  - [Min-Height/Weight & Max-Height/Weight](#min-height-w)
+  - [Min-Height/Weight & Max-Height/Weight](#min-heightweight--max-heightweight)
   - [The calc() function](#the-calc-function)
   - [Why margins collapse](#why-margins-collapse)
 - **[Colour & Background Images](#colour--background-images)**
@@ -123,6 +123,11 @@ Add a web font to your style sheet like this:
 (* for more on `box-sizing` and `max-width` see https://teamtreehouse.com/library/boxsizing-and-maxwidth)
 
 ### Min-Height/Weight & Max-Height/Weight
+- `max-width`/`min-width` will override `width` (same for `height`, of course)
+- **By contrast**, `width`/`height` will *only* affect the element if they are *within the previously specified `min` or `max` values!*
+
+*Continue reading here: https://css3-tutorial.net/dimensions/min-width-max-width-min-height-max-height/*
+
 
 ### The calc() function
 - Allows to apply mathematical operations and assign the result to any CSS property that takes a length or other number value
