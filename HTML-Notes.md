@@ -89,20 +89,20 @@ A ***vector graphic*** is composed of points in space (=vectors) each defined by
 - Typical uses cases for vector graphics include Vector logos, illustrations, technical drawings; but any image that can be drawn as a path by a computer is more efficiently stored as vector data.
 
 ### Different ways of adding SVGs to a web page
-Three different ways: 
+**Three different ways:**
 1. Use it just like a normal image file. All modern browsers will accept the SVG file format in the `<img>` element. SVGs can also be added as background images in the same way as other image formats.
 1. Embed SVG markup directly into HTML documents. This allows to access and style parts of the SVG with CSS.
 1. Embed SVG using the HTML `object` element - allows for browser caching *as well as* applying styling, but is more fiddly in assigning the right stylesheet and often not worth the resulting maintainability cost.
 
-Performance considerations: 
+**Performance considerations:**
 - embedding into HTML will reduce the number of HTTP requests required to load the page
 - however, directly embedded SVGs will not be cached by the browser like other images, so will need to be reloaded every time
 - therefore, directly embedded SVGs should have a small file size
 
-Manageability:
+**Manageability:**
 - stylesheets might affect SVGs that they shouldn't, and it can become hard to track what styles are applied to which SVGs.
 
-**-> Ideally add SVGs like a normal image, and only embed them if you aboslutely have a requirement to style them**
+> **Ideally add SVGs like a normal image, and only embed them if you aboslutely have a requirement to style them.**
 
 
 **Sources:**
