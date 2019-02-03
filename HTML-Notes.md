@@ -2,11 +2,12 @@
 **H**yper**t**ext **M**arkup **L**anguage provides the ***content layer*** of a webpage (*cf. CSS=presentation layer, JS=behaviour layer*) and forms its structural foundation. A webpage's HTML layer is sometimes referred to as *'template'*, especially if it is used in conjunction with frameworks like Angular or ASP.NET MVC.
 
 ### Contents
-- [Global structure of an HTML document](#global-structure-of-an-HTML-document)
-- [Semantic HTML](#semantic-html)
-- [Complex elements](#complex-elements)
+- **[Global structure of an HTML document](#global-structure-of-an-HTML-document)**
+- **[Semantic HTML](#semantic-html)**
+- **[Complex elements](#complex-elements)**
   - [Forms & inputs](#forms--inputs)
-- [SVGs](#svgs)
+- **[SVGs](#svgs)**
+  - [Adding SVGs to a web page](#adding-svgs-to-a-web-page)
 
 --------------------------
 
@@ -70,12 +71,12 @@ To make an input field **required**, you can just add the attribute `required` w
 
 
 ## SVGs
-**Scalable Vector Graphics** (SVG) is an XML-based markup language for describing two-dimensional based vector graphics. SVG is essentially to graphics what HTML is to text.
+**Scalable Vector Graphics** (SVG) is an XML-based markup language for describing two-dimensional vector graphics. *SVG is essentially to graphics what HTML is to text.*
 
 A ***vector graphic*** is composed of points in space (=vectors) each defined by an x- & y-coordinate, that are connected to create a shape. This means that, as opposed to raster graphics (like PNGs or JPGs), it won't become pixellated, no matter how much you zoom in.
 
 **Tools for drawing & optimising vector graphics:**
-- Adobe Illustrator
+- [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html)
 - [Method Draw](https://editor.method.ac/) (free online editor)
 - [Ballpoint](https://ballpoint.io/) (free online editor)
 - [SVG Edit](https://svg-edit.github.io/svgedit/releases/svg-edit-2.8.1/svg-editor.html) (free online editor)
@@ -84,12 +85,13 @@ A ***vector graphic*** is composed of points in space (=vectors) each defined by
 ***SVG is a text-based open Web standard***, explicitly designed to work with other web standards such as CSS and DOM. SVG images and their related behaviors are defined in *XML text files* which means they can be searched, indexed, scripted and compressed. Additionally this means they can be created and edited with any text editor and with drawing software. 
 
 **SVG or raster graphic??**
-If an image needs a great deal of variance in each pixel to render it properly (such as in a photograph or traditional artwork), storing the image as pixel data is more efficient than storing it as vector data.
+- If an image needs a great deal of variance in each pixel to render it properly (such as in a photograph or traditional artwork), storing the image as pixel data is more efficient than storing it as vector data.
+- Typical uses cases for vector graphics include Vector logos, illustrations, technical drawings; but any image that can be drawn as a path by a computer is more efficiently stored as vector data.
 
 ### Adding SVGs to a web page
 There are two different ways to do this: 
-- Use it just like a normal image file. All modern browsers will accept the SVG file format in the <img> element. SVGs can also be added as backround images in the same way as other image formats.
-- Embed SVG markup directly into HTML documents.
+1. Use it just like a normal image file. All modern browsers will accept the SVG file format in the `<img>` element. SVGs can also be added as backround images in the same way as other image formats.
+1. Embed SVG markup directly into HTML documents.
 
 **Sources:**
 - [MDN SVG Documentation](https://developer.mozilla.org/en-US/docs/Web/SVG)
