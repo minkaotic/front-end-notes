@@ -8,6 +8,7 @@
   - [Forms & inputs](#forms--inputs)
 - **[SVGs](#svgs)**
   - [Different ways of adding SVGs to a web page](#different-ways-of-adding-svgs-to-a-web-page)
+  - [Styling SVGs with CSS](#styling-svgs-with-css)
 
 --------------------------
 
@@ -104,7 +105,10 @@ A ***vector graphic*** is composed of points in space (=vectors) each defined by
 
 > **Ideally add SVGs like a normal image, and only embed them if you aboslutely have a requirement to style them.**
 
+### Styling SVGs with CSS
+- Make parts transparent with `opacity` and `stroke-opacity` (value between 0 and 1)
+- Define the fill colour with `fill`
+- Make things bolder with `stroke-width` - this can be useful for smaller screen sizes when styling responsive SVGs, as thicker stroke-widths can help lower resolution SVGs to retain detail and make it appear more iconographic.
 
-**Sources:**
+**More reources:**
 - [MDN SVG Documentation](https://developer.mozilla.org/en-US/docs/Web/SVG)
-- [SVG Basics on Treehouse](https://teamtreehouse.com/library/vector-graphics)
