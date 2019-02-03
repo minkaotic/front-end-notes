@@ -7,12 +7,12 @@
 - **[Complex elements](#complex-elements)**
   - [Forms & inputs](#forms--inputs)
 - **[SVGs](#svgs)**
-  - [Adding SVGs to a web page](#adding-svgs-to-a-web-page)
+  - [Different ways of adding SVGs to a web page](#different-ways-of-adding-svgs-to-a-web-page)
 
 --------------------------
 
 ## Global structure of an HTML document
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,7 +23,7 @@
 </html>
 ```
 
-- Comments in HTML starts with `<!--`, and ends with `-->`.
+- Comments in HTML start with `<!--`, and end with `-->`.
 
 **Further resources:**
 - [What's in the head? Metadata in HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
@@ -88,10 +88,22 @@ A ***vector graphic*** is composed of points in space (=vectors) each defined by
 - If an image needs a great deal of variance in each pixel to render it properly (such as in a photograph or traditional artwork), storing the image as pixel data is more efficient than storing it as vector data.
 - Typical uses cases for vector graphics include Vector logos, illustrations, technical drawings; but any image that can be drawn as a path by a computer is more efficiently stored as vector data.
 
-### Adding SVGs to a web page
-There are two different ways to do this: 
-1. Use it just like a normal image file. All modern browsers will accept the SVG file format in the `<img>` element. SVGs can also be added as backround images in the same way as other image formats.
-1. Embed SVG markup directly into HTML documents.
+### Different ways of adding SVGs to a web page
+Three different ways: 
+1. Use it just like a normal image file. All modern browsers will accept the SVG file format in the `<img>` element. SVGs can also be added as background images in the same way as other image formats.
+1. Embed SVG markup directly into HTML documents. This allows to access and style parts of the SVG with CSS.
+1. Embed SVG using the HTML `object` element - allows for browser caching *as well as* applying styling, but is more fiddly in assigning the right stylesheet and often not worth the resulting maintainability cost.
+
+Performance considerations: 
+- embedding into HTML will reduce the number of HTTP requests required to load the page
+- however, directly embedded SVGs will not be cached by the browser like other images, so will need to be reloaded every time
+- therefore, directly embedded SVGs should have a small file size
+
+Manageability:
+- stylesheets might affect SVGs that they shouldn't, and it can become hard to track what styles are applied to which SVGs.
+
+**-> Ideally add SVGs like a normal image, and only embed them if you aboslutely have a requirement to style them**
+
 
 **Sources:**
 - [MDN SVG Documentation](https://developer.mozilla.org/en-US/docs/Web/SVG)
