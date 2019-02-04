@@ -1,6 +1,7 @@
 # SASS Notes
 ## Contents
 - [The Powers of Sass](#the-powers-of-sass)
+- [Compiling a Directory of Sass Files](#compiling-a-directory-of-sass-files)
 
 __________________
 
@@ -16,3 +17,10 @@ __________________
 **Two Syntaxes**
 - "Indented Syntax" using file ending `.sass` - the original syntax; not compatible with regular CSS
 - "Sassy CSS" using file ending `.scss` - the latest generation of Sass; *CSS-friendly syntax*, i.e. any regular CSS is still valid in SCSS
+
+
+## Compiling a Directory of Sass Files
+You'll usually instruct Sass to auto-compile a directory of Sass files into one output CSS file. To watch an input directory called *scss* and generate the compiled output into a directory called *css*, run:
+```
+sass --watch scss:css
+```
