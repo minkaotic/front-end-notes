@@ -103,12 +103,12 @@ A ***vector graphic*** is composed of points in space (=vectors) each defined by
 **Manageability:**
 - stylesheets might affect SVGs that they shouldn't, and it can become hard to track what styles are applied to which SVGs.
 
-> **Ideally add SVGs like a normal image, and only embed them if you aboslutely have a requirement to style them.**
+> **Ideally add SVGs like a normal image, and only embed them if you absolutely have a requirement to style them.**
 
 ### Styling SVGs with CSS
 - Make parts transparent with `opacity` and `stroke-opacity` (value between 0 and 1)
 - Define the fill colour with `fill`
 - Make things bolder with `stroke-width` - this can be useful for smaller screen sizes when styling responsive SVGs, as thicker stroke-widths can help lower resolution SVGs to retain detail and make it appear more iconographic.
 
-**More reources:**
+**More resources:**
 - [MDN SVG Documentation](https://developer.mozilla.org/en-US/docs/Web/SVG)
