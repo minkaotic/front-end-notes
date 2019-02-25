@@ -4,6 +4,8 @@
 ### Contents
 - **[Global structure of an HTML document](#global-structure-of-an-HTML-document)**
 - **[Semantic HTML](#semantic-html)**
+  - [Core elements](#core-elements)
+  - [Elements for describing sections of content](#elements-for-describing-sections-of-content)
 - **[Complex elements](#complex-elements)**
   - [Forms & inputs](#forms--inputs)
 
