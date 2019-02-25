@@ -25,11 +25,11 @@ A ***vector graphic*** is composed of points in space (=vectors) each defined by
 
 ## Different ways of adding SVGs to a web page
 **Three different ways:**
-1. Use it just like a normal image file. All modern browsers will accept the SVG file format in the `<img>` element. SVGs can also be added as background images in the same way as other image formats.
-1. Embed SVG markup directly into HTML documents (=inline SVG). This allows to access and style parts of the SVG with CSS.
-1. Embed SVG using the HTML `object` element - allows for browser caching *as well as* applying styling, but is more fiddly in assigning the right stylesheet and often not worth the resulting maintainability cost.
+1. **Image:** Use it just like a normal image file. All modern browsers will accept the SVG file format in the `<img>` element. SVGs can also be added as background images in the same way as other image formats.
+1. **Inline:** Embed SVG markup directly into HTML documents. This allows to access and style parts of the SVG with CSS.
+1. **Object:** Embed SVG using the HTML `object` element - allows for browser caching *as well as* applying styling, but is more fiddly in assigning the right stylesheet and often not worth the resulting maintainability cost.
 
-  ![3 Modes of SVG](https://github.com/minkaotic/front-end-notes/blob/master/img/3-ways-with-svgs.png)
+    ![3 Modes of SVG](https://github.com/minkaotic/front-end-notes/blob/master/img/3-ways-with-svgs.png)
   *Source: [Front End Center — Why Inline SVG is Best SVG](https://www.youtube.com/watch?v=af4ZQJ14yu8)*
 
 **Performance considerations:**
