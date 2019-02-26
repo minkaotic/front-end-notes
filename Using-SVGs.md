@@ -3,7 +3,10 @@
 ### Contents
 - [SVG basics](#svg-basics)
 - [Different ways of adding SVGs to a web page](#different-ways-of-adding-svgs-to-a-web-page)
+- [Optimising SVGs](#optimising-svgs)
 - [Styling SVGs with CSS](#styling-svgs-with-css)
+- [Animating SVGs](#animating-svgs)
+- [Spriting](#spriting)
 
 ## SVG basics
 **Scalable Vector Graphics** (SVG) is an XML-based markup language for describing two-dimensional vector graphics. *SVG is essentially to graphics what HTML is to text.*
@@ -29,26 +32,43 @@ A ***vector graphic*** is composed of points in space (=vectors) each defined by
 **Three different ways:**
 1. **Image:** Use it just like a normal image file. All modern browsers will accept the SVG file format in the `<img>` element. SVGs can also be added as background images in the same way as other image formats.
 1. **Inline:** Embed SVG markup directly into HTML documents. This allows to access and style parts of the SVG with CSS.
-1. **Object:** Embed SVG using the HTML `object` element - allows for browser caching *as well as* applying styling, but is more fiddly in assigning the right stylesheet and often not worth the resulting maintainability cost.
+1. **Object:** Embed SVG using the HTML `<object>` element (using `<iframe>` or `<embed>` fall into the same category) - allows for browser caching *as well as* applying styling, but is more fiddly in assigning the right stylesheet and often not worth the resulting maintainability cost.
 
     ![3 Modes of SVG](https://github.com/minkaotic/front-end-notes/blob/master/img/3-ways-with-svgs.png)
-  *Source: [Front End Center — Why Inline SVG is Best SVG](https://www.youtube.com/watch?v=af4ZQJ14yu8)*
+    *Source: [Front End Center — Why Inline SVG is Best SVG](https://www.youtube.com/watch?v=af4ZQJ14yu8)*
 
 **Performance considerations:**
-- embedding into HTML will reduce the number of HTTP requests required to load the page
-- however, directly embedded SVGs will not be cached by the browser like other images, so will need to be reloaded every time
-- therefore, directly embedded SVGs should have a small file size
+- inlining SVG code into HTML will reduce the number of HTTP requests required to load the page
+- however, inliine SVGs will not be cached by the browser like other images, so will need to be reloaded every time
+- therefore, inline SVGs should have a small file size
 
 **Manageability:**
 - stylesheets might affect SVGs that they shouldn't, and it can become hard to track what styles are applied to which SVGs.
 
 > **Ideally add SVGs like a normal image, and only embed them if you absolutely have a requirement to style them.**
 
+
+## Optimising SVGs
+
+https://jakearchibald.github.io/svgomg/
+
+
 ## Styling SVGs with CSS
 - Make parts transparent with `opacity` and `stroke-opacity` (value between 0 and 1)
 - Define the fill colour with `fill`
 - Make things bolder with `stroke-width` - this can be useful for smaller screen sizes when styling responsive SVGs, as thicker stroke-widths can help lower resolution SVGs to retain detail and make it appear more iconographic.
 
+
+## Animating SVGs
+Internet Explorer does not support SVG animation, however you can use a polyfill such as [FakeSmile](https://leunen.me/fakesmile/) if you need it to work in IE too.
+
+
+## Spriting
+There are two approaches to spriting — in the first you define all the icons within `<symbol>` elements in the SVG but hide them. Then reference each later when needed with a `<use>` element referencing the `<symbol>` with `xlink:href="#id"`. The second uses the SVG viewbox attribute to crop the artboard (area of the SVG that shows) around a certain area.
+
+Recommended article for learning how to implement these techniques: [An Overview of SVG Sprite Creation Techniques](https://24ways.org/2014/an-overview-of-svg-sprite-creation-techniques/) by Sara Soueidan.
+
 **More resources:**
 - [MDN SVG Documentation](https://developer.mozilla.org/en-US/docs/Web/SVG)
 - [Front End Center — Why Inline SVG is Best SVG](https://www.youtube.com/watch?v=af4ZQJ14yu8)
+- [A practical guide to SVGs on the Web](https://svgontheweb.com/)
