@@ -12,6 +12,8 @@ A ***vector graphic*** is composed of points in space (=vectors) each defined by
 
 **Tools for drawing & optimising vector graphics:**
 - [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html)
+- [Sketch](https://www.sketchapp.com/)
+- [Inkscape](https://inkscape.org/) (free software)
 - [Method Draw](https://editor.method.ac/) (free online editor)
 - [Ballpoint](https://ballpoint.io/) (free online editor)
 - [SVG Edit](https://svg-edit.github.io/svgedit/releases/svg-edit-2.8.1/svg-editor.html) (free online editor)
