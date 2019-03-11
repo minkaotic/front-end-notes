@@ -1,7 +1,9 @@
 # JavaScript and the DOM
 
 ## Contents:
-- [Intro](#intro)
+- [Basics](#basics)
+  - [Language fundamentals](#language-fundamentals)
+  - [Adding JS code to a page](#adding-js-code-to-a-page)
 - [The DOM](#the-dom)
   - [Example Interactions](#example-interactions)
   - [Different Selectors](#different-selectors)
@@ -14,12 +16,42 @@
   
 __________
 
-## Intro
+## Basics
+
+### Language fundamentals
+The latest ECMAScript standard defines seven data types for JavaScript - **six [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) data types:**
+
+- **`Boolean`**
+- **`Null`** - a special value that explicitly represents "nothing" or something that does not exist. For example, this code states that age is unknown or empty:
+    ```javascript
+    let age = null;
+    ```
+- **`Undefined`** - means “value is not assigned”, i.e. a variable that's declared but not assigned any value.
+- **`Number`** - with our without decimal point
+- **`String`**
+- **`Symbol`** - a new data type in ES2015 that represents a unique identifier. See [MDN docs](https://developer.mozilla.org/en-US/docs/Glossary/Symbol) for more detail.
+
+The **7th data type is `Object`**.
+ 
+Use the `typeof` operator to see which data type is stored in a variable. For example:
+
+```javascript
+let name = "Alena Holligan";
+alert(typeof name); // returns "string"
+
+let score = 150;
+alert(typeof score); // returns "number"
+
+let x;
+alert(typeof x); // returns "undefined"
+```
+
+### Adding JS code to a page
 - link any JS files in the html file to execute them when the page loads, like so: `<script src="file-name.js"></script>`
 - link at bottom of `<head>` to run script before the content of the page loads, or at bottom of `<body>` to run script once page has loaded
 - **Fun fact:** variables declared in the JS script will be accessible in the browser's JS console too!
 
-*JS also allows to make pages interactive, through:*
+*JS allows to make pages interactive, through:*
 - selecting elements on the page
 - manipulating elements
 - listening for user actions
