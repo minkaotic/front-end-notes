@@ -1,8 +1,9 @@
 # JavaScript and the DOM
 
 ## Contents:
-- [Basics](#basics)
-  - [Language fundamentals](#language-fundamentals)
+- [Language fundamentals](#language-fundamentals)
+  - [Data types](#data-types)
+  - [`const` in JavaScript](#const-in-javascript)
   - [Adding JS code to a page](#adding-js-code-to-a-page)
 - [The DOM](#the-dom)
   - [Example Interactions](#example-interactions)
@@ -16,9 +17,9 @@
   
 __________
 
-## Basics
+## Language fundamentals
 
-### Language fundamentals
+### Data types
 The latest ECMAScript standard defines seven data types for JavaScript - **six [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) data types:**
 
 - **`Boolean`**
@@ -44,6 +45,16 @@ alert(typeof score); // returns "number"
 
 let x;
 alert(typeof x); // returns "undefined"
+```
+
+### const in JavaScript
+Whilst `const` prevents a variable from being *re-assigned*, it does not prevent complex data types like arrays and objects from being *modified*. The following code will not error:
+```javascript
+const days = ['Monday'];
+days.push('Tuesday');
+
+const person = { first_name: 'Imogen'};
+person.last_name = 'Heap';
 ```
 
 ### Adding JS code to a page
