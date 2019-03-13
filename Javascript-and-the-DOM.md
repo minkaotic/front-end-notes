@@ -51,10 +51,12 @@ alert(typeof x); // returns "undefined"
 Whilst **`const`** prevents a variable from being *re-assigned*, it does not prevent complex data types like arrays and objects from being *modified*. The following code will not error:
 ```javascript
 const days = ['Monday'];
-days.push('Tuesday');
+days.push('Tuesday');   // add a new value
+days[0] = 'Friday';     // overwrite existing value
 
 const person = { first_name: 'Imogen'};
-person.last_name = 'Heap';
+person.last_name = 'Heap';      // add a new value
+person.first_name = 'Andrew';   // overwrite existing value
 ```
 
 Whilst **`let`** is similar to `var` in that it declares a variable that can be re-assigned, *scoping works differently* between the two:
