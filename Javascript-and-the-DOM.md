@@ -48,7 +48,7 @@ alert(typeof x); // returns "undefined"
 ```
 
 ### const & let in JavaScript
-Whilst `const` prevents a variable from being *re-assigned*, it does not prevent complex data types like arrays and objects from being *modified*. The following code will not error:
+Whilst **`const`** prevents a variable from being *re-assigned*, it does not prevent complex data types like arrays and objects from being *modified*. The following code will not error:
 ```javascript
 const days = ['Monday'];
 days.push('Tuesday');
@@ -57,7 +57,7 @@ const person = { first_name: 'Imogen'};
 person.last_name = 'Heap';
 ```
 
-Whilst `let` is similar to `var` in that it declares a variable that can be re-assigned, *scoping works differently* between the two:
+Whilst **`let`** is similar to `var` in that it declares a variable that can be re-assigned, *scoping works differently* between the two:
 
 - `var` has **function level scoping**: Even if a variable is declared within a block (i.e. loop or conditional), the JavaScript interpreter will 'hoist' the declaration to the top of the function! This can be very confusing, and it's therefore considered best practice to declare all the variables used in a function at the beginning of the function. Even then, awkward pitfalls with things like counter variables in a loop remain - see [this video](https://teamtreehouse.com/library/using-let-with-for-loops) for an example.
 
