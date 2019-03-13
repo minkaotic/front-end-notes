@@ -48,7 +48,8 @@ alert(typeof x); // returns "undefined"
 ```
 
 ### const & let in JavaScript
-> **Best practice:** `const` is your first / best option when declaring variables in JavaScript, as it avoids re-assignment bugs. Use `let` only if you have an explicit need to re-assign a given variable. However, you may need to use `var` if there is a need to support older browsers - check [Can I Use](https://caniuse.com/#search=let).
+**Best practice:**
+> `const` is your first / best option when declaring variables in JavaScript, as it avoids re-assignment bugs. Use `let` only if you have an explicit need to re-assign a given variable. However, you may need to use `var` if there is a need to support older browsers - check *[Can I Use](https://caniuse.com/#search=let)*.
 
 Note some quirks of `const`, `let` and `var`:
 
