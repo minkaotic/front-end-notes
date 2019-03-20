@@ -4,6 +4,7 @@
 - [Language fundamentals](#language-fundamentals)
   - [Data types](#data-types)
   - [`const` & `let` in JavaScript](#const--let-in-javascript)
+  - [Callbacks and Arrow Functions](callbacks-and-arrow-functions)
   - [Adding JS code to a page](#adding-js-code-to-a-page)
 - [The DOM](#the-dom)
   - [Example Interactions](#example-interactions)
@@ -14,7 +15,7 @@
   - [First Class Functions in JS](#first-class-functions-in-js)
   - [Listening for Events](#listening-for-events)
   - [Event bubbling & delegation](#event-bubbling--delegation)
-  
+ 
 __________
 
 ## Language fundamentals
@@ -71,6 +72,30 @@ Whilst **`let`** is similar to `var` in that it declares a variable that can be 
 - `let` (and `const`) have **block level scoping**, so variables declared with them are limited to the scope of their containing block, and won't be hoisted.
 
 - [Great article with more detail on the above](https://love2dev.com/blog/javaScript-var-let-const/)
+
+
+### Callbacks and Arrow Functions
+Given an array `const movies = ['Cats', 'Stans last dance', 'Flowers for her birthday', 'Hunger games'];`, you can iterate over the array by using a `forEach()` loop, which takes a callback function:
+
+```javascript
+movies.forEach(function(movie) {
+  alert(movie);
+});
+```
+
+This can be simplified using arrow syntax:
+
+```javascript
+movies.forEach( movie => {
+  alert(movie);
+});
+```
+
+...and since it's only a one line function body, even further to:
+
+```javascript
+movies.forEach( movie => alert(movie) );
+```
 
 ### Adding JS code to a page
 - link any JS files in the html file to execute them when the page loads, like so: `<script src="file-name.js"></script>`
