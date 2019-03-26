@@ -10,8 +10,8 @@
 - [Using SVGs](https://github.com/minkaotic/front-end-notes/blob/master/Using-SVGs.md)
 
 ### JavaScript & its Frameworks
+- [JavaScript Syntax](https://github.com/minkaotic/front-end-notes/blob/master/Javascript-Syntax.md)
 - [JavaScript & the DOM](https://github.com/minkaotic/front-end-notes/blob/master/Javascript-and-the-DOM.md)
-- [Object-Oriented JavaScript](https://github.com/minkaotic/front-end-notes/blob/master/Object-oriented-Javascript.md)
 - [ES Modules](https://github.com/minkaotic/front-end-notes/blob/master/ES-Modules.md)
 - [TypeScript](https://github.com/minkaotic/front-end-notes/blob/master/Typescript.md)
 - ***Frameworks:***
