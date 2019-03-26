@@ -4,6 +4,9 @@
 - **[Language fundamentals](#language-fundamentals)**
   - [Data types](#data-types)
   - [`const` & `let` in JavaScript](#const--let-in-javascript)
+- **[Loops & Iteration Methods](#loops--iteration-methods)**
+  - [Various Loops](#various-loops)
+  - [Iteration Methods](#iteration-methods)
 - **[Callbacks & Arrow Functions](#callbacks--arrow-functions)**
 - **[Objects & Classes](#objects--classes)**
   - [Object literals](#object-literals)
@@ -68,6 +71,52 @@ Whilst **`let`** is similar to `var` in that it declares a variable that can be 
 - `let` (and `const`) have **block level scoping**, so variables declared with them are limited to the scope of their containing block, and won't be hoisted.
 
 - [Great article with more detail on the above](https://love2dev.com/blog/javaScript-var-let-const/)
+
+_______________
+
+## Loops & Iteration Methods
+
+### Various Loops
+#### for
+- Used for actions that need to run a particular number of times.
+  ```javascript
+  for ( let counter = 1; counter < 10; counter++) {
+    console.log( counter );
+  } 
+  ```
+
+#### forEach
+- Can be run on `Array`, `Map` and `Set` objects, and executes a provided callback function once for each element (array) / key/value pair (Map) / value (Set). 
+  ```javascript
+  var movies = ['cats', 'Stans last dance', 'Flowers for her birthday', 'Hunger games'];
+
+  movies.forEach( movie => alert(movie) );
+  ```
+
+#### for...of
+- Can be run on iterable objects, including: `String`, `Array`-like objects (incl. Array, TypedArray, arguments or NodeList), `Map`, `Set`, and user-defined iterables. Invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.
+  ```javascript
+  for (var movie of movies) {
+    console.log(movie);
+  }
+  ```
+#### while
+- Repeats a block of code until a particular condition is no longer true. Similar to `[do...while](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while)` loop.
+  ```javascript
+  var counter = 1;
+  while (counter < 10 ) {
+    console.log( counter );
+    counter = counter + 1;
+  }
+  ```
+
+### Iteration methods
+#### map()
+- Used on arrays; creates a new array with the results of calling a provided function on every element in the original array.
+  ```javascript
+  const fruits = ['apple', 'pear', 'cherry'];
+  const capitalizedFruits = fruits.map( fruit => fruit.toUpperCase() );
+  ```
 
 _______________
 
