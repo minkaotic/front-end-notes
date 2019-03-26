@@ -4,6 +4,7 @@
 - **[Language fundamentals](#language-fundamentals)**
   - [Data types](#data-types)
   - [`const` & `let` in JavaScript](#const--let-in-javascript)
+  - [Template Literals](#template-literals)
 - **[Loops & Iteration Methods](#loops--iteration-methods)**
   - [Various Loops](#various-loops)
   - [Iteration Methods](#iteration-methods)
@@ -71,6 +72,18 @@ Whilst **`let`** is similar to `var` in that it declares a variable that can be 
 - `let` (and `const`) have **block level scoping**, so variables declared with them are limited to the scope of their containing block, and won't be hoisted.
 
 - [Great article with more detail on the above](https://love2dev.com/blog/javaScript-var-let-const/)
+
+
+### Template Literals
+Instead of concatenating strings like this:
+```javascript
+alert("The movie " + movie.title + " plays at " + movie.time);
+```
+
+...you can use template literals (note the backticks!):
+```javascript
+alert(`The movie ${movie.title} plays at ${movie.time}`);
+```
 
 _______________
 
