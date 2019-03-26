@@ -4,7 +4,7 @@
 - **[Language fundamentals](#language-fundamentals)**
   - [Data types](#data-types)
   - [`const` & `let` in JavaScript](#const--let-in-javascript)
-- **[Callbacks and Arrow Functions](callbacks-and-arrow-functions)**
+- **[Callbacks & Arrow Functions](callbacks--arrow-functions)**
 - **[Objects & Classes](#objects--classes)**
   - [Object literals](#object-literals)
   - [Accessing object properties & methods](#accessing-object-properties--methods)
@@ -71,7 +71,7 @@ Whilst **`let`** is similar to `var` in that it declares a variable that can be 
 
 _______________
 
-## Callbacks and Arrow Functions
+## Callbacks & Arrow Functions
 Given an array `const movies = ['Cats', 'Stans last dance', 'Flowers for her birthday', 'Hunger games'];`, you can iterate over the array by using a `forEach()` loop, which takes a callback function:
 
 ```javascript
