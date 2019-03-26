@@ -4,9 +4,7 @@
 - **[Language fundamentals](#language-fundamentals)**
   - [Data types](#data-types)
   - [`const` & `let` in JavaScript](#const--let-in-javascript)
-  
 - **[Callbacks and Arrow Functions](callbacks-and-arrow-functions)**
-
 - **[Objects & Classes](#objects--classes)**
   - [Object literals](#object-literals)
   - [Accessing object properties & methods](#accessing-object-properties--methods)
