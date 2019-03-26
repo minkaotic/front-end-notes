@@ -1,16 +1,16 @@
-# Object-Oriented Javascript
+# JavaScript Syntax
 
 ## Contents
-- [Basics](#basics)
+- **[Objects & Classes](#objects--classes)**
   - [Object literals](#object-literals)
   - [Accessing object properties & methods](#accessing-object-properties--methods)
-  - ['this' in Javascript](#this-in-javascript)
-- [JS Class Syntax](#js-class-syntax)
+  - [JS Class Syntax](#js-class-syntax)
   - [Getters & Setters](#getters--setters)
+- **['this' in Javascript](#this-in-javascript)**
 
 _______________
 
-## Basics
+## Objects & Classes
 ### Object literals
 - *Object literals* are useful when modelling one single, specific thing. E.g.:
   ```
@@ -41,36 +41,7 @@ _______________
   console.log(ernie[prop]);
   ```
 
-### 'this' in Javascript
-There are 4 ways in which `this` takes a value in JS:
-
-***1. In normal function calls***
-```
-function tryingThis() {
-  console.log(this);
-};
-```
-- Here, `this` refers to the *global scope* or *global context* when run in a browser, i.e. the `Window` object, or it refers to the module context if run in Node.
-
-***2. Within methods on objects***
-- see [JS Class Syntax](#js-class-syntax) for an example - although the same possibilities apply to object literals
-- in this case, `this` refers to the object itself, and is usually used to reference its properties
-
-***3. In a constructor function***
-```
-let City = function(name, state) {
-    this.name = name || 'Portland';
-    this.state = state || 'Oregon';
-};
-```
-- Constructor functions are essentially the old syntax for object creation, prior to [JS Class Syntax](#js-class-syntax).
-- Here, `this` refers to the instance that will be instantiated when `new City()` is called.
-
-4. A function invoked with `.call`, `.apply` or `.bind` (advanced use; not explained here)
-
-____________________
-
-## JS Class Syntax
+### JS Class Syntax
 To represent types with the same (or similar) properties, classes are much more robust than object literals. Class syntax was **introduced to Javascript in ES2015**, and comprises syntactic sugar on top of its original prototype syntax.
 
 ***A simple example***
@@ -137,6 +108,35 @@ const elsie = new Pet();
 elsie.owner = 'Mia';
 console.log(elsie.owner);
 ```
+____________________
 
+## 'this' in Javascript
+There are 4 ways in which `this` takes a value in JS:
+
+***1. In normal function calls***
+```
+function tryingThis() {
+  console.log(this);
+};
+```
+- Here, `this` refers to the *global scope* or *global context* when run in a browser, i.e. the `Window` object, or it refers to the module context if run in Node.
+
+***2. Within methods on objects***
+- see [JS Class Syntax](#js-class-syntax) for an example - although the same possibilities apply to object literals
+- in this case, `this` refers to the object itself, and is usually used to reference its properties
+
+***3. In a constructor function***
+```
+let City = function(name, state) {
+    this.name = name || 'Portland';
+    this.state = state || 'Oregon';
+};
+```
+- Constructor functions are essentially the old syntax for object creation, prior to [JS Class Syntax](#js-class-syntax).
+- Here, `this` refers to the instance that will be instantiated when `new City()` is called.
+
+4. A function invoked with `.call`, `.apply` or `.bind` (advanced use; not explained here)
+
+____________________
 
 
