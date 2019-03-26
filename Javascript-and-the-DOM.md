@@ -1,10 +1,7 @@
 # JavaScript and the DOM
 
 ## Contents:
-- [Language fundamentals](#language-fundamentals)
-  - [Data types](#data-types)
-  - [`const` & `let` in JavaScript](#const--let-in-javascript)
-  - [Callbacks and Arrow Functions](callbacks-and-arrow-functions)
+- [Intro](#intro)
   - [Adding JS code to a page](#adding-js-code-to-a-page)
 - [The DOM](#the-dom)
   - [Example Interactions](#example-interactions)
@@ -18,96 +15,19 @@
  
 __________
 
-## Language fundamentals
-
-### Data types
-The latest ECMAScript standard defines seven data types for JavaScript - **six [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) data types:**
-
-- **`Boolean`**
-- **`Null`** - a special value that explicitly represents "nothing" or something that does not exist. For example, this code states that age is unknown or empty:
-    ```javascript
-    let age = null;
-    ```
-- **`Undefined`** - means “value is not assigned”, i.e. a variable that's declared but not assigned any value.
-- **`Number`** - with our without decimal point
-- **`String`**
-- **`Symbol`** - a new data type in ES2015 that represents a unique identifier. See [MDN docs](https://developer.mozilla.org/en-US/docs/Glossary/Symbol) for more detail.
-
-The **7th data type is `Object`**.
- 
-Use the `typeof` operator to see which data type is stored in a variable. For example:
-
-```javascript
-let name = "Alena Holligan";
-alert(typeof name); // returns "string"
-
-let score = 150;
-alert(typeof score); // returns "number"
-
-let x;
-alert(typeof x); // returns "undefined"
-```
-
-### const & let in JavaScript
-**Best practice:**
-> `const` is your first / best option when declaring variables in JavaScript, as it avoids re-assignment bugs. Use `let` only if you have an explicit need to re-assign a given variable. However, you may need to use `var` if there is a need to support older browsers - check *[Can I Use](https://caniuse.com/#search=let)*.
-
-Note some quirks of `const`, `let` and `var`:
-
-Whilst **`const`** prevents a variable from being *re-assigned*, it does not prevent complex data types like arrays and objects from being *modified*. The following code will not error:
-```javascript
-const days = ['Monday'];
-days.push('Tuesday');   // add a new value
-days[0] = 'Friday';     // overwrite existing value
-
-const person = { first_name: 'Imogen'};
-person.last_name = 'Heap';      // add a new value
-person.first_name = 'Andrew';   // overwrite existing value
-```
-
-Whilst **`let`** is similar to `var` in that it declares a variable that can be re-assigned, *scoping works differently* between the two:
-
-- `var` has **function level scoping**: Even if a variable is declared within a block (i.e. loop or conditional), the JavaScript interpreter will 'hoist' the declaration to the top of the function! This can be very confusing, and it's therefore considered best practice to declare all the variables used in a function at the beginning of the function. Even then, awkward pitfalls with things like counter variables in a loop remain - see [this video](https://teamtreehouse.com/library/using-let-with-for-loops) for an example.
-
-- `let` (and `const`) have **block level scoping**, so variables declared with them are limited to the scope of their containing block, and won't be hoisted.
-
-- [Great article with more detail on the above](https://love2dev.com/blog/javaScript-var-let-const/)
-
-
-### Callbacks and Arrow Functions
-Given an array `const movies = ['Cats', 'Stans last dance', 'Flowers for her birthday', 'Hunger games'];`, you can iterate over the array by using a `forEach()` loop, which takes a callback function:
-
-```javascript
-movies.forEach(function(movie) {
-  alert(movie);
-});
-```
-
-This can be simplified using arrow syntax:
-
-```javascript
-movies.forEach( movie => {
-  alert(movie);
-});
-```
-
-...and since it's only a one line function body, even further to:
-
-```javascript
-movies.forEach( movie => alert(movie) );
-```
-
-### Adding JS code to a page
-- link any JS files in the html file to execute them when the page loads, like so: `<script src="file-name.js"></script>`
-- link at bottom of `<head>` to run script before the content of the page loads, or at bottom of `<body>` to run script once page has loaded
-- **Fun fact:** variables declared in the JS script will be accessible in the browser's JS console too!
+## Intro
 
 *JS allows to make pages interactive, through:*
 - selecting elements on the page
 - manipulating elements
 - listening for user actions
 
-This is based on the **DOM (Document Object Model)**.
+This is based on the **[DOM (Document Object Model)](#the-dom)**.
+
+### Adding JS code to a page
+- link any JS files in the html file to execute them when the page loads, like so: `<script src="file-name.js"></script>`
+- link at bottom of `<head>` to run script before the content of the page loads, or at bottom of `<body>` to run script once page has loaded
+- **Fun fact:** variables declared in the JS script will be accessible in the browser's JS console too!
 
 __________
 
