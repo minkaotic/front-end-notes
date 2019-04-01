@@ -91,6 +91,45 @@ Razor can either be used as part of a classic MVC-structured application, or as 
 <p>The greeting is: @greetingMessage</p>
 ```
 
+#### @functions
+The purpose of a `@functions` block is to wrap up reusable code, like the methods and properties, and then be able to call those methods or properties from other parts of the page.
+
+###### Declaring functions and properties:
+```C#
+@functions {
+    int userAge = 0;
+    string HelloMessage(string user)
+    {
+        return "Hi " + user + ", how are you?";
+    }
+    
+    int Age
+    {
+        get { return userAge; }
+        set { userAge = value; }
+    }
+}
+```
+
+###### Using declared functions and properties on the page:
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    </head>
+    <body>
+        @{
+            Age = 27; // In a real page, you might retrieve the user's age from a form or database
+        }
+        <p>The value of the <code>HelloMessage</code> method: @HelloMessage("James")</p>   
+        <p>The value of the <code>Age</code> property: @Age.ToString()</p>    
+    </body>
+</html>
+```
+
+
 #### The Request object
 You'll often work with the `Request` object, which gives you information like the values of text boxes (form fields) on the page (see [example in the next section](#reading-user-input)), what type of browser made the request, the URL of the page, the user identity, etc. 
 
@@ -163,6 +202,7 @@ Some useful built-in Razor helpers include:
 **Sources:**
 - https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c
 - https://www.w3schools.com/asp/razor_intro.asp
+- https://blogs.msdn.microsoft.com/timlee/2010/07/30/using-functions-in-an-asp-net-page-with-razor-syntax/
 
 _________________________
 
