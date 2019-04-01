@@ -5,6 +5,7 @@
     - [MVC Razor vs. Angular(JS)](#mvc-razor-vs-angularjs)
 - [Razor & MVC](#razor--mvc)
     - [Razor syntax](#razor-syntax)
+    - [HttpContext](#httpcontext)
     - [Razor Helpers](#razor-helpers)
 - [Bundling & Minification](#bundling--minification)
     - [Webpack](#webpack)
@@ -185,6 +186,18 @@ An important feature of dynamic web pages is that you can read user input. In Ra
 <p>@totalMessage</p>
 ```
 
+### HttpContext
+`HttpContext` can be used to [access the HTTP context](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-context?view=aspnetcore-2.2) from Razor pages:
+
+```C#
+@{
+    var numberOfCatsRequested = Context.Request.Query["cat-quantity"];
+}
+```
+
+NB: it can also be accessed from controllers, models, or any custom code or middleware.
+
+
 ### Razor Helpers
 ASP.NET helpers are components that can be accessed by single lines of Razor code. You can build your own helpers using Razor syntax, or use built-in ASP.NET helpers.
 
@@ -203,7 +216,7 @@ Some useful built-in Razor helpers include:
 - https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c
 - https://www.w3schools.com/asp/razor_intro.asp
 - https://blogs.msdn.microsoft.com/timlee/2010/07/30/using-functions-in-an-asp-net-page-with-razor-syntax/
-
+- https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-context?view=aspnetcore-2.2
 _________________________
 
 ## Bundling & Minification
