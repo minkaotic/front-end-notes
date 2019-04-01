@@ -195,7 +195,7 @@ An important feature of dynamic web pages is that you can read user input. In Ra
 }
 ```
 
-NB: it can also be accessed from controllers, models, or any custom code or middleware.
+NB: it can also be accessed from [tag helpers](#tag-helpers), controllers, models, or any custom code or middleware.
 
 
 ### Razor Helpers
