@@ -25,6 +25,6 @@
 - [Front End Testing](https://github.com/minkaotic/front-end-notes/blob/master/Front-End-Testing.md)
 
 ## External introductions
-Articles & other resources that are useful for reference, and not covered specifically in any of my notes & summaries.
+*Articles & other resources that are useful for reference, and not covered specifically in any of my notes & summaries.*
 
 - [Learn How HTTP Cookies Work](https://flaviocopes.com/cookies/)
