@@ -26,6 +26,7 @@ This is based on the **[DOM (Document Object Model)](#the-dom)**.
 
 ### Adding JS code to a page
 - link any JS files in the html file to execute them when the page loads, like so: `<script src="file-name.js"></script>`
+  - *alternatively, JS scripts can be added inline within the `<script>...</script>` tag*
 - link at bottom of `<head>` to run script before the content of the page loads, or at bottom of `<body>` to run script once page has loaded
 - **Fun fact:** variables declared in the JS script will be accessible in the browser's JS console too!
 
