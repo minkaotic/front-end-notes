@@ -1,4 +1,5 @@
 # Typescript notes
+Typescript is a syntactical superset of ECMAScript developed by Microsoft, which adds optional static typing to the language. It cannot be natively understood by browsers, so needs to be transcompiled to JavaScript before running.
 
 ## Typewriter
 [Typewriter](https://frhagn.github.io/Typewriter/) is a free extension for Visual Studio that generates TypeScript files from C# code files using TypeScript Templates.
