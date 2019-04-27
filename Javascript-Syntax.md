@@ -1,10 +1,11 @@
 # JavaScript Syntax
 
 ## Contents
-- **[Language fundamentals](#language-fundamentals)**
-  - [Data types](#data-types)
+- **[Language Fundamentals / ES2015](#language-fundamentals--es2015)**
+  - [Data Types](#data-types)
   - [`const` & `let` in JavaScript](#const--let-in-javascript)
   - [Template Literals](#template-literals)
+  - [String Search Methods](#string-search-methods)
 - **[Loops & Iteration Methods](#loops--iteration-methods)**
   - [Various Loops](#various-loops)
   - [Iteration Methods](#iteration-methods)
@@ -18,9 +19,9 @@
 
 _______________
 
-## Language fundamentals
+## Language Fundamentals / ES2015
 
-### Data types
+### Data Types
 The latest ECMAScript standard defines seven data types for JavaScript - **six [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) data types:**
 
 - **`Boolean`**
@@ -29,7 +30,7 @@ The latest ECMAScript standard defines seven data types for JavaScript - **six [
     let age = null;
     ```
 - **`Undefined`** - means “value is not assigned”, i.e. a variable that's declared but not assigned any value.
-- **`Number`** - with our without decimal point
+- **`Number`** - with or without decimal point
 - **`String`**
 - **`Symbol`** - a new data type in ES2015 that represents a unique identifier. See [MDN docs](https://developer.mozilla.org/en-US/docs/Glossary/Symbol) for more detail.
 
@@ -84,6 +85,31 @@ alert("The movie " + movie.title + " plays at " + movie.time);
 ```javascript
 alert(`The movie ${movie.title} plays at ${movie.time}`);
 ```
+
+### String Search Methods
+`startsWith`, `endsWith` and `includes` essentially replace the cumbersome `indexOf` method:
+
+```javascript
+const stringToSearch = 'Hi, I am a nice string!';
+
+// STARTS WITH - old
+if (stringToSearch.indexOf('Hi,') === 0) {...}
+// new
+if (stringToSearch.startsWith('Hi,')) {...}
+
+// ENDS WITH - old
+if (stringToSearch.indexOf('string!') === stringToSearch.length - 'string!'.length) {...}
+// new
+if (stringToSearch.endsWith('string!')) {...}
+
+// INCLUDES - old
+if (stringToSearch.indexOf('nice') > -1) {...}
+// new
+if (stringToSearch.includes('nice')) {...}
+```
+
+- `startsWith` and `includes` take an optional second parameter to specify the index at which to start searching
+- `endsWith` takes an optional second parameter to specify the index at which to end the search
 
 _______________
 
