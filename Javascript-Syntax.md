@@ -9,7 +9,8 @@
 - **[Loops & Iteration Methods](#loops--iteration-methods)**
   - [Various Loops](#various-loops)
   - [Iteration Methods](#iteration-methods)
-- **[Callbacks & Arrow Functions](#callbacks--arrow-functions)**
+- **[Arrow Functions](#arrow-functions)**
+  - [Example with Callback](#example-with-callback)
 - **[Objects & Classes](#objects--classes)**
   - [Object literals](#object-literals)
   - [Accessing object properties & methods](#accessing-object-properties--methods)
@@ -87,22 +88,29 @@ alert(`The movie ${movie.title} plays at ${movie.time}`);
 ```
 
 ### String Search Methods
-`startsWith`, `endsWith` and `includes` essentially replace the cumbersome `indexOf` method:
+`startsWith`, `endsWith` and `includes` essentially replace the cumbersome `indexOf` method.
 
+Given:
 ```javascript
 const stringToSearch = 'Hi, I am a nice string!';
-
-// STARTS WITH - old
+```
+...confirm match at start of string
+```javascript
+// old
 if (stringToSearch.indexOf('Hi,') === 0) {...}
 // new
 if (stringToSearch.startsWith('Hi,')) {...}
-
-// ENDS WITH - old
+```
+...confirm match at end of string
+```javascript
+// old
 if (stringToSearch.indexOf('string!') === stringToSearch.length - 'string!'.length) {...}
 // new
 if (stringToSearch.endsWith('string!')) {...}
-
-// INCLUDES - old
+```
+...check string includes
+```javascript
+// old
 if (stringToSearch.indexOf('nice') > -1) {...}
 // new
 if (stringToSearch.includes('nice')) {...}
@@ -159,7 +167,37 @@ _______________
 
 _______________
 
-## Callbacks & Arrow Functions
+## Arrow Functions
+A new syntax for writing JS functions as of ES2015; akin to 'lambda functions' in other programming languages. Arrow functions provide a short syntax for defining functions, and also simplify function scope.
+
+Traditional syntax:
+```javascript
+// function declaration
+function square(x) {
+    return x * x;
+}
+
+// function expression
+var square = function(x) {
+    return x * x;
+}
+```
+
+Arrow syntax:
+```javascript
+const square = (x) => {
+    return x * x;
+}
+```
+- Additionally, if your function takes *exactly one parameter*, you can remove the paranthesis.
+- If the function body is *only one line of code*, you can further remove the `return` key word as well as the curly braces.
+
+Super concise arrow syntax:
+```javascript
+const square = x => x * x;
+```
+
+### Example with Callback
 Given an array `const movies = ['Cats', 'Stans last dance', 'Flowers for her birthday', 'Hunger games'];`, you can iterate over the array by using a `forEach()` loop, which takes a callback function:
 
 ```javascript
