@@ -10,6 +10,7 @@
   - [Various Loops](#various-loops)
   - [Iteration Methods](#iteration-methods)
 - **[Arrow Functions](#arrow-functions)**
+  - [First Class Functions in JS](#first-class-functions-in-js)
   - [Example with Callback](#example-with-callback)
 - **[Objects & Classes](#objects--classes)**
   - [Object literals](#object-literals)
@@ -195,6 +196,38 @@ const square = (x) => {
 Super concise arrow syntax:
 ```javascript
 const square = x => x * x;
+```
+
+### First Class Functions in JS
+Given a function that takes another function as an argument, such as:
+```javascript
+function exec(func, arg) {
+  func(arg);
+}
+```
+...then the following three ways of calling it are equivalent:
+
+**1. Traditional function declaration**
+```javascript
+function say(something) {
+  console.log(something);
+}
+
+exec(say, 'Hello!');
+```
+
+**2. Passing an anonymous function**
+```javascript
+exec(function say(something) {
+  console.log(something);
+}, 'Hello!');
+```
+
+**3. Anonymous function using arrow syntax**
+```javascript
+exec((something) => {
+  console.log(something);
+}, 'Hello!');
 ```
 
 ### Example with Callback
