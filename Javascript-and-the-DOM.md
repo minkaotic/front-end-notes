@@ -9,7 +9,6 @@
   - [Various DOM Manipulation Methods](#various-dom-manipulation-methods)
   - [Traversing the DOM](#traversing-the-dom)
 - [Events](#Events)
-  - [First Class Functions in JS](#first-class-functions-in-js)
   - [Listening for Events](#listening-for-events)
   - [Event bubbling & delegation](#event-bubbling--delegation)
  
@@ -176,41 +175,7 @@ __________
 ## Events
 Any time users interact with a webpage, they generate all kinds of events: moving the mouse around, scrolling, or clicking a link. Browsers "listen" for events and, with JavaScript, we can do something in response to an event.
 
-- See also: [Thorough list of DOM events on MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
-
-__________
-
-### First Class Functions in JS
-Given a function that takes another function as an argument, such as:
-```javascript
-function exec(func, arg) {
-  func(arg);
-}
-```
-...then the following three ways of calling it are equivalent:
-
-**Option 1:**
-```javascript
-function say(something) {
-  console.log(something);
-}
-
-exec(say, 'Hello!');
-```
-
-**Option 2:**
-```javascript
-exec(function say(something) {
-  console.log(something);
-}, 'Hello!');
-```
-
-**Option 3:**
-```javascript
-exec((something) => {
-  console.log(something);
-}, 'Hello!');
-```
+- See also: [Extensive list of DOM events on MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
 
 _______________
 
