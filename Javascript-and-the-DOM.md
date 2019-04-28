@@ -51,13 +51,13 @@ __________
 ### Example Interactions
 
 *To add lines of content to a page:*
-```
+```javascript
 document.write("<h2>Sudden new headline</h2>");
 document.write("<p>I'm practicing interacting with the DOM.</p>");
 ```
 
 *To listen for a user interaction and make a change in response:*
-```
+```javascript
 const myHeading = document.getElementById('myHeading');
 
 myHeading.addEventListener('click', () => {
@@ -66,7 +66,7 @@ myHeading.addEventListener('click', () => {
 ```
 
 *More involved version incl. an input field for the color & button to apply:*
-```
+```javascript
 const myHeading = document.getElementById('myHeading');
 const myButton = document.getElementById('myButton');
 const myTextInput = document.getElementById('myTextInput');
@@ -84,7 +84,7 @@ __________
 - Element selectors like `getElementsByClassName()` or `getElementsByTagName()` return a **HTML collection**.
 
 Elements in a collection can be accesses by index, e.g.:
-```
+```javascript
 const body = document.getElementsByTagName('body')[0];
 ```
 
@@ -111,7 +111,7 @@ __________
 ### Various DOM Manipulation Methods
 #### Getting & setting text
 - Get & set an element's text using the `element.textContent` property:
-```
+```javascript
 let myHeading = document.querySelector('h1');
 console.log(myHeading.textContent);                     //retrieve and use element's text
 myHeading.textContent = 'This is the new headline';     //change element's text
@@ -123,14 +123,14 @@ myHeading.textContent = 'This is the new headline';     //change element's text
 Attributes, like the href attribute on a link, or the action attribute on a form, exist as properties of an element object. These can be manipulated with `Element.attribute`, for example:
 
 **HTML**
-```
+```html
 ...
 <input type="text" class="description">
 ...
 ```
 
 **Javascript**
-```
+```javascript
 const input = document.querySelector('input');
 console.log(input.type);          //returns "text"
 input.type = 'checkbox'           // changes input type
@@ -147,7 +147,7 @@ Examples:
 
 #### Adding and removing new DOM elements
 - Create a new element with `document.createElement()`, then insert it with `Node.appendChild(childElement)` for example:
-```
+```javascript
 const addItemInput = document.querySelector('button.addItemButton');
 let ul = document.getElementsByTagName('ul')[0];
 let li = document.createElement('li');
@@ -182,7 +182,7 @@ __________
 
 ### First Class Functions in JS
 Given a function that takes another function as an argument, such as:
-```
+```javascript
 function exec(func, arg) {
   func(arg);
 }
@@ -190,7 +190,7 @@ function exec(func, arg) {
 ...then the following three ways of calling it are equivalent:
 
 **Option 1:**
-```
+```javascript
 function say(something) {
   console.log(something);
 }
@@ -199,14 +199,14 @@ exec(say, 'Hello!');
 ```
 
 **Option 2:**
-```
+```javascript
 exec(function say(something) {
   console.log(something);
 }, 'Hello!');
 ```
 
 **Option 3:**
-```
+```javascript
 exec((something) => {
   console.log(something);
 }, 'Hello!');
@@ -233,7 +233,7 @@ This is useful because it allows us to add an event listener to a parent element
 - ***But: How does the parent know which child triggered the event?***
 
 ...by passing the `event` object as an argument to the `eventListener`! This allows us to call the **event target**. E.g.:
-```
+```javascript
 document.addEventListener('click', (event) => {
   console.log(event.target);
 });
