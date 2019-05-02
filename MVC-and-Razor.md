@@ -13,7 +13,7 @@
 - [Tag Helpers](#tag-helpers)
     - [Using Tag Helpers](#using-tag-helpers)
     - [Building your own Tag Helpers](#building-your-own-tag-helpers)
-
+- [Areas in ASP.NET](#areas-in-aspnet)
 _________________________
 
 ## Preamble
@@ -26,7 +26,7 @@ The *Model View Controller* design pattern is commonly used across many framewor
 
 - **View** = the components that display the application's *user interface (UI)*. Typically, this UI is created from the model data. (An example would be an edit view of a Products table that displays text boxes, drop-down lists, and check boxes based on the current state of a Product object.)
 
-- **Controller** = the *coordinator* responsible for directing what specific actions need to be performed when a user navigates to our website, in order to send a response to that user. Controllers are the components that handle user interaction, work with the model, and ultimately select a view to render that displays UI. 
+- **Controller** = the *coordinator* responsible for directing what specific actions need to be performed when a user navigates to the website, in order to send a response to that user. Controllers are the components that handle user interaction, work with the model, and ultimately select a view to render that displays UI. 
 
 In an MVC application, the view only displays information; the controller handles and responds to user input and interaction. For example, the controller handles query-string values, and passes these values to the model, which in turn might use these values to query the database.
 
@@ -93,7 +93,7 @@ Razor can either be used as part of a classic MVC-structured application, or as 
 ```
 
 #### @functions
-The purpose of a `@functions` block is to wrap up reusable code, like the methods and properties, and then be able to call those methods or properties from other parts of the page.
+The purpose of a `@functions` block is to wrap up reusable code, like methods and properties, and then be able to call those methods or properties from other parts of the page.
 
 ###### Declaring functions and properties:
 ```C#
