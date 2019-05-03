@@ -180,9 +180,32 @@ Any time users interact with a webpage, they generate all kinds of events: movin
 _______________
 
 ### Listening for Events
-`EventTarget.addEventListener(eventType, function)` allows to pass a function for callback any time the event takes place. See [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) for more details.
+DOM elements have an `addEventListener` method, which takes two arguments: the `eventType` (e.g. certain mouse or keyboard events), and a callback function, which gets executed when the matching event is triggered.
+
+##### Example
+```javascript
+const nameInput = document.getElementById('name');
+
+nameInput.addEventListener('focus', event => {
+  event.target.className = 'highlight';
+});
+
+nameInput.addEventListener('blur', event => {
+  event.target.className = '';
+});
+```
 
 The callback function that is passed to `addEventListener` is often called an *event handler*.
+```javascript
+event => {
+  // Do something
+}
+```
+
+The `event` object has a `type` property for the type of event that triggered the callback and a `target` property for the element from the event object.
+
+> For more details on `elements.addEventListener(eventType, function)`, see the relevant [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+
 
 _______________
 
