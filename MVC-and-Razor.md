@@ -3,6 +3,8 @@
 - [Preamble](#preamble)
     - [MVC pattern recap](#mvc-pattern-recap)
     - [MVC Razor vs. Angular(JS)](#mvc-razor-vs-angularjs)
+- [MVC Basics](#mvc-basics)
+    - [Controllers & Default Routing](#controllers--default-routing)
 - [Razor & MVC](#razor--mvc)
     - [Razor syntax](#razor-syntax)
     - [HttpContext](#httpcontext)
@@ -40,6 +42,34 @@ The MVC pattern helps create applications that separate the different aspects of
 - https://docs.microsoft.com/en-us/previous-versions/aspnet/dd381412(v=vs.108)
 - https://teamtreehouse.com/library/the-anatomy-of-an-mvc-project
 - Also see [this great analogy comparing MVC to a bar](https://medium.freecodecamp.org/model-view-controller-mvc-explained-through-ordering-drinks-at-the-bar-efcba6255053)
+
+
+## MVC Basics
+
+### Controllers & Default Routing
+**Controllers** are classes whose names have to end in `...Controller`, and which inherit from the `System.Web.Mvc.Controller` base class.
+
+Any public method of a controller is called an **action method**. An action method typically returns one of the MVC *action result types*, which derive from the [ActionResult](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.actionresult?view=aspnet-mvc-5.2) class; the return type of action methods is therefore usually `ActionResult`.
+
+By default, the **routing** created by MVC for pages is `~/controllerName/actionName`, for example:
+
+```c#
+public class ComicBookController : Controller
+{
+    public ActionResult Detail()
+    {
+        return Content("Hello!");
+    }
+}
+```
+
+- this page (resource) will be associated with the path `~/ComicBook/Detail`.
+- `Content()` is a handy `Controller` method that returns a new `ContentResult`, which is one of the derived types of `ActionResult`
+
+The **Homepage** (i.e. start page without additional path) is by default associated with `HomeController` -> `Index()`.
+
+In fact, when omitting the `actionName` part of any path, this will associate the request with the Controller's `Index()` action method.
+
 
 
 ### MVC Razor vs. Angular(JS)
