@@ -5,6 +5,7 @@
     - [MVC Razor vs. Angular(JS)](#mvc-razor-vs-angularjs)
 - [MVC Basics](#mvc-basics)
     - [Controllers & Default Routing](#controllers--default-routing)
+    - [Views](#views)
 - [Razor & MVC](#razor--mvc)
     - [Razor syntax](#razor-syntax)
     - [HttpContext](#httpcontext)
@@ -85,9 +86,25 @@ public class ComicBookController : Controller
 - this page (resource) will be associated with the path `~/ComicBook/Detail`.
 - `Content()` is a handy `Controller` method that returns a new `ContentResult`, which is one of the derived types of `ActionResult`
 
-The **Homepage** (i.e. start page without additional path) is by default associated with `HomeController` -> `Index()`.
+The **Homepage** (i.e. start page without additional path) is by default associated with `HomeController` -> `Index()`. (NB: For any other `HomeController` action methods, `Home` has to be spelled out in the path.)
 
-In fact, when omitting the `actionName` part of any path, this will associate the request with the controller's `Index()` action method.
+Generally, omitting the `actionName` part of any path will associate the request with the controller's `Index()` action method.
+
+### Views
+In the MVC paradigm for ASP.NET, the *controller* is combined with the *view* to create a 'page'. MVC provides the [`ViewResult`](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.viewresult?view=aspnet-mvc-5.2) action result type for returning views from an action method. The corresponding controller method is `View()`:
+
+```c#
+public class ComicBookController : Controller
+{
+    public ActionResult Detail()
+    {
+        return View();
+    }
+}
+```
+- By default, this will make MVC look in the `~/Views/ComicBook/` and `~/Views/Shared/` directories for a template file called `Detail`.
+- By convention, all views are kept in the `Views` folder.
+- It is however possible to explicitely request a view that doesn't follow these conventions from the controller action method.
 
 _________________________
 
