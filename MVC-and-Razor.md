@@ -44,6 +44,23 @@ The MVC pattern helps create applications that separate the different aspects of
 - Also see [this great analogy comparing MVC to a bar](https://medium.freecodecamp.org/model-view-controller-mvc-explained-through-ordering-drinks-at-the-bar-efcba6255053)
 
 
+### MVC Razor vs. Angular(JS)
+Razor renders the HTML on the server, whereas Angular(JS) renders it on the client.
+There's a whole debate about which of these are better, and modern web development is split into two camps:
+
+***Camp 1*** uses server-side technologies for its controllers and views and has JavaScript in its views for dynamic things.
+- MVC and Razor are the ASP.NET server-side technologies used for this.
+- Other server-side technologies for this approach include: Express (Javascript), Django (Python) and Rails (Ruby)
+- Client-side technologies may include things like jQuery or Dojo.
+
+***Camp 2*** uses server-side technologies to expose REST endpoints. Client-side technologies are used to provide controllers and views.
+- WebAPI is the ASP.NET server-side technology used for this.
+- Client-side technologies may include things like AngularJS or React.
+
+One consideration for deciding between these two is that for applications with a large amount of dynamic elements, you don't want to have to call back to the server every time you want to render some new HTML. Also, any functionality that requires an interactive UI without page refreshes (i.e. a list to which you add items without a page reload, or a form where the fields defined are dependent on each other) would be best served by a client side framework.
+
+_________________________
+
 ## MVC Basics
 
 ### Controllers & Default Routing
@@ -69,23 +86,6 @@ public class ComicBookController : Controller
 The **Homepage** (i.e. start page without additional path) is by default associated with `HomeController` -> `Index()`.
 
 In fact, when omitting the `actionName` part of any path, this will associate the request with the Controller's `Index()` action method.
-
-
-
-### MVC Razor vs. Angular(JS)
-Razor renders the HTML on the server, whereas Angular(JS) renders it on the client.
-There's a whole debate about which of these are better, and modern web development is split into two camps:
-
-***Camp 1*** uses server-side technologies for its controllers and views and has JavaScript in its views for dynamic things.
-- MVC and Razor are the ASP.NET server-side technologies used for this.
-- Other server-side technologies for this approach include: Express (Javascript), Django (Python) and Rails (Ruby)
-- Client-side technologies may include things like jQuery or Dojo.
-
-***Camp 2*** uses server-side technologies to expose REST endpoints. Client-side technologies are used to provide controllers and views.
-- WebAPI is the ASP.NET server-side technology used for this.
-- Client-side technologies may include things like AngularJS or React.
-
-One consideration for deciding between these two is that for applications with a large amount of dynamic elements, you don't want to have to call back to the server every time you want to render some new HTML. Also, any functionality that requires an interactive UI without page refreshes (i.e. a list to which you add items without a page reload, or a form where the fields defined are dependent on each other) would be best served by a client side framework.
 
 _________________________
 
