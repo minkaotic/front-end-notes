@@ -123,7 +123,7 @@ Razor can either be used as part of a classic MVC-structured application, or as 
 1. Variables can be used to store values
 1. Files have the extension `.cshtml`
 
-```html
+```c#
 <!-- Single statement block  -->
 @{ var myMessage = "Hello World"; }
 
@@ -208,7 +208,7 @@ The result displayed in a browser:
 #### Reading user input
 An important feature of dynamic web pages is that you can read user input. In Razor, input is read via `Request["input-name"]`, and posting input is tested by the `IsPost` condition:
 
-```
+```c#
 @{
     var totalMessage = "";
     if (IsPost)
