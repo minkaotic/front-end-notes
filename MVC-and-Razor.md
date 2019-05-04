@@ -124,12 +124,10 @@ Razor can either be used as part of a classic MVC-structured application, or as 
 1. Files have the extension `.cshtml`
 
 ```html
-<!-- Single statement blocks  -->
-@{ var total = 7; }
+<!-- Single statement block  -->
 @{ var myMessage = "Hello World"; }
 
-<!-- Inline expressions -->
-<p>The value of your account is: @total </p>
+<!-- Inline expression -->
 <p>The value of myMessage is: @myMessage</p>
 
 <!-- Multi-statement block -->
