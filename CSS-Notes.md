@@ -33,7 +33,7 @@ ______________________
 
 ## Basics
 - To include a stylesheet in your page, you typically link it in the `head` of the HTML. You can either link to a file in your project or to a file hosted elsewhere:
-  ```
+  ```html
   <head>
     <title></title>
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
@@ -93,7 +93,7 @@ Web font formats:
 - `.ttf` - used for Safari, Android & iOS display
 
 Add a web font to your style sheet like this:
-```
+```css
 @font-face {
   font-family: 'Abolition Regular';
   src: url('../fonts/abolition-regular-webfont.eot');
@@ -168,7 +168,7 @@ Every HTML element has a background layer that is transparent by default, but ca
 ## Media Queries for Responsive Design
 Media queries allow us to tailor our content to a wide range of devices and viewport sizes without having to change anything in the HTML. For example, to set up various media query breakpoints for different styles depending on browser size:
 
-```
+```css
 @media all and (max-width: 960px) {
   [selector] {
     [style declaration]
@@ -198,7 +198,7 @@ The question of where you should set your breakpoints is much debated, the three
 In the stylesheet, serve the basic layout styles and minimal amount of code to style a page for a small, mobile device first. Then, using media queries, you add breakpoints which successively adjust the layout for wider screens and devices.
 
 A common approach starting out a basic mobile-first design, is to use a simple 1-column approach with a little padding left & right on mobile, then add a percentage based width in the first media query (which will still be applied to higher screen sizes unless overridden in later media queries):
-```
+```css
 @media screen and (min-width: 769px) {
   .container {
     width: 70%;
@@ -212,7 +212,7 @@ A common approach starting out a basic mobile-first design, is to use a simple 1
 
 Using **mobile device emulation in Chrome dev tools**, you'll notice that often our CSS rules for responsive design using media queries might not be applied to certain mobile phones, as they may be using virtual viewports rather than the real viewport size. To get around this, we need to use the HTML `viewport` meta tag in the head of any HTML pages:
 
-```
+```html
 <head>
     <title>...</title>
     <link rel="stylesheet" href="css/style.css">
@@ -241,7 +241,7 @@ Gradients create smooth and gradual transitions between two or more colours. Som
 - As above, plus specificed colour stops: `radial-gradient(circle at top right, #ffa949 0%, firebrick 20%, dodgerblue 100%)`
 
 It is also possible to layer a number of gradients on top of each other, or layer a gradient over a background image:
-```
+```css
 background: linear-gradient(#ffa949, transparent 60%),
             #ffa949 url('../img/mountains.jpg') no-repeat center;
 ```
@@ -267,7 +267,7 @@ A *wrapper* (or *container*) is commonly used to center a layout on the page. Th
 
 Using a wrapper `div` to contain the other elements on the page:
 
-```
+```css
 .wrapper {
   width: 70%;       /*prevents the layout from stretching too wide*/
   margin: 0 auto;   /*setting L+R margins to auto centres the wrapper in the browser*/
@@ -278,7 +278,7 @@ Using a wrapper `div` to contain the other elements on the page:
 
 #### Creating a sticky Footer
 *Basic method:* With a `<div class="wrap">` container around all content *but* the footer, do:
-```
+```css
 .wrap {
   min-height: calc(100vh - [height of footer]px);
 }
@@ -342,7 +342,7 @@ Options for resolving this:
 1. Set a fixed height. :zap: But this is a very clunky & inflexible solution.
 1. Add `overflow: auto;` or `overflow: hidden` for the parent element. :zap: But in some browsers, unwanted scroll bars might appear with `auto`, or bits of content might be cut off with `hidden`.
 1. **Clearfix** is the most reliable way to prevent these issues! It uses a CSS pseudo element to force a container to clear its floated children:
-  ```
+  ```css
   [parent selector]::after {
     content: "";
     display: table;
@@ -369,7 +369,7 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 
 #### Flex container properties
 ***To define a flex container***, and turn all its direct children into flex items, set the `display` property of an element to one of the flexbox layout values: `flex` or `inline-flex`:
-```
+```css
 .container {
   display: flex;
 }
@@ -403,7 +403,7 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
     - at the same time, setting the width value below which items will be distributed to the next line
     
   - Since `flex-basis` is commonly used in conjunction with `flex-grow`, the **`flex`** shorthand can be used to set both. It also sets smart defaults for the optional values, for example, `flex: 1;` sets the `flex-basis` to `0` (default is `auto`). (See ["MDN - Flex"](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) for more details.)
-  ```
+  ```css
   .item {
     flex: 1 200px;  /* sets flex-grow to 1 and flex-basis to 200px */
   }
