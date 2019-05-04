@@ -66,7 +66,9 @@ _________________________
 ### Controllers & Default Routing
 **Controllers** are classes whose names have to end in `...Controller`, and which inherit from the `System.Web.Mvc.Controller` base class.
 
-Any public method of a controller is called an **action method**. An action method typically returns one of the MVC *action result types*, which derive from the [ActionResult](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.actionresult?view=aspnet-mvc-5.2) class; the return type of action methods is therefore usually `ActionResult`.
+Controllers have one or more **action methods**, which typically return one of the MVC *action result types*, which derive from the [ActionResult](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.actionresult?view=aspnet-mvc-5.2) class; the return type of action methods is therefore usually `ActionResult`.
+
+> Both controllers and action methods need to be public.
 
 By default, the **routing** created by MVC for pages is `~/controllerName/actionName`, for example:
 
@@ -85,7 +87,7 @@ public class ComicBookController : Controller
 
 The **Homepage** (i.e. start page without additional path) is by default associated with `HomeController` -> `Index()`.
 
-In fact, when omitting the `actionName` part of any path, this will associate the request with the Controller's `Index()` action method.
+In fact, when omitting the `actionName` part of any path, this will associate the request with the controller's `Index()` action method.
 
 _________________________
 
