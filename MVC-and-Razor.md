@@ -7,9 +7,11 @@
     - [Controllers & Default Routing](#controllers--default-routing)
     - [Views](#views)
 - [Razor & MVC](#razor--mvc)
-    - [Razor syntax](#razor-syntax)
+    - [Basic Syntax](#basic-syntax)
+    - [HTML helper methods](#html-helper-methods)
+    - [Functions](#functions)
+    - [The Request object](#the-request-object)
     - [HttpContext](#httpcontext)
-    - [Razor Helpers](#razor-helpers)
 - [Bundling & Minification](#bundling--minification)
     - [Webpack](#webpack)
     - [ASP.NET bundler](#aspnet-bundler)
@@ -29,7 +31,7 @@ The *Model View Controller* design pattern is commonly used across many framewor
 
 - **View** = the components that display the application's *user interface (UI)*. Typically, this UI is created from the model data. (An example would be an edit view of a Products table that displays text boxes, drop-down lists, and check boxes based on the current state of a Product object.)
 
-- **Controller** = the *coordinator* responsible for directing what specific actions need to be performed when a user navigates to the website, in order to send a response to that user. Controllers are the components that handle user interaction, work with the model, and ultimately select a view to render that displays UI. 
+- **Controller** = the *coordinator* responsible for directing what specific actions need to be performed when a user navigates to the website, in order to send a response to that user. Controllers are the components that handle user interaction, select a view to render in the UI and work with the model to decide what data should be sent to the view. 
 
 In an MVC application, the view only displays information; the controller handles and responds to user input and interaction. For example, the controller handles query-string values, and passes these values to the model, which in turn might use these values to query the database.
 
@@ -106,6 +108,10 @@ public class ComicBookController : Controller
 - By convention, all views are kept in the `Views` folder.
 - It is however possible to explicitely request a view that doesn't follow these conventions from the controller action method.
 
+#### Layout
+The `_Layout.cshtml` file provides the overall look and feel for every page on our website
+
+
 _________________________
 
 ## Razor & MVC
@@ -115,10 +121,10 @@ ASP.NET MVC has implemented a view engine that allows us to use Razor inside of 
 
 Razor can either be used as part of a classic MVC-structured application, or as part of an *MVVM (Model-View-ViewModel)* setup, whereby the model and controller code is also included within the Razor Page itself. For more on the differences between these, see: https://stackify.com/asp-net-razor-pages-vs-mvc/.
 
-### Razor syntax
+
+### Basic Syntax
 > Super handy reference! => **[C# Razor Syntax Quick Reference](https://haacked.com/archive/2011/01/06/razor-syntax-quick-reference.aspx/)**
 
-#### Basics
 1. Add code to a page using the `@` character: it starts inline expressions, single statement blocks, and multi-statement blocks
 1. Single or multi statement code blocks are enclosed in braces, each statement ending on a semicolon
 1. Expressions don't require braces or semicolons
@@ -185,7 +191,10 @@ Given the following variables:
 </div>
 ```
 
-#### @functions
+### HTML helper methods
+
+
+### Functions
 The purpose of a `@functions` block is to wrap up reusable code, like methods and properties, and then be able to call those methods or properties from other parts of the page.
 
 ###### Declaring functions and properties:
@@ -223,9 +232,8 @@ The purpose of a `@functions` block is to wrap up reusable code, like methods an
 </html>
 ```
 
-
-#### The Request object
-You'll often work with the `Request` object, which gives you information like the values of text boxes (form fields) on the page (see [example in the next section](#reading-user-input)), what type of browser made the request, the URL of the page, the user identity, etc. 
+### The Request object
+You'll often work with the `Request` object, which gives you information like the values of text boxes (form fields) on the page (see [example below](#reading-user-input)), what type of browser made the request, the URL of the page, the user identity, etc. 
 
 The following example shows how to access properties of the `Request` object and how to call the `MapPath()` method of the Request object, which gives you the absolute path of the page on the server:
 
@@ -249,7 +257,6 @@ The following example shows how to access properties of the `Request` object and
 The result displayed in a browser:
 
 ![Request object props](https://github.com/minkaotic/front-end-notes/blob/master/img/request-object-properties.PNG)
-
 
 #### Reading user input
 An important feature of dynamic web pages is that you can read user input. In Razor, input is read via `Request["input-name"]`, and posting input is tested by the `IsPost` condition:
@@ -289,20 +296,6 @@ An important feature of dynamic web pages is that you can read user input. In Ra
 ```
 
 NB: it can also be accessed from [tag helpers](#tag-helpers), controllers, models, or any custom code or middleware.
-
-
-### Razor Helpers
-ASP.NET helpers are components that can be accessed by single lines of Razor code. You can build your own helpers using Razor syntax, or use built-in ASP.NET helpers.
-
-Some useful built-in Razor helpers include:
-
-- Web Grid
-- Web Graphics
-- Google Analytics
-- Facebook Integration
-- Twitter Integration
-- Sending Email
-- Validation
 
 
 **Sources:**
