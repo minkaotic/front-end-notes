@@ -141,6 +141,50 @@ Razor can either be used as part of a classic MVC-structured application, or as 
 <p>The greeting is: @greetingMessage</p>
 ```
 
+#### HTML encoding
+> For security reasons, content displayed in a page using the `@` character will be HTML-encoded, replacing reserved HTML characters (such as `<` and `>` and `&`) with codes that enable them to be displayed *as characters* in a web page instead of being interpreted as HTML tags or entities.
+
+To output HTML markup that renders tags *as markup*, use `Html.Raw`:
+
+```c#
+@{ var description = "<p>Final issue! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>"; }
+
+<div>@Html.Raw(description)</div>
+```
+
+#### Combining control flow & markup
+Given the following variables:
+```c#
+@{
+    var seriesTitle = "The Amazing Spider-Man";
+    var artists = new string[]
+    {
+        "Script: Dan Slott",
+        "Pencils: Humberto Ramos",
+        "Inks: Victor Olazaba",
+        "Colors: Edgar Delgado",
+        "Letters: Chris Eliopoulos"
+    };
+}
+```
+...you can combine conditionals & loops with the markup as follows:
+```c#
+<div>
+    <h1>@seriesTitle</h1>
+
+    @if (artists.Length > 0)
+    {
+        <h5>Artists:</h5>
+        <ul>
+            @foreach (string artist in artists)
+            {
+                <li>@artist</li>
+            }
+        </ul>
+    }
+</div>
+```
+
 #### @functions
 The purpose of a `@functions` block is to wrap up reusable code, like methods and properties, and then be able to call those methods or properties from other parts of the page.
 
