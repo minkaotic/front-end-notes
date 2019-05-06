@@ -109,6 +109,21 @@ public class ComicBookController : Controller
 - By convention, all views are kept in the `Views` folder.
 - It is however possible to explicitely request a view that doesn't follow these conventions from the controller action method.
 
+#### Strongly typed views
+A *strongly typed view* is an MVC view that is associated with a specific type.
+
+**In the controller:** Create an actual instance of the model and pass this into the call to `View()` (or other result type) in the relevant action method, i.e. `View(modelInstance)`.
+
+> *Constructing and filling the model, and then passing it along to the view, is a classic controller job.*
+
+**In the view:** 
+* To define which class to use as a model, add a *model view directive* to the top of the view, using the fully qualified namespace of model:
+    ```c#
+    @model ProjectName.Models.ModelName
+    ```
+* A strongly typed view exposes the model instance (i.e. that was passed in from the controller) through the view's `Model` property; so you can access the model's properties via `Model.PropertyName`.
+
+
 _________________________
 
 ## Razor & MVC
