@@ -8,6 +8,7 @@
     - [Views](#views)
 - [Razor & MVC](#razor--mvc)
     - [Basic Syntax](#basic-syntax)
+    - [Layout](#layout)
     - [HTML helper methods](#html-helper-methods)
     - [Functions](#functions)
     - [The Request object](#the-request-object)
@@ -108,10 +109,6 @@ public class ComicBookController : Controller
 - By convention, all views are kept in the `Views` folder.
 - It is however possible to explicitely request a view that doesn't follow these conventions from the controller action method.
 
-#### Layout
-The `_Layout.cshtml` file provides the overall look and feel for every page on our website
-
-
 _________________________
 
 ## Razor & MVC
@@ -191,7 +188,28 @@ Given the following variables:
 </div>
 ```
 
+### Layout
+The `_Layout.cshtml` file provides the overall look and feel for every page on our website, without having to have the related markup in each view (for example, header and footer markup). 
+> *Typically, websites contain just a single layout page, but it is possible to have more than one layout page.*
+
+The `@RenderBody` method is used in the layout file to indicate where the content for the view requested by the user should be included (i.e. the content for each individual page). This method can only be called once from a layout page.
+
+In each view file, the layout to be used with a page is indicated as follows:
+```c#
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+```
+
 ### HTML helper methods
+Used in MVC views to generate markup
+
+- e.g. `@Html.ActionLink` - generates a link
+
+Read more:
+- https://dzone.com/articles/working-with-built-in-html-helper-classes-in-aspne
+- https://www.tutorialsteacher.com/mvc/html-helpers
+- https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 
 
 ### Functions
