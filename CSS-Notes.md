@@ -333,6 +333,7 @@ Floats are one of the most commonly used methods for laying out a page with CSS.
 - **`float: right;`** will float something to the right, **`float: left;`** to the left.
 
 #### Common issues & workarounds
+##### Collapsing parents
 If a block element contains floated children, its height will collapse (bar any `padding` or fixed `height` value), causing elements to overlap where they shouldn't...
 
 ![Collapsing Height](https://github.com/minkaotic/front-end-notes/blob/master/img/float-collapsing-height.png)
@@ -356,6 +357,34 @@ Options for resolving this:
   - Further resources: 
     - https://developer.mozilla.org/en-US/docs/Web/CSS/clear
     - http://nicolasgallagher.com/micro-clearfix-hack/
+
+##### Centering floated elements
+Center-aligning an element containing floats can be tricky, since when we float a number of items, its parent becomes a block-level element, taking up the full width of the container. For example:
+
+###### HTML
+```html
+<nav>
+  <ul>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Articles</a></li>
+    <li><a href="#">News</a></li>
+    <li><a href="#">Contact</a></li>  
+  </ul>
+</nav>
+```
+###### CSS
+```css
+li {
+  float: left;
+}
+
+nav {
+  text-align: center
+}
+```
+➭ since `<ul>` takes up the full width due to its floated children, the navigation elements won't be centered
+
+To fix this, set `<ul>` to `display: inline-block;` - et voila! :raised_hands:
 
 
 ### Flexbox
