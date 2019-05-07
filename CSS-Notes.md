@@ -359,18 +359,20 @@ Options for resolving this:
     - http://nicolasgallagher.com/micro-clearfix-hack/
 
 ##### Centering floated elements
-Center-aligning an element containing floats can be tricky, since when we float a number of items, its parent becomes a block-level element, taking up the full width of the container. For example:
+Center-aligning an element containing floats can be tricky, since we are often floating items within parent containers that are block-level elements by default, taking up the full width of the container. For example:
 
 ###### HTML
 ```html
-<nav>
-  <ul>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Articles</a></li>
-    <li><a href="#">News</a></li>
-    <li><a href="#">Contact</a></li>  
-  </ul>
-</nav>
+<header>
+  <nav>
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Articles</a></li>
+      <li><a href="#">News</a></li>
+      <li><a href="#">Contact</a></li>  
+    </ul>
+  </nav>
+</header>
 ```
 ###### CSS
 ```css
@@ -378,13 +380,13 @@ li {
   float: left;
 }
 
-nav {
+header {
   text-align: center
 }
 ```
-➭ since `<ul>` takes up the full width due to its floated children, the navigation elements won't be centered
+➭ since both `<nav>` and `<ul>` are block-level elements, the navigation elements won't be centered
 
-To fix this, set `<ul>` to `display: inline-block;` - et voila! :raised_hands:
+To fix this, set `<nav>` to `display: inline-block;` - et voila! :raised_hands:
 
 
 ### Flexbox
