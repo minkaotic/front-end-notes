@@ -52,7 +52,17 @@ ______________________
 - **Descendant selectors** like `.primary-content p` can be made up of two or more selectors and will target all elements that match that relationship, e.g. all "paragraphs" within any elements marked by the "primary-content" class
 - **Pseudo-classes** like `:link` `:visited`, `:hover` or `:first-child:` target elements dynamically based on user interaction or an element’s special state
 - **Pseudo-elements** like `::before` or `::after` for advanced styling needs (*NB:* as of CSS3 all pseudo-elements need to use the `::` syntax, as opposed to `:` used in older versions, to differentiate them from pseudo-classes.)
-- *Multiple selectors*, separated by commas, can be used in a rule, such as `.primary-content, .secondary-content`
+
+> *Multiple selectors*, separated by commas, can be used in a rule, such as `.primary-content, .secondary-content`
+
+#### Attribute selectors
+- `[class] {...}` - target all elements with a class attribute
+- `[class="form-contact"] {...}` - target all elements with a class attribute of value "form-contact"
+- `form[class="form-contact"] {...}` - target all `form` elements with a class attribute of value "form-contact" (equivalent to `.form-contact`)
+- `div[id="container"] {...}` - target all `div` elements with an id attribute of value "container" (equivalent to `#container`)
+
+> Attribute selectors can be slower to interpret than class or element selectors, and the are less readable. Their main purpose is for styling form elements, i.e., styles for specific "type" attributes, such as `input[type="email"] {...}`
+
 
 ### Rule Precedence
 - The **cascade** determines which styles are assigned to a HTML element; follows 3 main steps to determine which rule to apply:
