@@ -13,7 +13,8 @@
   - [The calc() function](#the-calc-function)
   - [Why margins collapse](#why-margins-collapse)
 - **[Colour & Background Images](#colour--background-images)**
-- **[Media Queries for Responsive Design](#media-queries-for-responsive-design)**
+- **[Responsive Design](#responsive-design)**
+  - [Media Queries](#media-queries)
   - [Breakpoints](#breakpoints)
   - [Mobile first](#mobile-first)
   - [Viewport meta tag](#viewport-meta-tag)
@@ -175,7 +176,10 @@ Every HTML element has a background layer that is transparent by default, but ca
 *NB: Multiple images can be layered on top of each other*, e.g.: `background: url('rock.png'), url('header-bg.jpg');`! For an example of how do do so and then dynamically position each layer to create a neat effect, see: https://teamtreehouse.com/library/using-calc-as-background-position-offsets
 
 
-## Media Queries for Responsive Design
+## Responsive Design
+- **Horizontal vs vertical units** For sizing the vertical layout, it's common to use pixel as the default unit, but for the horizontal layout, it is advisable to use percentage or `em` / `rem` units which will adjust based on the size of the device.
+
+### Media Queries
 Media queries allow us to tailor our content to a wide range of devices and viewport sizes without having to change anything in the HTML. For example, to set up various media query breakpoints for different styles depending on browser size:
 
 ```css
