@@ -311,11 +311,19 @@ Most common values for the `display` property, and elements defaulting to that d
 
 - `inline` elements  only span the width of their contents, allowing any inline level element to flow up next to it on the same line. ***NB:** width and height properties, or top/bottom margin or padding settings won't be applied to inline elements*; only left/right margins and padding will work.
 
-- `inline-block` is useful in cases when we want items to appear next to each other, but still want top/bottom margin to be applied as if the whole set was a block element 
+- `inline-block`'s main two differences vs. `inline` is that it allows to set a width and height on the element, and that the top and bottom margins/paddings are respected.
 
 :sparkles: Interesting article on leveraging the display mode as an alternative to using floats: "[The Secret To Designing Website Layouts Without CSS Floats]( https://www.webdesignerdepot.com/2014/07/the-secret-to-designing-website-layouts-without-css-floats/)" :sparkles:
 
-#### Gotchas when using inline-block to lay out columns
+#### Using inline-block to lay out columns
+E.g., to lay out two `div`s as equal width side-by-side columns:
+```css
+.col {
+  display: inline-block;
+  width: 50%;
+  margin-right: -4px;  /* (explanation below) */
+}
+```
 
 ##### Gaps between inline/inline-block elements
 
@@ -325,12 +333,12 @@ The size of the gap is commonly `4px`, but depends on the element's font size to
 - applying a small, negative right margin to the elements: `margin-right: -4px;`
 - setting `font-size: 0;` on the parent element - this makes the size of the space zero as well. You'll then need to set the font size of the inline-block child elements back to your desired size.
 
-##### Columns aren't top-aligned
+##### Top aligning columns
 
-Since the default vertical alignment for inline(-block) items is `baseline`, the lack of top-alginment will become visible in columns that are different height. To change this behaviour, set the column `div`s to `vertical-align: top;`.
+Since the default vertical alignment for inline(-block) items is `baseline`, the the tops of columns that are different height won't be aligned. To change this behaviour, set the column `div`s to `vertical-align: top;`.
 
-#### Nifty examples
-- `li { display: inline; }` to keep list items next to each other on one line, then use padding and margin to neaten up visually (for more about list manipulation, see: https://teamtreehouse.com/library/lists-5)
+#### Other nifty usages of `display`
+- `li { display: inline; }` to keep list items next to each other on one line, then use padding and margin to neaten up visually (for more on list manipulation, see: https://teamtreehouse.com/library/lists-5)
 - Setting an `<a>` element's display value to block makes its hover area expand within its parent (nicer for clickability) and lets you apply top and bottom padding values.
 
 
