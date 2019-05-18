@@ -28,6 +28,7 @@
   - [Display Modes](#display-modes)
   - [Floats](#floats)
   - [Flexbox](#flexbox)
+  - [Absolute+Relative Positioning](#absoluterelative-positioning)
 - **[Advanced CSS Snippets](#advanced-css-snippets)**
 
 ______________________
@@ -462,13 +463,45 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
   }
   ```
 
-
 **Further resources**
 - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 - https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties
 - https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Typical_Use_Cases_of_Flexbox
 
+
+### Absolute+Relative Positioning
+CSS offers five `position` properties:
+- `static` - default value; element is placed within the normal flow
+- `relative` - element is placed within normal flow (and honored accordingly by elements around it), but it's actual position can be altered using offsets. This also creates a coordinate system for child elements (see [below](#combining-absolute--relative-positioning)).
+- `absolute` - element is neither affected by, nor affects other elements in the normal flow of the page. Instead, behaves as if it were on a different *layer*.
+- `fixed`
+- `inherit` 
+
+#### Example
+- To position elements with `relative` or `absolute` positioning, use *positioning offsets* for the element's top, right, bottom or left position
+
+- The following example will place the `.ice-cream` element in the top left corner of the browser window:
+  ```css
+    .ice-cream {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  ```
+
+#### Combining absolute & relative positioning
+Absolute and relative positioning work hand in hand:
+- When using `absolute` positioning by itself, the element is typically positioned in relation to the browser viewport.
+- This is called an element's *positioning context*.
+- To change the positioning context to another containing (i.e. parent) element, set that element as `relative` - the `absolute` element will now be positioned in relation to that container.
+
+> **In other words:** An element with `relative` positioning gives you the control to `absolute`ly position elements anywhere inside it.
+
+
+
+**Further resources**
+- http://alistapart.com/article/css-positioning-101/
 
 ________________________________________
 
