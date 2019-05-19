@@ -6,6 +6,7 @@
   - [Attribute selectors](#attribute-selectors)
 - **[Rule Precedence](#rule-precedence)**
   - [Selector specificity](#selector-specificity)
+- **[Units](#units)**
 - **[Text & Fonts](#text--fonts)**
   - [Web fonts](#web-fonts)
 - **[The CSS Box Model](#the-css-box-model)**
@@ -74,12 +75,20 @@ ______________________
 As with any other specificity calculations, if there are two `!important` rules, or two descendant selectors with the same specificity, then the decision is made on source order.
 
 
+## Units
+
+| Absolute Units | Relative Units     |
+|----------------|------------|
+| pixels (`px`)  | `em`s are relative to parent element's pixel size, but the default of `1em` is `16px` (which is the value of `em` at the root value) |
+|                | `rem`s are relative to root element's pixel size, i.e. avoid compounding issues when sizing up or down |
+|                | `%` is always relative to the parent container |
+|                | `vh` is a relative unit referring to the viewport, with `100vh` making an element the full width of the viewport (screen) |
+
+
 ## Text & Fonts
 - Create a **font stack** to make sure we have fallbacks of *websafe fonts* as well as *generic font families* defined in case our desired font doesn't work on a given machine
 - When using **`font-family`** with multi-word name, use " "s
 - Use **font** property as shorthand to specify weight, size (obligatory), line height and family (obligatory), eg.: `font: normal 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;`
-- `em`s are relative to parent element's pixel size, but the default of 1 "em" is 16px (which is the value of em at the root value) 
-- `rem`s are relative to root element's pixel size, i.e. avoid compounding issues when sizing up or down
 
 Other tips:
 - Use `text-decoration: none;` to get rid of underlines on links
