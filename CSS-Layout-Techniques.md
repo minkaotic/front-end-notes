@@ -60,15 +60,18 @@ Using a wrapper `div` to contain the other elements on the page:
   min-height: calc(100vh - [height of footer]px);
 }
 ```
-- `vh` is a relative unit referring to the viewport, with `100vh` making an element the full width of the viewport (screen).
 - If you still see a gap below the footer in browsers like Firefox and IE, or when you change the browser's zoom, give .main-footer a height or min-height value of `[height of footer]px`.
 
 
 
 ## Responsive Design
-**Horizontal vs vertical units:** For sizing the vertical layout, it's common to use pixel as the default unit, but for the horizontal layout, it is advisable to use percentage or `em` / `rem` units which will adjust based on the size of the device.
+- Responsive web design is a collection of techniques for building websites that work on multiple screen sizes.
+- [This seminal article](http://alistapart.com/article/responsive-web-design/) by Ethan Marcotte first introduced the idea.
+- **Horizontal vs vertical units:** For sizing the vertical layout, it's common to use pixel as the default unit, but for the horizontal layout, it is advisable to use [relative units](https://github.com/minkaotic/front-end-notes/blob/master/CSS-Fundamentals.md#units) (such as percentage or `em` / `rem`), which will adjust based on the size of the device.
 
 ### Media Queries
+Media queries are CSS rules that help us include CSS code only when certain conditions are met. These conditions are called *media features*, and in the case of responsive web design, the media feature most commonly used is width, or more specifically, min-width. (Other features that can be queried include: orientation; resolution.)
+
 Media queries allow us to tailor our content to a wide range of devices and viewport sizes without having to change anything in the HTML. For example, to set up various media query breakpoints for different styles depending on browser size:
 
 ```css
@@ -90,12 +93,12 @@ For more detail on the technical use of `@media` queries, see [MDN docs](https:/
 The question of where you should set your breakpoints is much debated, with the three main camps being:
 1. **Breakpoints match common screen sizes:** set breakpoints based on common screen resolutions of popular devices
 1. **Breakpoints between clusters of screen sizes:** fit breakpoints around clusters of common screen sizes - see diagram below
-1. **Breakpoints based on content:** Set breakpoints based on the ranges within which a given design works well
+1. **Breakpoints based on content:** Rather than being defined by devices, breakpoints reflect the points at which a given design 'breaks' (stops working well) and needs to be adjusted
 
 ![Breakpoints according to camp 2](https://github.com/minkaotic/front-end-notes/blob/master/img/breakpoints.png)
 *Breakpoints between clusters of screen sizes ([Source](https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862))*
 
-- According to this breakdown, sensible breakpoints would be `600, 900, 1200, 1800`
+- According to this perspective from the 2nd camp, sensible breakpoints would be `600, 900, 1200, 1800`
 
 ### Mobile first
 In the stylesheet, serve the basic layout styles and minimal amount of code to style a page for a small, mobile device first. Then, using media queries, you add breakpoints which successively adjust the layout for wider screens and devices.
