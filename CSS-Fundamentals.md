@@ -1,9 +1,11 @@
-# CSS Notes
+# CSS Fundamentals
 
 ## Contents
 - **[Basics](#basics)**
 - **[Selectors](#selectors)**
+  - [Attribute selectors](#attribute-selectors)
 - **[Rule Precedence](#rule-precedence)**
+  - [Selector specificity](#selector-specificity)
 - **[Text & Fonts](#text--fonts)**
   - [Web fonts](#web-fonts)
 - **[The CSS Box Model](#the-css-box-model)**
@@ -58,12 +60,12 @@ ______________________
 ## Rule Precedence
 - The **cascade** determines which styles are assigned to a HTML element; follows 3 main steps to determine which rule to apply:
   - **Importance:** User agent styles < User styles < Author styles
-  - **Specificity:** Styles with more specific selectors will override styles with less specific selectors: universal selector < element selectors < class selectors < id selectors < inline styles
+  - **Specificity:** Styles with [more specific selectors](#selector-specificity) will override styles with less specific selectors: universal selector < element selectors < class selectors < id selectors < inline styles
   - **Source order:** If there are two or more conflicting declarations within the same rule or level of specificity, the one appearing latest in the source takes precedence. (If there are multiple style sheets, the one linked in last takes precedance.)
 
 - **Inheritance:** if no specific rules are in place for them, elements will inherit the style values of their parent element.
 
-### Some more detail on Specificity
+### Selector specificity
 - **Exceptions:** When **`!important`** is used on a style declaration, this declaration overrides any other declarations. *This is bad practice and should be avoided.* 
 
 - **When using descendant selectors**, the selector with the most IDs in it takes precendence; if they are equal, then the selector with the greatest number of classes, attributes & pseudo-classes, and if these are equal too, then the selector with the highest number of elements (incl. pseudo elements).
