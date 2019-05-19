@@ -1,19 +1,69 @@
+# CSS Layout Techniques
 
+## Contents
+- **[Basics](#basics)**
+  - [CSS Reset with Normalize](#css-reset-with-normalize)
+  - [Layout Wrapper](#layout-wrapper)
 - **[Responsive Design](#responsive-design)**
   - [Media Queries](#media-queries)
   - [Breakpoints](#breakpoints)
   - [Mobile first](#mobile-first)
-  - [Viewport meta tag](#viewport-meta-tag)
-
-- **[Layout Techniques](#layout-techniques)**
-  - [CSS Reset with Normalize](#css-reset-with-normalize)
-  - [Layout Wrapper](#layout-wrapper)
-  - [Display Modes](#display-modes)
-  - [Floats](#floats)
-  - [Flexbox](#flexbox)
-  - [CSS Positioning](#css-positioning)
+  - [Viewport meta tag](#viewport-meta-tag)  
+- **[Display Modes](#display-modes)**
+  - [Using inline-block to lay out columns](#using-inline-block-to-lay-out-columns)
+  - [Other nifty usages of `display`](#other-nifty-usages-of-display)
+- **[Floats](#floats)**
+  - [Common issues & workarounds](#common-issues--workarounds)
+- **[Flexbox](#flexbox)**
+  - [Flex container properties](#flex-container-properties)
+  - [Flex item properties](#flex-item-properties)
+- **[CSS Positioning](#css-positioning)**
+  - [Five `position` properties](#ive-position-properties)
+  - [Combining absolute & relative positioning](#combining-absolute--relative-positioning)
+  - [Z-Index](#z-index)
 
 ______________________________________________
+
+## Basics
+### CSS Reset with Normalize
+- Any browser will apply its own defaults with the User Agent Stylesheet to any webpage, before other styles are applied.
+- As the defaults for things like margins, padding, line-height and font sizes are slightly different between different browsers, it is sensible practice to do a *CSS reset*, to ensure that your layout displays as consistently as possible across all browsers.
+- A modern day alternative to a classic reset is using the *Normalize* approach ([more detail about this](http://nicolasgallagher.com/about-normalize-css/))
+
+Download the [normalize.css](https://necolas.github.io/normalize.css/)
+
+Other CSS reset methods
+- [Eric Meyer’s Reset CSS](https://meyerweb.com/eric/tools/css/reset/)
+- [Popular CSS resets, all in one place](https://cssreset.com/)
+
+
+### Layout Wrapper
+A *wrapper* (or *container*) is commonly used to center a layout on the page. The wrapper keeps a layout from looking too wide or too narrow depending on the device or viewport width.
+
+![Wrapper diagram](https://github.com/minkaotic/front-end-notes/blob/master/img/wrapper_diagram.png)
+
+Using a wrapper `div` to contain the other elements on the page:
+
+```css
+.wrapper {
+  width: 70%;       /*prevents the layout from stretching too wide*/
+  margin: 0 auto;   /*setting L+R margins to auto centres the wrapper in the browser*/
+}
+```
+- Depending on the desired design, you can use this wrapper around all contents of the site, or just around the main contents, leaving the header and footer at 100% width.
+- One approach for the latter layout is to create a wrapper around the main content and, optionally, an inner wrapper for the content inside the header and footer (if they have significant amounts of content which you'd like to align with the main content). Note that all of these wrappers can use the same class name (e.g. `container`) as they will need to have the same `width` and `margin` rules applied to them.
+
+#### Creating a sticky Footer
+*Basic method:* With a `<div class="wrap">` container around all content *but* the footer, do:
+```css
+.wrap {
+  min-height: calc(100vh - [height of footer]px);
+}
+```
+- `vh` is a relative unit referring to the viewport, with `100vh` making an element the full width of the viewport (screen).
+- If you still see a gap below the footer in browsers like Firefox and IE, or when you change the browser's zoom, give .main-footer a height or min-height value of `[height of footer]px`.
+
+
 
 ## Responsive Design
 - **Horizontal vs vertical units** For sizing the vertical layout, it's common to use pixel as the default unit, but for the horizontal layout, it is advisable to use percentage or `em` / `rem` units which will adjust based on the size of the device.
@@ -76,47 +126,8 @@ Using **mobile device emulation in Chrome dev tools**, you'll notice that often 
 For more information, see: https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
 
 
-## Layout Techniques
-### CSS Reset with Normalize
-- Any browser will apply its own defaults with the User Agent Stylesheet to any webpage, before other styles are applied.
-- As the defaults for things like margins, padding, line-height and font sizes are slightly different between different browsers, it is sensible practice to do a *CSS reset*, to ensure that your layout displays as consistently as possible across all browsers.
-- A modern day alternative to a classic reset is using the *Normalize* approach ([more detail about this](http://nicolasgallagher.com/about-normalize-css/))
 
-Download the [normalize.css](https://necolas.github.io/normalize.css/)
-
-Other CSS reset methods
-- [Eric Meyer’s Reset CSS](https://meyerweb.com/eric/tools/css/reset/)
-- [Popular CSS resets, all in one place](https://cssreset.com/)
-
-
-### Layout Wrapper
-A *wrapper* (or *container*) is commonly used to center a layout on the page. The wrapper keeps a layout from looking too wide or too narrow depending on the device or viewport width.
-
-![Wrapper diagram](https://github.com/minkaotic/front-end-notes/blob/master/img/wrapper_diagram.png)
-
-Using a wrapper `div` to contain the other elements on the page:
-
-```css
-.wrapper {
-  width: 70%;       /*prevents the layout from stretching too wide*/
-  margin: 0 auto;   /*setting L+R margins to auto centres the wrapper in the browser*/
-}
-```
-- Depending on the desired design, you can use this wrapper around all contents of the site, or just around the main contents, leaving the header and footer at 100% width.
-- One approach for the latter layout is to create a wrapper around the main content and, optionally, an inner wrapper for the content inside the header and footer (if they have significant amounts of content which you'd like to align with the main content). Note that all of these wrappers can use the same class name (e.g. `container`) as they will need to have the same `width` and `margin` rules applied to them.
-
-#### Creating a sticky Footer
-*Basic method:* With a `<div class="wrap">` container around all content *but* the footer, do:
-```css
-.wrap {
-  min-height: calc(100vh - [height of footer]px);
-}
-```
-- `vh` is a relative unit referring to the viewport, with `100vh` making an element the full width of the viewport (screen).
-- If you still see a gap below the footer in browsers like Firefox and IE, or when you change the browser's zoom, give .main-footer a height or min-height value of `[height of footer]px`.
-
-
-### Display Modes
+## Display Modes
 Most common values for the `display` property, and elements defaulting to that display mode:
 
 | Block          | Inline     | Inline-block  |
@@ -134,7 +145,7 @@ Most common values for the `display` property, and elements defaulting to that d
 
 :sparkles: Interesting article on leveraging the display mode as an alternative to using floats: "[The Secret To Designing Website Layouts Without CSS Floats]( https://www.webdesignerdepot.com/2014/07/the-secret-to-designing-website-layouts-without-css-floats/)" :sparkles:
 
-#### Using inline-block to lay out columns
+### Using inline-block to lay out columns
 E.g., to lay out two `div`s as equal width side-by-side columns:
 ```css
 .col {
@@ -144,7 +155,7 @@ E.g., to lay out two `div`s as equal width side-by-side columns:
 }
 ```
 
-##### Gaps between inline/inline-block elements
+#### Gaps between inline/inline-block elements
 
 The browser interprets the line breaks and spaces in the HTML as content, and adds spaces between elements displayed inline and inline-block, just like it adds spaces between words.
 
@@ -152,16 +163,17 @@ The size of the gap is commonly `4px`, but depends on the element's font size to
 - applying a small, negative right margin to the elements: `margin-right: -4px;`
 - setting `font-size: 0;` on the parent element - this makes the size of the space zero as well. You'll then need to set the font size of the inline-block child elements back to your desired size.
 
-##### Top aligning columns
+#### Top aligning columns
 
 Since the default vertical alignment for inline(-block) items is `baseline`, the the tops of columns that are different height won't be aligned. To change this behaviour, set the column `div`s to `vertical-align: top;`.
 
-#### Other nifty usages of `display`
+### Other nifty usages of `display`
 - `li { display: inline; }` to keep list items next to each other on one line, then use padding and margin to neaten up visually (for more on list manipulation, see: https://teamtreehouse.com/library/lists-5)
 - Setting an `<a>` element's display value to block makes its hover area expand within its parent (nicer for clickability) and lets you apply top and bottom padding values.
 
 
-### Floats
+
+## Floats
 Floats are one of the most commonly used methods for laying out a page with CSS. When an element is floated, the element is taken out of the normal flow of the page and placed along the left or right side of its container, causing other elements to wrap around it.
 
 *Common use cases:* wrap text around images; float the links in a navigation; float content columns in a container.
@@ -169,8 +181,8 @@ Floats are one of the most commonly used methods for laying out a page with CSS.
 - First, ensure the element's **`width`** is smaller than the parent container so there is space for other things to wrap around it after it's been floated. If you are laying out *columns* using float, use *percentages* to create evenly sized float elements.
 - **`float: right;`** will float something to the right, **`float: left;`** to the left.
 
-#### Common issues & workarounds
-##### Collapsing parents
+### Common issues & workarounds
+#### Collapsing parents
 If a block element contains floated children, its height will collapse (bar any `padding` or fixed `height` value), causing elements to overlap where they shouldn't...
 
 ![Collapsing Height](https://github.com/minkaotic/front-end-notes/blob/master/img/float-collapsing-height.png)
@@ -195,7 +207,7 @@ Options for resolving this:
     - https://developer.mozilla.org/en-US/docs/Web/CSS/clear
     - http://nicolasgallagher.com/micro-clearfix-hack/
 
-##### Centering floated elements
+#### Centering floated elements
 Center-aligning an element containing floats can be tricky, since we are often floating items within parent containers that are block-level elements by default, taking up the full width of the container. For example:
 
 ###### HTML
@@ -226,7 +238,7 @@ header {
 To fix this, set `<nav>` to `display: inline-block;` - et voila! :raised_hands:
 
 
-### Flexbox
+## Flexbox
 CSS layout methods like floats, inline-block and absolute positioning have quirks and limitations, as they were ultimately not designed to handle the layout demands of today’s complex responsive websites. By contrast, `flexbox` was specifically designed to lay a collection of items out in one direction or another, control the dimensions of the items, and control the spacing between items.
 
 - The two most important elements in flexbox layout are **flex *containers*** (sets context for flexbox layout; contains flex items) and **flex *items*** (the actual items to be layed out).
@@ -235,7 +247,7 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 
 ![Layout examples using Flexbox](https://github.com/minkaotic/front-end-notes/blob/master/img/flexbox-example.png)
 
-#### Flex container properties
+### Flex container properties
 ***To define a flex container***, and turn all its direct children into flex items, set the `display` property of an element to one of the flexbox layout values: `flex` or `inline-flex`:
 ```css
 .container {
@@ -255,8 +267,7 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
   - The `align-items` property determines where a flex container's items are aligned along the cross axis. By default, flex items stretch to fill the flex container's height (`align-items: stretch;`), but common alternative values are `center` and `flex-start`.
   - **NB:** an equivalent to `align-items` that works on the level of individual item properties is `align-self`.
 
-
-#### Flex item properties
+### Flex item properties
 - **Order:** The `order` property allows us to change the order of any flex item, without having to edit the HTML. The default `order` value of all flex items is `0`, and flex items will be placed relative to the other items' `order` values;
 
 - **Item size across main axis:**
@@ -284,8 +295,9 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Typical_Use_Cases_of_Flexbox
 
 
-### CSS Positioning
-#### CSS offers five `position` properties:
+
+## CSS Positioning
+### Five `position` properties
 - `static` - default value; element is placed within the normal flow
 - `relative` - element is placed within normal flow (and honored accordingly by elements around it), but it's actual position can be altered using offsets. This also creates a coordinate system for child elements (see [below](#combining-absolute--relative-positioning)).
 - `absolute` - element is neither affected by, nor affects other elements in the normal flow of the page. Instead, behaves as if it were on a different *layer*. Like `relative` elements, `absolute` elements create a coordinate system for child elements.
@@ -305,7 +317,7 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
   ```
 - **NB:** if only *one* offset value is used, the element will retain it's original position along the other coordinate axis!
 
-#### Combining absolute & relative positioning
+### Combining absolute & relative positioning
 Absolute and relative positioning work hand in hand:
 - When using `absolute` positioning by itself, the element is typically positioned in relation to the browser viewport.
 - This is called an element's *positioning context*.
@@ -317,7 +329,7 @@ Absolute and relative positioning work hand in hand:
 #### Use case as part of responsive design
 Use all four offset properties, and you can stretch an element without defining any width or height - it’s bound only by its parent element or the document itself!
 
-#### Z-Index
+### Z-Index
 
 Elements positioned as `absolute`, `fixed`, or `relative` follow a **stacking order** that determines which elements display above or below other elements:
 - By default, the stacking order is the order they appear in the source code, with elements appearing later in the HTML sitting on top on elements appearing earlier.
