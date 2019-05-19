@@ -168,8 +168,10 @@ Every HTML element has a background layer that is transparent by default, but ca
 
 **Background images** can be specified like so: `background-image: url('../img/mountains.jpg')`
 - By default, `background-image`s are left-aligned and repeated (aka tiled)
-- Specify the size of the background image as a percentage of the containing element width with `background-size: 60%;`
-- `background-size: cover` adjusts the background area so that it's **completely covered by the background image** (if using), while maintaining its width and height proportions
+- Specify the size of the background image with [`background-size`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size):
+  - as a percentage of the containing element width: `background-size: 60%;`
+  - `background-size: cover` adjusts the background area so that it's **completely covered by the background image**, while maintaining its width and height proportions
+  - `background-size: contain` scales the image as large as possible without cropping or stretching.
 - Best practice: set background colour as well when using background images, to preserve the contrast between the background and content in case the image isn't available
 - `background-position` has a number of nifty options - *[try them out here](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position)!*
 - Handy all-in-one **background shorthand:** `background: #ffa949 url('../img/mountains.jpg') no-repeat center / cover;`
