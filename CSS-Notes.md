@@ -496,15 +496,29 @@ Absolute and relative positioning work hand in hand:
 - When using `absolute` positioning by itself, the element is typically positioned in relation to the browser viewport.
 - This is called an element's *positioning context*.
 - To change the positioning context to another containing (i.e. parent) element, set that element as `relative` - the `absolute` element will now be positioned in relation to that container.
+- If multiple parent containers of an `absolute` element are `relative`, then the parent closest to the element will act as its positioning context. 
 
 > **In other words:** An element with relative positioning gives you the control to absolutely position elements anywhere inside it.
 
 #### Use case as part of responsive design
 Use all four offset properties, and you can stretch an element without defining any width or height - it’s bound only by its parent element or the document itself!
 
+#### Z-Index
+
+Elements positioned as `absolute`, `fixed`, or `relative` follow a **stacking order** that determines which elements display above or below other elements:
+- By default, the stacking order is the order they appear in the source code, with elements appearing later in the HTML sitting on top on elements appearing earlier.
+- The [`z-index`](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index) property allows to manipulate the stacking order.
+- An element with a higher `z-index` value overlaps an element with a lower `z-index` value.
+  ![Illustration of z-index](https://github.com/minkaotic/front-end-notes/blob/master/img/z-index.png)
+
+- Non-statically positioned elements have a `z-index` of `0` by default.
+- `z-index` only works on elements with a `position` property set to `absolute`, `fixed`, or `relative`. Setting a `z-index` on a `static` element will do nothing.
+
+**NB:** When you give a positioned element a `z-index`, you establish a new **stacking context** for any descendants (children) of that element. Therefore, it is possible to have a higher `z-index` element that's underneath another element with a lower `z-index`. Check articles below for more detail.
 
 **Further resources**
 - http://alistapart.com/article/css-positioning-101/
+- MDN 3-part guide on 1. [Stacking without the z-index property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Stacking_without_z-index) - 2. [Using z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Adding_z-index) - 3. [The stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
 
 ________________________________________
 
