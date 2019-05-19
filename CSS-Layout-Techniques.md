@@ -18,7 +18,7 @@
   - [Flex container properties](#flex-container-properties)
   - [Flex item properties](#flex-item-properties)
 - **[CSS Positioning](#css-positioning)**
-  - [Five `position` properties](#ive-position-properties)
+  - [Five `position` properties](#five-position-properties)
   - [Combining absolute & relative positioning](#combining-absolute--relative-positioning)
   - [Z-Index](#z-index)
 
@@ -28,11 +28,11 @@ ______________________________________________
 ### CSS Reset with Normalize
 - Any browser will apply its own defaults with the User Agent Stylesheet to any webpage, before other styles are applied.
 - As the defaults for things like margins, padding, line-height and font sizes are slightly different between different browsers, it is sensible practice to do a *CSS reset*, to ensure that your layout displays as consistently as possible across all browsers.
-- A modern day alternative to a classic reset is using the *Normalize* approach ([more detail about this](http://nicolasgallagher.com/about-normalize-css/))
+- A modern day alternative to a classic reset is using the *Normalize* approach - [more detail about this here](http://nicolasgallagher.com/about-normalize-css/).
 
-Download the [normalize.css](https://necolas.github.io/normalize.css/)
+> ➭ Download the [normalize.css](https://necolas.github.io/normalize.css/)
 
-Other CSS reset methods
+Other CSS reset methods:
 - [Eric Meyer’s Reset CSS](https://meyerweb.com/eric/tools/css/reset/)
 - [Popular CSS resets, all in one place](https://cssreset.com/)
 
@@ -66,7 +66,7 @@ Using a wrapper `div` to contain the other elements on the page:
 
 
 ## Responsive Design
-- **Horizontal vs vertical units** For sizing the vertical layout, it's common to use pixel as the default unit, but for the horizontal layout, it is advisable to use percentage or `em` / `rem` units which will adjust based on the size of the device.
+**Horizontal vs vertical units:** For sizing the vertical layout, it's common to use pixel as the default unit, but for the horizontal layout, it is advisable to use percentage or `em` / `rem` units which will adjust based on the size of the device.
 
 ### Media Queries
 Media queries allow us to tailor our content to a wide range of devices and viewport sizes without having to change anything in the HTML. For example, to set up various media query breakpoints for different styles depending on browser size:
@@ -84,10 +84,10 @@ Media queries allow us to tailor our content to a wide range of devices and view
   }
 }
 ```
-For more detail on the technical use of `@media` queries, see: https://developer.mozilla.org/en-US/docs/Web/CSS/@media
+For more detail on the technical use of `@media` queries, see [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/@media)
 
 ### Breakpoints
-The question of where you should set your breakpoints is much debated, the three main camps can be summarised as:
+The question of where you should set your breakpoints is much debated, with the three main camps being:
 1. **Breakpoints match common screen sizes:** set breakpoints based on common screen resolutions of popular devices
 1. **Breakpoints between clusters of screen sizes:** fit breakpoints around clusters of common screen sizes - see diagram below
 1. **Breakpoints based on content:** Set breakpoints based on the ranges within which a given design works well
@@ -109,7 +109,7 @@ A common approach starting out a basic mobile-first design, is to use a simple 1
     margin: 0 auto;
   }
 ```
-**NB:** To make this approach (where space around the content is defined by a combination of padding and width percentages) more manageable, it helps to use the `box-sizing: border-box` rule, which forces any padding and borders into the width and height of an element instead of expanding it. For more details see the [Margin, padding and box-sizing](#margin-padding-and-box-sizing) section above.
+**NB:** To make this approach (where space around the content is defined by a combination of padding and width percentages) more manageable, it helps to use the `box-sizing: border-box` [rule](https://github.com/minkaotic/front-end-notes/blob/master/CSS-Fundamentals.md#margin-padding-width-and-box-sizing), which forces any padding and borders into the width and height of an element instead of expanding it.
 
 ### Viewport meta tag
 
@@ -123,7 +123,7 @@ Using **mobile device emulation in Chrome dev tools**, you'll notice that often 
 </head>
 ```
 
-For more information, see: https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
+For more information on this, see [MDN docs](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag).
 
 
 
@@ -137,7 +137,7 @@ Most common values for the `display` property, and elements defaulting to that d
 | `div`          |            |               |
 | `ol`/`ul`/`li` |            |               |
 
-- `block` span the entire width of their container, forcing all subsequent elements to the next line
+- `block` elements span the entire width of their container, forcing all subsequent elements to the next line
 
 - `inline` elements  only span the width of their contents, allowing any inline level element to flow up next to it on the same line. ***NB:** width and height properties, or top/bottom margin or padding settings won't be applied to inline elements*; only left/right margins and padding will work.
 
@@ -298,11 +298,11 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 
 ## CSS Positioning
 ### Five `position` properties
-- `static` - default value; element is placed within the normal flow
-- `relative` - element is placed within normal flow (and honored accordingly by elements around it), but it's actual position can be altered using offsets. This also creates a coordinate system for child elements (see [below](#combining-absolute--relative-positioning)).
-- `absolute` - element is neither affected by, nor affects other elements in the normal flow of the page. Instead, behaves as if it were on a different *layer*. Like `relative` elements, `absolute` elements create a coordinate system for child elements.
-- `fixed` - like `absolute`, but element is *always* positioned in relation to the viewport; for example, it doesn't move when scrolling.
-- `inherit` - element inherits the value of its parent element. (Position property elements do not automatically inherit their parent’s values and instead default to `static` if no position value is given.)
+- **`static`** - default value; element is placed within the normal flow
+- **`relative`** - element is placed within normal flow (and honored accordingly by elements around it), but it's actual position can be altered using offsets. This also creates a coordinate system for child elements (see [below](#combining-absolute--relative-positioning)).
+- **`absolute`** - element is neither affected by, nor affects other elements in the normal flow of the page. Instead, behaves as if it were on a different *layer*. Like `relative` elements, `absolute` elements create a coordinate system for child elements.
+- **`fixed`** - like `absolute`, but element is *always* positioned in relation to the viewport; for example, it doesn't move when scrolling.
+- **`inherit`** - element inherits the value of its parent element. (Position property elements do not automatically inherit their parent’s values and instead default to `static` if no position value is given.)
 
 #### Example
 - To position elements with `relative` or `absolute` positioning, use *positioning offsets* for the element's top, right, bottom or left position
@@ -343,6 +343,6 @@ Elements positioned as `absolute`, `fixed`, or `relative` follow a **stacking or
 **NB:** When you give a positioned element a `z-index`, you establish a new **stacking context** for any descendants (children) of that element. Therefore, it is possible to have a higher `z-index` element that's underneath another element with a lower `z-index`. Check articles below for more detail.
 
 **Further resources**
-- http://alistapart.com/article/css-positioning-101/
+- CSS Positioning 101: http://alistapart.com/article/css-positioning-101/
 - MDN 3-part guide on 1. [Stacking without the z-index property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Stacking_without_z-index) - 2. [Using z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Adding_z-index) - 3. [The stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
 
