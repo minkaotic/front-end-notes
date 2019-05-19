@@ -28,7 +28,7 @@
   - [Display Modes](#display-modes)
   - [Floats](#floats)
   - [Flexbox](#flexbox)
-  - [Absolute+Relative Positioning](#absoluterelative-positioning)
+  - [CSS Positioning](#css-positioning)
 - **[Advanced CSS Snippets](#advanced-css-snippets)**
 
 ______________________
@@ -470,25 +470,26 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Typical_Use_Cases_of_Flexbox
 
 
-### Absolute+Relative Positioning
-CSS offers five `position` properties:
+### CSS Positioning
+#### CSS offers five `position` properties:
 - `static` - default value; element is placed within the normal flow
 - `relative` - element is placed within normal flow (and honored accordingly by elements around it), but it's actual position can be altered using offsets. This also creates a coordinate system for child elements (see [below](#combining-absolute--relative-positioning)).
-- `absolute` - element is neither affected by, nor affects other elements in the normal flow of the page. Instead, behaves as if it were on a different *layer*.
-- `fixed`
-- `inherit` 
+- `absolute` - element is neither affected by, nor affects other elements in the normal flow of the page. Instead, behaves as if it were on a different *layer*. Like `relative` elements, `absolute` elements create a coordinate system for child elements.
+- `fixed` - like `absolute`, but element is *always* positioned in relation to the viewport; for example, it doesn't move when scrolling.
+- `inherit` - element inherits the value of its parent element. (Position property elements do not automatically inherit their parent’s values and instead default to `static` if no position value is given.)
 
 #### Example
 - To position elements with `relative` or `absolute` positioning, use *positioning offsets* for the element's top, right, bottom or left position
 
 - The following example will place the `.ice-cream` element in the top left corner of the browser window:
   ```css
-    .ice-cream {
+  .ice-cream {
     position: absolute;
     top: 0;
     left: 0;
   }
   ```
+- **NB:** if only *one* offset value is used, the element will retain it's original position along the other coordinate axis!
 
 #### Combining absolute & relative positioning
 Absolute and relative positioning work hand in hand:
@@ -496,8 +497,10 @@ Absolute and relative positioning work hand in hand:
 - This is called an element's *positioning context*.
 - To change the positioning context to another containing (i.e. parent) element, set that element as `relative` - the `absolute` element will now be positioned in relation to that container.
 
-> **In other words:** An element with `relative` positioning gives you the control to `absolute`ly position elements anywhere inside it.
+> **In other words:** An element with relative positioning gives you the control to absolutely position elements anywhere inside it.
 
+#### Use case as part of responsive design
+Use all four offset properties, and you can stretch an element without defining any width or height - it’s bound only by its parent element or the document itself!
 
 
 **Further resources**
