@@ -242,11 +242,13 @@ To fix this, set `<nav>` to `display: inline-block;` - et voila! :raised_hands:
 
 
 ## Flexbox
-CSS layout methods like floats, inline-block and absolute positioning have quirks and limitations, as they were ultimately not designed to handle the layout demands of today’s complex responsive websites. By contrast, `flexbox` was specifically designed to lay a collection of items out in one direction or another, control the dimensions of the items, and control the spacing between items.
+CSS layout methods like floats, inline-block and absolute positioning have quirks and limitations, as they were ultimately not designed to handle the layout demands of today’s complex responsive websites. By contrast, `flexbox` is a collection of CSS properties that were specifically designed to lay out a collection of items in one direction or another, control the dimensions of the items, and control the spacing between items.
 
 - The two most important elements in flexbox layout are **flex *containers*** (sets context for flexbox layout; contains flex items) and **flex *items*** (the actual items to be layed out).
 
 - Flexbox follows two axes that determine the layout direction of flex items: **main axis** (default direction of left-to-right) and **cross axis** (default direction of top-to-bottom).
+
+> Flexbox plays an important role in modern [responsive web design](#responsive-design) due to it's ability to easily switch between a vertical column layout (more suited to mobile sceens) and a horizontal layout of the items in a container (better suited to tablet and desktop screens).
 
 ![Layout examples using Flexbox](https://github.com/minkaotic/front-end-notes/blob/master/img/flexbox-example.png)
 
