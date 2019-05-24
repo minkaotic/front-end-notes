@@ -18,6 +18,7 @@ Even if you roll your own frontend implementation using **vanilla JavaScript** y
 ### Server-side rendered applications 
 With more traditional, server-side rendered applications, [Selenium](https://www.seleniumhq.org/)-based tests will be your best choice.
 
+*[to be continued...]*
 
 
 **Sources:**
