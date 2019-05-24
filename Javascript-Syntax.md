@@ -394,4 +394,6 @@ JavaScript is a single-threaded language and has a concurrency model based on an
 **Examples:**
 * In web browsers, messages are added to the event loop anytime an event occurs and there is an event listener attached to it. If there is no listener, the event is lost.
 
+*[to be continued...]*
+
 For more detail, refer to [this article on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop) or [this article on HackerNoon](https://hackernoon.com/understanding-js-the-event-loop-959beae3ac40).
