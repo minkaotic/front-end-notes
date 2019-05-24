@@ -10,7 +10,7 @@
   - [Mobile first](#mobile-first)
   - [Viewport meta tag](#viewport-meta-tag)  
 - **[Display Modes](#display-modes)**
-  - [Using inline-block to lay out columns](#using-inline-block-to-lay-out-columns)
+  - [Using `inline-block` to lay out columns](#using-inline-block-to-lay-out-columns)
   - [Other nifty usages of `display`](#other-nifty-usages-of-display)
 - **[Floats](#floats)**
   - [Common issues & workarounds](#common-issues--workarounds)
@@ -148,7 +148,7 @@ Most common values for the `display` property, and elements defaulting to that d
 
 :sparkles: Interesting article on leveraging the display mode as an alternative to using floats: "[The Secret To Designing Website Layouts Without CSS Floats]( https://www.webdesignerdepot.com/2014/07/the-secret-to-designing-website-layouts-without-css-floats/)" :sparkles:
 
-### Using inline-block to lay out columns
+### Using `inline-block` to lay out columns
 E.g., to lay out two `div`s as equal width side-by-side columns:
 ```css
 .col {
