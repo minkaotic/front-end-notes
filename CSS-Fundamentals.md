@@ -57,6 +57,8 @@ ______________________
 
 > Attribute selectors can be slower to interpret than class or element selectors, and the are less readable. Their main purpose is for styling form elements, i.e., styles for specific "type" attributes, such as `input[type="email"] {...}`
 
+*[to be continued...]*
+
 
 ## Rule Precedence
 - The **cascade** determines which styles are assigned to a HTML element; follows 3 main steps to determine which rule to apply:
