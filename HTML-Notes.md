@@ -50,6 +50,8 @@
 - `<section>` - A standalone [section](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section) — which doesn't have a more specific semantic element to represent it — contained within an HTML document. The first element in a section should be its heading.
 - `<article>` - 
 
+*[to be continued...]*
+
 
 ## Complex elements
 
@@ -69,4 +71,5 @@ To create a **text input** with placeholder text:
 
 To make an input field **required**, you can just add the attribute `required` within your input element: `<input type="text" required>`. When used in combination with a `button` inside a `form`, this will actually prevent the button from being clicked until the required field is filled in.
 
+*[to be continued...]*
 
