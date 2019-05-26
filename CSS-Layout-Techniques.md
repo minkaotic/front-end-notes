@@ -276,15 +276,13 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 - **Order:** The `order` property allows us to change the order of any flex item, without having to edit the HTML. The default `order` value of all flex items is `0`, and flex items will be placed relative to the other items' `order` values;
 
 - **Item size across main axis:**
-  - The **`flex-grow`** property determines how much of the available space inside the flex container an item should take up.
+  - The **`flex-grow`** property determines how much of the available space inside the flex container an item should take up. (By default, flex items do not take up the full space inside of a container, since the default value of `flex-grow` is `0`.)
     - Assigning a `flex-grow` value of `1` to *all* flex items expands them evenly to take up the full space of a line.
     - The higher the `flex-grow` value, the more an item grows relative to the other items.
     - However, contrary to common belief, `flex-grow: 2;` will not (always) make the item twice as wide as its `flex-grow: 1;` siblings. See the article ["Flex-grow is weird"](https://css-tricks.com/flex-grow-is-weird/) for a fuller explanation.
     - A handy use for `flex-grow` is to lay out the main content of a page alongside a side bar (both of which would be flex items in a parent flex container), so they would keep the same width-ratio regardless of browser size.
     
-  - **`flex-basis`** specifies the initial 'main size' (=width) of a flex item, and is most useful for:
-    - making sure flex items of varying content volumes are still even sized across the main axis
-    - at the same time, setting the width value below which items will be distributed to the next line
+  - **`flex-basis`** specifies the initial size of an item along the cross axis of a flex item (i.e. before any "remaining space" is distributed), which at the same time sets the minimum size value below which an item will be distributed to the next line (if using `flex-wrap`).
     
   - Since `flex-basis` is commonly used in conjunction with `flex-grow`, the **`flex`** shorthand can be used to set both. It also sets smart defaults for the optional values, for example, `flex: 1;` sets the `flex-basis` to `0` (default is `auto`). (See ["MDN - Flex"](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) for more details.)
   ```css
