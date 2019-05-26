@@ -259,21 +259,22 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
   display: flex;
 }
 ```
-- **Direction:** By default, flex items are laid out horizontally on the main axis from left to right (equivalent to `flex-direction: row;`). You can change this by changing the `flex-direction` property to `column`, `column-reverse` or `row-reverse`.
+- **Direction:** By default, flex items are laid out horizontally on the main axis from left to right (equivalent to `flex-direction: row;`). Change this by setting the **`flex-direction`** property to `column`, `column-reverse` or `row-reverse`.
 
-- **Automatically wrap based on available space:** With the `flex-wrap` property, you can control whether the flex container is a single-line (`flex-wrap: nowrap;`; default) or multi-line layout (`flex-wrap: wrap;`) - in the latter case, allowing items to wrap onto multiple lines as needed.
+- **Automatically wrap based on available space:** With the **`flex-wrap`** property, you can control whether the flex container is a single-line (`flex-wrap: nowrap;`; default) or multi-line layout (`flex-wrap: wrap;`) - in the latter case, allowing items to wrap onto multiple lines as needed.
 
 - **Distribute items along main axis:**
-  - The `justify-content` property will distribute the space that's available after the container's padding and items' margins are accounted for. It defaults to `flex-start`, which places items towards the start of each flex line. By contrast, `justify-content: center;` will center the items on the line, and `justify-content: space-between;` and `..space-around;` will *evenly* distribute the children across a line.
+  - The **`justify-content`** property will distribute the space that's available after the container's padding and items' margins are accounted for. It defaults to `flex-start`, which places items towards the start of each flex line. By contrast, `justify-content: center;` will center the items on the line, and `justify-content: space-between;` and `..space-around;` will *evenly* distribute the children across a line.
   - If you want to distribute some items to the left and some to the right, with space in between, you can use `margin-right: auto;` on the *flex item* after which the dynamic gap should be inserted:
   ![Flex and margin: auto](https://github.com/minkaotic/front-end-notes/blob/master/img/flex-and-margin-auto.png)
+  - This also works well in a flex `column` layout, when wanting to align an item (such as a CTA) to the bottom of the container.
 
 - **Distribute items along cross axis:**
-  - The `align-items` property determines where a flex container's items are aligned along the cross axis. By default, flex items stretch to fill the flex container's height (`align-items: stretch;`), but common alternative values are `center` and `flex-start`.
+  - The **`align-items`** property determines where a flex container's items are aligned along the cross axis. By default, flex items stretch to fill the flex container's height (`align-items: stretch;`), but common alternative values are `center` and `flex-start`.
   - **NB:** an equivalent to `align-items` that works on the level of individual item properties is `align-self`.
 
 ### Flex item properties
-- **Order:** The `order` property allows us to change the order of any flex item, without having to edit the HTML. The default `order` value of all flex items is `0`, and flex items will be placed relative to the other items' `order` values;
+- **Order:** The **`order`** property allows us to change the order of any flex item, without having to edit the HTML. The default `order` value of all flex items is `0`, and flex items will be placed relative to the other items' `order` values;
 
 - **Item size across main axis:**
   - The **`flex-grow`** property determines how much of the available space inside the flex container an item should take up. (By default, flex items do not take up the full space inside of a container, since the default value of `flex-grow` is `0`.)
