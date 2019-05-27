@@ -297,7 +297,7 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 ### Sticky Footer with Flexbox
 We already know how to [create a sticky footer using a layout wrapper and the `calc()` method](#creating-a-sticky-footer), but flexbox can be used to create a sticky footer without requiring any calculations:
 
-##### HTML
+###### HTML
 ```html
 <body>
   <header class="main-header">...</header>   	
@@ -312,7 +312,7 @@ We already know how to [create a sticky footer using a layout wrapper and the `c
 </body>
 ```
 
-##### CSS
+###### CSS
 ```css
 body {
   display: flex;
