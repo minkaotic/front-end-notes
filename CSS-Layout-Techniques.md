@@ -17,6 +17,7 @@
 - **[Flexbox](#flexbox)**
   - [Flex container properties](#flex-container-properties)
   - [Flex item properties](#flex-item-properties)
+  - [Sticky Footer with Flexbox](#sticky-footer-with-flexbox)
 - **[CSS Positioning](#css-positioning)**
   - [Five `position` properties](#five-position-properties)
   - [Combining absolute & relative positioning](#combining-absolute--relative-positioning)
@@ -62,6 +63,7 @@ Using a wrapper `div` to contain the other elements on the page:
 ```
 - If you still see a gap below the footer in browsers like Firefox and IE, or when you change the browser's zoom, give .main-footer a height or min-height value of `[height of footer]px`.
 
+- For a different approach that uses flexbox, see [this section](#sticky-footer-with-flexbox) below.
 
 
 ## Responsive Design
@@ -291,6 +293,39 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
     flex: 1 200px;  /* sets flex-grow to 1 and flex-basis to 200px */
   }
   ```
+  
+### Sticky Footer with Flexbox
+We already know how to [create a sticky footer using a layout wrapper and the `calc()` method](#creating-a-sticky-footer), but flexbox can be used to create a sticky footer without requiring any calculations:
+
+##### HTML
+```html
+<body>
+  <header class="main-header">...</header>   	
+
+  <div class="row"><!-- actual main content --></div>
+
+  <footer class="main-footer">
+    <div class="footer-inner">
+      <span>&copy;2019 A Super Cool Company.</span>
+    </div>
+  </footer>
+</body>
+```
+
+##### CSS
+```css
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.row {
+  flex: 1;
+}
+```
+➭ this ensures the `body` container always takes up at least the full viewport, and `flex: 1;` makes `.row` stretch to take up all the available space within that container.
+
 
 **Further resources**
 - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
