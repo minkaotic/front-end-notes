@@ -218,7 +218,7 @@ exec(say, 'Hello!');
 
 **2. Passing an anonymous function**
 ```javascript
-exec(function say(something) {
+exec(function (something) {
   console.log(something);
 }, 'Hello!');
 ```
