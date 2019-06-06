@@ -224,7 +224,7 @@ background: linear-gradient(#ffa949, transparent 60%),
 1. Declare the variable inside a selector using [**custom property**](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) notation: `--property-name: value;`
 2. Reference the variable (or custom property name) using the CSS [**`var()`**](https://developer.mozilla.org/en-US/docs/Web/CSS/var) function: `var(--property-name)`
 
-Variables used by many elements (main brand colours etc.) are often declared on the root element (> usually being the `html` element), using the `:root` pseudo class selector:
+Variables used by many elements (main brand colours etc.) are often declared on the root element (> usually being the `html` element), using the [`:root`](https://developer.mozilla.org/en-US/docs/Web/CSS/:root) pseudo class selector:
 
 ```css
 :root {
