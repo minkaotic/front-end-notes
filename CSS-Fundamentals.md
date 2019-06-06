@@ -21,7 +21,6 @@
    - [Rounded corners](#rounded-corners)
    - [Gradients](#gradients)
 - **[CSS Variables](#css-variables)**
-- **[Advanced CSS Snippets](#advanced-css-snippets)**
 
 ______________________
 
@@ -210,9 +209,9 @@ ________________________________________
 ## CSS Variables
 > CSS variables hold references to values you can reuse throughout your stylesheet. CSS Variables are formally known as **"Custom Properties"** because they're similar to regular CSS properties and set using custom property notation.
 
-To use CSS variables in your stylesheet:
-1. Declare the variable inside a selector using [**custom property**](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) notation: `--property-name: value;`.
-2. Reference the variable (or custom property name) using the CSS [**`var()`**](https://developer.mozilla.org/en-US/docs/Web/CSS/var) function: `var(--property-name)`.
+**How to use CSS variables**
+1. Declare the variable inside a selector using [**custom property**](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) notation: `--property-name: value;`
+2. Reference the variable (or custom property name) using the CSS [**`var()`**](https://developer.mozilla.org/en-US/docs/Web/CSS/var) function: `var(--property-name)`
 
 Variables used by many elements (main brand colours etc.) are often declared on the root element (> usually being the `html` element), using the `:root` pseudo class selector:
 
@@ -222,7 +221,7 @@ Variables used by many elements (main brand colours etc.) are often declared on 
   --color-secondary: #b13c69;
 }
 ```
-➭ scopes the values to the highest level in the CSS cascade
+➭ scopes the values to the highest level in the CSS cascade </br>
 ➭ values can be inherited by all elements in the document - and therefore referenced anywhere in the stylesheet
 
 
@@ -248,16 +247,3 @@ header {
 **CSS Variables are a game changer!**
 * can do more than preprocessor variables
 
-________________________________________
-
-## Advanced CSS Snippets
-
-To apply some logic to all but the first sibling, `.item-class:not(:first-child)` can be used. In the following example, this is used to apply some pipe separators between a list of inline items:
-
-```css
-.item-class:not(:first-child) {
-  border-left: 1px #d7d7d7 solid;
-  padding-left: 20px;
-  margin-left: 15px;
-}
-```
