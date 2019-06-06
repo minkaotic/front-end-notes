@@ -20,6 +20,7 @@
    - [Shadow effects](#shadow-effects)
    - [Rounded corners](#rounded-corners)
    - [Gradients](#gradients)
+- **[CSS Variables](#css-variables)**
 - **[Advanced CSS Snippets](#advanced-css-snippets)**
 
 ______________________
@@ -203,6 +204,49 @@ It is also possible to layer a number of gradients on top of each other, or laye
 background: linear-gradient(#ffa949, transparent 60%),
             #ffa949 url('../img/mountains.jpg') no-repeat center;
 ```
+
+________________________________________
+
+## CSS Variables
+> CSS variables hold references to values you can reuse throughout your stylesheet. CSS Variables are formally known as **"Custom Properties"** because they're similar to regular CSS properties and set using custom property notation.
+
+To use CSS variables in your stylesheet:
+1. Declare the variable inside a selector using [**custom property**](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) notation: `--property-name: value;`.
+2. Reference the variable (or custom property name) using the CSS [**`var()`**](https://developer.mozilla.org/en-US/docs/Web/CSS/var) function: `var(--property-name)`.
+
+Variables used by many elements (main brand colours etc.) are often declared on the root element (> usually being the `html` element), using the `:root` pseudo class selector:
+
+```css
+:root {
+  --color-primary: #278ea4;
+  --color-secondary: #b13c69;
+}
+```
+➭ scopes the values to the highest level in the CSS cascade
+➭ values can be inherited by all elements in the document - and therefore referenced anywhere in the stylesheet
+
+
+You can also assign variables to another variable:
+```css
+:root { 
+  --color-bg: #3acec2;
+  --color-bg-light: #009fe1;
+  
+  --gradient: var(--color-bg-light),
+              var(--color-bg);
+}
+
+header {
+  background: linear-gradient(var(--gradient)),
+              url('../img/bg.jpg') no-repeat;
+  background-blend-mode: multiply;
+  background-size: cover;
+}
+
+```
+
+**CSS Variables are a game changer!**
+* can do more than preprocessor variables
 
 ________________________________________
 
