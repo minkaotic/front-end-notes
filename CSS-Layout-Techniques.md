@@ -294,6 +294,14 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
   }
   ```
   
+#### More notes about item sizing in flexbox:
+- If no explicit `width` (or `flex-basis`) is set for a flex item, the browser will use the content size as the starting point. If both of them are set, then `flex-basis` will take precedence.
+
+- Any item(s) with `flex: auto;` will grow to absorb any extra free space in the flex container, and shrink to its minimum size to fit the container. (Equivalent to setting `flex: 1 1 auto;`.) -> Useful for responsive design!
+
+- When you set `flex-basis` of an item to `0`, the browser will regard its content-size as 0. This can be used if you want to size items not based on “distributing remaining space” with `flex-grow`, but if you genuinely want them to be sized proportionally regardless of the content.
+
+  
 ### Sticky Footer with Flexbox
 We already know how to [create a sticky footer using a layout wrapper and the `calc()` method](#creating-a-sticky-footer), but flexbox can be used to create a sticky footer without requiring any calculations:
 
