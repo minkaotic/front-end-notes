@@ -9,6 +9,7 @@
   - [Core Concepts](#core-concepts)
   - [Getting Started](#getting-started)
   - [Tools for Debugging AngularJS](#tools-for-debugging-angularjs)
+  - [AngularJS Components](#angularjs-components)
 - [Sources](#sources)
 _______________
 
@@ -33,7 +34,7 @@ Google developed AngularJS in 2009 and version 1.0 was released in 2012. Angular
   - It can send and receive information in various formats, including JSON, XML, HTML, and text files.
   - [More about AJAX](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started)
 
-- Angular extends this idea. Even though the entire application is loaded into the browser when user requests a URL, in most cases the application will make additional requests for data back to the server via an AJAX call.
+- Angular extends this idea. Even though the entire application is loaded into the browser when a user requests a URL, in most cases the application will make additional requests for data back to the server via an AJAX call.
 
 - These requests will not re-send the files to the client, but just the pure data - most of the time the response will be in JSON.
 
@@ -165,7 +166,7 @@ angular.module('todoListApp', [])
 - This means the controller's functions can be used within it - in this case, by associating its function with the `ng-click` directive (`ng-click="helloWorld()"`) - so when the user clicks this link, the `helloWorld()` function runs.
 
 
-## Tools For Debugging AngularJS
+### Tools For Debugging AngularJS
 Chrome Tools:
 - [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en)
 - [ng-inspector for AngularJS](https://chrome.google.com/webstore/detail/ng-inspector-for-angularj/aadgmnobpdmgmigaicncghmmoeflnamj)
@@ -174,8 +175,33 @@ Firefox Tools:
 - [AngScope](https://github.com/kosprov/AngScope) - this requires installing [Firebug](https://getfirebug.com/) first
 
 
+### AngularJS Components
+
+In AngularJS, a [Component](https://docs.angularjs.org/guide/component) is a special kind of directive that uses a simpler configuration which is suitable for a component-based application structure.
+
+Advantages of Components:
+- simpler configuration than plain directives
+- promote sane defaults and best practices
+- optimized for component-based architecture
+- writing component directives will make it easier to upgrade to Angular
+
+#### Creating and configuring a Component
+Components can be registered using the `.component()` method of an AngularJS module (returned by `angular.module()`). The method takes two arguments:
+- The name of the Component (as string).
+- The Component config object. (Note that, unlike the .directive() method, this method does not take a factory function.)
+
+```javascript
+const component: ng.IComponentOptions = {
+    controller: SomeController,
+    template: require("./landingPage.template.html")
+};
+
+module.component('landingPage', component);
+```
+
+
 ## Sources
 - https://www.simplilearn.com/angularjs-vs-angular-2-vs-angular-4-differences-article
 - https://www.ng-newsletter.com/posts/beginner2expert-how_to_start.html
 - https://teamtreehouse.com/library/angularjs-basics-1x-2
-
+- https://docs.angularjs.org/guide/component
