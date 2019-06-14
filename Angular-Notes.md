@@ -1,4 +1,4 @@
-# Angular Notes
+# Angular(JS) Notes
 
 ## Contents
 - [Overview](#overview) 
@@ -13,7 +13,7 @@
 - [Sources](#sources)
 _______________
 
-## Overview
+# Overview
 Angular is a **client side application framework** built entirely with static files. This means that the entire application is loaded into the browser that the user is using. There are many performance and user experience benefits to client side frameworks, as follow-up requests to the server will only be for small amounts of data, rather than more HTML & CSS files as is the case with traditional web pages.
 
 Some other JavaScript client side frameworks include:
@@ -24,11 +24,11 @@ Some other JavaScript client side frameworks include:
 
 The architecture of Angular(JS) is based on model-view-controller (MVC) design. Angular(JS) lends itself particularly well to building **Single Page Applications (SPAs)**, but can also be used to build 'traditional' multi-page applications.
 
-### History
+## History
 Google developed AngularJS in 2009 and version 1.0 was released in 2012. Angular has since dominated the world of open-source JavaScript frameworks, with enthusiastic support and widespread adoption among both enterprises and individuals. As a result, Angular has evolved from the AngularJS version 1.0 to Angular version 2.0, Angular 4.0 and now the latest Angular version 6.0, all in just a few years.
 
 
-### AJAX & Angular
+## AJAX & Angular
 - AJAX (Asynchronous JavaScript And XML) is a technology that allows us to get data from a server without the need to refresh a webpage.
   - It does so by using the [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) (XHR) object to communicate with servers.
   - It can send and receive information in various formats, including JSON, XML, HTML, and text files.
@@ -41,7 +41,7 @@ Google developed AngularJS in 2009 and version 1.0 was released in 2012. Angular
 - The Angular app can also send data back to the server. This dual capability is known as "two-way data binding".
 
 
-### Angular vs AngularJS
+## Angular vs AngularJS
 **AngularJS** is an open-source, JavaScript-based framework for dynamic web app development. It utilizes HTML as a template language. By extending HTML attributes with directives and binding data to HTML with expressions, AngularJS creates an environment that is readable, extraordinarily expressive and quick to develop. 
 
 **Angular** is the blanket term used to refer to Angular 2, Angular 4 and all other versions that come after AngularJS. Both Angular 2 and 4 are open-source, TypeScript-based front-end web application platforms. 
@@ -57,8 +57,8 @@ For more differences, see [this infographic from simplilearn.com](https://www.si
 
 
 
-## AngularJS
-###  Core Concepts
+# AngularJS
+##  Core Concepts
 
 - ***Templates*** (or *views*) hold most of the HTML, and are what structure our application
 
@@ -81,11 +81,11 @@ For more differences, see [this infographic from simplilearn.com](https://www.si
 
 - To get into the nitty-gritty of how scope works in Angular based on prototypical inheritance, see [this video & resources](https://teamtreehouse.com/library/understanding-scope-in-angular).
 
-#### How does Angular work?
+### How does Angular work?
 Instead of manipulating the DOM “directly,” you annotate your DOM with metadata (directives), and Angular manipulates the DOM for you.
 
 
-### Getting Started
+## Getting Started
 #### in the HTML...
 - In order to include AngularJS in your app, either:
   - download the files from the [AngularJS website](https://angularjs.org/) and include them in your project
@@ -111,7 +111,7 @@ Instead of manipulating the DOM “directly,” you annotate your DOM with metad
   angular.module("todoListApp", []);
   ```
 
-#### Adding a simple directive
+### Adding a simple directive
 In a new JS file, create the directive as below (*NB!* the single parameter version of the `module()` method used in this example will make this directive refer back to the existing `exampleApp`, rather than creating a new one!):
 ```javascript
 angular.module('todoListApp')
@@ -139,7 +139,7 @@ Alternatively, directives can also be invoked via attributes of an existing tag:
 
 Both of these will make "*This is the hello world directive!*" appear in the view (on the page)!
 
-#### Creating & using a controller
+### Creating & using a controller
 Use the `controller()` method of the module (back in the JS file where the app is created):
 ```javascript
 angular.module('todoListApp', [])
@@ -166,7 +166,7 @@ angular.module('todoListApp', [])
 - This means the controller's functions can be used within it - in this case, by associating its function with the `ng-click` directive (`ng-click="helloWorld()"`) - so when the user clicks this link, the `helloWorld()` function runs.
 
 
-### Tools For Debugging AngularJS
+## Tools For Debugging AngularJS
 Chrome Tools:
 - [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en)
 - [ng-inspector for AngularJS](https://chrome.google.com/webstore/detail/ng-inspector-for-angularj/aadgmnobpdmgmigaicncghmmoeflnamj)
@@ -175,7 +175,7 @@ Firefox Tools:
 - [AngScope](https://github.com/kosprov/AngScope) - this requires installing [Firebug](https://getfirebug.com/) first
 
 
-### AngularJS Components
+## AngularJS Components
 
 In AngularJS, a [Component](https://docs.angularjs.org/guide/component) is a special kind of directive that uses a simpler configuration which is suitable for a component-based application structure.
 
@@ -185,7 +185,7 @@ Advantages of Components:
 - optimized for component-based architecture
 - writing component directives will make it easier to upgrade to Angular
 
-#### Creating and configuring a Component
+### Creating and configuring a Component
 Components can be registered using the `.component()` method of an AngularJS module (returned by `angular.module()`). The method takes two arguments:
 - The name of the Component (as string).
 - The Component config object. (Note that, unlike the .directive() method, this method does not take a factory function.)
