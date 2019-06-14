@@ -199,6 +199,12 @@ const component: ng.IComponentOptions = {
 module.component('landingPage', component);
 ```
 
+### Component-based Application Architecture
+(More on this is covered in the [docs](https://docs.angularjs.org/guide/component#component-based-application-architecture)!)
+- **Components only control their own View and Data.** Components should never modify any data or DOM that is out of their own scope.  Component directives use an isolated scope, so a whole class of scope manipulation is not possible.
+- **Components have a well-defined public API - Inputs and Outputs.**
+- **Components have a well-defined lifecycle.** Each component can implement "lifecycle hooks". These are methods that will be called at certain points in the life of the component. See [docs](https://docs.angularjs.org/guide/component#component-based-application-architecture) for a full list of these.
+
 
 ## Sources
 - https://www.simplilearn.com/angularjs-vs-angular-2-vs-angular-4-differences-article
