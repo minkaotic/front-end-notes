@@ -10,16 +10,16 @@
 - [SASS Notes](https://github.com/minkaotic/front-end-notes/blob/master/SASS-Notes.md)
 - [Using SVGs](https://github.com/minkaotic/front-end-notes/blob/master/Using-SVGs.md)
 
-### JavaScript & its Frameworks
+### JavaScript & co.
 - [JavaScript Syntax](https://github.com/minkaotic/front-end-notes/blob/master/Javascript-Syntax.md)
 - [JavaScript & the DOM](https://github.com/minkaotic/front-end-notes/blob/master/Javascript-and-the-DOM.md)
 - [ES Modules](https://github.com/minkaotic/front-end-notes/blob/master/ES-Modules.md)
 - [TypeScript](https://github.com/minkaotic/front-end-notes/blob/master/Typescript.md)
-- ***Frameworks:***
-  - [Vue.JS Notes](https://github.com/minkaotic/front-end-notes/blob/master/Vue-JS-Notes.md)
-  - [Angular (JS) Notes](https://github.com/minkaotic/front-end-notes/blob/master/Angular-Notes.md)
-  
-### .NET
+
+### Frontend Frameworks
+- [Frameworks Overview](https://github.com/minkaotic/front-end-notes/blob/master/Frameworks-Overview.md)
+- [Vue.JS Notes](https://github.com/minkaotic/front-end-notes/blob/master/Vue-JS-Notes.md)
+- [Angular (JS) Notes](https://github.com/minkaotic/front-end-notes/blob/master/Angular-Notes.md)
 - [ASP.NET MVC & Razor](https://github.com/minkaotic/front-end-notes/blob/master/MVC-and-Razor.md)
 
 ### Testing
