@@ -3,6 +3,10 @@
 ### Contents
 - [SVG basics](#svg-basics)
 - [Different ways of adding SVGs to a web page](#different-ways-of-adding-svgs-to-a-web-page)
+- [Important elements in SVGs](#important-elements-in-svgs)
+    - [Grouping with `<g>`](#grouping-with-g)
+    - [Grouping with `<symbol>`](#grouping-with-symbol)
+    - [Reusing elements with `<use>`](#reusing-elements-with-use)
 - [Optimising SVGs](#optimising-svgs)
 - [Styling SVGs with CSS](#styling-svgs-with-css)
 - [Animating SVGs](#animating-svgs)
@@ -47,6 +51,46 @@ A ***vector graphic*** is composed of points in space (=vectors) each defined by
 
 > **Ideally add SVGs like a normal image, and only embed them if you absolutely have a requirement to style them.**
 
+## Important elements in SVGs
+Source: https://www.sarasoueidan.com/blog/structuring-grouping-referencing-in-svg/
+
+### Grouping with `<g>`
+`<g>` stands for ‘group’. The group element is used for logically grouping together sets of related graphical elements. In terms of graphics editors, the `<g>` element serves a similar functionality as the Group Objects function. You can also think of a group as being similar to the concept of a layer in a graphics editor, since a layer is also a grouping of elements.
+
+Grouping allows you to apply certain actions to a whole set of items, for example:
+- fill all elements in a group with a specified colour
+- apply transformations (such as scale or rotation) to a group of items, whilst maintaining their spatial relations to one another
+- attach mouse events etc. to a group of elements
+
+Groups can also have their own `<title>` and `<desc>` tags, making it more accessible to screen readers, and making the code more readable:
+
+```html
+<g id="bird">
+    <title>Bird</title>
+    <desc>An image of a cute little green bird with an orange beak.</desc>
+    <!-- ... -->
+</g>
+```
+
+### Grouping with `<symbol>`
+`<symbol>` is similar to `<g>` (group) in that it provides a way to group elements together. However, two main differences:
+
+1. `<symbol>`s are not rendered. They are only displayed when they are `use`d.
+1. `<symbol>`s can have their own viewBox and preserveAspectRatio attributes. 
+
+`<symbol>` is therefore mostly suitable for defining reusable elements. It also serves as a template that is instantiated using the `<use>` element.
+
+### Reusing elements with `<use>`
+The <use> element lets you reuse existing elements, with the following benefits:
+- avoid duplication
+- useful in [SVG spriting](#spriting)
+
+The `<use>` element takes `x`, `y`, `height`, and `width` attributes, and it references other content using the `xlink:href` attribute. So if you have defined a group (or `<symbol!>`) somewhere with an `id="bird"`, you use it as follows:
+
+```html
+<use xlink:href="#bird" />
+```
+The referenced element or group doesn't have to be in the same file.
 
 ## Optimising SVGs
 
@@ -61,6 +105,8 @@ https://jakearchibald.github.io/svgomg/
 
 ## Animating SVGs
 Internet Explorer does not support SVG animation, however you can use a polyfill such as [FakeSmile](https://leunen.me/fakesmile/) if you need it to work in IE too.
+
+(W.I.P. section - to be continued...)
 
 
 ## Spriting
