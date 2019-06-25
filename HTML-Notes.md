@@ -69,7 +69,51 @@ To create a **text input** with placeholder text:
 </form>
 ```
 
-To make an input field **required**, you can just add the attribute `required` within your input element: `<input type="text" required>`. When used in combination with a `button` inside a `form`, this will actually prevent the button from being clicked until the required field is filled in.
+#### HTML5 form validation
+HTML5 has a number of built in form validations available, which can be described as constraints using a range of [validation attributes](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation#Validation-related_attributes).
+
+Validation attributes allow specifying rules for a form input, for example:
+- whether a value must be filled in (`required`)
+- the minimum and maximum length of the data (using `minlength` and `maxlength` attributes)
+- whether the data needs to be a number, an email address, or something else (using `type` attribute)
+- a pattern that the data must match (`pattern` attribute)
+
+**Example 1:** To make an input field **required**, you can just add the attribute `required` within your input element: `<input type="text" required>`. When used in combination with a `button` inside a `form`, this will actually prevent the button from being clicked until the required field is filled in.
+
+**Example 2:** To specify a **valid pattern** for the input, use the `pattern` attribute with a regex:
+```html
+<form>
+  <label for="choose">Would you prefer a banana or cherry?</label>
+  <input id="choose" required pattern="banana|cherry">
+  <button>Submit</button>
+</form>
+```
+
+**Example 3:** To validate by **input type**:
+```html
+<form>
+  <input required type="email">
+  <button>Submit</button>
+</form>
+```
+
+###### When an element is valid:
+- The element matches the `:valid` CSS pseudo-class, which lets you apply a specific style to valid elements
+- If the user tries to send the data, the browser will submit the form, provided there is nothing else stopping it from doing so (e.g., JavaScript).
+
+###### Likewise, when an element is invalid:
+- The element matches the `:invalid` CSS pseudo-class, which lets you apply a specific style to invalid elements.
+- If the user tries to send the data, the browser will block the form and display an error message.
+
+#### Drawbacks to HTML5 form validation
+Using HTML form validation means that the way the error message is displayed depends on the browser. Two problems with this:
+- There is no standard way to change their look and feel with CSS.
+- Error messages depend on the browser locale, which means that you can have a page in one language but an error message displayed in another language.
+
+![Illustration of browser variance when using html5 form validation](https://github.com/minkaotic/front-end-notes/blob/master/img/html-form-validation.png)
 
 *[to be continued...]*
 
+**Further resources:**
+- FreeCodeCamp on HTML forms, starting from [this section of the syllabus](https://learn.freecodecamp.org/responsive-web-design/basic-html-and-html5/create-a-form-element/)
+- [MDN tutorial on form validation](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation)
