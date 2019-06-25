@@ -13,7 +13,7 @@
 _______________
 
 # Overview
-Angular is a **[client side application framework](https://github.com/minkaotic/front-end-notes/blob/master/Frameworks-Overview.md#server-side-vs-client-side-rendering)** built entirely with static files. 
+Angular is a [client side application framework](https://github.com/minkaotic/front-end-notes/blob/master/Frameworks-Overview.md#server-side-vs-client-side-rendering) built entirely with static files. 
 
 The architecture of Angular(JS) is based on [model-view-controller (MVC)](https://github.com/minkaotic/front-end-notes/blob/master/Frameworks-Overview.md#mvc-pattern-recap) design. Angular(JS) lends itself particularly well to building **Single Page Applications (SPAs)**, but can also be used to build 'traditional' multi-page applications.
 
@@ -37,9 +37,12 @@ For more differences, see [this infographic from simplilearn.com](https://www.si
 
 
 # AngularJS
+### How does Angular work?
+Instead of manipulating the DOM “directly,” you annotate your DOM with metadata (directives), and Angular manipulates the DOM for you.
+
 ##  Core Concepts
 
-- ***Templates*** (or *views*) hold most of the HTML, and are what structure our application
+- ***Templates*** (or *views*) hold most of the HTML, and are what structures our application
 
 - ***Directives*** extend our HTML templages with tags and attributes
   - AngularJS has built-in directives to do anything from evaluating user interactions to easily manipulating data
@@ -50,7 +53,7 @@ For more differences, see [this infographic from simplilearn.com](https://www.si
   - Make changes to the UI (i.e. what data to display on button click)
   - Control the state of the application (for example in an app with functionality to edit and update text: whether or not an item is currently in edit mode)
   
-- ***Scope*** (maybe the hardest part of Angular to understand) is the part of the application that allows you to manipulate data and make changes to the user interface. Every controller, directive and view can have its own scope.
+- ***Scope*** is the part of the application that allows you to manipulate data and make changes to the user interface. Every controller, directive and view can have its own scope.
 
   ![Angular concepts](https://github.com/minkaotic/front-end-notes/blob/master/img/angular-concepts.png)
 
@@ -59,9 +62,6 @@ For more differences, see [this infographic from simplilearn.com](https://www.si
   ![Angular shared scope](https://github.com/minkaotic/front-end-notes/blob/master/img/angular-shared-scope.png)
 
 - To get into the nitty-gritty of how scope works in Angular based on prototypical inheritance, see [this video & resources](https://teamtreehouse.com/library/understanding-scope-in-angular).
-
-### How does Angular work?
-Instead of manipulating the DOM “directly,” you annotate your DOM with metadata (directives), and Angular manipulates the DOM for you.
 
 
 ## Getting Started
