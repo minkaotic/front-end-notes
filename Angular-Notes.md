@@ -44,7 +44,7 @@ Instead of manipulating the DOM “directly,” you annotate your DOM with metad
 
 - ***Templates*** (or *views*) hold most of the HTML, and are what structures our application
 
-- ***Directives*** extend our HTML templages with tags and attributes
+- ***Directives*** extend our HTML templates. Directives are either tags, or and attributes of tags
   - AngularJS has built-in directives to do anything from evaluating user interactions to easily manipulating data
   - Additionally, we can create our own reusable, custom directives
   
@@ -91,7 +91,7 @@ Instead of manipulating the DOM “directly,” you annotate your DOM with metad
   ```
 
 ### Adding a simple directive
-In a new JS file, create the directive as below (*NB!* the single parameter version of the `module()` method used in this example will make this directive refer back to the existing `exampleApp`, rather than creating a new one!):
+In a new JS file, create the directive using the `module()`'s `directive()` method (*NB!* the single parameter version of the `module()` method used here will make this directive refer back to the existing `todoListApp`, rather than creating a new one!):
 ```javascript
 angular.module('todoListApp')
 .directive('helloWorld', function() {
@@ -100,6 +100,7 @@ angular.module('todoListApp')
   }
 });
 ```
+- `directive()` takes two parameters: the directive name, and a callback function that returns an object to be used in the directive - in the example above, it provides a `template` (typically a small snippet of HTML).
 
 Then add this directive into the HTML file as a tag - note the change from camel case to all lower case with hyphens for the directive name:
 ```html
@@ -128,9 +129,9 @@ angular.module('todoListApp', [])
   };
 });
 ```
-- `controller()` takes two parameters: the controller name, and an anonymous function that in turn takes the `$scope` variable as a parameter.
+- `controller()` takes two parameters: the controller name, and a callback function that in turn takes the `$scope` variable as a parameter.
 - `$scope` defines an area of operation for your controller: this controller's functions will only work in the parts of the application you allow them to.
-- In order to define a function that can be used to alter the application, we attach it to the `$scope` object (in other words: `$scope.helloWorld = function() {...}` creates a function that is attached to the `$scope` object).
+- In order to define a function that can be used to alter the application, we attach it to the `$scope` object - `$scope.helloWorld = function() {...}`.
 
 **In order to use this controller in our application, we have to inject it into the template**, effectively telling Angular "this is where I want my controller to be used". This is done with the built-in `ng-controller` directive, which has to be set to the name of the controller defined in the JavaScript file:
 ```html
