@@ -25,7 +25,7 @@ ASP.NET is Microsoft's technology for running dynamic web pages on web servers. 
 ### Controllers & Default Routing
 **Controllers** are classes whose names have to end in `...Controller`, and which inherit from the `System.Web.Mvc.Controller` base class.
 
-Controllers have one or more **action methods**, which typically return one of the MVC *action result types*, which derive from the [ActionResult](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.actionresult?view=aspnet-mvc-5.2) class; the return type of action methods is therefore usually `ActionResult`.
+Controllers have one or more **action methods**, which typically return one of the MVC *action result types*, which derive from the [ActionResult](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.actionresult?view=aspnet-mvc-5.2) class (= the base class for all `*Result` classes); the return type of action methods is therefore usually `ActionResult` or one of its derived types.
 
 > Both controllers and action methods need to be public.
 
