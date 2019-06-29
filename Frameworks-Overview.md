@@ -45,7 +45,7 @@ There's a whole debate about which of these are better, and modern web developme
 
 ***Camp 2*** uses server-side technologies to expose REST endpoints. Client-side technologies are used to provide controllers and views.
 - WebAPI is one ASP.NET server-side technology used for this.
-- Some examples of client-side JS frameworkds include [Angular/AngularJS](https://github.com/minkaotic/front-end-notes/blob/master/Angular-Notes.md), [Ember](https://www.emberjs.com/), [Backbone](http://backbonejs.org/), [React](https://reactjs.org/) and [Vue.js](https://vuejs.org/).
+- Some examples of client-side JS frameworkds include [Angular](https://angular.io/)/[AngularJS](https://github.com/minkaotic/front-end-notes/blob/master/Angular-Notes.md), [Ember](https://www.emberjs.com/), [Backbone](http://backbonejs.org/), [React](https://reactjs.org/) and [Vue.js](https://github.com/minkaotic/front-end-notes/blob/master/Vue-JS-Notes.md).
 
 ### How to choose?
 *Client-side rendering* essentially means that the entire application is loaded into the browser that the user is using. There are many performance and user experience benefits to client-side frameworks, as follow-up requests to the server will only be for small amounts of data, rather than more HTML & CSS files as is the case with traditional web pages.
@@ -65,5 +65,5 @@ On the other hand, server-side rendering more easily achieves important **SEO be
 
 - These requests will not re-send the files to the client, but just the pure data - most of the time the response will be in JSON.
 
-- The client-side app can also send data back to the server. This dual capability is known as **"two-way data binding"**.
+- The client-side app can also send data back to the server. This dual capability is known as **"[two-way data binding](https://github.com/minkaotic/front-end-notes/blob/master/Angular-Notes.md#data-binding)"**.
 
