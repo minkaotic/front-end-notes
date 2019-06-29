@@ -94,7 +94,7 @@ Instead of manipulating the DOM “directly,” you annotate your DOM with metad
 In a new JS file, create the directive using the `module()`'s `directive()` method (*NB!* the single parameter version of the `module()` method used here will make this directive refer back to the existing `todoListApp`, rather than creating a new one!):
 ```javascript
 angular.module('todoListApp')
-.directive('helloWorld', function() {
+.directive('helloWorld', () => {
   return {
     template: "This is the hello world directive!"
   }
@@ -124,14 +124,14 @@ Use the `controller()` method of the module (back in the JS file where the app i
 ```javascript
 angular.module('todoListApp', [])
 .controller('mainCtrl', function($scope) {
-  $scope.helloWorld = function() {
+  $scope.helloWorld = () => {
     console.log('Hello there! This is the helloWorld controller function in the mainCtrl!');
   };
 });
 ```
 - `controller()` takes two parameters: the controller name, and a callback function that in turn takes the `$scope` variable as a parameter.
 - `$scope` defines an area of operation for your controller: this controller's functions will only work in the parts of the application you allow them to.
-- In order to define a function that can be used to alter the application, we attach it to the `$scope` object - `$scope.helloWorld = function() {...}`.
+- In order to define a function that can be used to alter the application, we attach it to the `$scope` object - `$scope.helloWorld = () => {...}`.
 
 **In order to use this controller in our application, we have to inject it into the template**, effectively telling Angular "this is where I want my controller to be used". This is done with the built-in `ng-controller` directive, which has to be set to the name of the controller defined in the JavaScript file:
 ```html
