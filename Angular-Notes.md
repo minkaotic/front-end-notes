@@ -48,7 +48,7 @@ Instead of manipulating the DOM “directly,” you annotate your DOM with metad
   - AngularJS has built-in directives to do anything from evaluating user interactions to easily manipulating data
   - Additionally, we can create our own reusable, custom directives
   
-- ***Controllers*** contain the logic that tells our application how to behave, they allow you to:
+- ***Controllers*** are they glue of our application - they contain the logic that tells the application how to behave; specifically, they:
   - Handle data
   - Make changes to the UI (i.e. what data to display on button click)
   - Control the state of the application (for example in an app with functionality to edit and update text: whether or not an item is currently in edit mode)
@@ -61,10 +61,18 @@ Instead of manipulating the DOM “directly,” you annotate your DOM with metad
 
   ![Angular shared scope](https://github.com/minkaotic/front-end-notes/blob/master/img/angular-shared-scope.png)
 
-- To get into the nitty-gritty of how scope works in Angular based on prototypical inheritance, see [this video & resources](https://teamtreehouse.com/library/understanding-scope-in-angular).
+- Each controller's scope inherits from the `$rootScope`, of which there is one per application. It is best practice to not use `$rootScope` directly, as any variables created here are available anywhere in the application (defying the idea of sensible scoping).
+- Controllers can be nested within one another in the template, in which case the child controller's scope will inherit the functions and values of the parent controller's scope. In other words, anything on the parent controller's scope will be accessible to both the parent and the child controller.
+- Any functions and values inherited from a parent scope can be overwritten within the context of the child scope.
+- For a recap on scope, see [this video](https://teamtreehouse.com/library/understanding-scope-in-angular)
 
 
 ## Getting Started
+- [Hooking up an AngularJS app](#hooking-up-an-angularjs-app)
+- [Adding a simple directive](#adding-a-simple-directive)
+- [Creating & using a controller](#creating--using-a-controller)
+
+### Hooking up an AngularJS app
 #### in the HTML...
 - In order to include AngularJS in your app, either:
   - download the files from the [AngularJS website](https://angularjs.org/) and include them in your project
@@ -130,6 +138,7 @@ angular.module('todoListApp', [])
 });
 ```
 - `controller()` takes two parameters: the controller name, and a callback function that in turn takes the `$scope` variable as a parameter.
+- By convention, controller names end in `Ctrl`.
 - `$scope` defines an area of operation for your controller: this controller's functions will only work in the parts of the application you allow them to.
 - In order to define a function that can be used to alter the application, we attach it to the `$scope` object - `$scope.helloWorld = () => {...}`.
 
@@ -144,6 +153,7 @@ angular.module('todoListApp', [])
 
 - Now `mainCtrl`'s scope is within the `div`.
 - This means the controller's functions can be used within it - in this case, by associating its function with the `ng-click` directive (`ng-click="helloWorld()"`) - so when the user clicks this link, the `helloWorld()` function runs.
+- NB: Using `ng-click="helloWorld()"` anywhere in the template that is outside the controller's scope, won't have any effect.
 
 
 ## Tools For Debugging AngularJS
