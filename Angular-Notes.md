@@ -40,7 +40,13 @@ Some key differences include:
 For more differences, see [this infographic from simplilearn.com](https://www.simplilearn.com/ice9/free_resources_article_thumb/angularjs-angular2-angular4-understanding-the-differences.jpg).
 
 ## Data Binding
-One of the most powerful features of Angular is called “data binding.” At a high level, data binding is how an application mixes together it’s data and its logic to create what the user sees. In most frameworks data binding takes place once, and then it is up to the developer to write code that keeps all data in sync with the user’s interactions. In Angular, data is kept in sync with little help from the developer. The “ng-model” directive is a great example of how this works.
+One of the most powerful features of Angular is called “data binding.” At a high level, data binding is how an application mixes together it’s data and its logic to create what the user sees.
+
+In most frameworks data binding takes place once, and then it is up to the developer to write code that keeps all data in sync with the user’s interactions. *=> This is called **one-way data binding**, and can be tedious if you have a lot of data and a lot of user interactions to manage.*
+
+In Angular, when data is bound to the scope, this data is kept in sync with the application's underlying data store with little help from the developer. This means that anytime a user interacts with the app, Angular updates the data in the scope of your application. *=> This is called **two-way data binding.***
+
+The [`ng-model`](#adding-data-to-your-app-using-ng-model) directive is a great example of how this works.
 
 
 # AngularJS
