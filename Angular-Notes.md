@@ -4,9 +4,12 @@
 - [Overview](#overview) 
   - [History](#history)
   - [Angular vs AngularJS](#angular-vs-angularjs)
+  - [Data Binding](#data-binding)
 - [AngularJS](#angularjs)
   - [Core Concepts](#core-concepts)
   - [Getting Started](#getting-started)
+  - [AngularJS Expressions](#angularjs-expressions)
+  - [Useful Directives](#useful-directives)
   - [Tools for Debugging AngularJS](#tools-for-debugging-angularjs)
   - [AngularJS Components](#angularjs-components)
 - [Sources](#sources)
@@ -16,6 +19,8 @@ _______________
 Angular is a [client side application framework](https://github.com/minkaotic/front-end-notes/blob/master/Frameworks-Overview.md#server-side-vs-client-side-rendering) built entirely with static files. 
 
 The architecture of Angular(JS) is based on [model-view-controller (MVC)](https://github.com/minkaotic/front-end-notes/blob/master/Frameworks-Overview.md#mvc-pattern-recap) design. Angular(JS) lends itself particularly well to building **Single Page Applications (SPAs)**, but can also be used to build 'traditional' multi-page applications.
+
+> **Instead of manipulating the DOM “directly,” you annotate your DOM with metadata (directives), and Angular manipulates the DOM for you.**
 
 ## History
 Google developed AngularJS in 2009 and version 1.0 was released in 2012. Angular has since dominated the world of open-source JavaScript frameworks, with enthusiastic support and widespread adoption among both enterprises and individuals. As a result, Angular has evolved from the AngularJS version 1.0 to Angular version 2.0, Angular 4.0 and now the latest Angular version 6.0, all in just a few years.
@@ -34,13 +39,12 @@ Some key differences include:
 
 For more differences, see [this infographic from simplilearn.com](https://www.simplilearn.com/ice9/free_resources_article_thumb/angularjs-angular2-angular4-understanding-the-differences.jpg).
 
+## Data Binding
+One of the most powerful features of Angular is called “data binding.” At a high level, data binding is how an application mixes together it’s data and its logic to create what the user sees. In most frameworks data binding takes place once, and then it is up to the developer to write code that keeps all data in sync with the user’s interactions. In Angular, data is kept in sync with little help from the developer. The “ng-model” directive is a great example of how this works.
 
 
 # AngularJS
-### How does Angular work?
-Instead of manipulating the DOM “directly,” you annotate your DOM with metadata (directives), and Angular manipulates the DOM for you.
-
-##  Core Concepts
+## Core Concepts
 
 - ***Templates*** (or *views*) hold most of the HTML, and are what structures our application
 
@@ -154,6 +158,16 @@ angular.module('todoListApp', [])
 - Now `mainCtrl`'s scope is within the `div`.
 - This means the controller's functions can be used within it - in this case, by associating its function with the `ng-click` directive (`ng-click="helloWorld()"`) - so when the user clicks this link, the `helloWorld()` function runs.
 - NB: Using `ng-click="helloWorld()"` anywhere in the template that is outside the controller's scope, won't have any effect.
+
+
+## AngularJS Expressions
+
+
+## Useful Directives
+AngularJS has many time-saving directives built in!
+
+### Adding Data To Your App Using `ng-model`
+
 
 
 ## Tools For Debugging AngularJS
