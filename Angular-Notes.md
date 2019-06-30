@@ -8,7 +8,6 @@
 - [AngularJS](#angularjs)
   - [Core Concepts](#core-concepts)
   - [Getting Started](#getting-started)
-  - [AngularJS Expressions](#angularjs-expressions)
   - [Useful Directives](#useful-directives)
   - [Tools for Debugging AngularJS](#tools-for-debugging-angularjs)
   - [AngularJS Components](#angularjs-components)
@@ -166,15 +165,32 @@ angular.module('todoListApp', [])
 - NB: Using `ng-click="helloWorld()"` anywhere in the template that is outside the controller's scope, won't have any effect.
 
 
-## AngularJS Expressions
-
-
 ## Useful Directives
 AngularJS has many time-saving directives built in!
 
-### Adding Data To Your App Using `ng-model`
+### Adding data to an app using `ng-model`
+We can use `ng-model` to bind UI values to our application's scope, for example:
 
+```html
+<div ng-controller="mainCtrl">
+  <h1>My TODOs</h1>
+  <input ng-model="todo.completed" type="checkbox"/>
+  <input ng-model="todo.name" type="text"/>
+</div>
+```
+- Using the `ng-model` directive binds the value in either input to the respective properties of an object called `todo` in the `$scope` of `mainCtrl`.
+- Anytime a user changes the input, the variable in the scope updates too.
 
+Then we can reference the value of either variable in our template, using [AngularJS expression](https://docs.angularjs.org/guide/expression) syntax. For example, to use `todo.name` as the label text:
+
+```html
+<div ng-controller="mainCtrl">
+  <h1>My TODOs</h1>
+  <input ng-model="todo.completed" type="checkbox"/>
+  <label>{{ todo.name }}</label>
+  <input ng-model="todo.name" type="text"/>
+</div>
+```
 
 ## Tools For Debugging AngularJS
 Chrome Tools:
