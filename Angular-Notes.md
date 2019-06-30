@@ -169,7 +169,7 @@ angular.module('todoListApp', [])
 AngularJS has many time-saving directives built in!
 
 ### Adding data to an app using `ng-model`
-We can use `ng-model` to bind UI values to our application's scope, for example:
+The [`ng-model`](https://docs.angularjs.org/api/ng/directive/ngModel) directive binds an `input`, `select`, `textarea` (or custom form control) to a property on the application's scope, for example:
 
 ```html
 <div ng-controller="mainCtrl">
@@ -191,6 +191,13 @@ Then we can reference the value of either variable in our template, using [Angul
   <input ng-model="todo.name" type="text"/>
 </div>
 ```
+
+#### It can do more!
+As well as binding the view into the model for form elements, the `ng-model` directive is also responsible for:
+- Providing validation behavior (i.e. required, number, email, url).
+- Keeping the state of the control (`valid`/`invalid`, `dirty`/`pristine`, `touched`/`untouched`, validation errors).
+- Setting [CSS classes related to these states](https://docs.angularjs.org/api/ng/directive/ngModel#css-classes) on the element to allow state-based styling.
+
 
 ## Tools For Debugging AngularJS
 Chrome Tools:
