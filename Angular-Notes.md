@@ -181,7 +181,7 @@ The [`ng-model`](https://docs.angularjs.org/api/ng/directive/ngModel) directive 
 - Using the `ng-model` directive binds the value in either input to the respective properties of an object called `todo` in the `$scope` of `mainCtrl`.
 - Anytime a user changes the input, the variable in the scope updates too.
 
-Then we can reference the value of either variable in our template, using [AngularJS expression](https://docs.angularjs.org/guide/expression) syntax. For example, to use `todo.name` as the label text:
+Then we can reference the value of either variable in our template, using the [AngularJS expression](https://docs.angularjs.org/guide/expression) in interpolation syntax ("mustache syntax"). For example, to use `todo.name` as the label text:
 
 ```html
 <div ng-controller="mainCtrl">
