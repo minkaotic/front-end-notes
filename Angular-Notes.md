@@ -199,6 +199,40 @@ As well as binding the view into the model for form elements, the `ng-model` dir
 - Setting [CSS classes related to these states](https://docs.angularjs.org/api/ng/directive/ngModel#css-classes) on the element to allow state-based styling.
 
 
+### `ng-click`
+ng-click is a really common directive that every Angular developer needs in their tool belt. It greatly simplifies the amount of code needed to create click interactions for the user. In this video, you’ll see how to use the ng-click directive the application state from “editing” to “not editing.”
+
+`<a href="" ng-click="editing = !editing">Edit</a>`
+
+https://docs.angularjs.org/api/ng/directive/ngClick
+
+
+### `ng-show` and `ng-hide`
+Using these to build a neat toggling edit mode:
+
+```html
+<div ng-controller="mainCtrl" class="list">
+  <h1>My TODOs</h1>
+  <input ng-model="todo.completed" type="checkbox"/>
+  <label ng-hide="editing" ng-click="helloWorld()">{{ todo.name }}</label>
+  <input ng-show="editing" ng-model="todo.name" type="text"/>
+  <div class="actions">
+    <a href="" ng-click="editing = !editing">Edit</a>
+  </div>
+</div>
+```
+
+https://docs.angularjs.org/api/ng/directive/ngHide
+and https://docs.angularjs.org/api/ng/directive/ngShow
+
+
+#### Compare to `ng-if`
+https://docs.angularjs.org/api/ng/directive/ngIf
+https://www.codelord.net/2015/07/28/angular-performance-ng-show-vs-ng-if/
+https://stackoverflow.com/questions/21869283/when-to-favor-ng-if-vs-ng-show-ng-hide
+
+
+
 ## Tools For Debugging AngularJS
 Chrome Tools:
 - [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en)
