@@ -48,6 +48,8 @@ The **Homepage** (i.e. start page without additional path) is by default associa
 
 Generally, omitting the `actionName` part of any path will associate the request with the controller's `Index()` action method.
 
+> For more detail on controller routing in ASP.NET Core specifically, see [this article](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-2.2).
+
 ### Views
 In the MVC paradigm for ASP.NET, the *controller* is combined with the *view* to create a 'page'. MVC provides the [`ViewResult`](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.viewresult?view=aspnet-mvc-5.2) action result type for returning views from an action method. The corresponding controller method is `View()`:
 
