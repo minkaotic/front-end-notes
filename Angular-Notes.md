@@ -108,7 +108,7 @@ The [`ng-model`](#adding-data-to-your-app-using-ng-model) directive is a great e
   ```
 
 ### Adding a simple directive
-In a new JS file, create the directive using the `module()`'s `directive()` method (*NB!* the single parameter version of the `module()` method used here will make this directive refer back to the existing `todoListApp`, rather than creating a new one!):
+In a new JS file, create the custom directive using the `module()`'s `directive()` method (*NB!* the single parameter version of the `module()` method used here will make this directive refer back to the existing `todoListApp`, rather than creating a new one!):
 ```javascript
 angular.module('todoListApp')
 .directive('helloWorld', () => {
@@ -168,6 +168,11 @@ angular.module('todoListApp', [])
 ## Useful Directives
 AngularJS has many time-saving directives built in!
 
+- [Adding data to an app using `ng-model`](#adding-data-to-an-app-using-ng-model)
+- [`ng-click`](#ng-click)
+- [`ng-show` and `ng-hide`](#ng-show-and-ng-hide)
+- [By comparison: `ng-if`](#by-comparison-ng-if)
+
 ### Adding data to an app using `ng-model`
 The [`ng-model`](https://docs.angularjs.org/api/ng/directive/ngModel) directive binds an `input`, `select`, `textarea` (or custom form control) to a property on the application's scope, for example:
 
@@ -200,12 +205,23 @@ As well as binding the view into the model for form elements, the `ng-model` dir
 
 
 ### `ng-click`
-ng-click is a really common directive that every Angular developer needs in their tool belt. It greatly simplifies the amount of code needed to create click interactions for the user. In this video, you’ll see how to use the ng-click directive the application state from “editing” to “not editing.”
+The `[ng-click](https://docs.angularjs.org/api/ng/directive/ngClick)` directive allows you to specify custom behavior when an element is clicked. It's a really common directive that greatly simplifies the amount of code needed to create click interactions for the user.
 
-`<a href="" ng-click="editing = !editing">Edit</a>`
+##### Example 1 - incrementing counter
+```html
+<button ng-click="count = count + 1" ng-init="count=0">
+  Increment
+</button>
+<span>
+  count: {{count}}
+</span>
+```
 
-https://docs.angularjs.org/api/ng/directive/ngClick
-
+##### Example 2 - toggling edit mode on and off
+Switching the application state from “editing” to “not editing.”
+```html
+<a href="" ng-click="editing = !editing">Edit</a>`
+```
 
 ### `ng-show` and `ng-hide`
 Using these to build a neat toggling edit mode:
@@ -226,7 +242,7 @@ https://docs.angularjs.org/api/ng/directive/ngHide
 and https://docs.angularjs.org/api/ng/directive/ngShow
 
 
-#### Compare to `ng-if`
+### By comparison: `ng-if`
 https://docs.angularjs.org/api/ng/directive/ngIf
 https://www.codelord.net/2015/07/28/angular-performance-ng-show-vs-ng-if/
 https://stackoverflow.com/questions/21869283/when-to-favor-ng-if-vs-ng-show-ng-hide
