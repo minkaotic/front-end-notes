@@ -184,7 +184,7 @@ The [`ng-model`](https://docs.angularjs.org/api/ng/directive/ngModel) directive 
 </div>
 ```
 - Using the `ng-model` directive binds the value in either input to the respective properties of an object called `todo` in the `$scope` of `mainCtrl`.
-- Anytime a user changes the input, the variable in the scope updates too.
+- Thanks to Angular's [two-way data binding](#data-binding), anytime a user changes the input the variable in the scope updates too.
 
 Then we can reference the value of either variable in our template, using the [AngularJS expression](https://docs.angularjs.org/guide/expression) in interpolation syntax ("mustache syntax"). For example, to use `todo.name` as the label text:
 
@@ -205,7 +205,7 @@ As well as binding the view into the model for form elements, the `ng-model` dir
 
 
 ### `ng-click`
-The `[ng-click](https://docs.angularjs.org/api/ng/directive/ngClick)` directive allows you to specify custom behavior when an element is clicked. It's a really common directive that greatly simplifies the amount of code needed to create click interactions for the user.
+The [`ng-click`](https://docs.angularjs.org/api/ng/directive/ngClick) directive allows you to specify custom behavior when an element is clicked. It's a really common directive that greatly simplifies the amount of code needed to create click interactions for the user.
 
 ##### Example 1 - incrementing counter
 ```html
@@ -218,29 +218,30 @@ The `[ng-click](https://docs.angularjs.org/api/ng/directive/ngClick)` directive 
 ```
 
 ##### Example 2 - toggling edit mode on and off
-Switching the application state from “editing” to “not editing.”
+i.e. to switch the application state from “editing” to “not editing.”
 ```html
-<a href="" ng-click="editing = !editing">Edit</a>`
+<a href="" ng-click="editing = !editing">Edit</a>
 ```
 
 ### `ng-show` and `ng-hide`
-Using these to build a neat toggling edit mode:
+The [`ng-show`](https://docs.angularjs.org/api/ng/directive/ngShow) and [`ng-hide`](https://docs.angularjs.org/api/ng/directive/ngHide) directive show or hide the given HTML element based on the expression provided.
+
+> :bulb: This is implemented by the directives adding (or removing) the `.ng-hide` class to the element, which will style the element with `display: none !important`.
+
+##### Example - switching element visibility depending on edit mode
+Here both directives are used to build fluid toggling of label vs. input view of or to do list item depending on whether edit mode is on in our app - see this example in action in [CodePen](https://codepen.io/minkaotic/pen/WqJzQO)!:
 
 ```html
 <div ng-controller="mainCtrl" class="list">
   <h1>My TODOs</h1>
   <input ng-model="todo.completed" type="checkbox"/>
-  <label ng-hide="editing" ng-click="helloWorld()">{{ todo.name }}</label>
+  <label ng-hide="editing">{{ todo.name }}</label>
   <input ng-show="editing" ng-model="todo.name" type="text"/>
   <div class="actions">
     <a href="" ng-click="editing = !editing">Edit</a>
   </div>
 </div>
 ```
-
-https://docs.angularjs.org/api/ng/directive/ngHide
-and https://docs.angularjs.org/api/ng/directive/ngShow
-
 
 ### By comparison: `ng-if`
 https://docs.angularjs.org/api/ng/directive/ngIf
