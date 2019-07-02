@@ -172,6 +172,7 @@ AngularJS has many time-saving directives built in!
 - [`ng-click`](#ng-click)
 - [`ng-show` and `ng-hide`](#ng-show-and-ng-hide)
 - [By comparison: `ng-if`](#by-comparison-ng-if)
+- [`ng-repeat`](#ng-repeat)
 
 ### Adding data to an app using `ng-model`
 The [`ng-model`](https://docs.angularjs.org/api/ng/directive/ngModel) directive binds an `input`, `select`, `textarea` (or custom form control) to a property on the application's scope, for example:
@@ -248,6 +249,18 @@ https://docs.angularjs.org/api/ng/directive/ngIf
 https://www.codelord.net/2015/07/28/angular-performance-ng-show-vs-ng-if/
 https://stackoverflow.com/questions/21869283/when-to-favor-ng-if-vs-ng-show-ng-hide
 
+
+### `ng-repeat`
+[`ng-repeat`](https://docs.angularjs.org/api/ng/directive/ngRepeat) is used to repeat HTML and Angular content (= a template instance) for each element in a collection / iterable of data. It is used as follows:
+
+```html
+<div ng-repeat="loopVariable in collection"> [template instance] </div>
+```
+- Each template instance gets its own scope, where the given loop variable is set to the current collection item, and `$index` is set to the item index or key.
+- Special properties are exposed on the local scope of each template instance, including:
+  - `$first`/`$last` - true if the repeated element is first / last in the iterator
+  - `$middle` -	true if the repeated element is between the first and last in the iterator
+  - `$even`/`$odd` - true/false if the iterator position $index is even.
 
 
 ## Tools For Debugging AngularJS
