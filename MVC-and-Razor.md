@@ -1,7 +1,7 @@
 # ASP.NET MVC
 ## Contents
 - [ASP.NET vs ASP.NET Core](#aspnet-vs-aspnet-core)
-- [ASP.NET MVC Basics](#aspnet-mvc-basics)
+- [Basic Setup](#basic-setup)
     - [Controllers & Default Routing](#controllers--default-routing)
     - [Views](#views)
 - [Razor & MVC](#razor--mvc)
@@ -24,7 +24,8 @@ _________________________
 
 ![Architecture overview](img/net-core-vs-old-net.png)
 
-## ASP.NET MVC Basics
+
+## Basic Setup
 ASP.NET is Microsoft's technology for running dynamic web pages on web servers. ASP.NET Razor is a server-side markup language that lets you embed server-based (C#) code into web pages.
 
 ### Controllers & Default Routing
