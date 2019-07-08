@@ -173,6 +173,10 @@ AngularJS has many time-saving directives built in!
 - [`ng-show` and `ng-hide`](#ng-show-and-ng-hide)
 - [By comparison: `ng-if`](#by-comparison-ng-if)
 - [`ng-repeat`](#ng-repeat)
+- [`ng-blur`](#ng-blur)
+- [`ng-class`](#ng-class)
+- [`ng-change`](#ng-change)
+
 
 ### Adding data to an app using `ng-model`
 The [`ng-model`](https://docs.angularjs.org/api/ng/directive/ngModel) directive binds an `input`, `select`, `textarea` (or custom form control) to a property on the application's scope, for example:
@@ -245,9 +249,10 @@ Here both directives are used to build fluid toggling of label vs. input view of
 ```
 
 ### By comparison: `ng-if`
-https://docs.angularjs.org/api/ng/directive/ngIf
-https://www.codelord.net/2015/07/28/angular-performance-ng-show-vs-ng-if/
-https://stackoverflow.com/questions/21869283/when-to-favor-ng-if-vs-ng-show-ng-hide
+Read & update this:
+- [ ] https://docs.angularjs.org/api/ng/directive/ngIf
+- [ ] https://www.codelord.net/2015/07/28/angular-performance-ng-show-vs-ng-if/
+- [ ] https://stackoverflow.com/questions/21869283/when-to-favor-ng-if-vs-ng-show-ng-hide
 
 
 ### `ng-repeat`
@@ -261,6 +266,30 @@ https://stackoverflow.com/questions/21869283/when-to-favor-ng-if-vs-ng-show-ng-h
   - `$first`/`$last` - true if the repeated element is first / last in the iterator
   - `$middle` -	true if the repeated element is between the first and last in the iterator
   - `$even`/`$odd` - true/false if the iterator position $index is even.
+
+### `ng-blur`
+A blur event takes place when an element loses focus. [`ng-blur="EXPRESSION"`](https://docs.angularjs.org/api/ng/directive/ngBlur) allows to specify custom behavior to happen on blur event, e.g. to toggle editing mode off when clicking away from an input element:
+
+```html
+<input ng-blur="editing = false;" ng-show="editing" ng-model="todo.name" type="text"/>
+```
+
+### `ng-class`
+The [`ngClass="EXPRESSION"`](https://docs.angularjs.org/api/ng/directive/ngBlur) directive allows you to dynamically set CSS classes on an HTML element by databinding an expression that represents all classes to be added.
+
+Most commonly, the expression will be an *object*, where for each key-value pair of the object with a truthy *value* the corresponding *key* is used as a class name:
+
+```html
+<div ng-class="{'editing-item': editing, 'edited': todo.edited}" class="item">
+```
+- The classes `editing-item` and `editet` will be set if `editing` and `todo.edited` evaluate as true, respectively.
+- The directive won't add duplicate classes if a particular class was already set.
+
+### `ng-change`
+[`ng-change="EXPRESSION"`](https://docs.angularjs.org/api/ng/directive/ngChange) evaluates the given expression when the user changes their input. **NB:** This directive requires [`ngModel`](#ng-model) to be present.
+```html
+<input ng-change="todo.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="todo.name" type="text"/>
+```
 
 
 ## Tools For Debugging AngularJS
