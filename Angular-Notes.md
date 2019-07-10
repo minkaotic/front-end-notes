@@ -249,11 +249,15 @@ Here both directives are used to build fluid toggling of label vs. input view of
 ```
 
 ### By comparison: `ng-if`
-Read & update this:
-- [ ] https://docs.angularjs.org/api/ng/directive/ngIf
-- [ ] https://www.codelord.net/2015/07/28/angular-performance-ng-show-vs-ng-if/
-- [ ] https://stackoverflow.com/questions/21869283/when-to-favor-ng-if-vs-ng-show-ng-hide
+The [`ng-if="EXPRESSION"`](https://docs.angularjs.org/api/ng/directive/ngIf) directive removes or recreates a portion of the DOM tree based on the truthiness of the given expression:
 
+- If the expression assigned to `ng-if` evaluates to false then the element is removed from the DOM, otherwise a clone of the element is reinserted into the DOM.
+- If the element had any handlers registered against it, they will be lost and will need to be re-attached if `ng-if` evaluates to true at a later state
+
+`ng-if` differs from `ng-show` and `ng-hide` in that it completely removes and recreates the element in the DOM rather than changing its visibility via the CSS `display` property.
+
+#### Performance implications:
+Since `ng-hide` leaves the elements alive in the DOM, all of their watch expressions and performance cost are still there even though they are invisible to the user. When bigger views are toggled with `ng-show/hide` this can lead to lagginess. [See this article](https://www.codelord.net/2015/07/28/angular-performance-ng-show-vs-ng-if/) for more details.
 
 ### `ng-repeat`
 [`ng-repeat`](https://docs.angularjs.org/api/ng/directive/ngRepeat) is used to repeat HTML and Angular content (= a template instance) for each element in a collection / iterable of data. It is used as follows:
