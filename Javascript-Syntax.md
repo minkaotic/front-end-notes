@@ -134,24 +134,36 @@ _______________
   ```
 
 #### forEach
-- Can be run on `Array`, `Map` and `Set` objects, and executes a provided callback function once for each element (array) / key/value pair (Map) / value (Set). 
+- Can be run on `Array`, `Map` and `Set` objects, and executes a provided callback function once for each element (array) / key/value pair (map) / value (set). 
   ```javascript
-  var movies = ['cats', 'Stans last dance', 'Flowers for her birthday', 'Hunger games'];
+  let movies = ['cats', 'Stans last dance', 'Flowers for her birthday', 'Hunger games'];
 
   movies.forEach( movie => alert(movie) );
   ```
 
 #### for...of
-- Can be run on iterable objects, including: `String`, `Array`-like objects (incl. Array, TypedArray, arguments or NodeList), `Map`, `Set`, and user-defined iterables. Invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.
+- Can be run on any iterable objects, including: `String`, `Array`, `NodeList`, `Map`, `Set`, arguments, and user-defined iterables. Invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.
   ```javascript
-  for (var movie of movies) {
+  for (let movie of movies) {
     console.log(movie);
   }
   ```
+It can also do funky things when used on some types of iterables, such operating on both the `key` and `value` of a `Map` object:
+```javascript
+let iterable = new Map([['a', 1], ['b', 2], ['c', 3]]);
+for (let entry of iterable) {
+  console.log(entry);
+}
+for (let [key, value] of iterable) {
+  console.log(value);
+  console.log(key);
+}
+```
+
 #### while
-- Repeats a block of code until a particular condition is no longer true. Similar to `[do...while](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while)` loop.
+- Repeats a block of code until a particular condition is no longer true. Similar to [`do...while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while) loop.
   ```javascript
-  var counter = 1;
+  let counter = 1;
   while (counter < 10 ) {
     console.log( counter );
     counter = counter + 1;
@@ -179,7 +191,7 @@ function square(x) {
 }
 
 // function expression
-var square = function(x) {
+let square = function(x) {
     return x * x;
 }
 ```
@@ -282,7 +294,7 @@ _______________
 - *Bracket notation* is useful when there is a need to generate dynamic properties, as the property name can be stored in a variable, and the objects property can then be accessed via that variable (*see example below*). It also allows you to create and access properties that may have spaces in the property key - perfect for handling JSON data.
 
   ```
-  var prop = 'breed';
+  let prop = 'breed';
   console.log(ernie[prop]);
   ```
 
