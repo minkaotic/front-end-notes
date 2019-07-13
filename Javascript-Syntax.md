@@ -151,17 +151,17 @@ _______________
     console.log(movie);
   }
   ```
-It can also do funky things when used on some types of iterables, such operating on both the `key` and `value` of a `Map` object:
-```javascript
-let iterable = new Map([['a', 1], ['b', 2], ['c', 3]]);
-for (let entry of iterable) {
-  console.log(entry);
-}
-for (let [key, value] of iterable) {
-  console.log(value);
-  console.log(key);
-}
-```
+- It can also do funky things when used on some types of iterables, such operating on both the `key` and `value` of a `Map` object:
+  ```javascript
+  let iterable = new Map([['a', 1], ['b', 2], ['c', 3]]);
+  for (let entry of iterable) {
+    console.log(entry);
+  }
+  for (let [key, value] of iterable) {
+    console.log(value);
+    console.log(key);
+  }
+  ```
 
 #### while
 - Repeats a block of code until a particular condition is no longer true. Similar to [`do...while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while) loop.
@@ -174,12 +174,22 @@ for (let [key, value] of iterable) {
   ```
 
 ### Iteration methods
-#### map()
-- Used on arrays; creates a new array with the results of calling a provided function on every element in the original array.
-  ```javascript
-  const fruits = ['apple', 'pear', 'cherry'];
-  const capitalizedFruits = fruits.map( fruit => fruit.toUpperCase() );
-  ```
+#### `filter()`
+The [`filter()`]() method operates on an array and creates a new array with all elements that pass a given condition. Its syntax is `array.filter(currentItem => {return true/false})`. Iff the callback function returns true for the current item, it is added to the new array.
+
+##### Example
+```js
+let filteredLetters = ['A', 'B', 'C'].filter(letter => {return letter !== 'B'});
+```
+-> `filteredLetters` will be `['A', 'C']`.
+
+
+#### `map()`
+[`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) is used on arrays and creates a new array with the results of calling a provided function on every element in the original array.
+```javascript
+const fruits = ['apple', 'pear', 'cherry'];
+const capitalizedFruits = fruits.map( fruit => fruit.toUpperCase() );
+```
 
 _______________
 
