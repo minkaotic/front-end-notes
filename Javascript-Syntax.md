@@ -140,6 +140,9 @@ _______________
 
   movies.forEach( movie => alert(movie) );
   ```
+> :zap: Unlike the older [`for`](#for) and [`while`](#while) loops, you cannot break out of `forEach` early, it always runs on all members of the array.
+
+> :bulb: The [`forEach`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) callback function takes two additional optional parameters: `index` - the index in the array of the current item, and `array`, the whole array.
 
 #### for...of
 - Can be run on any iterable objects, including: `String`, `Array`, `NodeList`, `Map`, `Set`, arguments, and user-defined iterables. Invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.
