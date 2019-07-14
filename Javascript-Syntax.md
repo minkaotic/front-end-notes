@@ -6,12 +6,15 @@
   - [`const` & `let` in JavaScript](#const--let-in-javascript)
   - [Template Literals](#template-literals)
   - [String Search Methods](#string-search-methods)
-- **[Loops & Iteration Methods](#loops--iteration-methods)**
-  - [Various Loops](#various-loops)
-  - [Iteration Methods](#iteration-methods)
 - **[Arrow Functions](#arrow-functions)**
   - [First Class Functions in JS](#first-class-functions-in-js)
   - [Example with Callback](#example-with-callback)
+- **[Loops & Iteration Methods](#loops--iteration-methods)**
+  - [Various Loops](#various-loops)
+  - [`filter()`](#filter)
+  - [`map()`](#map)
+  - [`reduce()`](#reduce)
+  - [`find()`](#find)
 - **[Objects & Classes](#objects--classes)**
   - [Object literals](#object-literals)
   - [Accessing object properties & methods](#accessing-object-properties--methods)
@@ -122,77 +125,6 @@ if (stringToSearch.includes('nice')) {...}
 
 _______________
 
-## Loops & Iteration Methods
-
-### Various Loops
-#### for
-- Used for actions that need to run a particular number of times.
-  ```javascript
-  for ( let counter = 1; counter < 10; counter++) {
-    console.log( counter );
-  } 
-  ```
-
-#### forEach
-- Can be run on `Array`, `Map` and `Set` objects, and executes a provided callback function once for each element (array) / key/value pair (map) / value (set). 
-  ```javascript
-  let movies = ['cats', 'Stans last dance', 'Flowers for her birthday', 'Hunger games'];
-
-  movies.forEach( movie => alert(movie) );
-  ```
-> :zap: Unlike the older [`for`](#for) and [`while`](#while) loops, you cannot break out of `forEach` early, it always runs on all members of the array.
-
-> :bulb: The [`forEach`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) callback function takes two additional optional parameters: `index` - the index in the array of the current item, and `array`, the whole array.
-
-#### for...of
-- Can be run on any iterable objects, including: `String`, `Array`, `NodeList`, `Map`, `Set`, arguments, and user-defined iterables. Invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.
-  ```javascript
-  for (let movie of movies) {
-    console.log(movie);
-  }
-  ```
-- It can also do funky things when used on some types of iterables, such operating on both the `key` and `value` of a `Map` object:
-  ```javascript
-  let iterable = new Map([['a', 1], ['b', 2], ['c', 3]]);
-  for (let entry of iterable) {
-    console.log(entry);
-  }
-  for (let [key, value] of iterable) {
-    console.log(value);
-    console.log(key);
-  }
-  ```
-
-#### while
-- Repeats a block of code until a particular condition is no longer true. Similar to [`do...while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while) loop.
-  ```javascript
-  let counter = 1;
-  while (counter < 10 ) {
-    console.log( counter );
-    counter = counter + 1;
-  }
-  ```
-
-### Iteration methods
-#### `filter()`
-The [`filter()`]() method operates on an array and creates a new array with all elements that pass a given condition. Its syntax is `array.filter(currentItem => {return true/false})`. Iff the callback function returns true for the current item, it is added to the new array.
-
-##### Example
-```js
-let filteredLetters = ['A', 'B', 'C'].filter(letter => {return letter !== 'B'});
-```
--> `filteredLetters` will be `['A', 'C']`.
-
-
-#### `map()`
-[`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) is used on arrays and creates a new array with the results of calling a provided function on every element in the original array.
-```javascript
-const fruits = ['apple', 'pear', 'cherry'];
-const capitalizedFruits = fruits.map( fruit => fruit.toUpperCase() );
-```
-
-_______________
-
 ## Arrow Functions
 A new syntax for writing JS functions as of ES2015; akin to 'lambda functions' in other programming languages. Arrow functions provide a short syntax for defining functions, and also simplify function scope.
 
@@ -277,6 +209,81 @@ movies.forEach( movie => {
 ```javascript
 movies.forEach( movie => alert(movie) );
 ```
+
+_______________
+
+## Loops & Iteration Methods
+
+### Various Loops
+#### for
+- Used for actions that need to run a particular number of times.
+  ```javascript
+  for ( let counter = 1; counter < 10; counter++) {
+    console.log( counter );
+  } 
+  ```
+
+#### forEach
+- Can be run on `Array`, `Map` and `Set` objects, and executes a provided callback function once for each element (array) / key/value pair (map) / value (set). 
+  ```javascript
+  let movies = ['cats', 'Stans last dance', 'Flowers for her birthday', 'Hunger games'];
+
+  movies.forEach( movie => alert(movie) );
+  ```
+> :zap: Unlike the older [`for`](#for) and [`while`](#while) loops, you cannot break out of `forEach` early, it always runs on all members of the array.
+
+> :bulb: The [`forEach`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) callback function takes two additional optional parameters: `index` - the index in the array of the current item, and `array`, the whole array.
+
+#### for...of
+- Can be run on any iterable objects, including: `String`, `Array`, `NodeList`, `Map`, `Set`, arguments, and user-defined iterables. Invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.
+  ```javascript
+  for (let movie of movies) {
+    console.log(movie);
+  }
+  ```
+- It can also do funky things when used on some types of iterables, such operating on both the `key` and `value` of a `Map` object:
+  ```javascript
+  let iterable = new Map([['a', 1], ['b', 2], ['c', 3]]);
+  for (let entry of iterable) {
+    console.log(entry);
+  }
+  for (let [key, value] of iterable) {
+    console.log(value);
+    console.log(key);
+  }
+  ```
+
+#### while
+- Repeats a block of code until a particular condition is no longer true. Similar to [`do...while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while) loop, which will always execute the code block at least once as condition is checked at the end of the loop.
+  ```javascript
+  let counter = 1;
+  while (counter < 10 ) {
+    console.log( counter );
+    counter = counter + 1;
+  }
+  ```
+
+### `filter()`
+The [`filter()`]() method operates on an array and creates a new array with all elements that pass a given condition. Its syntax is `array.filter(currentItem => {return true/false})`. Iff the callback function returns true for the current item, it is added to the new array.
+
+##### Example
+```js
+let filteredLetters = ['A', 'B', 'C'].filter(letter => {return letter !== 'B'});
+```
+-> `filteredLetters` will be `['A', 'C']`.
+
+
+### `map()`
+[`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) is used on arrays and creates a new array with the results of calling a provided function on every element in the original array.
+```javascript
+const fruits = ['apple', 'pear', 'cherry'];
+const capitalizedFruits = fruits.map( fruit => fruit.toUpperCase() );
+```
+
+### `reduce()`
+
+
+### `find()`
 
 _______________
 
