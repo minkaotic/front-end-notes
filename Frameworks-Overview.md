@@ -3,6 +3,7 @@
 ## Contents
 - [MVC pattern recap](#mvc-pattern-recap)
 - [Server-side vs client-side rendering](#server-side-vs-client-side-rendering)
+- [Server-side vs client-side frameworks](#server-side-vs-client-side-frameworks)
 - [The role of AJAX](#the-role-of-ajax)
 
 ## To do
@@ -45,7 +46,7 @@ There's a whole debate about which of these are better, and modern web developme
 
 ***Camp 2*** uses server-side technologies to expose REST endpoints. Client-side technologies are used to provide controllers and views.
 - WebAPI is one ASP.NET server-side technology used for this.
-- Some examples of client-side JS frameworkds include [Angular](https://angular.io/)/[AngularJS](https://github.com/minkaotic/front-end-notes/blob/master/Angular-Notes.md), [Ember](https://www.emberjs.com/), [Backbone](http://backbonejs.org/), [React](https://reactjs.org/) and [Vue.js](https://github.com/minkaotic/front-end-notes/blob/master/Vue-JS-Notes.md).
+- See [below](#server-side-vs-client-side-frameworks) for a list of client-side JS frameworks.
 
 ### How to choose?
 *Client-side rendering* essentially means that the entire application is loaded into the browser that the user is using. There are many performance and user experience benefits to client-side frameworks, as follow-up requests to the server will only be for small amounts of data, rather than more HTML & CSS files as is the case with traditional web pages.
@@ -53,6 +54,18 @@ There's a whole debate about which of these are better, and modern web developme
 One consideration for deciding between a client- or server-side framework is that for applications with a **large amount of dynamic elements**, you don't want to have to call back to the server every time you want to render some new HTML. Any functionality that requires an **interactive UI without page refreshes** (i.e. a list to which you add items without a page reload, or a form where the fields defined are dependent on each other) would be best served by a client side framework.
 
 On the other hand, server-side rendering more easily achieves important **SEO benefits** - see [this article](https://medium.com/@benjburkholder/javascript-seo-server-side-rendering-vs-client-side-rendering-bc06b8ca2383) for more detail.
+
+
+## Server-side vs client-side frameworks
+
+| Frontend FWs (all JS)              | Backend FWs             |
+| ---------------------------------- | ----------------------- |
+| [Angular](https://angular.io/)     | Django, Flask (Python)  |
+| [AngularJS](Angular-Notes.md)      | NodeJS, Expess (JS)     |
+| [Ember](https://www.emberjs.com/)  | Spring, JSF (Java)      |
+| [Backbone](http://backbonejs.org/) | ASP.NET MVC / Core (C#) |
+| [React](https://reactjs.org/)      | Rails, Sinatra (Ruby)   |
+| [Vue.js](Vue-JS-Notes.md)          |                         |
 
 
 ## The role of AJAX
