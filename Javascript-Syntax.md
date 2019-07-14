@@ -305,7 +305,26 @@ const result = prices.map(toDisplayPrices);
 ```
 
 ### `reduce()`
+The [`reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) method executes a given reducer function on each element of the array, resulting in a single output value. 
+- `reduce()` takes two arguments: a callback function (the reducer function) and an initial value.
+- The initial value argument is optional; it represents the value to use as the first argument to the first call of the callback. If no initialValue is supplied, the first element in the array will be used and skipped.
+- The reducer function takes at least two arguments: an accumulator, which tracks the result of operations thus far, and the current value from the input array.
+- Once `reduce()` has iterated over the whole array, it returns the value of the accumulator.
+- Additionally, the reducer function can take two optional parameters to represent the current index and the source array.
 
+**Example**
+```js
+const array1 = [1, 2, 3, 4];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+// 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer));
+// expected output: 10
+
+// 5 + 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer, 5));
+// expected output: 15
+```
 
 ### `find()`
 
