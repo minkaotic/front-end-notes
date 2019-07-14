@@ -287,6 +287,19 @@ const sNames = names.filter(startsWithS);
 ```
 **Result:** `sNames` will be `[ 'Selma', 'Sam', 'Sharon' ]`.
 
+#### Removing duplicates from an array with `filter()`
+> :bulb: Like [`forEach()`](#foreach), the other array methods covered here all take two additional optional parameters: the index in the array of the current item, and the array that the method (e.g. `filter()`) was called on.
+
+The `array.indexOf(item)` method returns the index of the first occurrence of an item that is found in an array. We can therefore compare the index of the current element to the index of the current element in the array that `filter()` was called upon to determine if we've already encountered that element value. If the current element is a duplicate, it's index will not equal the index of the first occurrence of its value.
+```js
+const numbers = [1, 1, 2, 3, 4, 3, 5, 5, 6, 7, 3, 8, 9, 10];
+
+const unique = numbers.filter((number, index, array) => {
+  return index === array.indexOf(number);
+});
+
+console.log(unique); // => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
 
 ### The `map()` method
 [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) is used on arrays and creates a new array with the results of calling a provided function on every element in the original array. *The new array will therefore always have the same number of items as the original array.*
@@ -308,7 +321,7 @@ const result = prices.map(toDisplayPrices);
 [`reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) executes a given reducer function on each element of the array, resulting in a single output value. 
 - `reduce()` takes two arguments: a callback function (the reducer function) and an initial value.
 - The initial value argument is optional; it represents the value to use as the first argument to the first call of the callback. If no initial value is supplied, the first element in the array will be used and skipped.
-> NB:
+> NB: supplying no inital value can mess things up if the first element in the array (e.g. a string) does not fit your reduce logic (i.e. mathematical addition).
 - The reducer function takes at least two arguments: an accumulator, which tracks the result of operations thus far, and the current value from the input array.
 - Once `reduce()` has iterated over the whole array, it returns the value of the accumulator.
 - Additionally, the reducer function can take two optional parameters to represent the current index and the source array.
@@ -347,7 +360,7 @@ const startsWithG = names.reduce((sum, name) => {
 // Resulting value of startsWithG: 4
 ```
 
-### `find()`
+### The `find()` method
 
 _______________
 
