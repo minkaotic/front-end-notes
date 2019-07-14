@@ -266,11 +266,26 @@ _______________
 ### `filter()`
 The [`filter()`]() method operates on an array and creates a new array with all elements that pass a given condition. Its syntax is `array.filter(currentItem => {return true/false})`. Iff the callback function returns true for the current item, it is added to the new array.
 
-##### Example
+**Example: Given an array...**
 ```js
-let filteredLetters = ['A', 'B', 'C'].filter(letter => {return letter !== 'B'});
+const names = ['Selma', 'Ted', 'Mike', 'Sam', 'Sharon', 'Marvin'];
 ```
--> `filteredLetters` will be `['A', 'C']`.
+**...create new array with filtered results**
+```js
+const sNames = names.filter(name => {
+  return name.charAt(0) === 'S';
+});
+```
+...or equivalent using concise arrow syntax:
+```js
+const sNames = names.filter(name => name.charAt(0) === 'S');
+```
+...or equivalent using nice readable function being extracted:
+```js
+const startsWithS = name => name.charAt(0) === 'S';
+const sNames = names.filter(startsWithS);
+```
+**Result:** `sNames` will be `[ 'Selma', 'Sam', 'Sharon' ]`.
 
 
 ### `map()`
