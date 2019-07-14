@@ -11,10 +11,10 @@
   - [Example with Callback](#example-with-callback)
 - **[Loops & Iteration Methods](#loops--iteration-methods)**
   - [Various Loops](#various-loops)
-  - [`filter()`](#filter)
-  - [`map()`](#map)
-  - [`reduce()`](#reduce)
-  - [`find()`](#find)
+  - [`filter()`](#the-filter-method)
+  - [`map()`](#the-map-method)
+  - [`reduce()`](#the-reduce-method)
+  - [`find()`](#the-find-method)
 - **[Objects & Classes](#objects--classes)**
   - [Object literals](#object-literals)
   - [Accessing object properties & methods](#accessing-object-properties--methods)
@@ -263,8 +263,8 @@ _______________
   }
   ```
 
-### `filter()`
-The [`filter()`]() method operates on an array and creates a new array with all elements that pass a given condition. Its syntax is `array.filter(currentItem => {return true/false})`. Iff the callback function returns true for the current item, it is added to the new array.
+### The `filter()` method
+[`filter()`]() operates on an array and creates a new array with all elements that pass a given condition. Its syntax is `array.filter(currentItem => {return true/false})`. Iff the callback function returns true for the current item, it is added to the new array.
 
 **Example: Given an array...**
 ```js
@@ -288,7 +288,7 @@ const sNames = names.filter(startsWithS);
 **Result:** `sNames` will be `[ 'Selma', 'Sam', 'Sharon' ]`.
 
 
-### `map()`
+### The `map()` method
 [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) is used on arrays and creates a new array with the results of calling a provided function on every element in the original array. *The new array will therefore always have the same number of items as the original array.*
 
 **Example 1**
@@ -304,15 +304,16 @@ const result = prices.map(toDisplayPrices);
 // result: [ '£5.00', '£4.23', '£6.40', '£8.09', '£3.20' ]
 ```
 
-### `reduce()`
-The [`reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) method executes a given reducer function on each element of the array, resulting in a single output value. 
+### The `reduce()` method
+[`reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) executes a given reducer function on each element of the array, resulting in a single output value. 
 - `reduce()` takes two arguments: a callback function (the reducer function) and an initial value.
-- The initial value argument is optional; it represents the value to use as the first argument to the first call of the callback. If no initialValue is supplied, the first element in the array will be used and skipped.
+- The initial value argument is optional; it represents the value to use as the first argument to the first call of the callback. If no initial value is supplied, the first element in the array will be used and skipped.
+> NB:
 - The reducer function takes at least two arguments: an accumulator, which tracks the result of operations thus far, and the current value from the input array.
 - Once `reduce()` has iterated over the whole array, it returns the value of the accumulator.
 - Additionally, the reducer function can take two optional parameters to represent the current index and the source array.
 
-**Example 1**
+**Example 1** - with or without initial value
 ```js
 const array1 = [1, 2, 3, 4];
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -325,12 +326,25 @@ console.log(array1.reduce(reducer));
 console.log(array1.reduce(reducer, 5));
 // expected output: 15
 ```
-**Example 2**
+**Example 2** - simple logic
 ```js
 const prices = [6.75, 3.10, 4.00, 8.12];
 
-const total = prices.reduce((sum, price) => sum += price);
+const total = prices.reduce((sum, price) => sum + price);
 // resulting total: 21.97
+```
+**Example 3** - more complex logic, making `return` explicit
+```js
+const names = ['Gary', 'Pasan', 'Gabe', 'Treasure', 'Gengis', 'Gladys', 'Tony'];
+
+const startsWithG = names.reduce((sum, name) => {
+  if (name[0] === 'G') {
+    return sum + 1;
+  }
+  return sum;
+}, 0);
+
+// Resulting value of startsWithG: 4
 ```
 
 ### `find()`
