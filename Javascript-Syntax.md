@@ -289,10 +289,19 @@ const sNames = names.filter(startsWithS);
 
 
 ### `map()`
-[`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) is used on arrays and creates a new array with the results of calling a provided function on every element in the original array.
-```javascript
+[`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) is used on arrays and creates a new array with the results of calling a provided function on every element in the original array. *The new array will therefore always have the same number of items as the original array.*
+
+**Example 1**
+```js
 const fruits = ['apple', 'pear', 'cherry'];
 const capitalizedFruits = fruits.map( fruit => fruit.toUpperCase() );
+```
+**Example 2**
+```js
+const prices = [5, 4.23, 6.4, 8.09, 3.20];
+const toDisplayPrices = price => `£${price.toFixed(2)}`;
+const result = prices.map(toDisplayPrices);
+// result: [ '£5.00', '£4.23', '£6.40', '£8.09', '£3.20' ]
 ```
 
 ### `reduce()`
