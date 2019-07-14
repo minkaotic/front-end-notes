@@ -312,7 +312,7 @@ The [`reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 - Once `reduce()` has iterated over the whole array, it returns the value of the accumulator.
 - Additionally, the reducer function can take two optional parameters to represent the current index and the source array.
 
-**Example**
+**Example 1**
 ```js
 const array1 = [1, 2, 3, 4];
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -324,6 +324,13 @@ console.log(array1.reduce(reducer));
 // 5 + 1 + 2 + 3 + 4
 console.log(array1.reduce(reducer, 5));
 // expected output: 15
+```
+**Example 2**
+```js
+const prices = [6.75, 3.10, 4.00, 8.12];
+
+const total = prices.reduce((sum, price) => sum += price);
+// resulting total: 21.97
 ```
 
 ### `find()`
