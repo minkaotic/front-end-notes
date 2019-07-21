@@ -10,6 +10,7 @@
   - [Traversing the DOM](#traversing-the-dom)
 - [Events](#Events)
   - [Listening for Events](#listening-for-events)
+  - [Overwriting default behaviour](#overwriting-default-behaviour)
   - [Event bubbling & delegation](#event-bubbling--delegation)
  
 __________
@@ -144,8 +145,8 @@ Examples:
 - Change background colour: `element.style.backgroundcolor = 'blue'`
 - Hide (and unhide) elements from the page: `element.style.display = 'none'`
 
-#### Adding and removing new DOM elements
-- Create a new element with `document.createElement()`, then insert it with `Node.appendChild(childElement)` for example:
+#### Adding and removing DOM elements
+- Create a new element with `document.createElement()`, then insert it with `Node.appendChild(childElement)`, for example:
 ```javascript
 const addItemInput = document.querySelector('button.addItemButton');
 let ul = document.getElementsByTagName('ul')[0];
@@ -206,6 +207,20 @@ The `event` object has a `type` property for the type of event that triggered th
 
 > For more details on `elements.addEventListener(eventType, function)`, see the relevant [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 
+_______________
+
+### Overwriting default behaviour
+Some [events](https://developer.mozilla.org/en-US/docs/Web/Events) have default behaviours in the browser; for example, the [`submit`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event) event of a form by default causes the page to reload.
+
+Default behaviours like these can be cancelled by calling the [`preventDefault()`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) method on the triggering event:
+
+```js
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  // define what should happen when form is submitted
+});
+
+```
 
 _______________
 
