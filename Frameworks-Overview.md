@@ -3,7 +3,7 @@
 ## Contents
 - [MVC pattern recap](#mvc-pattern-recap)
 - [Server-side vs client-side rendering](#server-side-vs-client-side-rendering)
-- [Server-side vs client-side frameworks](#server-side-vs-client-side-frameworks)
+- [Frontend vs backend frameworks](#server-side-vs-client-side-frameworks)
   - [Frontend frameworks compared](#frontend-frameworks-compared)
 - [The role of AJAX](#the-role-of-ajax)
 
@@ -57,7 +57,7 @@ One consideration for deciding between a client- or server-side framework is tha
 On the other hand, server-side rendering more easily achieves important **SEO benefits** - see [this article](https://medium.com/@benjburkholder/javascript-seo-server-side-rendering-vs-client-side-rendering-bc06b8ca2383) for more detail.
 
 
-## Server-side vs client-side frameworks
+## Frontend vs backend frameworks
 
 | Frontend FWs (all JS)              | Backend FWs             |
 | ---------------------------------- | ----------------------- |
