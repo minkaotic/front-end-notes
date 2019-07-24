@@ -4,6 +4,7 @@
 - [MVC pattern recap](#mvc-pattern-recap)
 - [Server-side vs client-side rendering](#server-side-vs-client-side-rendering)
 - [Server-side vs client-side frameworks](#server-side-vs-client-side-frameworks)
+  - [Frontend frameworks compared](#frontend-frameworks-compared)
 - [The role of AJAX](#the-role-of-ajax)
 
 ## To do
@@ -67,6 +68,11 @@ On the other hand, server-side rendering more easily achieves important **SEO be
 | [React](https://reactjs.org/)      | Rails, Sinatra (Ruby)   |
 | [Vue.js](Vue-JS-Notes.md)          |                         |
 
+### Frontend frameworks compared
+#### By bundle size
+![bundle sizes of different frameworks](/img/bundle-size-by-framework.png)
+
+*Source: [Bundlephobia](https://bundlephobia-compare.netlify.com/?pkgs=react+react-dom,preact,inferno,vue,svelte,angular), retrieved 24/07/19*
 
 ## The role of AJAX
 - AJAX (Asynchronous JavaScript And XML) is a technology that allows us to get data from a server without the need to refresh a webpage.
