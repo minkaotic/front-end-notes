@@ -268,7 +268,39 @@ document.addEventListener('click', (event) => {
 
 
 ## jQuery
-jQuery is a JavaScript library designed to simplify HTML [DOM](#the-dom) tree traversal and manipulation, as well as event handling and CSS animation. It became popular at a time when there were more challenging inconsistencies in how different browsers handled DOM-programming, and provided a layer of abstraction over these differences as well as a simplified tool kit for adding all manner of interactivity.
+jQuery is a JavaScript library designed to simplify HTML [DOM](#the-dom) tree traversal and manipulation, as well as event handling and CSS animation. It became popular at a time when there were more challenging inconsistencies in how different browsers handled DOM-programming, and provided a layer of abstraction over these differences as well as a collection of convenience methods that make it easier to manipulate elements on webpages.
+
 
 Today browsers have come a long way overcoming these inconsistencies, and the DOM Api has advanced to allow easier DOM access, thereby arguably diminishing jQuery's relevance in modern web development. However, jQuery remains a popular - and now very mature - tool that is still used by 73% of the 10 million most popular websites (*[Source](https://en.wikipedia.org/wiki/JQuery#Popularity)*).
+
+**Example 1 -** hiding an element in JS:
+```js
+const box = document.querySelector('.box');
+box.style.display = 'none';
+```
+...and the jQuery equivalent:
+```js
+jQuery('.box').hide();
+```
+> :bulb: "`jQuery()`" is typically replaced with the "`$()`" shorthand
+```js
+$('.box').hide();
+```
+
+**Example 2 -** adding an event handler in JS:
+```js
+const box = document.querySelector('.box');
+box.addEventListener('click', () => {
+  alert('yay');
+});
+```
+...and the jQuery equivalent:
+```js
+$('.box').click(() => {
+  alert('yay');
+});
+```
+
+
+
 
