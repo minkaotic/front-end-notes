@@ -12,6 +12,7 @@
   - [Listening for Events](#listening-for-events)
   - [Overwriting default behaviour](#overwriting-default-behaviour)
   - [Event bubbling & delegation](#event-bubbling--delegation)
+- [jQuery](#jquery)
  
 __________
 
@@ -264,3 +265,10 @@ document.addEventListener('click', (event) => {
 - Technically, propagation doesn't only bubble up, but flows down from the Window during the capture phase first. This is explained well in the article ["What Is Event Bubbling in JavaScript? Event Propagation Explained"](https://www.sitepoint.com/event-bubbling-javascript/)
 - The event propagation can be stopped in any listener by invoking the `stopPropagation()` method of the event object. (Any other remaining listeners attached on the current target will still receive the event, but it won't be bubbled up further from there.)
 - *Event Cancellation:* Some events are associated with a default action that the browser executes at the end of the propagation. For instance, the click on a link element or the click on a form submit button causes the browser to navigate to a new page, or submit the form respectively. It is possible to avoid the execution of such default actions by calling the event object's `event.preventDefault()`, in a listener.
+
+
+## jQuery
+jQuery is a JavaScript library designed to simplify HTML [DOM](#the-dom) tree traversal and manipulation, as well as event handling and CSS animation. It became popular at a time when there were more challenging inconsistencies in how different browsers handled DOM-programming, and provided a layer of abstraction over these differences as well as a simplified tool kit for adding all manner of interactivity.
+
+Today browsers have come a long way overcoming these inconsistencies, and the DOM Api has advanced to allow easier DOM access, thereby arguably diminishing jQuery's relevance in modern web development. However, jQuery remains a popular - and now very mature - tool that is still used by 73% of the 10 million most popular websites (*[Source](https://en.wikipedia.org/wiki/JQuery#Popularity)*).
+
