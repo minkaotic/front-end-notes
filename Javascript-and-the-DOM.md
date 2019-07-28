@@ -8,12 +8,14 @@
   - [Different Selectors](#different-selectors)
   - [Various DOM Manipulation Methods](#various-dom-manipulation-methods)
   - [Traversing the DOM](#traversing-the-dom)
-- [Events](#Events)
+- [Events](#events)
   - [Listening for Events](#listening-for-events)
   - [Overwriting default behaviour](#overwriting-default-behaviour)
   - [Event bubbling & delegation](#event-bubbling--delegation)
 - [jQuery](#jquery)
-  - [Animating elements with jQuery](#animating-elements-with-jquery)
+  - [Animating elements](#animating-elements)
+  - [Changing content](#changing-content)
+  - [Getting values from form fields](#getting-values-from-form-fields)
  
 __________
 
@@ -267,6 +269,7 @@ document.addEventListener('click', (event) => {
 - The event propagation can be stopped in any listener by invoking the `stopPropagation()` method of the event object. (Any other remaining listeners attached on the current target will still receive the event, but it won't be bubbled up further from there.)
 - *Event Cancellation:* Some events are associated with a default action that the browser executes at the end of the propagation. For instance, the click on a link element or the click on a form submit button causes the browser to navigate to a new page, or submit the form respectively. It is possible to avoid the execution of such default actions by calling the event object's `event.preventDefault()`, in a listener.
 
+__________
 
 ## jQuery
 jQuery is a JavaScript library designed to simplify HTML [DOM](#the-dom) tree traversal and manipulation, as well as event handling and CSS animation. It became popular at a time when there were more challenging inconsistencies in how different browsers handled DOM-programming, and provided a layer of abstraction over these differences as well as a collection of convenience methods that make it easier to manipulate elements on webpages.
@@ -301,8 +304,9 @@ $('.box').click(() => {
   alert('yay');
 });
 ```
+__________
 
-### Animating elements with jQuery
+### Animating elements
 jQuery offers a whole host of [animation effects](https://api.jquery.com/category/effects/). Some examples:
 
 #### Visibility methods
@@ -320,4 +324,56 @@ $('#flashMessage')
   .delay(3000)
   .slideUp();
 ```
+__________
 
+### Changing content
+- [`$(element).text()`](https://api.jquery.com/text/) - get, insert or change text within the selected element
+- [`$(element).html()`](https://api.jquery.com/html/) - get, insert or change html within the selected element
+
+> :bulb: When used without an argument, these methods operate as *getters*. If an argument is provided, e.g. `$(element).html("<p>I am setting this HTML!</p>")`, they operate as *setters*.
+
+**Example:**
+```js
+const title = "My First Blog Post";
+const content = "<p>This is my <strong>first</strong> post</p>";
+
+$('#blogTitlePreview').text(title);
+$('#blogContentPreview').html(content);
+```
+__________
+
+### Getting values from form fields
+- Use the [`val()`](https://api.jquery.com/val/) method to retrieve data from an HTML form field.
+
+**Example:** Populating elements with content from a text input and text area
+##### HTML
+```html
+<div class="blogNewPost">
+  <h1>New Blog Post</h1>
+  <p class="blogTitle-area">
+    <label>Title</label>
+    <input type="text" id="blogTitleInput">
+  </p>
+  <p class="blogContent-area">
+    <label>Content</label>
+    <textarea id="blogContentInput"></textarea>
+  </p>
+  <p>
+    <button id="previewButton">Preview</button>
+  </p>
+</div>
+<div class="blogPreviewArea">
+  <h2 id="blogTitlePreview"></h2>
+  <div id="blogContentPreview"></div>
+</div>
+```
+##### JavaScript
+```js
+$('#previewButton').click(() => {
+  const title = $('#blogTitleInput').val();
+  const content = $('#blogContentInput').val();
+
+  $('#blogTitlePreview').text(title);
+  $('#blogContentPreview').html(content);
+});
+```
