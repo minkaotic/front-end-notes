@@ -13,6 +13,7 @@
   - [Overwriting default behaviour](#overwriting-default-behaviour)
   - [Event bubbling & delegation](#event-bubbling--delegation)
 - [jQuery](#jquery)
+  - [Animating elements with jQuery](#animating-elements-with-jquery)
  
 __________
 
@@ -301,6 +302,22 @@ $('.box').click(() => {
 });
 ```
 
+### Animating elements with jQuery
+jQuery offers a whole host of [animation effects](https://api.jquery.com/category/effects/). Some examples:
 
+#### Visibility methods
+- `fadeIn()` and `fadeOut()` change opacity of an item over time
+- `slideUp()` and `slideDown()` reveal an element with a sliding motion
+- `delay()` adds a delay between two animations
 
+> :bulb: All jQuery animations last for 400ms by default. You can pass in a custom duration as an argument to the animation method.
+
+**Example:**
+```js
+$('#flashMessage')
+  .hide()
+  .slideDown(1000)
+  .delay(3000)
+  .slideUp();
+```
 
