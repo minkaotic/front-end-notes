@@ -17,18 +17,31 @@ __________
 
 ## Intro
 
-*JS allows to make pages interactive, through:*
+:flags: *JS allows to make pages interactive, through:*
 - selecting elements on the page
 - manipulating elements
 - listening for user actions
 
-This is based on the **[DOM (Document Object Model)](#the-dom)**.
+All of these actions are based on the **[DOM (Document Object Model)](#the-dom)**.
 
 ### Adding JS code to a page
-- link any JS files in the html file to execute them when the page loads, like so: `<script src="file-name.js"></script>`
+- link any JS files in the html file to execute them when the page loads, like so: `<script type="text/javascript" src="file-name.js"></script>`
   - *alternatively, JS scripts can be added inline within the `<script>...</script>` tag*
-- link at bottom of `<head>` to run script before the content of the page loads, or at bottom of `<body>` to run script once page has loaded
-- **Fun fact:** variables declared in the JS script will be accessible in the browser's JS console too!
+- link at bottom of `<head>` to run script before the content of the page loads, or at bottom of `<body>` to run script once page has loaded - the latter is best practice whenever possible, as it allows the user to see the page quicker, without waiting for any JS scripts to load.
+- Any variables declared in the JS script will be accessible in the browser's JS console too!
+
+#### JS & page loading
+When a browser "reads" through an HTML page, any JavaScript it encounters is run as soon as the browser sees it. If JavaScript is included at the top of the document, it can fail if the browser hasn't seen the elements it refers to yet. To safeguard against this we can wrap our code in the [`DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event).
+
+The `DOMContentLoaded` event fires when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+
+```js
+document.addEventListener('DOMContentLoaded', e => {
+  // all the code to run
+});
+```
+
+This way the browser will load the script, but won't run the code thus wrapped in the event listener until the page is fully loaded.
 
 __________
 
