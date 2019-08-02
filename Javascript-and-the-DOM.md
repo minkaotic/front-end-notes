@@ -277,6 +277,19 @@ jQuery is a JavaScript library designed to simplify HTML [DOM](#the-dom) tree tr
 
 Today browsers have come a long way overcoming these inconsistencies, and the DOM Api has advanced to allow easier DOM access, thereby arguably diminishing jQuery's relevance in modern web development. However, jQuery remains a popular - and now very mature - tool that is still used by 73% of the 10 million most popular websites (*[Source](https://en.wikipedia.org/wiki/JQuery#Popularity)*).
 
+**To set up jQuery**, either [download the file](https://jquery.com/) to include with your project bundle, or link to a CDN hosted file. jQuery should be loaded at the bottom of the `body` to avoid slowing page load & ensure all DOM elements are loaded ahead of being accessed via JS, and any JS files using jQuery should be referenced after the jQuery file in order to work.
+
+```html
+<html>
+  ...
+<body>
+  ...
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+```
+
 **Example 1 -** hiding an element in JS:
 ```js
 const box = document.querySelector('.box');
