@@ -3,7 +3,7 @@
 ## Contents
 - [MVC pattern recap](#mvc-pattern-recap)
 - [Server-side vs client-side rendering](#server-side-vs-client-side-rendering)
-- [Frontend vs backend frameworks](#server-side-vs-client-side-frameworks)
+- [Frontend vs backend frameworks](#frontend-vs-backend-frameworks)
   - [Frontend frameworks compared](#frontend-frameworks-compared)
 - [The role of AJAX](#the-role-of-ajax)
 
