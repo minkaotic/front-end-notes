@@ -14,7 +14,7 @@
   - [Event bubbling & delegation](#event-bubbling--delegation)
 - [jQuery](#jquery)
   - [Animating elements](#animating-elements)
-  - [Changing content](#changing-content)
+  - [General DOM manipulation](#general-dom-manipulation)
   - [Getting values from form fields](#getting-values-from-form-fields)
  
 __________
@@ -339,13 +339,14 @@ $('#flashMessage')
 ```
 __________
 
-### Changing content
+### General DOM manipulation
+#### Changing content
 - [`$(element).text()`](https://api.jquery.com/text/) - get, insert or change text within the selected element
 - [`$(element).html()`](https://api.jquery.com/html/) - get, insert or change html within the selected element
 
 > :bulb: When used without an argument, these methods operate as *getters*. If an argument is provided, e.g. `$(element).html("<p>I am setting this HTML!</p>")`, they operate as *setters*.
 
-**Example:**
+##### Example:
 ```js
 const title = "My First Blog Post";
 const content = "<p>This is my <strong>first</strong> post</p>";
@@ -353,6 +354,18 @@ const content = "<p>This is my <strong>first</strong> post</p>";
 $('#blogTitlePreview').text(title);
 $('#blogContentPreview').html(content);
 ```
+
+#### Adding elements
+To create a new element, simply pass a valid HTML string to the jQuery method (`$('<p>Hi</p>')`). This can then be added to the DOM using one of jQuery's [DOM insertion methods](https://api.jquery.com/category/manipulation/dom-insertion-inside/).
+
+##### Example using `.append()`
+```js
+const $button = $('<button>Reveal Spoiler</button>');
+$('.spoiler').append($button);
+```
+
+> :bulb: NB: variables containing jQuery elements are prefixed with `$` by convention
+
 __________
 
 ### Getting values from form fields
