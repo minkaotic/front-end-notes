@@ -25,7 +25,7 @@ The *Model View Controller* design pattern is commonly used across many framewor
 
 In an MVC application, the view only displays information; the controller handles and responds to user input and interaction. For example, the controller handles query-string values, and passes these values to the model, which in turn might use these values to query the database.
 
-![MVC diagram](https://github.com/minkaotic/front-end-notes/blob/master/img/mvc.png)
+![MVC diagram](/img/mvc.png)
 *Source: [this article](https://medium.freecodecamp.org/model-view-controller-mvc-explained-through-ordering-drinks-at-the-bar-efcba6255053)*
 
 The MVC pattern helps create applications that separate the different aspects of the application: input logic (controller), business logic (model), and UI logic (view), while providing a loose coupling between these elements. 
@@ -33,15 +33,15 @@ The MVC pattern helps create applications that separate the different aspects of
 **Sources:**
 - https://docs.microsoft.com/en-us/previous-versions/aspnet/dd381412(v=vs.108)
 - https://teamtreehouse.com/library/the-anatomy-of-an-mvc-project
-- Also see [this great analogy comparing MVC to a bar](https://medium.freecodecamp.org/model-view-controller-mvc-explained-through-ordering-drinks-at-the-bar-efcba6255053)
+- https://medium.freecodecamp.org/model-view-controller-mvc-explained-through-ordering-drinks-at-the-bar-efcba6255053
 
 
 ## Server-side vs client-side rendering
-[Razor](https://github.com/minkaotic/front-end-notes/blob/master/MVC-and-Razor.md#razor--mvc) renders the HTML on the server, whereas [Angular(JS)](https://github.com/minkaotic/front-end-notes/blob/master/Angular-Notes.md) renders it on the client.
+[Razor](/MVC-and-Razor.md#razor--mvc) renders the HTML on the server, whereas [Angular(JS)](/Angular-Notes.md) renders it on the client.
 There's a whole debate about which of these are better, and modern web development is split into two camps:
 
 ***Camp 1*** uses server-side technologies for its controllers and views and has JavaScript in its views for dynamic things.
-- [MVC and Razor](https://github.com/minkaotic/front-end-notes/blob/master/MVC-and-Razor.md) are the ASP.NET server-side technologies used for this.
+- [MVC and Razor](/MVC-and-Razor.md) are the ASP.NET server-side technologies used for this.
 - Other server-side technologies for this approach include: Express (Javascript), Django (Python) and Rails (Ruby)
 - Client-side technologies may include things like [jQuery](/Javascript-and-the-DOM.md#jquery) or Dojo.
 
@@ -84,5 +84,5 @@ On the other hand, server-side rendering more easily achieves important **SEO be
 
 - These requests will not re-send the files to the client, but just the pure data - most of the time the response will be in JSON.
 
-- The client-side app can also send data back to the server. This dual capability is known as **"[two-way data binding](https://github.com/minkaotic/front-end-notes/blob/master/Angular-Notes.md#data-binding)"**.
+- The client-side app can also send data back to the server. This dual capability is known as **"[two-way data binding](/Angular-Notes.md#data-binding)"**.
 
