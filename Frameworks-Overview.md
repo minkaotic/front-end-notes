@@ -43,7 +43,7 @@ There's a whole debate about which of these are better, and modern web developme
 ***Camp 1*** uses server-side technologies for its controllers and views and has JavaScript in its views for dynamic things.
 - [MVC and Razor](https://github.com/minkaotic/front-end-notes/blob/master/MVC-and-Razor.md) are the ASP.NET server-side technologies used for this.
 - Other server-side technologies for this approach include: Express (Javascript), Django (Python) and Rails (Ruby)
-- Client-side technologies may include things like jQuery or Dojo.
+- Client-side technologies may include things like [jQuery](/Javascript-and-the-DOM.md#jquery) or Dojo.
 
 ***Camp 2*** uses server-side technologies to expose REST endpoints. Client-side technologies are used to provide controllers and views.
 - WebAPI is one ASP.NET server-side technology used for this.
