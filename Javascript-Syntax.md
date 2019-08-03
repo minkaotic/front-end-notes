@@ -194,14 +194,14 @@ exec(say, 'Hello!');
 ```
 
 **2. Passing an anonymous function**
-```javascript
+```js
 exec(function (something) {
   console.log(something);
 }, 'Hello!');
 ```
 
 **3. Anonymous function using arrow syntax**
-```javascript
+```js
 exec((something) => {
   console.log(something);
 }, 'Hello!');
@@ -210,7 +210,7 @@ exec((something) => {
 ### Example with Callback
 Given an array `const movies = ['Cats', 'Stans last dance', 'Flowers for her birthday', 'Hunger games'];`, you can iterate over the array by using a `forEach()` loop, which takes a callback function:
 
-```javascript
+```js
 movies.forEach(function(movie) {
   alert(movie);
 });
@@ -218,7 +218,7 @@ movies.forEach(function(movie) {
 
 This can be simplified using arrow syntax:
 
-```javascript
+```js
 movies.forEach( movie => {
   alert(movie);
 });
@@ -226,7 +226,7 @@ movies.forEach( movie => {
 
 ...and since it's only a one line function body, even further to:
 
-```javascript
+```js
 movies.forEach( movie => alert(movie) );
 ```
 
@@ -237,7 +237,7 @@ _______________
 ### Various Loops
 #### for
 - Used for actions that need to run a particular number of times.
-  ```javascript
+  ```js
   for ( let counter = 1; counter < 10; counter++) {
     console.log( counter );
   } 
@@ -245,7 +245,7 @@ _______________
 
 #### forEach
 - Can be run on `Array`, `Map` and `Set` objects, and executes a provided callback function once for each element (array) / key/value pair (map) / value (set). 
-  ```javascript
+  ```js
   let movies = ['cats', 'Stans last dance', 'Flowers for her birthday', 'Hunger games'];
 
   movies.forEach( movie => alert(movie) );
@@ -256,13 +256,13 @@ _______________
 
 #### for...of
 - Can be run on any iterable objects, including: `String`, `Array`, `NodeList`, `Map`, `Set`, arguments, and user-defined iterables. Invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.
-  ```javascript
+  ```js
   for (let movie of movies) {
     console.log(movie);
   }
   ```
 - It can also do funky things when used on some types of iterables, such operating on both the `key` and `value` of a `Map` object:
-  ```javascript
+  ```js
   let iterable = new Map([['a', 1], ['b', 2], ['c', 3]]);
   for (let entry of iterable) {
     console.log(entry);
@@ -275,7 +275,7 @@ _______________
 
 #### while
 - Repeats a block of code until a particular condition is no longer true. Similar to [`do...while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while) loop, which will always execute the code block at least once as condition is checked at the end of the loop.
-  ```javascript
+  ```js
   let counter = 1;
   while (counter < 10 ) {
     console.log( counter );
@@ -387,7 +387,7 @@ _______________
 ## Objects & Classes
 ### Object literals
 - *Object literals* are useful when modelling one single, specific thing. E.g.:
-  ```
+  ```js
   const ernie = {
     species: 'dog',
     age: 1,
@@ -410,7 +410,7 @@ _______________
 
 - *Bracket notation* is useful when there is a need to generate dynamic properties, as the property name can be stored in a variable, and the objects property can then be accessed via that variable (*see example below*). It also allows you to create and access properties that may have spaces in the property key - perfect for handling JSON data.
 
-  ```
+  ```js
   let prop = 'breed';
   console.log(ernie[prop]);
   ```
@@ -421,7 +421,7 @@ To represent types with the same (or similar) properties, classes are much more 
 > :sunglasses: Checkout [this workspace](https://teamtreehouse.com/workspaces/41036129) to peruse a simple example application comprised of JS objects.
 
 ***A simple example***
-```
+```js
 class Pet {
   constructor(species, age, breed, sound) {
     this.species = species;
@@ -432,7 +432,7 @@ class Pet {
   }
   
   speak() {
-    console.log(`${this.emoji}: ${this.sound)};
+    console.log(`${this.emoji}: ${this.sound}`);
   }
 }
 
@@ -443,7 +443,7 @@ ernie.speak();
 ***Things to note***
 - In JS, a class *can only have one constructor*. 
 - In order to create an instance without any arguments, you can however set defaults, for example:
-  ```
+  ```js
   constructor(species = 'dog', age = 0, breed = 'unknown')
   ```
 - **NB:** Declaring methods inside a class *doesn't* use the function keyword!
@@ -453,7 +453,7 @@ ernie.speak();
 **Definition & usage of a getter:**
 - use `get` keyword to define a getter
 - no parentheses when getter is accessed
-```
+```js
 class Pet {
   get activity() {
     ///code to return something
@@ -470,7 +470,7 @@ console.log(elsie.activity);
 - Setters can receive a value, perform some optional logic on it, then assign it to *either a new or existing property of the object*.
 - The name of a property can never be the same as the name of a getter or setter method, so by convention, the backing property of a setter uses an underscore in front of it.
 - Typically, a matching getter method will be defined that returns the value of the backing property.
-```
+```js
 class Pet {
   set owner(owner) {
     this._owner = owner;
@@ -491,7 +491,7 @@ ____________________
 There are 4 ways in which `this` takes a value in JS:
 
 ***1. In normal function calls***
-```
+```js
 function tryingThis() {
   console.log(this);
 };
@@ -503,7 +503,7 @@ function tryingThis() {
 - in this case, `this` refers to the object itself, and is usually used to reference its properties
 
 ***3. In a constructor function***
-```
+```js
 let City = function(name, state) {
     this.name = name || 'Portland';
     this.state = state || 'Oregon';
