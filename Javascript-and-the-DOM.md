@@ -16,6 +16,7 @@
   - [Animating elements](#animating-elements)
   - [General DOM manipulation](#general-dom-manipulation)
   - [Getting values from form fields](#getting-values-from-form-fields)
+  - [Event handling](#event-handling)
  
 __________
 
@@ -249,7 +250,7 @@ An event received by an element doesn't stop with that one element. That event m
 
 This is useful because it allows us to add an event listener to a parent element and let it handle events on its children:
 - without the need for *for loops* for each child that we want the event to be handled for
-- makes the code resilient to changes to the DOM that add or remove children
+- makes the code resilient to changes to the DOM that dynamically add or remove children
 - ***But: How does the parent know which child triggered the event?***
 
 ...by passing the `event` object as an argument to the `eventListener`! This allows us to call the **event target**. E.g.:
@@ -403,3 +404,38 @@ $('#previewButton').click(() => {
   $('#blogContentPreview').html(content);
 });
 ```
+__________
+
+### Event handling
+jQuery has many [methods for handling specific events](https://api.jquery.com/category/events/), such as
+- [`.click()`](https://api.jquery.com/click/)
+- [`.focus()`](https://api.jquery.com/focus/)
+- [`.blur()`](https://api.jquery.com/blur/)
+
+To run some code on a range of different events, and to allow for [event delegation](#event-bubbling--delegation) by setting the event listener on a parent element, use the [`.on()`](https://api.jquery.com/on/) method. 
+
+##### Example 1
+The below will execute on both `click` and `mouseleave` events:
+```js
+$('.form button').on('click mouseleave', () => {
+  // do something
+});
+```
+##### Example 2
+The below allows to use event delegation to capture any `click` events on the `form`'s child `buttons`, regardless of whether they exist at the time of registering the event listener or are only created thereafter:
+```js
+$('.form').on('click', 'button', () => {
+  // do something
+});
+```
+
+##### Example 3
+Using the `event` object:
+```js
+$('.form').on('click', 'button', (e) => {
+  $(e.target).hide();
+  // do other things
+});
+```
+
+
