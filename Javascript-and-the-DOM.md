@@ -17,6 +17,7 @@
   - [General DOM manipulation](#general-dom-manipulation)
   - [Getting values from form fields](#getting-values-from-form-fields)
   - [Event handling](#event-handling)
+  - [DOM traversal](#dom-traversal)
  
 __________
 
@@ -437,5 +438,12 @@ $('.form').on('click', 'button', (e) => {
   // do other things
 });
 ```
+__________
+
+### DOM traversal
+jQuery offers a bunch of useful [tree traversal](https://api.jquery.com/category/traversing/tree-traversal/) and [filtering](https://api.jquery.com/category/traversing/filtering/) methods in order to access DOM elements.
+
+Explain this...
+`$('li').eq(2).prev().prev();`
 
 
