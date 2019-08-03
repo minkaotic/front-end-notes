@@ -418,18 +418,21 @@ _______________
 ### JS Class Syntax
 To represent types with the same (or similar) properties, classes are much more robust than object literals. Class syntax was **introduced to Javascript in ES2015**, and comprises syntactic sugar on top of its original prototype syntax.
 
+> :sunglasses: Checkout [this workspace](https://teamtreehouse.com/workspaces/41036129) to peruse a simple example application comprised of JS objects.
+
 ***A simple example***
 ```
 class Pet {
   constructor(species, age, breed, sound) {
-    this.species = animal;
+    this.species = species;
     this.age = age;
     this.breed = breed;
     this.sound = sound;
+    this.emoji = this.species === 'dog' ? '🐶' : '❓'
   }
   
   speak() {
-    console.log(this.sound);
+    console.log(`${this.emoji}: ${this.sound)};
   }
 }
 
