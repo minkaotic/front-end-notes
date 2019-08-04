@@ -56,12 +56,16 @@
 ## Complex elements
 
 ### Forms & inputs
-To create a **text input** with placeholder text:
+> :bulb: You can build **web forms** that actually submit data to a server purely using HTML.
+
+The `<form>` element wraps a section of the document that contains form controls. It takes two attributes: `action`, which specifies the web address to send the data to on submission, and `method`, which specifies the HTTP method to use. For example: 
 ```html
-<input type="text" placeholder="cat photo URL">
+<form action="index.html" method="post"></form>
 ```
 
-*NB:* You can build **web forms** that actually submit data to a server purely using HTML. To do this, wrap the `input` element in a `form` element and specify an `action`. Then add a `button` of type `submit` to your form. Clicking this button will send the data from your form to the URL you specified with your form's `action` attribute.:
+The `<input>` element is used to create many different types of form controls. Its `type` attribute specifies what kind of form control should be rendered, e.g. `text`, `email`, `password`, etc. The `name` attribute is submitted with form data so that server-side code can parse the information. The `id` attribute works like `id` elsewhere, but additionally is used to associate labels to specific form controls.
+
+Then add a `button` of type `submit` to your form. Clicking this button will send the data from your form to the URL you specified with your form's `action` attribute.:
 ```html
 <form action="/submit-cat-photo">
   <input type="text" placeholder="cat photo URL">
