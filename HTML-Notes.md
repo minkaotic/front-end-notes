@@ -63,12 +63,17 @@ The `<form>` element wraps a section of the document that contains form controls
 <form action="index.html" method="post"></form>
 ```
 
-The `<input>` element is used to create many different types of form controls. Its `type` attribute specifies what kind of form control should be rendered, e.g. `text`, `email`, `password`, etc. The `name` attribute is submitted with form data so that server-side code can parse the information. The `id` attribute works like `id` elsewhere, but additionally is used to associate labels to specific form controls.
-
-Then add a `button` of type `submit` to your form. Clicking this button will send the data from your form to the URL you specified with your form's `action` attribute.:
+The `<input>` element is used to create many different types of form controls. Its `type` attribute specifies what kind of form control should be rendered, e.g. `text`, `email`, `password`, etc. The `name` attribute is submitted with form data so that server-side code can parse the information. The `id` attribute works like `id` elsewhere, but additionally is used to associate a `<label>` to a specific form control, e.g.:
 ```html
-<form action="/submit-cat-photo">
-  <input type="text" placeholder="cat photo URL">
+<label for="mail">Email address:</label>
+<input type="email" id="mail" name="user_email">
+```
+
+Finally, add a `<button>` of type `submit` to your form. (The type attribute specifies whether the button should `submit` the form data, `reset` the form, or - `button` - have no default behavior for use with JavaScript.) Clicking this button will send the data from your form to the web address specified with your form's `action` attribute.
+```html
+<form action="/submit-cat-photo" method="post">
+  <label for="photo-url">Cat pic:</label>
+  <input type="text" id="photo-url" name="photo_url" placeholder="cat photo URL">
   <button type="submit">Submit</button>
 </form>
 ```
