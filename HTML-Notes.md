@@ -58,6 +58,11 @@
 ## Complex elements
 
 ### Forms & inputs
+- [Web forms 101](#web-forms-101)
+- [Logically grouping form sections](#logically-grouping-form-sections)
+- [HTML5 form validation](#html5-form-validation)
+
+#### Web forms 101
 > :bulb: You can build **web forms** that actually submit data to a server purely using HTML.
 
 The `<form>` element wraps a section of the document that contains form controls. It takes two attributes: `action`, which specifies the web address to send the data to on submission, and `method`, which specifies the HTTP method to use. For example: 
@@ -77,6 +82,29 @@ Finally, add a `<button>` of type `submit` to your form. (The type attribute spe
   <label for="photo-url">Cat pic:</label>
   <input type="text" id="photo-url" name="photo_url" placeholder="cat photo URL">
   <button type="submit">Submit</button>
+</form>
+```
+
+#### Logically grouping form sections
+Sometimes, certain form controls belong together in a logical grouping. Form controls can be grouped together using `<fieldset>` elements and then labeled using a `<legend>`.
+
+The `<fieldset>` element wraps multiple form elements into common groups. This can help organize a form and make it easier to understand for users. The `<legend>` element is similar to the label element, but instead of labeling a form control, it labels a `<fieldset>`, providing helpful context for users that are filling out a form.
+```html
+<form action="index.html" method="post">
+  <h1>Sign Up</h1>
+  <fieldset>
+    <legend>Your basic info</legend>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="user_name">
+    <label for="mail">Email address:</label>
+    <input type="email" id="mail" name="user_email">
+  </fieldset>
+  <fieldset>
+    <legend>Your profile</legend>
+    <label for="bio">Bio:</label>
+    <textarea id="bio" name="user_bio"></textarea>
+  </fieldset>
+  <button type="submit">Sign Up</button>
 </form>
 ```
 
