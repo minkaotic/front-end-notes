@@ -61,7 +61,7 @@
 - [Web forms 101](#web-forms-101)
 - [Logically grouping form sections](#logically-grouping-form-sections)
 - [Select menus](#select-menus)
-- [Radio buttons](#radio-buttons)
+- [Radio buttons & checkboxes](#radio-buttons--checkboxes)
 - [HTML5 form validation](#html5-form-validation)
 
 #### Web forms 101
@@ -137,9 +137,10 @@ The [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/selec
 > :bulb: The `<option>`'s **`value`** attribute specifies the value of the selected option to be sent to the server on form submission.
 
 
-#### Radio buttons
-If the user only needs to choose from 5 or fewer options, it's typically better to use radio buttons instead of a select menu.
-A group of radio buttons is created by a group of several `<input>` elements of type `radio`. *In order to group radio buttons together, they must all share the same value for the `name` attribute.*
+#### Radio buttons & checkboxes
+If the user only needs to choose from 5 or fewer options, it's typically better to use **radio buttons** instead of a select menu.
+A group of radio buttons is created by a group of several `<input>` elements of type `radio`.
+> NB: *In order to group radio buttons together and allow only one at a time to be selected, they must all share the same value for the `name` attribute.*
 
 ##### Example - 2 radio buttons under a header label
 ```html
@@ -148,6 +149,19 @@ A group of radio buttons is created by a group of several `<input>` elements of 
 <label for="under_13" class="light">Under 13</label><br>
 <input type="radio" id="over_13" value="over_13" name="user_age">
 <label for="over_13" class="light">13 or older</label>
+```
+
+**Checkboxes**, where multiple options can be selected at once are created similarly to radio buttons, but use `<input>` elements of type `checkbox`.
+
+##### Example - 3 checkboxes under a header label
+```html
+<label>Interests:</label>
+<input type="checkbox" id="development" value="interest_development" name="user_interest">
+<label for="development" class="light">Development</label><br>
+<input type="checkbox" id="design" value="interest_design" name="user_interest">
+<label for="design" class="light">Design</label><br>
+<input type="checkbox" id="business" value="interst_business" name="user_interest">
+<label for="business" class="light">Business</label>
 ```
 
 #### HTML5 form validation
