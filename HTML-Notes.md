@@ -205,10 +205,8 @@ Using HTML form validation means that the way the error message is displayed dep
 - There is no standard way to change their look and feel with CSS.
 - Error messages depend on the browser locale, which means that you can have a page in one language but an error message displayed in another language.
 
-![Illustration of browser variance when using html5 form validation](https://github.com/minkaotic/front-end-notes/blob/master/img/html-form-validation.png)
+![Illustration of browser variance when using html5 form validation](/img/html-form-validation.png)
 
-*[to be continued...]*
-
-**Further resources:**
+**Further resources on forms & inputs:**
 - FreeCodeCamp on HTML forms, starting from [this section of the syllabus](https://learn.freecodecamp.org/responsive-web-design/basic-html-and-html5/create-a-form-element/)
 - [MDN tutorial on form validation](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation)
