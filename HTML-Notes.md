@@ -60,6 +60,7 @@
 ### Forms & inputs
 - [Web forms 101](#web-forms-101)
 - [Logically grouping form sections](#logically-grouping-form-sections)
+- [Select menus](#select-menus)
 - [HTML5 form validation](#html5-form-validation)
 
 #### Web forms 101
@@ -107,6 +108,33 @@ The `<fieldset>` element wraps multiple form elements into common groups. This c
   <button type="submit">Sign Up</button>
 </form>
 ```
+
+#### Select menus
+
+The [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element renders a drop-down menu that contains selectable options. This type of form control is ideal for scenarios where the user must choose one option from a preset list of 5 or more choices. The [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) element represents one of the choices that a user can choose in a select menu. It should always be nested inside of a `<select>` element. The [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup) element wraps one or more `<option>` elements and helps to create logical groups. The `label` attribute specifies the text that the `<optgroup>` should display above the nested options.
+
+##### Example:
+```html
+<select id="job" name="user_job">
+  <optgroup label="Web">
+    <option  value="frontent_developer">Front-End Developer</option>
+    <option  value="backend_developer">Back-End Developer</option>
+    <option  value="web_designer">Web Designer</option>
+    <option  value="wordpress_developer">WordPress Developer</option>
+  </optgroup>
+  <optgroup label="Mobile">
+    <option  value="android_developer">Android Developer</option>
+    <option  value="ios_developer">iOS Developer</option>
+    <option  value="mobile_designer">Mobile Designer</option>
+  </optgroup>
+  <optgroup label="Business">
+    <option  value="business_owner">Business Owner</option>
+    <option  value="freelancer">Freelancer</option>
+  </optgroup>
+</select>
+```
+> :bulb: The `<option>`'s **`value`** attribute specifies the value of the selected option to be sent to the server on form submission.
+
 
 #### HTML5 form validation
 HTML5 has a number of built in form validations available, which can be described as constraints using a range of [validation attributes](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation#Validation-related_attributes).
