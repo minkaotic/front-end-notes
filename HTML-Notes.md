@@ -29,6 +29,7 @@
 - [What's in the head? Metadata in HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
 - [HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 
+--------------------------
 
 ## Semantic HTML
 = markup that describes the *meaning* of content (as opposed to, say, how it looks). Benefits:
@@ -52,6 +53,7 @@
 
 *[to be continued...]*
 
+--------------------------
 
 ## Complex elements
 
