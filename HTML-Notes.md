@@ -61,6 +61,7 @@
 - [Web forms 101](#web-forms-101)
 - [Logically grouping form sections](#logically-grouping-form-sections)
 - [Select menus](#select-menus)
+- [Radio buttons](#radio-buttons)
 - [HTML5 form validation](#html5-form-validation)
 
 #### Web forms 101
@@ -135,6 +136,19 @@ The [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/selec
 ```
 > :bulb: The `<option>`'s **`value`** attribute specifies the value of the selected option to be sent to the server on form submission.
 
+
+#### Radio buttons
+If the user only needs to choose from 5 or fewer options, it's typically better to use radio buttons instead of a select menu.
+A group of radio buttons is created by a group of several `<input>` elements of type `radio`. *In order to group radio buttons together, they must all share the same value for the `name` attribute.*
+
+##### Example - 2 radio buttons under a header label
+```html
+<label>Age:</label>
+<input type="radio" id="under_13" value="under_13" name="user_age">
+<label for="under_13" class="light">Under 13</label><br>
+<input type="radio" id="over_13" value="over_13" name="user_age">
+<label for="over_13" class="light">13 or older</label>
+```
 
 #### HTML5 form validation
 HTML5 has a number of built in form validations available, which can be described as constraints using a range of [validation attributes](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation#Validation-related_attributes).
