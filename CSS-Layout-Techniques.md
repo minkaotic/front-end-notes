@@ -390,6 +390,7 @@ Elements positioned as `absolute`, `fixed`, or `relative` follow a **stacking or
 **NB:** When you give a positioned element a `z-index`, you establish a new **stacking context** for any descendants (children) of that element. Therefore, it is possible to have a higher `z-index` element that's underneath another element with a lower `z-index`. Check articles below for more detail.
 
 **Resources**
+- [Positioning module on Treehouse's 'CSS Layout Basics'](https://teamtreehouse.com/library/css-layout-basics)
 - [CSS Positioning 101](http://alistapart.com/article/css-positioning-101/)
 - MDN 3-part guide on 1. [Stacking without the z-index property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Stacking_without_z-index) - 2. [Using z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Adding_z-index) - 3. [The stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
 
