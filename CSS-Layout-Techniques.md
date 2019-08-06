@@ -384,7 +384,8 @@ By default, elements are stacked in the following order, with later elements sit
 1. Descendant *positioned* elements (`absolute`, `fixed`, or `relative`), in order of appearance in the HTML
 
 The [`z-index`](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index) property allows to **manipulate the stacking order** of positioned elements: an element with a higher `z-index` value overlaps an element with a lower `z-index` value.
-  ![Illustration of z-index](https://github.com/minkaotic/front-end-notes/blob/master/img/z-index.png)
+
+![Illustration of z-index](/img/z-index.png)
 
 - Positioned elements have a `z-index` of `0` by default.
 - `z-index` only works on elements with a `position` property set to `absolute`, `fixed`, or `relative`. Setting a `z-index` on a `static` element will do nothing.
