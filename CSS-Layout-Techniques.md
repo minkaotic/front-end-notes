@@ -352,7 +352,7 @@ body {
 - **`inherit`** - element inherits the value of its parent element. (Position property elements do not automatically inherit their parent’s values and instead default to `static` if no position value is given.)
 
 #### Example
-- To position elements with `relative` or `absolute` positioning, use *positioning offsets* for the element's top, right, bottom or left position
+- To position elements with `relative` or `absolute` positioning, use *positioning offsets* for the element's `top`, `right`, `bottom` or `left` position
 
 - The following example will place the `.ice-cream` element in the top left corner of the browser window:
   ```css
@@ -362,7 +362,7 @@ body {
     left: 0;
   }
   ```
-- **NB:** if only *one* offset value is used, the element will retain it's original position along the other coordinate axis!
+> :bulb: **NB:** if only *one* offset value is used, the element will retain it's original position along the other coordinate axis!
 
 ### Combining absolute & relative positioning
 Absolute and relative positioning work hand in hand:
@@ -373,18 +373,20 @@ Absolute and relative positioning work hand in hand:
 
 > **In other words:** An element with relative positioning gives you the control to absolutely position elements anywhere inside it.
 
-#### Use case as part of responsive design
+#### :vibration_mode: Use case as part of responsive design
 Use all four offset properties, and you can stretch an element without defining any width or height - it’s bound only by its parent element or the document itself!
 
 ### Z-Index
+By default, elements are stacked in the following order, with later elements sitting on top of earlier elements:
 
-Elements positioned as `absolute`, `fixed`, or `relative` follow a **stacking order** that determines which elements display above or below other elements:
-- By default, the stacking order is the order they appear in the source code, with elements appearing later in the HTML sitting on top on elements appearing earlier.
-- The [`z-index`](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index) property allows to manipulate the stacking order.
-- An element with a higher `z-index` value overlaps an element with a lower `z-index` value.
+1. The background and borders of the root element
+1. Descendant *non-positioned* blocks, in order of appearance in the HTML
+1. Descendant *positioned* elements (`absolute`, `fixed`, or `relative`), in order of appearance in the HTML
+
+The [`z-index`](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index) property allows to **manipulate the stacking order** of positioned elements: an element with a higher `z-index` value overlaps an element with a lower `z-index` value.
   ![Illustration of z-index](https://github.com/minkaotic/front-end-notes/blob/master/img/z-index.png)
 
-- Non-statically positioned elements have a `z-index` of `0` by default.
+- Positioned elements have a `z-index` of `0` by default.
 - `z-index` only works on elements with a `position` property set to `absolute`, `fixed`, or `relative`. Setting a `z-index` on a `static` element will do nothing.
 
 **NB:** When you give a positioned element a `z-index`, you establish a new **stacking context** for any descendants (children) of that element. Therefore, it is possible to have a higher `z-index` element that's underneath another element with a lower `z-index`. Check articles below for more detail.
