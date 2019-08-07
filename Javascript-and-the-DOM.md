@@ -14,10 +14,10 @@
   - [Event bubbling & delegation](#event-bubbling--delegation)
 - [jQuery](#jquery)
   - [Animating elements](#animating-elements)
-  - [General DOM manipulation](#general-dom-manipulation)
+  - [Selectors & DOM traversal](#selectors--dom-traversal)
+  - [DOM manipulation](#dom-manipulation)
   - [Getting values from form fields](#getting-values-from-form-fields)
   - [Event handling](#event-handling)
-  - [DOM traversal](#dom-traversal)
  
 __________
 
@@ -341,7 +341,45 @@ $('#flashMessage')
 ```
 __________
 
-### General DOM manipulation
+### Selectors & DOM traversal
+jQuery offers *normal CSS selectors* (following the same spec as [`querySelector()`](#css-query-selectors)), as well as **[special jQuery selectors](https://api.jquery.com/category/selectors/jquery-selector-extensions/)**, such as:
+- `:radio`, `:checkbox` and `:password` inputs
+- `:odd` and `:even` elements in a list
+- currently `:visible` or `:hidden` elements
+- '[attribute starts with](https://api.jquery.com/attribute-starts-with-selector/)' (`[name^="value"]`) and '[attribute ends with](https://api.jquery.com/attribute-ends-with-selector/)' (`[name$="value"]`) selectors
+
+> :bulb: **NB: when a jQuery selector returns a list of items, most jQuery operations can be run on the whole set of items without requiring an explicit `for` loop!**
+
+##### Example: Operating on links in a list
+```html
+<ul>
+    <li><a href='https://learn.jquery.com/'>Learn jQuery</a></li>
+    <li><a href='http://treehouse-project-downloads.s3.amazonaws.com/jquery-basics/jquery_cheatsheet.pdf'>jQuery Cheatsheet</a></li>
+    <li><a href='https://api.jquery.com/'>jQuery Documentation</a></li>
+    <li><a href='https://developer.mozilla.org/en-US/docs/Glossary/jQuery'>jQuery Glossary</a></li>
+</ul>
+```
+➜ hiding all odd links is as simple as:
+```js
+const $odd = $('a:odd');
+$odd.hide();
+```
+➜ select all secure links or all PDFs using 'starts with'/'ends with' selectors:
+```js
+const $secureLinks = $('a[href^="https://"]');
+const $pdfs = $('a[href$="pdf"]');
+```
+
+> :bulb: **NB: variables containing jQuery wrapped objects are prefixed with `$` by convention**
+
+jQuery offers a bunch of useful **[tree traversal](https://api.jquery.com/category/traversing/tree-traversal/)** and **[filtering](https://api.jquery.com/category/traversing/filtering/)** methods in order to access DOM elements, for example:
+
+- Select list items by index: `$('li').eq(2)`
+- Navigate to previous sibling: `prev()`
+
+__________
+
+### DOM manipulation
 #### Changing content
 - [`$(element).text()`](https://api.jquery.com/text/) - get, insert or change text within the selected element
 - [`$(element).html()`](https://api.jquery.com/html/) - get, insert or change html within the selected element
@@ -365,9 +403,6 @@ To create a new element, simply pass a valid HTML string to the jQuery method (`
 const $button = $('<button>Reveal Spoiler</button>');
 $('.spoiler').append($button);
 ```
-
-> :bulb: NB: variables containing jQuery elements are prefixed with `$` by convention
-
 __________
 
 ### Getting values from form fields
@@ -438,12 +473,3 @@ $('.form').on('click', 'button', (e) => {
   // do other things
 });
 ```
-__________
-
-### DOM traversal
-jQuery offers a bunch of useful [tree traversal](https://api.jquery.com/category/traversing/tree-traversal/) and [filtering](https://api.jquery.com/category/traversing/filtering/) methods in order to access DOM elements.
-
-Explain this...
-`$('li').eq(2).prev().prev();`
-
-
