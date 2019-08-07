@@ -19,7 +19,7 @@
   - [Flex item properties](#flex-item-properties)
   - [Sticky Footer with Flexbox](#sticky-footer-with-flexbox)
 - **[CSS Positioning](#css-positioning)**
-  - [Five `position` properties](#five-position-properties)
+  - [Six `position` properties](#six-position-properties)
   - [Combining absolute & relative positioning](#combining-absolute--relative-positioning)
   - [Z-Index](#z-index)
 
@@ -344,11 +344,12 @@ body {
 
 
 ## CSS Positioning
-### Five `position` properties
+### Six `position` properties
 - **`static`** - default value; element is placed within the normal flow
 - **`relative`** - element is placed within normal flow (and honored accordingly by elements around it), but it's actual position can be altered using offsets. This also creates a coordinate system for child elements (see [below](#combining-absolute--relative-positioning)).
 - **`absolute`** - element is neither affected by, nor affects other elements in the normal flow of the page. Instead, behaves as if it were on a different *layer*. Like `relative` elements, `absolute` elements create a coordinate system for child elements.
 - **`fixed`** - like `absolute`, but element is *always* positioned in relation to the viewport; for example, it doesn't move when scrolling.
+- **`sticky`** - element is placed within the normal flow of the document, and then offset relative to its nearest scrolling ancestor and containing block (nearest block-level ancestor), based on the values of top, right, bottom, and left.
 - **`inherit`** - element inherits the value of its parent element. (Position property elements do not automatically inherit their parent’s values and instead default to `static` if no position value is given.)
 
 #### Example
@@ -390,7 +391,15 @@ The [`z-index`](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index) proper
 - Positioned elements have a `z-index` of `0` by default.
 - `z-index` only works on elements with a `position` property set to `absolute`, `fixed`, or `relative`. Setting a `z-index` on a `static` element will do nothing.
 
-**NB:** When you give a positioned element a `z-index`, you establish a new **stacking context** for any descendants (children) of that element. Therefore, it is possible to have a higher `z-index` element that's underneath another element with a lower `z-index`. Check articles below for more detail.
+#### The stacking context
+**NB:** There are a number of scenarios that establish a new **stacking context** for any descendants (children) of that element. Therefore, it is possible to have a higher `z-index` element that's underneath another element with a lower `z-index`, if the former is bound by a different stacking context than the latter.
+
+Common scenarios that form a new stacking context:
+- `absolute` or `relative` elements elements that have a `z-index` set on them
+- all `sticky` or `fixed` elements
+- child elements of a `flexbox` or `grid` container that have a `z-index` set on them
+- (see [Stacking context article](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) many more but less common scenarios)
+
 
 **Resources**
 - [Positioning module on Treehouse's 'CSS Layout Basics'](https://teamtreehouse.com/library/css-layout-basics)
