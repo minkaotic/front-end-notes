@@ -395,6 +395,16 @@ $('#blogTitlePreview').text(title);
 $('#blogContentPreview').html(content);
 ```
 
+**Changing attributes using [`attr()`](https://api.jquery.com/attr/)**
+- Getter: `$('img').attr('alt')`
+- Setter: `$('img').attr('alt', 'Sunset in Barcelona')`
+
+#### Changing styles
+There are a range of [jQuery CSS methods](https://api.jquery.com/category/css/) to change the look of DOM elements, e.g.:
+- `.css()` getter (`$element.css("backgroundColor")`) and setter (`$element.css("backgroundColour", "green")`)
+- `.addClass()`, `.removeClass()` or `.toggleClass()`
+- or get/set specific properties such as `.height()`, `.width()`, `.position()`...
+
 #### Adding elements
 To create a new element, simply pass a valid HTML string to the jQuery method (`$('<p>Hi</p>')`). This can then be added to the DOM using one of jQuery's [DOM insertion methods](https://api.jquery.com/category/manipulation/dom-insertion-inside/).
 
