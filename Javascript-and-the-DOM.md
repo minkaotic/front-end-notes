@@ -17,6 +17,7 @@
   - [Selectors & DOM traversal](#selectors--dom-traversal)
   - [DOM manipulation](#dom-manipulation)
   - [Getting values from form fields](#getting-values-from-form-fields)
+  - [`this` in jQuery](#this-in-jquery)
   - [Event handling](#event-handling)
  
 __________
@@ -347,6 +348,7 @@ jQuery offers *normal CSS selectors* (following the same spec as [`querySelector
 - `:radio`, `:checkbox` and `:password` inputs
 - `:odd` and `:even` elements in a list
 - currently `:visible` or `:hidden` elements
+- currently `:checked` elements
 - '[attribute starts with](https://api.jquery.com/attribute-starts-with-selector/)' (`[name^="value"]`) and '[attribute ends with](https://api.jquery.com/attribute-ends-with-selector/)' (`[name$="value"]`) selectors
 
 > :bulb: **NB: when a jQuery selector returns a list of items, most jQuery operations can be run on the whole set of items without requiring an explicit `for` loop!**
@@ -449,6 +451,16 @@ $('#previewButton').click(() => {
 
   $('#blogTitlePreview').text(title);
   $('#blogContentPreview').html(content);
+});
+```
+__________
+
+### `this` in jQuery
+In a jQuery `.each()` loop, `$(this)` refers to the current item of the collection:
+```js
+$('a').each(function(){
+  const url = $(this).attr('href');
+  $(this).parent().append(` (${url})`);
 });
 ```
 __________
