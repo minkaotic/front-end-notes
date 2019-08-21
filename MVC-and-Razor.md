@@ -38,7 +38,7 @@ ASP.NET is Microsoft's technology for running dynamic web pages on web servers. 
 
 Controllers have one or more **action methods**, which typically return one of the MVC *action result types*, which derive from the [ActionResult](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.actionresult?view=aspnet-mvc-5.2) class (= the base class for all `*Result` classes); the return type of action methods is therefore usually `ActionResult` or one of its derived types.
 
-> Both controllers and action methods need to be public.
+> :point_right: Both controllers and action methods need to be public.
 
 By default, the **routing** created by MVC for pages is `~/controllerName/actionName`, for example:
 
@@ -59,7 +59,7 @@ The **Homepage** (i.e. start page without additional path) is by default associa
 
 Generally, omitting the `actionName` part of any path will associate the request with the controller's `Index()` action method.
 
-> For more detail on controller routing in ASP.NET Core specifically, see [this article](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-2.2).
+> :sparkles: For more detail on controller routing in **ASP.NET Core** specifically, see [this article](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-2.2). :sparkles:
 
 ### Views
 In the MVC paradigm for ASP.NET, the *controller* is combined with the *view* to create a 'page'. MVC provides the [`ViewResult`](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.viewresult?view=aspnet-mvc-5.2) action result type for returning views from an action method. The corresponding controller method is `View()`:
@@ -80,11 +80,12 @@ public class ComicBookController : Controller
 #### Strongly typed views
 A *strongly typed view* is an MVC view that is associated with a specific type.
 
-**In the controller:** Create an actual instance of the model and pass this into the call to `View()` (or other result type) in the relevant action method, i.e. `View(modelInstance)`.
+##### In the controller:
+Create an actual instance of the model and pass this into the call to `View()` (or other result type) in the relevant action method, i.e. `View(modelInstance)`.
 
-> *Constructing and filling the model, and then passing it along to the view, is a classic controller job.*
+> :+1: *Constructing and filling the model, and then passing it along to the view, is a classic controller job.*
 
-**In the view:** 
+##### In the view: 
 * To define which class to use as a model, add a *model view directive* to the top of the view, using the fully qualified namespace of model:
     ```c#
     @model ProjectName.Models.ModelName
