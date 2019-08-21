@@ -3,12 +3,14 @@
 
 ### Contents
 - **[Global structure of an HTML document](#global-structure-of-an-HTML-document)**
+- **[HTML5](#html5)**
+  - [Browser Compatibility](#browser-compatibility)
 - **[Semantic HTML](#semantic-html)**
   - [Core elements](#core-elements)
   - [Elements for describing sections of content](#elements-for-describing-sections-of-content)
 - **[Complex elements](#complex-elements)**
   - [Forms & inputs](#forms--inputs)
-
+  
 --------------------------
 
 ## Global structure of an HTML document
@@ -28,6 +30,23 @@
 **Further resources:**
 - [What's in the head? Metadata in HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
 - [HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+
+--------------------------
+
+## HTML5
+- Opera & Mozilla started WHATWG (Web Hypertext Application Technology Working Group) as they were frustrated with slow evolution of HTML, and proposed the HTML5 standard to the W3C in 2011.
+- This standard was adopted, but the W3C and WHATWG definitions of of HTML5 have drifted, with the former defining it as a living standard subject to constant evolution
+
+### Browser Compatibility
+- Most browsers treat unrecognised tags as generic `<div>` tags
+- there is also a "famous" html5shiv.js polyfill for older browsers
+
+> :bulb: **[Progressive Enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement)** is a strategy for web design that emphasizes core webpage content first. This strategy then progressively adds more nuanced and technically rigorous layers of presentation and features on top of the content as the end-user's browser/internet connection allow.
+
+More resources:
+- [Chris Northwood: The Full Stack Developer](https://www.amazon.co.uk/Full-Stack-Developer-Essential-Everyday/dp/1484241517)
+- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
+- https://en.wikipedia.org/wiki/HTML5
 
 --------------------------
 
