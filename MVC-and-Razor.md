@@ -1,4 +1,4 @@
-# ASP.NET MVC
+# ASP.NET (Core) MVC
 ## Contents
 - [ASP.NET vs ASP.NET Core](#aspnet-vs-aspnet-core)
 - [Basic Setup](#basic-setup)
@@ -21,9 +21,14 @@
 _________________________
 
 ## ASP.NET vs ASP.NET Core
-
 ![Architecture overview](img/net-core-vs-old-net.png)
 
+*Image source: [Rachel Appel skillscast](https://skillsmatter.com/skillscasts/13591-dot-net-matters)*
+
+**ASP.NET Core** allows to build web applications that can run on Windows, macOS, or Linux. It offers higher performance than ASP.NET 4.x. and uses the .NET Core runtime (as opposed to .NET Framework). It shares a lot of ASP.NET's features and concepts, such as controllers, action methods and [Razor](#razor--mvc), but also add further features, e.g. [Tag Helpers](#tag-helpers), built-in [dependency injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-2.2), and shifts to a [Middleware](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-2.2)-centric approach.
+
+Further resources:
+- https://docs.microsoft.com/en-us/aspnet/core/fundamentals/choose-aspnet-framework?view=aspnetcore-2.2
 
 ## Basic Setup
 ASP.NET is Microsoft's technology for running dynamic web pages on web servers. ASP.NET Razor is a server-side markup language that lets you embed server-based (C#) code into web pages.
