@@ -15,7 +15,7 @@
     - [Webpack](#webpack)
     - [ASP.NET bundler](#aspnet-bundler)
 - [Tag Helpers](#tag-helpers)
-    - [Using Tag Helpers](#using-tag-helpers)
+    - [Built-In Tag Helpers](#built-in-tag-helpers)
     - [Building your own Tag Helpers](#building-your-own-tag-helpers)
 - [Areas in ASP.NET](#areas-in-aspnet)
 _________________________
@@ -401,16 +401,37 @@ Tag Helpers enable server-side code to participate in creating and rendering HTM
 
 For the most part, Razor markup using Tag Helpers looks like standard HTML. A rich IntelliSense environment helps create and navigate HTML and Razor markup.
 
-### Using Tag Helpers
+> :bulb: Conceptually, Tag Helpers are very similar to AngularJS directives.
 
-*Add more notes here based on sources below*
+#### How it works
+The Razor View Engine scans for valid Tag Helpers on any given Razor view page (it can identify them because they implement the `ITagHelper` interface, typically by inheriting from the `TagHelper` class). When it finds one, it calls its `Process()` method.
+
+### Built-in Tag Helpers
+
 
 
 ### Building your own Tag Helpers
 Custom Tag Helpers need to implement [the abstract base class `TagHelper`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.razor.taghelpers.taghelper?view=aspnetcore-2.2).
 
-*Add notes here!!*
+Custom Tag Helpers work by overriding the **`Process()`** (or `ProcessAsync()`) method. This method has two parameters that fully describe the tag itself - `TagHelperOutput output` - and the environment it is run in - `TagHelperContext context`. *All the work to update the omitted HTML is done in this method.*
 
+The custom tag helper class can be decorated with `HtmlTargetElement`, which allows for the tag helper to explicitely target a given HTML element, and to define attributes for that tag helper element.
+
+All of the above in an example:
+
+```C#
+[HtmlTargetElement("my-customer", Attributes = "info")]
+public class MyCustomerTagHelper : TagHelper
+    {
+        public string Info { get; set; }
+
+        public override void Process(TagHelperContext context, TagHelperOutput output)
+        {
+            output.Content.SetHtmlContent("Current Time: " + DateTime.UtcNow); //sets the output HTML
+            output.TagName = "strong"; //changes the tag of the targeted element from <my-customer> to <strong>
+        }
+    }
+```
 
 **Sources:**
 - [MSDN - Tag Helpers in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-2.2)
