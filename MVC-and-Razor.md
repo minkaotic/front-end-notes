@@ -3,8 +3,8 @@
 - [ASP.NET vs ASP.NET Core](#aspnet-vs-aspnet-core)
 - [Basic Setup](#basic-setup)
     - [Controllers & Default Routing](#controllers--default-routing)
-    - [Views](#views)
-- [Razor & MVC](#razor--mvc)
+    - [Views & ViewBag](#views--viewbag)
+- [Razor Views & Layouts](#razor-views--layouts)
     - [Basic Syntax](#basic-syntax)
     - [Layout](#layout)
     - [HTML helper methods](#html-helper-methods)
@@ -61,7 +61,7 @@ Generally, omitting the `actionName` part of any path will associate the request
 
 > :sparkles: For more detail on controller routing in **ASP.NET Core** specifically, see [this article](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-2.2). :sparkles:
 
-### Views
+### Views & ViewBag
 In the MVC paradigm for ASP.NET, the *controller* is combined with the *view* to create a 'page'. MVC provides the [`ViewResult`](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.viewresult?view=aspnet-mvc-5.2) action result type for returning views from an action method. The corresponding controller method is `View()`:
 
 ```c#
@@ -73,7 +73,7 @@ public class ComicBookController : Controller
     }
 }
 ```
-- By default, this will make MVC look in the `~/Views/ComicBook/` and `~/Views/Shared/` directories for a template file called `Detail`.
+- :grey_exclamation: By default, this will make MVC look in the `~/Views/ComicBook/` and `~/Views/Shared/` directories for a template file called `Detail`.
 - By convention, all views are kept in the `Views` folder.
 - It is however possible to explicitely request a view that doesn't follow these conventions from the controller action method.
 
@@ -92,10 +92,29 @@ Create an actual instance of the model and pass this into the call to `View()` (
     ```
 * A strongly typed view exposes the model instance (i.e. that was passed in from the controller) through the view's `Model` property; so you can access the model's properties via `Model.PropertyName`.
 
+#### ViewBag
+`ViewBag` is an object of type [dynamic](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/using-type-dynamic) provided by MVC that allows us to pass data from a controller to a view. It is available as a property on both views as well as controllers. The following example dynamically creates & sets two new `ViewBag` properties, `Id` and `Description`.
+
+```c#
+public ActionResult Detail()
+{
+    ViewBag.Id = 123;
+    ViewBag.Description = "";
+    return View();
+}
+```
+-> These two datapoints can then be accessed in the template:
+
+```html
+<h1>Product @ViewBag.Id</h1>
+<h2>Description: @ViewBag.Description</h2>
+```
+##### Use cases of `ViewBag`
+> :point_right: As a rule of thumb, you’ll use the `ViewData` object for the purposes of transporting **small amounts of data from and to specific locations** (e.g., controller to view or between views). If you need to work with larger amounts of data, use **dedicated view model** objects instead.
 
 _________________________
 
-## Razor & MVC
+## Razor Views & Layouts
 Razor is a markup syntax that lets you embed server-based code (Visual Basic and C#) into web pages. It can be seen as an evolution of the old “.aspx” style markup.
 
 ASP.NET MVC has implemented a view engine that allows us to use Razor inside of an MVC application to produce HTML. 
