@@ -20,7 +20,7 @@
 - [Frameworks Overview](/Frameworks-Overview.md)
 - [Vue.JS Notes](/Vue-JS-Notes.md)
 - [Angular (JS) Notes](/Angular-Notes.md)
-- [ASP.NET MVC & Razor](/MVC-and-Razor.md)
+- [ASP.NET (Core) MVC & Razor](/MVC-and-Razor.md)
 
 ### Building & Testing
 - [Front End Testing](/Front-End-Testing.md)
