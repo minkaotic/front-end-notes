@@ -123,13 +123,12 @@ Razor can either be used as part of a classic MVC-structured application, or as 
 
 
 ### Basic Syntax
-> Super handy reference! => **[C# Razor Syntax Quick Reference](https://haacked.com/archive/2011/01/06/razor-syntax-quick-reference.aspx/)**
+> :point_right: Super handy reference: **[C# Razor Syntax Quick Reference](https://haacked.com/archive/2011/01/06/razor-syntax-quick-reference.aspx/)**
 
 1. Add code to a page using the `@` character: it starts inline expressions, single statement blocks, and multi-statement blocks
-1. Single or multi statement code blocks are enclosed in braces, each statement ending on a semicolon
+1. Single or multi-statement code blocks are enclosed in braces, each statement ending on a semicolon
 1. Expressions don't require braces or semicolons
 1. Variables can be used to store values
-1. Files have the extension `.cshtml`
 
 ```c#
 <!-- Single statement block  -->
@@ -148,9 +147,9 @@ Razor can either be used as part of a classic MVC-structured application, or as 
 ```
 
 #### HTML encoding
-> For security reasons, content displayed in a page using the `@` character will be HTML-encoded, replacing reserved HTML characters (such as `<` and `>` and `&`) with codes that enable them to be displayed *as characters* in a web page instead of being interpreted as HTML tags or entities.
+> :exclamation: For security reasons, content displayed in a page using the `@` character will be HTML-encoded, replacing reserved HTML characters (such as `<` and `>` and `&`) with codes that enable them to be displayed *as characters* in a web page instead of being interpreted as HTML tags or entities.
 
-To output HTML markup that renders tags *as markup*, use `Html.Raw`:
+To output HTML markup that renders tags *as markup*, use **`Html.Raw`**:
 
 ```c#
 @{ var description = "<p>Final issue! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>"; }
@@ -192,10 +191,10 @@ Given the following variables:
 ```
 
 ### Layout
-The `_Layout.cshtml` file provides the overall look and feel for every page on our website, without having to have the related markup in each view (for example, header and footer markup). 
-> *Typically, websites contain just a single layout page, but it is possible to have more than one layout page.*
+The (`_Layout.cshtml`)[https://docs.microsoft.com/en-us/aspnet/web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look] file provides the overall look and feel for every page on our website, without having to have the related markup in each view (for example, header and footer markup). 
+> :bulb: *Typically, websites contain just a single layout page, but it is possible to have more than one layout page.*
 
-The `@RenderBody` method is used in the layout file to indicate where the content for the view requested by the user should be included (i.e. the content for each individual page). This method can only be called once from a layout page.
+The **`@RenderBody`** method is used in the layout file to indicate where the content for the view requested by the user should be included (i.e. the content for each individual page). This method can only be called once from a layout page.
 
 In each view file, the layout to be used with a page is indicated as follows:
 ```c#
