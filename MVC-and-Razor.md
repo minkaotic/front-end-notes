@@ -415,22 +415,32 @@ Custom Tag Helpers need to implement [the abstract base class `TagHelper`](https
 
 Custom Tag Helpers work by overriding the **`Process()`** (or `ProcessAsync()`) method. This method has two parameters that fully describe the tag itself - `TagHelperOutput output` - and the environment it is run in - `TagHelperContext context`. *All the work to update the omitted HTML is done in this method.*
 
-The custom tag helper class can be decorated with `HtmlTargetElement`, which allows for the tag helper to explicitely target a given HTML element, and to define attributes for that tag helper element.
+The custom tag helper class can be decorated with the `HtmlTargetElement` attribute, which allows for the tag helper to explicitely target a given HTML element, and to define attributes for that tag helper element.
 
 All of the above in an example:
 
 ```C#
-[HtmlTargetElement("my-customer", Attributes = "info")]
+[HtmlTargetElement("my-customer", Attributes = "name")]
 public class MyCustomerTagHelper : TagHelper
     {
-        public string Info { get; set; }
+        public string Name { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            output.Content.SetHtmlContent("Current Time: " + DateTime.UtcNow); //sets the output HTML
+            output.Content.SetHtmlContent("Hello, " + Name); //sets the output HTML
             output.TagName = "strong"; //changes the tag of the targeted element from <my-customer> to <strong>
         }
     }
+```
+
+-> In the Razor page, this tag helper would be referenced like so:
+```html
+<my-customer name="Igor"></my-customer>
+```
+
+-> The resulting output HTML would be:
+```html
+<strong>Hello, Igor</strong>
 ```
 
 **Sources:**
