@@ -1,4 +1,5 @@
 # ASP.NET (Core) MVC
+![title image](/img/mvc-title-img.jpg)
 ## Contents
 - [ASP.NET vs ASP.NET Core](#aspnet-vs-aspnet-core)
 - [Basic Setup](#basic-setup)
