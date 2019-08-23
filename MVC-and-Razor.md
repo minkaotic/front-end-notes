@@ -415,6 +415,8 @@ Custom Tag Helpers need to implement [the abstract base class `TagHelper`](https
 
 Custom Tag Helpers work by overriding the **`Process()`** (or `ProcessAsync()`) method. This method has two parameters that fully describe the tag itself - `TagHelperOutput output` - and the environment it is run in - `TagHelperContext context`. *All the work to update the omitted HTML is done in this method.*
 
+> Use `ProcessAsync()` for any logic that would benefit from being run asynchronously (e.g. that involves DB or web server calls that could otherwise cause blocking) - otherwise use `Process()`.
+
 The custom tag helper class can be decorated with the `HtmlTargetElement` attribute, which allows for the tag helper to explicitely target a given HTML element, and to define attributes for that tag helper element.
 
 All of the above in an example:
@@ -442,6 +444,15 @@ public class MyCustomerTagHelper : TagHelper
 ```html
 <strong>Hello, Igor</strong>
 ```
+
+##### :bulb: Alternatively, attributes can also be declared via the property directly:
+```c#
+[HtmlAttributeName("name")]
+public string Name { get; set; }
+```
+
+> Even without any of these decorators, attributes of the HTML tag targetted by the tag helper would always be implicitely bound to the public properties of a matching name. To declare a public property in the tag helper that isn't tied up with a HTML attribute from the Razor page, you can mark the property with the `[HTMLAttributeNotBound]` attribute.
+
 
 **Sources:**
 - [MSDN - Tag Helpers in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-2.2)
