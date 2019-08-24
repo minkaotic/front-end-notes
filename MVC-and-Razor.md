@@ -128,15 +128,16 @@ Razor can either be used as part of a classic MVC-structured application, or as 
 
 1. Add code to a page using the `@` character: it starts inline expressions, single statement blocks, and multi-statement blocks
 1. Single or multi-statement code blocks are enclosed in braces, each statement ending on a semicolon
-1. Expressions don't require braces or semicolons
+1. Expressions don't require braces or semicolons (if Razor gets confused about longer expressions, you can wrap them in parenthesis: `@(...)`)
 1. Variables can be used to store values
 
-```c#
+```cshtml
 <!-- Single statement block  -->
 @{ var myMessage = "Hello World"; }
 
-<!-- Inline expression -->
+<!-- Inline expressions -->
 <p>The value of myMessage is: @myMessage</p>
+<p>myMessage contains @(myMessage.StartsWith("Hello") ? "a greeting!" : "something else")</p>
 
 <!-- Multi-statement block -->
 @{
