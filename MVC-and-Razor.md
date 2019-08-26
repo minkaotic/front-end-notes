@@ -154,7 +154,7 @@ Razor can either be used as part of a classic MVC-structured application, or as 
 #### HTML encoding
 > :exclamation: For security reasons, content displayed in a page using the `@` character will be HTML-encoded, replacing reserved HTML characters (such as `<` and `>` and `&`) with codes that enable them to be displayed *as characters* in a web page instead of being interpreted as HTML tags or entities.
 
-To output HTML markup that renders tags *as markup*, use **`Html.Raw`**:
+To output HTML markup that renders tags *as markup*, use the [HTML helper method](#html-helper-methods) **`Html.Raw`**:
 
 ```c#
 @{ var description = "<p>Final issue! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>"; }
@@ -217,7 +217,28 @@ By convention, MVC will execute any code in the **`~/Views/_ViewStart.cshtml`** 
 ### HTML helper methods
 Used in MVC views to generate markup
 
-- e.g. `@Html.ActionLink` - generates a link
+- `@Html.Raw(myVariable)` - outputs the content of `myVariable` unencoded; see [earlier example](#html-encoding)
+- `@Html.ActionLink()` - generates a text based link
+- `@Url.Action()` - (used in an anchor tag's `href` attribute) generates a link around non-text items - see example below for differences between the two link helper methods:
+
+```cshtml
+@model ComicBookGallery.Models.ComicBook[]
+
+<h2>Comic Books</h2>
+@foreach (var comicBook in Model)
+{
+    <div class="row">
+        <div class="col-md-3">
+            <h4>@Html.ActionLink(comicBook.DisplayText, "Detail", new { id = comicBook.Id })</h4>
+            <a href="@Url.Action("Detail", new { id = comicBook.Id })" />
+            <img src="/Images/@comicBook.CoverImageFileName"
+                 alt="@comicBook.DisplayText"
+                 class="img-responsive" />
+            </a>
+        </div>
+    </div>
+}
+```
 
 Read more:
 - https://dzone.com/articles/working-with-built-in-html-helper-classes-in-aspne
