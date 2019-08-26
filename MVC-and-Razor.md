@@ -60,6 +60,9 @@ The **Homepage** (i.e. start page without additional path) is by default associa
 
 Generally, omitting the `actionName` part of any path will associate the request with the controller's `Index()` action method.
 
+#### Where are routes defined?
+The routes for an ASP.NET MVC website or application are defined by adding a series of rules to the `RouteCollection` object in the order that they should be applied to incoming requests. Typically these are defined in the `RouteConfig.cs` and executed in the `Global.asax` file.
+
 > :sparkles: For more detail on controller routing in **ASP.NET Core** specifically, see [this article](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-2.2). :sparkles:
 
 ### Views & ViewBag
