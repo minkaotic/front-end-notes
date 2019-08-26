@@ -218,7 +218,11 @@ By convention, MVC will execute any code in the **`~/Views/_ViewStart.cshtml`** 
 Used in MVC views to generate markup
 
 - `@Html.Raw(myVariable)` - outputs the content of `myVariable` unencoded; see [earlier example](#html-encoding)
-- `@Html.ActionLink()` - generates a text based link
+- `@Html.ActionLink()` - generates a text based link; for example: `@Html.ActionLink("Return to Index", "Index", null, new { @class = "btn btn-default" })` will result in the HTML:
+    ```html
+    <a class="btn btn-default" href="/">Return to Index</a>
+    ```
+    
 - `@Url.Action()` - (used in an anchor tag's `href` attribute) generates a link around non-text items - see example below for differences between the two link helper methods:
 
 ```cshtml
@@ -230,15 +234,16 @@ Used in MVC views to generate markup
     <div class="row">
         <div class="col-md-3">
             <h4>@Html.ActionLink(comicBook.DisplayText, "Detail", new { id = comicBook.Id })</h4>
-            <a href="@Url.Action("Detail", new { id = comicBook.Id })" />
-            <img src="/Images/@comicBook.CoverImageFileName"
-                 alt="@comicBook.DisplayText"
-                 class="img-responsive" />
+            <a href="@Url.Action("Detail", new { id = comicBook.Id })">
+                <img src="/Images/@comicBook.CoverImageFileName"
+                     alt="@comicBook.DisplayText"
+                     class="img-responsive" />
             </a>
         </div>
     </div>
 }
 ```
+
 
 Read more:
 - https://dzone.com/articles/working-with-built-in-html-helper-classes-in-aspne
