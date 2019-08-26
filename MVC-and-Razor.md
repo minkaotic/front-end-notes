@@ -223,7 +223,7 @@ Used in MVC views to generate markup
     <a class="btn btn-default" href="/">Return to Index</a>
     ```
     
-- `@Url.Action()` - (used in an anchor tag's `href` attribute) generates a link around non-text items - see example below for differences between the two link helper methods:
+- `@Url.Action()` - generates a URL string - can be used in an anchor tag's `href` attribute to dynamicaly generate links around non-text items - see example below for differences between the two link helper methods:
 
 ```cshtml
 @model ComicBookGallery.Models.ComicBook[]
