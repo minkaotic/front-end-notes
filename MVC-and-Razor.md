@@ -18,7 +18,7 @@
 - [Tag Helpers](#tag-helpers)
     - [Built-In Tag Helpers](#built-in-tag-helpers)
     - [Building your own Tag Helpers](#building-your-own-tag-helpers)
-- [Areas in ASP.NET](#areas-in-aspnet)
+    
 _________________________
 
 ## ASP.NET vs ASP.NET Core
@@ -193,17 +193,23 @@ Given the following variables:
 ```
 
 ### Layout
-The (`_Layout.cshtml`)[https://docs.microsoft.com/en-us/aspnet/web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look] file provides the overall look and feel for every page on our website, without having to have the related markup in each view (for example, header and footer markup). 
+The [`_Layout.cshtml`](https://docs.microsoft.com/en-us/aspnet/web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look) file provides the overall look and feel for every page on our website, without having to repeat the related markup in each view - for example, header and footer markup. 
 > :bulb: *Typically, websites contain just a single layout page, but it is possible to have more than one layout page.*
 
-The **`@RenderBody`** method is used in the layout file to indicate where the content for the view requested by the user should be included (i.e. the content for each individual page). This method can only be called once from a layout page.
+The **`@RenderBody`** method can be used in the layout file to indicate where the content for the view requested by the user should be included (i.e. the content for each individual page). This method can only be called once from a layout page.
 
-In each view file, the layout to be used with a page is indicated as follows:
+#### Hooking up the Layout with specific Views
+##### > Option 1: per View
+In each View file, the layout to be used with a page is indicated as follows:
 ```c#
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 ```
+
+##### > Option 2: all Views
+By convention, MVC will execute any code in the **`~/Views/_ViewStart.cshtml`** at the start of each View’s rendering. So by placing the above code in this file, the layout will be rendered for all Views, without referencing it in them individually.
+
 
 ### HTML helper methods
 Used in MVC views to generate markup
@@ -478,10 +484,3 @@ public string Name { get; set; }
 - [MSDN - Tag Helpers in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-2.2)
 - [MSDN - Author Tag Helpers in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring?view=aspnetcore-2.2)
 - [Tag Helpers course on Pluralsight](https://app.pluralsight.com/library/courses/aspdotnet-core-tag-helpers/)
-
-_________________________
-
-## Areas in ASP.NET
-The main use of Areas is to physically partition web projects in separate units. 
-
-
