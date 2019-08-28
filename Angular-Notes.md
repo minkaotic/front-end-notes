@@ -45,7 +45,7 @@ In most frameworks data binding takes place once, and then it is up to the devel
 
 In Angular, when data is bound to the scope, this data is kept in sync with the application's underlying data store with little help from the developer. This means that anytime a user interacts with the app, Angular updates the data in the scope of your application. *=> This is called **two-way data binding.***
 
-The [`ng-model`](#adding-data-to-your-app-using-ng-model) directive is a great example of how this works.
+The [`ng-model`](#adding-data-to-an-app-using-ng-model) directive is a great example of how this works.
 
 
 # AngularJS
