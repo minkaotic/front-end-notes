@@ -15,6 +15,7 @@
 - [JavaScript & the DOM](/Javascript-and-the-DOM.md)
 - [ES Modules](/ES-Modules.md)
 - [TypeScript](/Typescript.md)
+- [AJAX](/AJAX-Notes.md)
 
 ### Frontend Frameworks
 - [Frameworks Overview](/Frameworks-Overview.md)
