@@ -76,8 +76,6 @@ On the other hand, server-side rendering more easily achieves important **SEO be
 
 ## The role of AJAX
 - [AJAX](https://github.com/minkaotic/front-end-notes/blob/master/AJAX-Notes.md) allows us to get data from a server without the need to refresh a webpage.
-  - It does so by using the [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) (XHR) object to communicate with servers.
-  - It can send and receive information in various formats, including JSON, XML, HTML, and text files.
 
 - Client-side frameworks like Angular extend this idea. Even though the entire application is loaded into the browser when a user requests a URL, in most cases the application will make additional requests for data back to the server via an AJAX call.
 
