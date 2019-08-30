@@ -14,6 +14,8 @@ Even if you roll your own frontend implementation using **vanilla JavaScript** y
 
 * [Enzyme](https://airbnb.io/enzyme/) is a JS testing utility library developed by AirBnB for testing React compontents; originally built for use with Mocha, but is also compatible with other testing libraries.
 
+Additionally, [Karma](https://karma-runner.github.io/latest/index.html) is a test runner that aims to simplify the testing & debugging process.
+
 
 ### Server-side rendered applications 
 With more traditional, server-side rendered applications, [Selenium](https://www.seleniumhq.org/)-based tests will be your best choice.
