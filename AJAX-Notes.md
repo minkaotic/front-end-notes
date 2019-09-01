@@ -9,6 +9,7 @@ AJAX ("Asynchronous JavaScript And XML") is an important front-end web technolog
   - [Event Handler Properties](#event-handler-properties)
   - [Other Settable Properties](#other-settable-properties)
   - [Read-only Properties](#read-only-properties)
+- [AJAX Security Limitations](#ajax-security-limitations)
 - [Further Resources](#further-resources)
 
 -------------
@@ -68,6 +69,18 @@ request.send();
 - `.responseText` - returns a `DOMString` that contains the response to the request as text, or null if the request was unsuccessful or has not yet been sent.
 
 - [`.status`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/status) - returns an unsigned short with the HTTP status code of the response of the request.
+
+## AJAX Security Limitations
+AJAX is usually limited by a web browser's ["same origin" policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy), which controls how JavaScript can access content from a web server and means the browser will prevent AJAX requests to other web sites. 
+
+Even switching protocols (HTTP <-> HTTPS), port numbers or hosts on the same server isn't allowed.
+
+!["same origin" policy](/img/same-origin-policy.png)
+
+### Options to circumvent this:
+- route requests via a web proxy
+- use JSONP (JSON with Padding), which relies on the ability to link to JS files across domains
+- [CORS (Cross-Origin Resource Sharing)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) - W3C recommendation & already implemented in most browsers
 
 
 ## Further Resources:
