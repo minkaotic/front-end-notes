@@ -71,7 +71,7 @@ request.send();
 - [`.status`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/status) - returns an unsigned short with the HTTP status code of the response of the request.
 
 ## AJAX Security Limitations
-AJAX is usually limited by a web browser's ["same origin" policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy), which controls how JavaScript can access content from a web server and means the browser will prevent AJAX requests to other web sites. 
+AJAX is usually limited by a web browser's ["same origin" policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy), which controls how JavaScript can access content from a web server and means the browser will prevent AJAX requests to web sites other than that which the page was retrieved from. 
 
 Even switching protocols (HTTP <-> HTTPS), port numbers or hosts on the same server isn't allowed.
 
