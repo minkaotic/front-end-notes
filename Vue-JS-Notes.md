@@ -4,12 +4,7 @@
 - [Setup](#setup)
 - [Templates & Data](#templates--data)
 - [Directives](#directives)
-
-_______________
-***Progress Tracker***
-- [ ] Complete Treehouse Course
-- [ ] Read through [Vue Essentials](https://vuejs.org/v2/guide/index.html) section in public docs
-- [ ] Work through other sources (expand this)
+- [Sources](#sources)
 _______________
 
 ## Setup
@@ -24,16 +19,16 @@ _______________
 Every Vue app starts with at least 2 things: some data, and a template (= the representation of how you want the structure of your application - i.e. the HTML - to relate to your data), for example:
 
 ***HTML - basic syntax of a Vue template***
-```
+```html
 <div id="helloVue">
   <h1>{{ title }}</h1>
   <p>{{ message }}</p>
 </div>
 ```
-- A Vue template generally consists of HTML, data bindings (`{{ title }}}`) and Vue directives. This is where you lay out the rules of how Vue should display your data. In our example, we've built a template that creates two data bindings: a title and a message.
+- A Vue template generally consists of HTML, data bindings (`{{ title }}`) and Vue directives. This is where you lay out the rules of how Vue should display your data. In our example, we've built a template that creates two data bindings: a title and a message.
 
 ***JS - basic syntax of a Vue instance***
-```
+```js
 const helloWorld = new Vue({
   el: '#helloVue',
   data: {
@@ -42,23 +37,21 @@ const helloWorld = new Vue({
   }
 });
 ```
-- You pass the Vue instance an object containing options that give you the ability to store data and define methods. The data and methods you define are then used in a Vue template to control the behavior of your application.
-
-**NB: Templating and data binding is used in all JS frameworks in some way or other.**
+- *You pass the Vue instance an object containing options that give you the ability to store data and define methods.* The data and methods you define are then used in a Vue template to control the behavior of your application.
 
 You can also use Javascript directly in the HTML template, or bind multiple pieces of data within the same element, e.g.:
-```
+```html
 <div id="example">
   <h1>{{ title }}, {{ name.toUpperCase() }}</h1>
   <p>{{ message }}</p>
 </div>
 ```
-- More about [using JS expressions in Vue](https://vuejs.org/v2/guide/syntax.html#Using-JavaScript-Expressions) - including possibilities and limitations.
+- :point_right: More about [using JS expressions in Vue](https://vuejs.org/v2/guide/syntax.html#Using-JavaScript-Expressions) - including possibilities and limitations.
 
 _______________
 
 ## Directives
-Instead of the 'mustache syntax' used in the examples above, i.e. `<h1>{{ title }}</h1>`, we could achieve the same result by using the directive **`v-text`**: `<h1 v-text="title"></h1>`
+Instead of the 'mustache syntax' used in the examples above, i.e. `<h1>{{ title }}</h1>`, we could achieve the same result by using the **[`v-text`](https://vuejs.org/v2/api/#v-text)** directive: `<h1 v-text="title"></h1>`
 
 A ***Vue directive*** is a special attribute that you add to an HTML element in a Vue template. These are like special instructions just for Vue: used to define certain behaviors such as when a method should be called in response to an event, or when to show/not show pieces of a UI element.
 
@@ -67,22 +60,26 @@ A ***Vue directive*** is a special attribute that you add to an HTML element in 
 Vue directives start with v-, for example: `v-text`, `v-html`, `v-bind`.
 
 *In the template:*
-```
+```html
 <p v-text="title"></p>
 <a v-bind:href="link">A link to somewhere </a>
 <img v-bind:src="img.src" v-bind:alt="img.alt">
 ```
 
 *In the Vue instance:*
- ```
+ ```js
  new Vue({
    el: '#anHTMLElement',
    data: {
      title: "A nice title",
-     link: "https://www.alinksomwhere.com",
+     link: "https://www.alinksomewhere.com",
      img: {
       src: 'https://placeimg.com/200/200/animals',
       alt: 'A placeholder image of animals'
   }
 });
 ```
+
+## Sources
+- [Treehouse VueJS Basics course](https://teamtreehouse.com/library/vuejs-basics)
+- [Vue Essentials](https://vuejs.org/v2/guide/index.html) section in public docs
