@@ -101,7 +101,7 @@ __________
 ### Different Selectors
 #### Specific element selectors
 - Element selectors like `getElementById()` return a **HTML element**.
-- Element selectors like `getElementsByClassName()` or `getElementsByTagName()` return a **HTML collection**.
+- Element selectors like `getElementsByClassName()` or `getElementsByTagName()` return a **[HTML collection](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)**.
 
 Elements in a collection can be accesses by index, e.g.:
 ```javascript
@@ -109,7 +109,7 @@ const body = document.getElementsByTagName('body')[0];
 ```
 
 #### CSS query selectors
-- `querySelector()` and `querySelectorAll()` return an HTML element and a [Node List](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) of HTML elements, respectively.
+- `querySelector()` and `querySelectorAll()` return an HTML element and a **[Node List](https://developer.mozilla.org/en-US/docs/Web/API/NodeList)** of HTML elements, respectively.
 - They take queries such as:
   - tag name - `querySelector('li')`
   - element id - `querySelector('#myId')`
@@ -121,6 +121,8 @@ const body = document.getElementsByTagName('body')[0];
   - CSS pseudo class queries - `querySelector('li:nth-child(odd)')` or `querySelector('li:last-child')`
 
 It's often possible to use different selectors to achieve the same thing. To decide which one is the best option, consider browser compatibility as well as other details in a given selector's spec.
+
+> :bulb: One of the advantages of using `querySelectorAll` is that unlike `HTMLCollection`s, `NodeList`s can be iterated over with **`forEach()`** - although this may not be implemented in some older browsers. See [this discussion](https://teamtreehouse.com/community/understanding-the-difference-between-an-htmlcollection-and-a-nodelist) for further differences between `HTMLCollection` and `NodeList`.
 
 Resources for this include:
 - [MSDN](https://developer.mozilla.org/en-US/)
