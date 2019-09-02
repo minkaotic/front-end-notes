@@ -14,9 +14,9 @@
 
 ________________
 ## Overview
-Most if not all frontend frameworks use **templating** and **data binding** in some way or other, and most are influenced by the [MVC pattern](#mvc-pattern-recap) in splitting views, data and controllers into separate concerns.
+Most if not all frontend frameworks use **templating** in some way or other, and most are influenced by the [MVC pattern](#mvc-pattern-recap) in splitting views, data and controllers into separate concerns.
 
-The framework landscape has also been shaped by varying approaches to [where the HTML should be rendered in the first place](#server-side-vs-client-side-rendering), resulting in the availability of both [server-side and client-side frameworks](#frontend-vs-backend-frameworks). Most [client-side frameworks](#frontend-frameworks-compared) extend the idea of [AJAX](#the-role-of-ajax) for communicating with a server without updating the page.
+The framework landscape has also been shaped by varying approaches to [where the HTML should be rendered in the first place](#server-side-vs-client-side-rendering), resulting in the availability of both [server-side and client-side frameworks](#frontend-vs-backend-frameworks). Most [client-side frameworks](#frontend-frameworks-compared) extend the idea of [AJAX](#the-role-of-ajax) for communicating with a server without updating the page, and share the concept of **data binding** for dynamically updating a page.
 
 
 ## MVC pattern recap
