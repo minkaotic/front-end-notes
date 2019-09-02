@@ -13,6 +13,11 @@
 - [ ] Add notes about modern preference for component approach
 
 ________________
+## Overview
+Most if not all frontend frameworks use **templating** and **data binding** in some way or other, and most are influenced by the [MVC pattern](#mvc-pattern-recap) in splitting views, data and controllers into separate concerns.
+
+The framework landscape has also been shaped by varying approaches to [where the HTML should be rendered in the first place](#server-side-vs-client-side-rendering), resulting in the availability of both [server-side and client-side frameworks](#frontend-vs-backend-frameworks). Most [client-side frameworks](#frontend-frameworks-compared) extend the idea of [AJAX](#the-role-of-ajax) for communicating with a server without updating the page.
+
 
 ## MVC pattern recap
 The *Model View Controller* design pattern is commonly used across many frameworks for front end development.
@@ -21,7 +26,7 @@ The *Model View Controller* design pattern is commonly used across many framewor
 
 - **View** = the components that display the application's *user interface (UI)*. Typically, this UI is created from the model data. (An example would be an edit view of a Products table that displays text boxes, drop-down lists, and check boxes based on the current state of a Product object.)
 
-- **Controller** = the *coordinator* that processes a request and is responsible for directing what specific actions need to be performed when a user navigates to the website, in order to send a response to that user. Controllers are the components that handle user interaction, select a view to render in the UI and work with the model to decide what data should be sent to the view. 
+- **Controller** = the *coordinator* that processes a request and is responsible for directing what specific actions need to be performed when a user navigates to the website, in order to send a response to that user. Controllers are the components that handle user interaction, select a view to render in the UI and work with the model to decide what data should be sent to the view.
 
 In an MVC application, the view only displays information; the controller handles and responds to user input and interaction. For example, the controller handles query-string values, and passes these values to the model, which in turn might use these values to query the database.
 
@@ -37,6 +42,7 @@ The MVC pattern helps create applications that separate the different aspects of
 
 
 ## Server-side vs client-side rendering
+
 [Razor](/MVC-and-Razor.md#razor--mvc) renders the HTML on the server, whereas [Angular(JS)](/Angular-Notes.md) renders it on the client.
 There's a whole debate about which of these are better, and modern web development is split into two camps:
 
