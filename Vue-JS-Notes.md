@@ -8,8 +8,12 @@
 _______________
 
 ## Setup
+Vue can be set up via:
+- Direct inclusion of framework files in `<script>` tag
+- NPM :point_right: `$ npm install vue` (recommended approach for larger scale projects)
+- The dedicated [Vue.js CLI](https://github.com/vuejs/vue-cli)
 
-*[Placeholder for notes on how to add Vue to a project]*
+For more information on either of these, see the [Installation docs](https://vuejs.org/v2/guide/installation.html).
 
 ## Templates & Data
 [Vue](https://vuejs.org/) helps separate a website's *data* from the user's *view* of the website and provides better seperation from the *view logic* (where, when and how certain information is displayed). Vue also allows you to define behaviour and connect data to a template, that is used to render the view.
