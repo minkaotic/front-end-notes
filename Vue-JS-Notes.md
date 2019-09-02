@@ -4,6 +4,7 @@
 - [Setup](#setup)
 - [Templates & Data](#templates--data)
 - [Directives](#directives)
+- [Event Handling](#event-handling)
 - [Sources](#sources)
 _______________
 
@@ -14,6 +15,7 @@ Vue can be set up via:
 - The dedicated [Vue.js CLI](https://github.com/vuejs/vue-cli)
 
 For more information on either of these, see the [Installation docs](https://vuejs.org/v2/guide/installation.html).
+
 
 ## Templates & Data
 [Vue](https://vuejs.org/) helps separate a website's *data* from the user's *view* of the website and provides better seperation from the *view logic* (where, when and how certain information is displayed). Vue also allows you to define behaviour and connect data to a template, that is used to render the view.
@@ -43,6 +45,8 @@ const helloWorld = new Vue({
 ```
 - *You pass the Vue instance an object containing options that give you the ability to store data and define methods.* The data and methods you define are then used in a Vue template to control the behavior of your application.
 
+> :bulb: Most projects will only contain one root Vue instance. However, you can include as many as you want.
+
 You can also use Javascript directly in the HTML template, or bind multiple pieces of data within the same element, e.g.:
 ```html
 <div id="example">
@@ -59,10 +63,9 @@ Instead of the 'mustache syntax' used in the examples above, i.e. `<h1>{{ title 
 
 A ***Vue directive*** is a special attribute that you add to an HTML element in a Vue template. These are like special instructions just for Vue: used to define certain behaviors such as when a method should be called in response to an event, or when to show/not show pieces of a UI element.
 
-***Vue directive syntax examples***
-
 Vue directives start with v-, for example: `v-text`, `v-html`, `v-bind`.
 
+**Example using `v-bind`** - binding values to various attributes
 *In the template:*
 ```html
 <p v-text="title"></p>
@@ -83,6 +86,13 @@ Vue directives start with v-, for example: `v-text`, `v-html`, `v-bind`.
   }
 });
 ```
+_______________
+
+## Event Handling
+The [**`v-on`**](https://vuejs.org/v2/api/#v-on) directive attaches an event listener to an element.
+
+(to be continued)
+_______________
 
 ## Sources
 - [Treehouse VueJS Basics course](https://teamtreehouse.com/library/vuejs-basics)
