@@ -109,9 +109,40 @@ For details on conditional rendering, including `v-show`, `v-if` and others, ref
 _______________
 
 ## Event Handling
-The [**`v-on`**](https://vuejs.org/v2/api/#v-on) directive attaches an event listener to an element.
+The [**`v-on`**](https://vuejs.org/v2/api/#v-on) directive attaches an event listener to an element. The event type is denoted by the argument. The expression is most commonly a function name or inline statement.
 
-(to be continued)
+> :bulb: When used on a normal element, it listens to [native DOM events](https://developer.mozilla.org/en-US/docs/Web/Events) only. When used on a *custom element component*, it listens to custom events emitted on that child component.
+
+When listening to native DOM events, you can refer to the native event as follows:
+1. If `v-on` is used with a function name, the method receives the native event as the only argument.
+2. If `v-on` is used with an inline statement, this has access to the special `$event` property, e.g.: `v-on:click="handle('ok', $event)"`.
+
+#### Example
+*In the template:*
+```html
+<div id="app">
+  <h1 v-on:mouseover="functionToRun">Click Me!</h1>
+</div>
+```
+
+*In the Vue instance:*
+```js
+ new Vue({
+   el: '#app',
+   data: {
+     ...
+   }, 
+   methods: {
+     functionToRun: function() {
+      //Do stuff on mouseover
+     }
+   }
+});
+```
+
+
+
+
 _______________
 
 ## Sources
