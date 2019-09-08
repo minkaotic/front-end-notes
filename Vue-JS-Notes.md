@@ -59,20 +59,28 @@ You can also use Javascript directly in the HTML template, or bind multiple piec
 _______________
 
 ## Directives
-Instead of the 'mustache syntax' used in the examples above, i.e. `<h1>{{ title }}</h1>`, we could achieve the same result by using the **[`v-text`](https://vuejs.org/v2/api/#v-text)** directive: `<h1 v-text="title"></h1>`
-
 A ***Vue directive*** is a special attribute that you add to an HTML element in a Vue template. These are like special instructions just for Vue: used to define certain behaviors such as when a method should be called in response to an event, or when to show/not show pieces of a UI element.
 
-Vue directives start with v-, for example: `v-text`, `v-html`, `v-bind`.
+### `v-text`
+[`v-text`](https://vuejs.org/v2/api/#v-text) updates the element’s `textContent`. :bulb: **NB:** If you need to update the part of `textContent`, use `{{ Mustache }}` interpolations instead.
 
-**Example using `v-bind`** - binding values to various attributes
+#### Example
+Instead of the 'mustache syntax' used in the examples above, i.e. `<h1>{{ title }}</h1>`, we could achieve the same result by using the  directive: `<h1 v-text="title"></h1>`
+
+### `v-html`
+[`v-html`](https://vuejs.org/v2/api/#v-html) updates the element’s `innerHTML`, for example: `<div v-html="html"></div>`.
+> :zap: Dynamically rendering HTML on your website can easily lead to [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use `v-html` on trusted content and never on user-provided content.
+
+### `v-bind`
+[`v-bind`](https://vuejs.org/v2/api/#v-bind) dynamically binds **attributes**, or a **component prop** to an expression.
+
+#### Example - binding values to various attributes
 *In the template:*
 ```html
 <p v-text="title"></p>
 <a v-bind:href="link">A link to somewhere </a>
 <img v-bind:src="img.src" v-bind:alt="img.alt">
 ```
-
 *In the Vue instance:*
  ```js
  new Vue({
@@ -86,6 +94,18 @@ Vue directives start with v-, for example: `v-text`, `v-html`, `v-bind`.
   }
 });
 ```
+> :point_right: **The `:` shorthand can be used instead of `v-bind:`!**
+
+#### Example - binding values to props, using `v-bind` shorthand
+Note that "prop" must be declared in `my-component`.
+```html
+<my-component :prop="someThing"></my-component>
+```
+
+
+### Conditional rendering
+For details on conditional rendering, including `v-show`, `v-if` and others, refer to [this section of the docs](https://vuejs.org/v2/guide/conditional.html).
+
 _______________
 
 ## Event Handling
