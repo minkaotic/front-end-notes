@@ -56,6 +56,13 @@ You can also use Javascript directly in the HTML template, or bind multiple piec
 ```
 - :point_right: More about [using JS expressions in Vue](https://vuejs.org/v2/guide/syntax.html#Using-JavaScript-Expressions) - including possibilities and limitations.
 
+
+### The Vue instance object
+
+// data properties can be accessed in the methods object with the this keyword!
+// -> this doesn't work when using arrow function syntax
+// Vue recommends not using arrow functions....
+
 _______________
 
 ## Directives
