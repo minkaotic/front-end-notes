@@ -21,6 +21,7 @@
    - [Shadow effects](#shadow-effects)
    - [Rounded corners](#rounded-corners)
    - [Gradients](#gradients)
+- **[Transitions & Transforms](#transitions--transforms)**
 - **[CSS Variables](#css-variables)**
 
 ______________________
@@ -215,6 +216,59 @@ It is also possible to layer a number of gradients on top of each other, or laye
 background: linear-gradient(#ffa949, transparent 60%),
             #ffa949 url('../img/mountains.jpg') no-repeat center;
 ```
+
+
+## Transitions & Transforms
+### Transitions
+[CSS **transitions**](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions) provide a way to smoothly change one, or several, CSS properties from one value to another over a given amount of time.
+
+- Transitions can alter the appearance of an element when a state change happens.
+- The [`transition-duration`](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration) property is a required property for CSS transitions. It sets the length of time of the transition; the property accepts a time unit of seconds or milliseconds.
+
+```css
+.button {
+  color: #fff;
+  background: #4a89ca; 
+  transition-duration: .4s;
+}
+
+.button:hover {
+  background: #d36a62;
+}
+```
+:point_right: When you create a transition by defining the `transition-duration` property *only*, the transition will apply to all [animatable properties](#animatable-properties) of an element that have rules declared. This is not very efficient as the browswer will have to check over all of them & figure out which to transition.
+
+To limit a transition to specific properties, use [`transition-property`](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property):
+```css
+.button {
+  color: #fff;
+  background: #4a89ca;
+  transition-duration: .4s;
+  transition-property: background;
+}
+
+.button:hover {
+  background: #d36a62;
+}
+```
+
+#### Setting transitions for multiple properties
+```css
+transition-property: background, color, border-radius;
+transition-duration: .4s, .6s;
+```
+➭ Durations apply in the same order as properties, and if ommitted (as in the case of `border-radius`), will default back to the first value (`.4s`).
+
+#### Animatable properties
+As a rule of thumb, *a CSS property is animatable only when the browser can define a middle transitioning state for it.* If a property has an identifiable halfway point, it can accept a transition.
+
+[Full list](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties)
+
+:sparkling_heart: [Animatable properties demo by Lea Verou](http://leaverou.github.io/animatable/) :sparkling_heart:
+
+
+### Transforms
+[CSS **transforms**](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transforms/Using_CSS_transforms) let you change the position of an element and alter its shape - so you can move, rotate, scale, and skew elements in 2D and 3D space - without disrupting the normal document flow.
 
 
 ## CSS Variables
