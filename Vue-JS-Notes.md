@@ -5,6 +5,7 @@
 - [Templates & Data](#templates--data)
 - [Directives](#directives)
 - [Event Handling](#event-handling)
+- [Components](#Components)
 - [Sources](#sources)
 _______________
 
@@ -149,6 +150,15 @@ When listening to native DOM events, you can refer to the native event as follow
 
 
 
+## Components
+
+### `Vue.extend()` vs `Vue.component()`
+
+https://vuejs.org/v2/api/#Vue-extend
+https://vuejs.org/v2/guide/components.html
+
+https://stackoverflow.com/questions/40719200/what-is-vue-extend-for
+https://frontendsociety.com/why-you-shouldnt-use-vue-component-ff019fbcac2e
 
 _______________
 
