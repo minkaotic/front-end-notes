@@ -260,9 +260,7 @@ transition-duration: .4s, .6s;
 ➭ Durations apply in the same order as properties, and if ommitted (as in the case of `border-radius`), will default back to the first value (`.4s`).
 
 #### Animatable properties
-As a rule of thumb, *a CSS property is animatable only when the browser can define a middle transitioning state for it.* If a property has an identifiable halfway point, it can accept a transition.
-
-[Full list](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties)
+[Full list of animatable properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties) <<- As a rule of thumb, *a CSS property is animatable only when the browser can define a middle transitioning state for it.* If a property has an identifiable halfway point, it can accept a transition.
 
 :sparkling_heart: [Animatable properties demo by Lea Verou](http://leaverou.github.io/animatable/) :sparkling_heart:
 
