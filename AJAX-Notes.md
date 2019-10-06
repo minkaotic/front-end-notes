@@ -4,7 +4,7 @@ AJAX ("Asynchronous JavaScript And XML") is an important front-end web technolog
 
 ### Contents
 
-- [Overview](#overview)
+- [Making an XHR Request](#making-an-xhr-request)
 - [AJAX Properties](#ajax-properties)
   - [Event Handler Properties](#event-handler-properties)
   - [Other Settable Properties](#other-settable-properties)
@@ -14,16 +14,16 @@ AJAX ("Asynchronous JavaScript And XML") is an important front-end web technolog
 
 -------------
 
-## Overview
+## Making an XHR Request
 > :bulb: AJAX is the process of using JavaScript to send a request to web server, receive a response, and then do something with that data.
 
 AJAX programming relies heavily on the **[XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) (XHR)** object to communicate with servers.
-- This was first introduced 1999 by Microsoft with IE5.
+- It's predecessor `XMLHTTP` was first introduced 1999 by Microsoft with IE5.
 - Despite its name, XHR can send and receive information in various formats, including JSON, XML, HTML, and text files.
 
 ##### 4 steps to creating & sending an XHR request:
 1. Create an `XMLHttpRequest` object.
-1. Define a callback function that should run when the server returns its response (typically this processes the returned data and updates the page). This callback is set up to respond to a given event, by assigning it to one of AJAX's built in [event handler properties]((#event-handler-properties)).
+1. Define a callback function that should run when the server returns its response (typically this processes the returned data and updates the page). This callback is set up to respond to a given event, by assigning it to one of AJAX's built in [event handler properties](#event-handler-properties).
 1. Open a request, providing the HTTP method to be used and the URL to which the request should be sent.
 1. Send the request.
 
@@ -49,6 +49,8 @@ request.send();
 > `.open()` and `.send()` are the most commonly used methods. For other methods on `XMLHttpRequest`, e.g. for managing headers, [see MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#Methods).
 
 ## AJAX Properties
+The `XMLHttpRequest` object has a number of properties available to help with the request control flow & settings:
+
 ### Event Handler Properties
 - `.onreadystatechange` - called whenever the `readyState` attribute changes.
 
