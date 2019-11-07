@@ -5,6 +5,7 @@
 - [Templates & Data](#templates--data)
 - [Directives](#directives)
 - [Event Handling](#event-handling)
+- [Instance Options](#instance-options)
 - [Components](#Components)
 - [Sources](#sources)
 _______________
@@ -149,8 +150,23 @@ When listening to native DOM events, you can refer to the native event as follow
 ```
 
 
+## Instance Options
+Below are options that are most commonly used; refer to the docs for a full overview of [data options](https://vuejs.org/v2/api/#Options-Data), [DOM options](https://vuejs.org/v2/api/#Options-DOM), [Lifecycle Hooks](https://vuejs.org/v2/api/#Options-Lifecycle-Hooks) and other options.
+
+| Option       | Description                                                          |
+|--------------|----------------------------------------------------------------------|
+| `components` | The child components used by the instance / component                |
+| `props`      | Attributes that are exposed to accept data from the parent component |
+| `data`       | Define data properties (variables) for the Vue instance or component |
+| `methods`    | Functions bound to the Vue instance                                  |
+| `computed`   | Properties representing derived values; will automatically update whenever values used to calculate is updated |
+| `mounted`    | Called after the instance has been mounted; see [Lifecycle Hooks](https://vuejs.org/v2/api/#Options-Lifecycle-Hooks) |
+
+-> More detail on [Methods vs Computed](https://stackoverflow.com/questions/44350862/method-vs-computed-in-vue)
+
 
 ## Components
+Since components are reusable Vue instances, they accept the same options as `new Vue`, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks. The only exceptions are a few root-specific options like `el`.
 
 ### `Vue.extend()` vs `Vue.component()`
 
