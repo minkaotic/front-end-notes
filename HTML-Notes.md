@@ -235,6 +235,7 @@ Using HTML form validation means that the way the error message is displayed dep
 - FreeCodeCamp on HTML forms, starting from [this section of the syllabus](https://learn.freecodecamp.org/responsive-web-design/basic-html-and-html5/create-a-form-element/)
 - [MDN tutorial on form validation](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation)
 
+__________________________
 
 ### HTML Tables
 > :exclamation: Tables should only be used for displaying tabular data, and never for page layout.
@@ -250,12 +251,49 @@ Using HTML form validation means that the way the error message is displayed dep
 ##### Optional table elements
 The below elements are not required, but are nice for accessibility (screen readers), SEO, and styling.
 
-- [`<caption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption) - The title of the table; should come immediately after the opening `<table>` tag.
+- [`<caption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption) - A title or brief description of the table; always appears immediately after the opening `<table>` tag.
 - [`<thead>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead) - Wraps a set of rows that make up the header of a table.
 - [`<tbody>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody) - Defines one or more rows that make up the primary contents (or "body") of a table.
 - [`<tfoot>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot) - The table footer element contains one or more rows summarizing the columns of the table. This might be totals for columns of numerical data, or meta information about the table.
   - it can be placed after `<thead>` (allows to load the table footer before the table body data is loaded) or after `<tbody>`
   - the `colspan` attribute can be used to make the footer cell(s) span across multiple columns, e.g. `colspan="3"`.
 
+##### Example:
+```html
+    <table>
+      <caption>Employee Information</caption>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Job role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Paul</th>
+          <td>paul@example.com</td>
+          <td>Master chef</td>
+        </tr>
+        <tr>
+          <th scope="row">Roger</th>
+          <td>roger@example.com</td>
+          <td>Chicken tester</td>
+        </tr>
+        <tr>
+          <th scope="row">Elsie</th>
+          <td>elsie@example.com</td>
+          <td>Duster</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Data is updated every 15 minutes</td>
+        </tr>
+      </tfoot>
+    </table>
+```
 
+This will produce a table like this:
 
+![table made with html](/img/table-example.png)
