@@ -248,8 +248,7 @@ __________________________
 
 > :bulb: Columns are implicit, and are simply emergent from how many cells are in each row.
 
-##### Optional table elements
-The below elements are not required, but are nice for accessibility (screen readers), SEO, and styling.
+##### Table elements that are not required, but are nice to haves for accessibility (screen readers), SEO, and styling:
 
 - [`<caption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption) - A title or brief description of the table; always appears immediately after the opening `<table>` tag.
 - [`<thead>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead) - Wraps a set of rows that make up the header of a table.
