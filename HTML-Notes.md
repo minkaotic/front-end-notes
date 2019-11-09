@@ -10,6 +10,7 @@
   - [Elements for describing sections of content](#elements-for-describing-sections-of-content)
 - **[Complex elements](#complex-elements)**
   - [Forms & inputs](#forms--inputs)
+  - [HTML tables](#html-tables)
   
 --------------------------
 
@@ -233,3 +234,28 @@ Using HTML form validation means that the way the error message is displayed dep
 **Further resources on forms & inputs:**
 - FreeCodeCamp on HTML forms, starting from [this section of the syllabus](https://learn.freecodecamp.org/responsive-web-design/basic-html-and-html5/create-a-form-element/)
 - [MDN tutorial on form validation](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation)
+
+
+### HTML Tables
+> :exclamation: Tables should only be used for displaying tabular data, and never for page layout.
+
+#### Table elements
+- [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) - Root element of a table; represents data in a series of rows and columns.
+- [`<tr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr) - The *table row* element defines a row of cells in a table. Table rows can be filled with table cells and table header cells.
+- [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) - The *table data* element represents a single table cell. Each table cell should be inside a table row.
+- [`<th>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) - The *table header* cell helps label a group of cells in either a column or a row. The nature of this group can be defined with the `scope` attribute, e.g. `scope="col"` or `scope="row"`.
+
+> :bulb: Columns are implicit, and are simply emergent from how many cells are in each row.
+
+##### Optional table elements
+The below elements are not required, but are nice for accessibility (screen readers), SEO, and styling.
+
+- [`<caption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption) - The title of the table; should come immediately after the opening `<table>` tag.
+- [`<thead>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead) - Wraps a set of rows that make up the header of a table.
+- [`<tbody>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody) - Defines one or more rows that make up the primary contents (or "body") of a table.
+- [`<tfoot>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot) - The table footer element contains one or more rows summarizing the columns of the table. This might be totals for columns of numerical data, or meta information about the table.
+  - it can be placed after `<thead>` (allows to load the table footer before the table body data is loaded) or after `<tbody>`
+  - the `colspan` attribute can be used to make the footer cell(s) span across multiple columns, e.g. `colspan="3"`.
+
+
+
