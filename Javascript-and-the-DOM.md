@@ -465,6 +465,8 @@ $('a').each(function(){
   $(this).parent().append(` (${url})`);
 });
 ```
+
+:exclamation: Needs more reading & reflection - 1. check last 2 minutes of this video: https://teamtreehouse.com/library/what-is-traversal + 2. this article: http://html-tuts.com/jquery-this-selector/)
 __________
 
 ### Event handling
