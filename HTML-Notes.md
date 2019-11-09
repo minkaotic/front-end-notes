@@ -110,6 +110,8 @@ Finally, add a `<button>` of type `submit` to your form. (The type attribute spe
 Sometimes, certain form controls belong together in a logical grouping. Form controls can be grouped together using `<fieldset>` elements and then labeled using a `<legend>`.
 
 The `<fieldset>` element wraps multiple form elements into common groups. This can help organize a form and make it easier to understand for users. The `<legend>` element is similar to the label element, but instead of labeling a form control, it labels a `<fieldset>`, providing helpful context for users that are filling out a form.
+
+##### Example:
 ```html
 <form action="index.html" method="post">
   <h1>Sign Up</h1>
@@ -128,6 +130,8 @@ The `<fieldset>` element wraps multiple form elements into common groups. This c
   <button type="submit">Sign Up</button>
 </form>
 ```
+This will create the following form:
+![fieldset example](/img/fieldset-example.png)
 
 #### Select menus
 
