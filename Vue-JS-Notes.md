@@ -3,9 +3,9 @@
 ## Contents
 - [Setup](#setup)
 - [Templates & Data](#templates--data)
+- [Instance Options](#instance-options)
 - [Directives](#directives)
 - [Event Handling](#event-handling)
-- [Instance Options](#instance-options)
 - [Components](#Components)
 - [Sources](#sources)
 _______________
@@ -17,6 +17,8 @@ Vue can be set up via:
 - The dedicated [Vue.js CLI](https://github.com/vuejs/vue-cli)
 
 For more information on either of these, see the [Installation docs](https://vuejs.org/v2/guide/installation.html).
+
+_______________
 
 
 ## Templates & Data
@@ -45,7 +47,7 @@ const helloWorld = new Vue({
   }
 });
 ```
-- *You pass the Vue instance an object containing options that give you the ability to store data and define methods.* The data and methods you define are then used in a Vue template to control the behavior of your application.
+- *You pass the Vue instance an object containing [options](#instance-options) that give you the ability to store data and define methods.* The data and methods you define are then used in a Vue template to control the behavior of your application.
 
 > :bulb: Most projects will only contain one root Vue instance. However, you can include as many as you want.
 
@@ -58,14 +60,27 @@ You can also use Javascript directly in the HTML template, or bind multiple piec
 ```
 - :point_right: More about [using JS expressions in Vue](https://vuejs.org/v2/guide/syntax.html#Using-JavaScript-Expressions) - including possibilities and limitations.
 
+_______________
 
-### The Vue instance object
 
-// data properties can be accessed in the methods object with the this keyword!
-// -> this doesn't work when using arrow function syntax
-// Vue recommends not using arrow functions....
+## Instance Options
+Below are options that are most commonly used; refer to the docs for a full overview of [data options](https://vuejs.org/v2/api/#Options-Data), [DOM options](https://vuejs.org/v2/api/#Options-DOM), [Lifecycle Hooks](https://vuejs.org/v2/api/#Options-Lifecycle-Hooks) and other options.
+
+| Option       | Description                                                          |
+|--------------|----------------------------------------------------------------------|
+| `components` | The child components used by the instance / component                |
+| `props`      | Attributes that are exposed to accept data from the parent component |
+| `data`       | Define data properties (variables) for the Vue instance or component |
+| `methods`    | Functions bound to the Vue instance                                  |
+| `computed`   | Properties representing derived values; will automatically update whenever values used to calculate is updated |
+| `mounted`    | Called after the instance has been mounted; see [Lifecycle Hooks](https://vuejs.org/v2/api/#Options-Lifecycle-Hooks) |
+
+-> More detail on [Methods vs Computed](https://stackoverflow.com/questions/44350862/method-vs-computed-in-vue)
+
+-> Data properties can be accessed in the methods object with the `this` keyword, but [this doesn't work when using arrow function syntax](https://codingexplained.com/coding/front-end/vue-js/using-es6-arrow-functions-vue-js). It is therefore recommended not to use arrow functions in Vue.
 
 _______________
+
 
 ## Directives
 A ***Vue directive*** is a special attribute that you add to an HTML element in a Vue template. These are like special instructions just for Vue: used to define certain behaviors such as when a method should be called in response to an event, or when to show/not show pieces of a UI element.
@@ -117,6 +132,7 @@ For details on conditional rendering, including `v-show`, `v-if` and others, ref
 
 _______________
 
+
 ## Event Handling
 The [**`v-on`**](https://vuejs.org/v2/api/#v-on) directive attaches an event listener to an element. The event type is denoted by the argument. The expression is most commonly a function name or inline statement.
 
@@ -149,22 +165,6 @@ When listening to native DOM events, you can refer to the native event as follow
 });
 ```
 
-
-## Instance Options
-Below are options that are most commonly used; refer to the docs for a full overview of [data options](https://vuejs.org/v2/api/#Options-Data), [DOM options](https://vuejs.org/v2/api/#Options-DOM), [Lifecycle Hooks](https://vuejs.org/v2/api/#Options-Lifecycle-Hooks) and other options.
-
-| Option       | Description                                                          |
-|--------------|----------------------------------------------------------------------|
-| `components` | The child components used by the instance / component                |
-| `props`      | Attributes that are exposed to accept data from the parent component |
-| `data`       | Define data properties (variables) for the Vue instance or component |
-| `methods`    | Functions bound to the Vue instance                                  |
-| `computed`   | Properties representing derived values; will automatically update whenever values used to calculate is updated |
-| `mounted`    | Called after the instance has been mounted; see [Lifecycle Hooks](https://vuejs.org/v2/api/#Options-Lifecycle-Hooks) |
-
--> More detail on [Methods vs Computed](https://stackoverflow.com/questions/44350862/method-vs-computed-in-vue)
-
-
 ## Components
 Since components are reusable Vue instances, they accept the same options as `new Vue`, such as `data`, `computed`, `watch`, `methods`, and lifecycle hooks. The only exceptions are a few root-specific options like `el`.
 
@@ -177,6 +177,7 @@ https://stackoverflow.com/questions/40719200/what-is-vue-extend-for
 https://frontendsociety.com/why-you-shouldnt-use-vue-component-ff019fbcac2e
 
 _______________
+
 
 ## Sources
 - [Treehouse VueJS Basics course](https://teamtreehouse.com/library/vuejs-basics)
