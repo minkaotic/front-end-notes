@@ -284,7 +284,7 @@ _______________
   ```
 
 ### The `filter()` method
-[`filter()`]() operates on an array and creates a new array with all elements that pass a given condition. Its syntax is `array.filter(currentItem => {return true/false})`. Iff the callback function returns true for the current item, it is added to the new array.
+[`filter()`]() operates on an array and creates a new array with all elements that pass a given condition. Its syntax is `array.filter(currentItem => {return true/false})`. If the callback function returns true for the current item, it is added to the new array.
 
 **Example: Given an array...**
 ```js
@@ -310,7 +310,7 @@ const sNames = names.filter(startsWithS);
 #### Removing duplicates from an array with `filter()`
 > :bulb: Like [`forEach()`](#foreach), the other array methods covered here all take two additional optional parameters: the index in the array of the current item, and the array that the method (e.g. `filter()`) was called on.
 
-The `array.indexOf(item)` method returns the index of the first occurrence of an item that is found in an array. We can therefore compare the index of the current element to the index of the current element in the array that `filter()` was called upon to determine if we've already encountered that element value. If the current element is a duplicate, it's index will not equal the index of the first occurrence of its value.
+The `array.indexOf(item)` method returns the index of the first occurrence of an item that is found in an array. We can therefore compare the index of the current element to the index of the current element in the array that `filter()` was called upon to determine if we've already encountered that element value. If the current element is a duplicate, its index will not equal the index of the first occurrence of its value.
 ```js
 const numbers = [1, 1, 2, 3, 4, 3, 5, 5, 6, 7, 3, 8, 9, 10];
 
