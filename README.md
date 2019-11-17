@@ -13,6 +13,7 @@
 ### JavaScript & co.
 - [JavaScript Syntax](/Javascript-Syntax.md)
 - [JavaScript & the DOM](/Javascript-and-the-DOM.md)
+- [Asynchrony in JavaScript](/Asychrony-in-JS.md)
 - [ES Modules](/ES-Modules.md)
 - [TypeScript](/Typescript.md)
 - [AJAX](/AJAX-Notes.md)
