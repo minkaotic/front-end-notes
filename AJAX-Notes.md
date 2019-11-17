@@ -34,8 +34,12 @@ const request = new XMLHttpRequest();
 // STEP 2
 request.onreadystatechange = () => {
   if(request.readyState === 4) {
-    const target = document.getElementById('target');
-    target.innerHTML = request.responseText; // info sent back by the server
+    if(request.status === 200) {
+      const target = document.getElementById('target');
+      target.innerHTML = request.responseText; // info sent back by the server
+    } else {
+      alert(xhr.statusText);
+    }
   }
 };
 // STEP 3
@@ -71,6 +75,9 @@ The `XMLHttpRequest` object has a number of properties available to help with th
 - `.responseText` - returns a `DOMString` that contains the response to the request as text, or null if the request was unsuccessful or has not yet been sent.
 
 - [`.status`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/status) - returns an unsigned short with the HTTP status code of the response of the request.
+
+- [`.statusText`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/statusText) - returns a string containing the response's status message as returned by the HTTP server, such as `"OK"` or `"Not Found"`.
+
 
 ## AJAX Security Limitations
 AJAX is usually limited by a web browser's ["same origin" policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy), which controls how JavaScript can access content from a web server and means the browser will prevent AJAX requests to web sites other than that which the page was retrieved from. 
