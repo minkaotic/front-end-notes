@@ -8,6 +8,7 @@
 - [CSS Fundamentals](/CSS-Fundamentals.md)
 - [CSS Layout Techniques](/CSS-Layout-Techniques.md)
 - [SASS Notes](/SASS-Notes.md)
+- [Bootstrap](/Bootstrap.md)
 - [Using SVGs](/Using-SVGs.md)
 - [Accessibility](/Accessibility.md)
 
