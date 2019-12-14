@@ -33,7 +33,7 @@
   ```
 
 ### Reboot
-For improved cross-browser rendering, Bootstrap uses [Reboot](https://getbootstrap.com/docs/4.0/content/reboot/) to correct inconsistencies across browsers and devices while providing slightly more opinionated resets to common HTML elements.
+Bootstrap builds on the [Normalize.css](https://necolas.github.io/normalize.css/) reset with a custom set of base styles called [Reboot](https://getbootstrap.com/docs/4.0/content/reboot/), to correct inconsistencies across browsers and devices while providing slightly more opinionated resets to common HTML elements.
 
 ### Containers
 [Containers](https://getbootstrap.com/docs/4.0/layout/overview/#containers) are the most basic layout element in Bootstrap and are required when using its default grid system. There are two types of containers to choose from:
