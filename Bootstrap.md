@@ -20,20 +20,20 @@
 
 ## Principles & Concepts
 ### Important Globals
-#### HTML5 doctype
-Bootstrap requires the use of the HTML5 `doctype`. Without it, you’ll see some funky incomplete styling.
-```html
-<!doctype html>
-<html lang="en">
-  ...
-</html>
-```
+- **HTML5 doctype:** Bootstrap requires the use of the HTML5 `doctype`. Without it, you’ll see some funky incomplete styling.
+  ```html
+  <!doctype html>
+  <html lang="en">
+    ...
+  </html>
+  ```
+- **Responsive meta tag:** Bootstrap is developed mobile first, a strategy in which we optimize code for mobile devices first and then scale up components as necessary using CSS media queries. To ensure proper rendering and touch zooming for all devices, add the responsive viewport meta tag to your `<head>`:
+  ```html
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  ```
 
-#### Responsive meta tag
-Bootstrap is developed mobile first, a strategy in which we optimize code for mobile devices first and then scale up components as necessary using CSS media queries. To ensure proper rendering and touch zooming for all devices, add the responsive viewport meta tag to your `<head>`:
-```html
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-```
+### Reboot
+For improved cross-browser rendering, Bootstrap uses [Reboot](https://getbootstrap.com/docs/4.0/content/reboot/) to correct inconsistencies across browsers and devices while providing slightly more opinionated resets to common HTML elements.
 
 ### Containers
 [Containers](https://getbootstrap.com/docs/4.0/layout/overview/#containers) are the most basic layout element in Bootstrap and are required when using its default grid system. There are two types of containers to choose from:
