@@ -65,6 +65,7 @@ There are a number of different ways to define a column's width:
 - Use `.col` for all columns in a row to create columns that are always equal in width
 - **Breakpoint-specific column classes** using the breakpoint terms above will layout equal width columns only from a certain breakpoint upwards, defaulting to a one-column layout for viewports below it (e.g. `.col-sm` to have equal width columns for small, medium and large devices, but a one-column layout on extra small devices such as mobile phones)
 - Use the **numbered column classes** like `.col-6` or `.col-sm-6` to define a specific number of columns (out of 12) that this column should span
+- Use `.col-{breakpoint}-auto` classes to size columns based on the natural width of their content
 
 These can be combined to create responsive layouts, for example the below classes will mean the columns will display in single column layout for extra small and small screens, in 3 equal width columns for medium and large screens, and with the first column expanding to span 6 columns (effectively taking up half the screen width), with the remaining columns resizing to accomodate it, on extra large screens:
 ```html
