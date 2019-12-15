@@ -51,17 +51,31 @@ Bootstrap builds on the [Normalize.css](https://necolas.github.io/normalize.css/
 
 ### Breakpoints
 Bootstrap uses the following [responsive breakpoints](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints):
-- `@media (min-width: 576px) { ... }` - Small devices (landscape phones, portrait tablets)
-- `@media (min-width: 768px) { ... }` - Medium devices (tablets)
-- `@media (min-width: 992px) { ... }` - Large devices (desktops)
-- `@media (min-width: 1200px) { ... }` - Extra large devices (large desktops)
+- `@media (min-width: 576px) { ... }` - `sm` - Small devices (landscape phones, portrait tablets)
+- `@media (min-width: 768px) { ... }` - `md` - Medium devices (tablets)
+- `@media (min-width: 992px) { ... }` - `lg` - Large devices (desktops)
+- `@media (min-width: 1200px) { ... }` - `xl` - Extra large devices (large desktops)
 
 ### Grid
-- Bootstrap uses a 12-column system
+- Bootstrap uses a 12-column system built with flexbox
 - The grid's main components are *containers*, *rows* and *columns*
-- Adding the `.col` class to all columns in a row will make them display with equal width in all screen sizes
-- **Use breakpoint-specific column classes to layout columns differently for different device sizes (i.e. 1 column on mobile, multiple columns on larger devices) --- more work needed here**
+- Docs: https://getbootstrap.com/docs/4.0/layout/grid/
 
+There are a number of different ways to define a column's width:
+- Use `.col` for all columns in a row to create columns that are always equal in width
+- **Breakpoint-specific column classes** using the breakpoint terms above will layout equal width columns only from a certain breakpoint upwards, defaulting to a one-column layout for viewports below it (e.g. `.col-sm` to have equal width columns for small, medium and large devices, but a one-column layout on extra small devices such as mobile phones)
+- Use the **numbered column classes** like `.col-6` or `.col-sm-6` to define a specific number of columns (out of 12) that this column should span
+
+These can be combined to create responsive layouts, for example the below classes will mean the columns will display in single column layout for extra small and small screens, in 3 equal width columns for medium and large screens, and with the first column expanding to span 6 columns (effectively taking up half the screen width), with the remaining columns resizing to accomodate it, on extra large screens:
+```html
+<div class="container">
+  <div class="row">
+    <div class="col-md col-xl-6">...</div>
+    <div class="col-md">...</div>
+    <div class="col-md">...</div>
+  </div>
+</div>
+```
 
 ## Nifty Things
 ### Centering Elements
