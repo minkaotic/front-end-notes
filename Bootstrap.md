@@ -42,12 +42,27 @@ Bootstrap builds on the [Normalize.css](https://necolas.github.io/normalize.css/
 
 > :bulb: While containers can be nested, most layouts do not require a nested container.
 
+### Breakpoints
+Bootstrap uses the following [responsive breakpoints](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints):
+- `@media (min-width: 576px) { ... }` - Small devices (landscape phones, portrait tablets)
+- `@media (min-width: 768px) { ... }` - Medium devices (tablets)
+- `@media (min-width: 992px) { ... }` - Large devices (desktops)
+- `@media (min-width: 1200px) { ... }` - Extra large devices (large desktops)
+
+### Grid
+- Bootstrap uses a 12-column system
+- The grid's main components are *containers*, *rows* and *columns*
+- Adding the `.col` class to all columns in a row will make them display with equal width in all screen sizes
+- **Use breakpoint-specific column classes to layout columns differently for different device sizes (i.e. 1 column on mobile, multiple columns on larger devices) --- more work needed here**
+
 
 ## Nifty Things
 ### Centering elements
 - Use the `.text-center` class to [center align text](https://getbootstrap.com/docs/4.0/utilities/text/#text-alignment) on all viewport sizes
 - Bootstrap also includes an `.mx-auto` class for [horizontally centering block level content](https://getbootstrap.com/docs/4.0/utilities/spacing/#horizontal-centering) that has a fixed `width` by setting the horizontal margins to `auto`
 
+### Responsive images
+- Using the [`.img-fluid` class](https://getbootstrap.com/docs/4.0/content/images/#responsive-images) on an image makes it scale with parent column (by applying `max-width: 100%;` and `height: auto;`), and prevent it from being too large.
 
 
 ## Questions
