@@ -2,10 +2,17 @@
 :point_right: [**Bootstrap docs**](https://getbootstrap.com/docs/4.0/getting-started/introduction/) :point_left:
 
 ### Contents
-- [Intro](#intro)
-- [Principles & Concepts](#principles--concepts)
-- [Nifty Things](#nifty-things)
-- [Questions](#questions)
+- **[Intro](#intro)**
+- **[Principles & Concepts](#principles--concepts)**
+  - [Important Globals](#important-globals)
+  - [Reboot](#reboot)
+  - [Containers](#containers)
+  - [Breakpoints](#breakpoints)
+  - [Grid](#grid)
+- **[Nifty Things](#nifty-things)**
+  - [Centering Elements](#centering-elements)
+  - [Responsive Images](#responsive-images)
+- **[Questions](#questions)**
 
 -------------
 
@@ -57,11 +64,11 @@ Bootstrap uses the following [responsive breakpoints](https://getbootstrap.com/d
 
 
 ## Nifty Things
-### Centering elements
+### Centering Elements
 - Use the `.text-center` class to [center align text](https://getbootstrap.com/docs/4.0/utilities/text/#text-alignment) on all viewport sizes
 - Bootstrap also includes an `.mx-auto` class for [horizontally centering block level content](https://getbootstrap.com/docs/4.0/utilities/spacing/#horizontal-centering) that has a fixed `width` by setting the horizontal margins to `auto`
 
-### Responsive images
+### Responsive Images
 - Using the [`.img-fluid` class](https://getbootstrap.com/docs/4.0/content/images/#responsive-images) on an image makes it scale with parent column (by applying `max-width: 100%;` and `height: auto;`), and prevent it from being too large.
 
 
