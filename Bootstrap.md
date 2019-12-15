@@ -27,7 +27,7 @@
     ...
   </html>
   ```
-- **Responsive meta tag:** Bootstrap is developed mobile first, a strategy in which we optimize code for mobile devices first and then scale up components as necessary using CSS media queries. To ensure proper rendering and touch zooming for all devices, add the responsive viewport meta tag to your `<head>`:
+- **Responsive meta tag:** Bootstrap is developed mobile first (code is optimised for mobile devices first and components are then scaled up as necessary using CSS media queries). To ensure proper rendering and touch zooming for all devices, add the responsive viewport meta tag to the `<head>`:
   ```html
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   ```
@@ -40,13 +40,13 @@ Bootstrap builds on the [Normalize.css](https://necolas.github.io/normalize.css/
 - `.containter` - a responsive, fixed-width container (meaning its max-width changes at each breakpoint)
 - `.container-fluid` - a fluid-width container (meaning it’s 100% wide all the time)
 
-While containers can be nested, most layouts do not require a nested container.
+> :bulb: While containers can be nested, most layouts do not require a nested container.
 
 
 ## Nifty Things
 ### Centering elements
 - Use the `.text-center` class to [center align text](https://getbootstrap.com/docs/4.0/utilities/text/#text-alignment) on all viewport sizes
-- Bootstrap also includes an `.mx-auto` class for [horizontally centering block level content](https://getbootstrap.com/docs/4.0/utilities/spacing/#horizontal-centering) that has a fixed `width` set by setting the horizontal margins to `auto`
+- Bootstrap also includes an `.mx-auto` class for [horizontally centering block level content](https://getbootstrap.com/docs/4.0/utilities/spacing/#horizontal-centering) that has a fixed `width` by setting the horizontal margins to `auto`
 
 
 
