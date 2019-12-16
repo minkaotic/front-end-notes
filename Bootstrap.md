@@ -66,10 +66,12 @@ Bootstrap uses the following [responsive breakpoints](https://getbootstrap.com/d
 There are a number of different ways to define a column's width:
 - Use `.col` for all columns in a row to create columns that are always equal in width
 - **Breakpoint-specific column classes** using the breakpoint terms above will layout equal width columns only from a certain breakpoint upwards, defaulting to a one-column layout for viewports below it (e.g. `.col-sm` to have equal width columns for small, medium and large devices, but a one-column layout on extra small devices such as mobile phones)
-- Use the **numbered column classes** like `.col-6` or `.col-sm-6` to define a specific number of columns (out of 12) that this column should span
 - Use `.col-{breakpoint}-auto` classes to size columns based on the natural width of their content
+- Use the **numbered column classes** like `.col-6` or `.col-sm-6` to define a specific number of columns (out of 12) that this column should span
 
-These can be combined to create responsive layouts, for example the below classes will mean the columns will display in single column layout for extra small and small screens, in 3 equal width columns for medium and large screens, and with the first column expanding to span 6 columns (effectively taking up half the screen width), with the remaining columns resizing to accomodate it, on extra large screens:
+> :bulb: If the total column count within a single row is more than 12, each group of extra columns will wrap onto a new line! (So, if you have 6 `<div>`s with a `col-6` class each, they would wrap onto 3 lines.)
+
+The class types above can be combined to create responsive layouts, for example:
 ```html
 <div class="container">
   <div class="row">
@@ -79,6 +81,10 @@ These can be combined to create responsive layouts, for example the below classe
   </div>
 </div>
 ```
+➭ the columns will display in single column layout for extra small and small screens </br>
+➭ then switch to 3 equal width columns for medium and large screens </br>
+➭ then on extra large screens, expand the first column to span 6 columns (effectively taking up half the screen width), with the remaining columns resizing to accomodate it
+
 
 ## Nifty Things
 ### Centering Elements
