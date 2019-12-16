@@ -56,6 +56,8 @@ Bootstrap uses the following [responsive breakpoints](https://getbootstrap.com/d
 - `@media (min-width: 992px) { ... }` - `lg` - Large devices (desktops)
 - `@media (min-width: 1200px) { ... }` - `xl` - Extra large devices (large desktops)
 
+> :bulb: The breakpoints `sm`, `md` etc can be combined with many of Bootstraps built in classes, for example: `text-center` will centre text for all screen sizes, but `text-md-center` will only centre it for medium screens and up!
+
 ### Grid
 - Bootstrap uses a 12-column system built with flexbox
 - The grid's main components are *containers*, *rows* and *columns*
