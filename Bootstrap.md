@@ -108,6 +108,33 @@ The two most important form classes in Bootstrap are:
 - `.form-control` - use on textual input elements
 - `.form-group` - adds structure to your form; visually groups a form label and form control. Often applied to a `<div>`, but can also be used for `<fieldset>` or any other block level element.
 
+> :bulb: `.form-group` also adds some bottom margin below a given label & control group, and often forms can look too squished up of slightly ill-arranged without this class!
+
+Forms can also be combined with `.col` classes to structure them nicely, for example:
+```html
+<form>
+  <h5 class="mb-4">Payment Info</h5>
+  <div class="row">
+    <div class="col-lg-6 form-group">
+      <label for="cc-num">Card Number:</label>
+      <input class="form-control" id="cc-num" type="text">
+    </div>
+
+    <div class="col-lg form-group">
+      <label for="zip">Zip Code:</label>
+      <input class="form-control" id="zip" type="text">
+    </div>
+
+    <div class="col-lg form-group">
+      <label for="cvv">CVV:</label>
+      <input class="form-control" id="cvv" type="text">
+    </div>
+  </div>
+</form>
+```
+Result: </br>
+![Payment input example](/img/bootstrap-col-input-examle.png)
+
 
 ## Questions
 - [ ] Bundle size - how does Bootstrap get pulled in, and can I limit how much of it gets included?
