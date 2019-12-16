@@ -14,7 +14,7 @@
   - [Responsive Images](#responsive-images)
   - [ScrollSpy](#scrollspy)
   - [Forms & Inputs](#forms--inputs)
-- **[Questions](#questions)**
+- **[WIP & Questions](#wip--questions)**
 
 -------------
 
@@ -133,8 +133,10 @@ Forms can also be combined with `.col` classes to structure them nicely, for exa
 </form>
 ```
 Result: </br>
-![Payment input example](/img/bootstrap-col-input-examle.png)
+![Payment input example](/img/bootstrap-col-input-examle.png) </br>
+➭ instead of `row`, [`form-row`](https://getbootstrap.com/docs/4.0/components/forms/#form-row) could be used - a variation that overrides the default gutters between the columns, creating tighter form controls.
 
 
-## Questions
-- [ ] Bundle size - how does Bootstrap get pulled in, and can I limit how much of it gets included?
+## WIP & Questions
+- [ ] Bundle size - in the .NET setup, how does Bootstrap get pulled in, and can I limit how much of it gets included?
+- [ ] Treehouse workspace for reference: https://teamtreehouse.com/workspaces/41228331#
