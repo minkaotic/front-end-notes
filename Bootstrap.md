@@ -13,6 +13,7 @@
   - [Centering Elements](#centering-elements)
   - [Responsive Images](#responsive-images)
   - [ScrollSpy](#scrollspy)
+  - [Forms & Inputs](#forms--inputs)
 - **[Questions](#questions)**
 
 -------------
@@ -99,6 +100,13 @@ The class types above can be combined to create responsive layouts, for example:
 - [ScrollySpy](https://getbootstrap.com/docs/4.0/components/scrollspy/) is an interactive JavaScript plugin that highlights the active navigation links, automatically updating your navigation links based on a user's scroll position.
 - It can be used [via data attributes or via JavaScript](https://getbootstrap.com/docs/4.0/components/scrollspy/#usage).
 - For a recap on how it works and how to set it up, see this [Treehouse course video](https://teamtreehouse.com/library/using-scrollspy-to-highlight-nav-links).
+
+### Forms & Inputs
+Bootstrap's [Reboot](#reboot) approach already ensures that most [HTML forms and inputs](https://github.com/minkaotic/front-end-notes/blob/master/HTML-Notes.md#forms--inputs) look more consistent across different browsers, but of course there are lots of [pre-styled components and customisations](https://getbootstrap.com/docs/4.0/components/forms/) to choose from.
+
+The two most important form classes in Bootstrap are:
+- `.form-control` - use on textual input elements
+- `.form-group` - adds structure to your form; visually groups a form label and form control. Often applied to a `<div>`, but can also be used for `<fieldset>` or any other block level element.
 
 
 ## Questions
