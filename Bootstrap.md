@@ -12,6 +12,7 @@
 - **[Nifty Things](#nifty-things)**
   - [Centering Elements](#centering-elements)
   - [Responsive Images](#responsive-images)
+  - [ScrollSpy](#scrollspy)
 - **[Questions](#questions)**
 
 -------------
@@ -93,6 +94,11 @@ The class types above can be combined to create responsive layouts, for example:
 
 ### Responsive Images
 - Using the [`.img-fluid` class](https://getbootstrap.com/docs/4.0/content/images/#responsive-images) on an image makes it scale with parent column (by applying `max-width: 100%;` and `height: auto;`), and prevent it from being too large.
+
+### ScrollSpy
+- [ScrollySpy](https://getbootstrap.com/docs/4.0/components/scrollspy/) is an interactive JavaScript plugin that highlights the active navigation links, automatically updating your navigation links based on a user's scroll position.
+- It can be used [via data attributes or via JavaScript](https://getbootstrap.com/docs/4.0/components/scrollspy/#usage).
+- For a recap on how it works and how to set it up, see this [Treehouse course video](https://teamtreehouse.com/library/using-scrollspy-to-highlight-nav-links).
 
 
 ## Questions
