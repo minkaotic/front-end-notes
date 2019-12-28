@@ -107,3 +107,4 @@ https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-r
 **Sources:**
 - https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/
 - http://exploringjs.com/es6/ch_modules.html
+- https://medium.com/@trekinbami/a-not-so-in-depth-explanation-of-es6-modules-import-and-export-13a80300f2f0
