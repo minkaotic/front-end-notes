@@ -28,7 +28,7 @@
 
 ### Building & Testing
 - [Front End Testing](/Front-End-Testing.md)
-- [Bundlers, Package Managers, Build Tools](/Bundlers-Package-Managers-Build-Tools.md)
+- [JavaScript Build Tools](/JavaScript-Build-Tools.md)
 
 ## External introductions
 *Articles & other resources that are useful for reference, and not covered specifically in any of my notes & summaries.*
