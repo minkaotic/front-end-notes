@@ -83,15 +83,48 @@ In the CLI, get an overview of options with `npm`, or use the help flag for more
   - e.g. Nodemon, Babel, ESLint, and testing frameworks like Chai, Mocha, Enzyme, etc...
   - To save a dependency as a devDependency on installation, use `npm install --save-dev` (shorthand `npm i -D`)
 
-### Installing packages
-To install a packate *locally* (only for the current project) without saving it as a dependency to be checked in, run: `npm install [package_name]`
+### Installing & uninstalling packages
+- `npm install [package_name]` will install a packate *locally* (only for the current project) without saving it as a dependency to be checked in
+- `npm install [package_name] -g` will install a package *globally*, i.e. general command line utilities and the such like
+  - e.g. to upgrade NPM itself, run: `npm install npm@latest -g`
+- `npm install` will install packages listed in `package.json` for a *development* setup (including devDependencies)
+- `NODE_ENV=production npm install` will install packages for a *production* setup (ignoring devDependencies), by setting the `NODE_ENV` environment variable (defaults to `development`)
 
-To install a package *globally*, i.e. general command line utilities and the such like: `npm install [package_name] -g`
-- e.g. to upgrade NPM itself, run: `npm install npm@latest -g`
+Uninstalling:
+- `npm uninstall [package_name]` will uninstall a package, but not remove it from the `package.json` file
+- `npm uninstall [package_name] --save` or `--save-dev` will remove it as a dependency
+- `npm uninstall [package_name] -g` to uninstall a global package
 
-To install packages for a *development* setup (including devDependencies), run `npm install`
+### Versions & updates
+#### Version rules
+To instruct NPM to install the latest minor release until the next major version is released, use the `^` character in front of the version number in `package.json`:
+```json
+{
+  "name": "my_nice_app",
+  "version": "0.0.1",
+  "description": "Celsus is a product data store",
+  "main": "",
+  "dependencies": {
+    "aspnet-prerendering": "^3.0.1",
+    "jquery": "^3.4.1",
+    ...
+  }
+}
+```
+To install the latest *patch* releases until the next minor release, use the `~` character instead.
 
-To install packages for a *production* setup, set the environment variable first: `NODE_ENV=production npm install`
+If a specific version is indicated without `~` or `^`, only that version will ever be used regardless of available updates.
+
+#### Updating
+Run `npm outdated` to see a list of outdated packages (`npm outdated -g` for global packages).
+
+Run **`npm update`** to update all packages to the latest allowed version *based on the version rules* set in `package.json`.
+
+> NB: if there was no `package.json` file when running the `npm update` command, it would upgrade all packages in the node modules folder to the latest version.
+
+To update specific packages:
+- `npm update [package_name]` for local (project specific) dependencies
+- `npm update [package_name] -g` for global packages
 
 -------------
 
