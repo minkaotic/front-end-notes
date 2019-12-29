@@ -75,13 +75,13 @@ In the CLI, get an overview of options with `npm`, or use the help flag for more
 1. Henceforth, `npm install` will look for the `package.json` file and install all its dependencies
 
 ### Dependencies vs. devDependencies
-- *dependencies* are modules which are required at runtime / in production
+*Dependencies* are modules which are required at runtime / in production
   - e.g. React, Redux, Express, Axios, etc...
   - Install using `npm install --save` (shorthand `npm i -S`)
  
-- *devDependencies* are modules which are only required during development
+*DevDependencies* are modules which are only required during development
   - e.g. Nodemon, Babel, ESLint, and testing frameworks like Chai, Mocha, Enzyme, etc...
-  - To save a dependency as a devDependency on installation, use `npm install --save-dev` (shorthand `npm i -D`)
+  - To install & save a dependency as a devDependency, use `npm install --save-dev` (shorthand `npm i -D`)
 
 ### Installing & uninstalling packages
 - `npm install [package_name]` will install a packate *locally* (only for the current project) without saving it as a dependency to be checked in
