@@ -12,7 +12,7 @@ When starting a new JavaScript project, one of the first things to do is set up 
 
 > :gift: [Package managers](#package-managers), :books: [Module bundlers](#module-bundlers), :scroll: [Compilers](#compilers) and :ant: [Task runners](#task-runners).
 
-*However!* As both [NPM and Webpack have advanced (see below)](#webpack), there is an increasing trend to use just those two tools and skip using a dedicated task runner such as Gulp.
+*However!* As both [NPM and Webpack have advanced (see below)](#the-rise-of-webpack--npm), there is an increasing trend to use just those two tools and skip using a dedicated task runner such as Gulp.
 
 
 ### Package managers
@@ -69,13 +69,29 @@ Popular task runners:
 [NPM](https://www.npmjs.com/) offers both a public registry and a CLI to manage software packages (modules) for JavaScript. It is also often used as a task runner to automate common steps forming part of the build chain.
 In the CLI, get an overview of options with `npm`, or use the help flag for more details on each command, e.g. `npm install -h`.
 
-### Installing packages
-- Installing a package locally (only to a given project): `npm install [package_name]`
-- Installing a package *globally*, i.e. general command line utilities and the such like: `npm install [package_name] -g`
-- To upgrade NPM itself, run: `npm install npm@latest -g`
-
 ### Managing dependencies
-1. `npm init`
+1. [`npm init`](https://docs.npmjs.com/cli/init) - creates a `package.json` file based on metadata you enter about the current project / repo, allowing you to start tracking the project's dependencies. (Commit this file.)
+1. Once your project is thus initialised, `npm install [package_name] --save` - installs a package and saves it as a dependency in the `package.json` file
+1. Henceforth, `npm install` will look for the `package.json` file and install all its dependencies
+
+### Dependencies vs. devDependencies
+- *dependencies* are modules which are required at runtime / in production
+  - e.g. React, Redux, Express, Axios, etc...
+  - Install using `npm install --save` (shorthand `npm i -S`)
+ 
+- *devDependencies* are modules which are only required during development
+  - e.g. Nodemon, Babel, ESLint, and testing frameworks like Chai, Mocha, Enzyme, etc...
+  - To save a dependency as a devDependency on installation, use `npm install --save-dev` (shorthand `npm i -D`)
+
+### Installing packages
+To install a packate *locally* (only for the current project) without saving it as a dependency to be checked in, run: `npm install [package_name]`
+
+To install a package *globally*, i.e. general command line utilities and the such like: `npm install [package_name] -g`
+- e.g. to upgrade NPM itself, run: `npm install npm@latest -g`
+
+To install packages for a *development* setup (including devDependencies), run `npm install`
+
+To install packages for a *production* setup, set the environment variable first: `NODE_ENV=production npm install`
 
 -------------
 
