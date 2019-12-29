@@ -1,4 +1,4 @@
-# Bundlers, Package Managers and Build Tools
+# JavaScript Build Tools
 
 ### Contents
 - [Overview](#overview)
