@@ -23,6 +23,22 @@ With more traditional, server-side rendered applications, [Selenium](https://www
 *[to be continued...]*
 
 
+## Taking Screenshots with Selenium
+Use the Selenium `ITakesScreenshot` interface:
+```c#
+private Image GetScreenshot(IWebDriver webDriver)
+{
+  var screenshot = ((ITakesScreenshot)webDriver).GetScreenshot().AsByteArray;
+  using (var ms = new MemoryStream(screenshot))
+  {
+      var img = (Bitmap)Image.FromStream(ms);
+      return img;
+  }
+}
+```
+For details on taking **full page** screenshots, see the [sample code here](https://github.com/minkaotic/code-quality-notes/blob/master/selenium-testing.md).
+
+
 **Sources:**
 - [Ham Vocke: The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)
 - [Super high-level library overview on Treehouse](https://teamtreehouse.com/library/testing-javascript)
