@@ -63,6 +63,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+> :bulb: **In other words:** React doesn't manipulate the DOM directly; instead it manages object representations of DOM nodes, and then it is up to `render()` to interpret these element objects and create DOM nodes out of them.
 
 #### Rendering an element with child elements:
 
