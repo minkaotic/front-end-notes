@@ -6,6 +6,11 @@
 ## Contents
 - [Setup](#setup)
 
+
+## To Do
+- [ ] Finish React Track on Treehouse
+- [ ] Look into testing
+- [ ] [Set up](https://teamtreehouse.com/library/add-react-to-a-project) practice project locally
 _______________
 
 ## Setup
