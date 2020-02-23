@@ -9,6 +9,17 @@
 - [Components](#Components)
 - [Sources](#sources)
 _______________
+## To Do
+- [ ] Finish https://teamtreehouse.com/library/vuejs-basics (107m left)
+- [ ] Recap Vue Component Tests (13 mins) https://www.youtube.com/watch?v=OIpfWTThrK8
+- [ ] More on unit testing Vue components by the creator of vue-test-utils https://www.youtube.com/watch?v=LxXsGNXsMo8
+- [ ] Docs: https://vue-test-utils.vuejs.org/ - using this and the above video, create a simple TDD Vue app for practice! (Todo, TicTacToe...)
+- [ ] Best Practices etc: https://medium.com/js-dojo/vuejs-tips-best-practices-39d9962bb255
+- [ ] Check out https://livebook.manning.com/book/testing-vue-js-applications/chapter-2/5
+- [ ] Check out VuePress - a static site generator based on Vue.js! https://vuepress.vuejs.org/
+
+_______________
+
 
 ## Setup
 Vue can be set up via:
