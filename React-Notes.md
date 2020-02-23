@@ -6,7 +6,7 @@
 ## Contents
 - [Setup](#setup)
 - [React Basics](#react-basics)
-  - [Create a React element](#create-a-react-element)
+  - [Creating & rendering React elements](#creating--rendering-react-elements)
 
 _______________
 ## To Do
@@ -28,14 +28,14 @@ There are 2 common ways to add React to a new project:
 _______________
 
 ## React Basics
-### Create a React element
+### Creating & rendering React elements
 > :bulb: *React elements are the smallest building blocks of React apps.*
 
-You can call [`createElement()`](https://reactjs.org/docs/react-api.html#createelement), using the React API to create and return React elements. This takes three arguments:
+You can call [**`createElement()`**](https://reactjs.org/docs/react-api.html#createelement), using the React API to create and return React elements. This takes three arguments:
 
-1. the element type - usually a string representing a HTML type
-2. an object containing any attributes and values to give the element (pass an empty object `{}` or `null` to skip)
-3. the content or children of the element
+1. the element *type* - usually a string representing a HTML type
+2. an object containing any *attributes* and values to give the element (pass an empty object `{}` or `null` to skip)
+3. params comprising the *content or children* of the element
 
 ```js
 const title = React.createElement(
@@ -47,4 +47,38 @@ const title = React.createElement(
 
 > **NB:** `createElement()` does not create actual DOM elements; instead `title` is an object that describes a DOM node (an *object representation of a DOM node*).
 
+To render React elements to the DOM, call [**`ReactDOM.render()`**](https://reactjs.org/docs/react-dom.html#render) - which takes two arguments:
 
+1. the element you'd like to render
+2. the actual HTML element you would like to update / render to (typically **where the React application will be *mounted***)
+
+```html
+<body>
+  <div id="root"></div>
+</body>
+```
+```js
+ReactDOM.render(
+  title,
+  document.getElementById('root')
+);
+```
+
+#### Rendering an element with child elements:
+
+```js
+const title = React.createElement('h1', ...);
+const desc = React.createElement('p', ...);
+
+const header = React.createElement(
+  'header',
+  null,
+  title,
+  desc
+);
+
+ReactDOM.render(
+  header,
+  document.getElementById('root')
+);
+```
