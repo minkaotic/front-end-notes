@@ -6,6 +6,13 @@
 - [Webpack](#webpack)
 
 -------------
+### To do
+- [ ] Review notes on heare
+- [ ] Finish https://www.toptal.com/front-end/webpack-browserify-gulp-which-is-better & update overview / notes
+- [ ] Read https://medium.com/js-imaginea/comparing-bundlers-webpack-rollup-parcel-f8f5dc609cfd & update overview / notes
+- [ ] Better grasp of Webpack, e.g. https://medium.com/ag-grid/webpack-tutorial-understanding-how-it-works-f73dfa164f01
+
+-------------
 
 ## Overview
 When starting a new JavaScript project, one of the first things to do is set up a **build system** to help manage everything needed to build and run the application (incl. tests). Build systems have traditionally included:
