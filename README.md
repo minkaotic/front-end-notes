@@ -22,6 +22,7 @@
 
 ### Frontend Frameworks
 - [Frameworks Overview](/Frameworks-Overview.md)
+- [React Notes](/React-Notes.md)
 - [Vue.JS Notes](/Vue-JS-Notes.md)
 - [Angular (JS) Notes](/Angular-Notes.md)
 - [ASP.NET (Core) MVC & Razor](/MVC-and-Razor.md)
