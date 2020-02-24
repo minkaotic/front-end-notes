@@ -1,4 +1,4 @@
-# React Notes
+# React Notes ⚛️
 [React](https://reactjs.org/) is a JavaScript library for building user interfaces.
 - Simplifies building and maintaining the UI of your application by breaking it up into smaller, reusable *components*.
 - Reduces the complexity of updating your DOM elements when users interact with your application, thanks to the *virtual DOM*: when your application's data changes, React figures out which parts of your document need to be changed, and immediately updates only those parts.
@@ -7,12 +7,14 @@
 - [Setup](#setup)
 - [React Basics](#react-basics)
   - [Creating & rendering React elements](#creating--rendering-react-elements)
+  - [JSX: declarative syntax for UI elements](#jsx-declarative-syntax-for-ui-elements)
 
 _______________
 ## To Do
+- [ ] Read the "Main Concepts" in docs, including [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
 - [ ] Finish React Track on Treehouse
 - [ ] Look into testing
-- [ ] [Set up](https://teamtreehouse.com/library/add-react-to-a-project) a practice project locally
+- [ ] [Set up](https://teamtreehouse.com/library/add-react-to-a-project) a practice project locally (also see [this article](https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html) for more setup bantz)
 _______________
 
 ## Setup
@@ -83,3 +85,45 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+### JSX: declarative syntax for UI elements
+**Docs:** [Introduction](https://reactjs.org/docs/introducing-jsx.html) | [In Depth](https://reactjs.org/docs/jsx-in-depth.html)
+
+JSX is a syntax extension to JavaScript that is used with React to describe elements in the UI. It uses a markup-like syntax to create React elements, and is used by most React developers as it resembles writing HTML.
+
+JSX essentially provides syntactic sugar / an abstraction on top of `React.createElement()`, and needs to be transpiled (using e.g. Babel) into valid JS in order to work in the browser.
+
+#### Rendering an element with children, rewritten in JSX:
+```js
+const desc = 'A nice page written in React';
+const titleId = 'main-title';
+
+const header = (
+  <header>
+    <h1 id={titleId}>A nice main title</h1>
+    <p className="main-desc">{ desc }</p>
+  </header>
+);
+
+ReactDOM.render(
+  header,
+  document.getElementById('root')
+);
+```
+> :bulb: **Things to note:**
+
+- Use parentheses to surround multi-line JSX - this is not required, but good practice
+
+- JSX allows embedding JavaScript expressions within it, written inside curly braces. This allows making your JSX dynamic.
+
+- No `"..."` needed in the `<h1>`'s attribute when using a JSX expression
+
+- JSX attributes aren't always like for like; e.g. to set classes, use JSX attribute `className` (this is due to `class` being reserved word in JS)
+
+- JSX comments are in curly braces too, combined with `/*...*/` - this applies to both inline and multi-line comments. `{/* this is a comment */}`
+
+
+
+
+
+
