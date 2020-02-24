@@ -12,7 +12,7 @@
 _______________
 ## To Do
 - [ ] Read the "Main Concepts" in docs, including [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
-- [ ] Finish React Track on Treehouse
+- [ ] Finish [Learn React](https://teamtreehouse.com/tracks/learn-react) track on Treehouse
 - [ ] Look into testing
 - [ ] [Set up](https://teamtreehouse.com/library/add-react-to-a-project) a practice project locally (also see [this article](https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html) for more setup bantz)
 _______________
