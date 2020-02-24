@@ -131,9 +131,10 @@ React components are written in plain JavaScript, with the help of JSX, and they
 
 Creating a React component is a 2-step process:
 1. define the component as [either a function or class](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
-2. display the component with a JSX tag: JSX lets you define your own tags. A JSX tag can not only represent an HTML element (like <h1>, <span>, and <header>), it can also represent a user-defined component.
+2. display the component with a JSX tag: JSX lets you define your own tags. A JSX tag can not only represent an HTML element (like `<h1>`, `<span>`, and `<header>`), it can also represent a user-defined component.
 
 **TODO: Tidy up notes & add example**
+
 // notice capitalised function: React components are required to start with uppercase letter.
 
 // capital H is necessary to differentiate custom components from native DOM elements
