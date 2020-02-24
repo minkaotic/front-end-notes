@@ -8,6 +8,7 @@
 - [React Basics](#react-basics)
   - [Creating & rendering React elements](#creating--rendering-react-elements)
   - [JSX: declarative syntax for UI elements](#jsx-declarative-syntax-for-ui-elements)
+  - [Components](#components)
 
 _______________
 ## To Do
@@ -123,7 +124,21 @@ ReactDOM.render(
 - JSX comments are in curly braces too, combined with `/*...*/` - this applies to both inline and multi-line comments. `{/* this is a comment */}`
 
 
+### Components
+A [component](https://reactjs.org/docs/components-and-props.html) is a piece of UI that you can reuse. Being able to split your UI code into independent, reusable pieces, and think about each piece in isolation is one the most embraced features of React.
 
+React components are written in plain JavaScript, with the help of JSX, and they contain the logic required to display a small part of your UI.
 
+Creating a React component is a 2-step process:
+1. define the component as [either a function or class](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
+2. display the component with a JSX tag: JSX lets you define your own tags. A JSX tag can not only represent an HTML element (like <h1>, <span>, and <header>), it can also represent a user-defined component.
+
+**TODO: Tidy up notes & add example**
+// notice capitalised function: React components are required to start with uppercase letter.
+
+// capital H is necessary to differentiate custom components from native DOM elements
+// you can use the self-closing form of the tag if the component has no children
+
+When a component contains another component, it's called composition. Composing components is a core principle in React. You'll usually have parent components with one or many child components. This gives the parent component the ability to control how its child components are rendered.
 
 
