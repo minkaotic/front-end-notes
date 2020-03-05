@@ -6,9 +6,9 @@
 ## Contents
 - [Setup](#setup)
 - [React Basics](#react-basics)
-  - [Creating & rendering React elements](#-creating--rendering-react-elements)
-  - [JSX: declarative syntax for UI elements](#-jsx-declarative-syntax-for-ui-elements)
-  - [Components](#-components)
+  - [Creating & rendering React elements](#paw_prints-creating--rendering-react-elements)
+  - [JSX: declarative syntax for UI elements](#paw_prints-jsx-declarative-syntax-for-ui-elements)
+  - [Components](#paw_prints-components)
 
 _______________
 ## To Do
@@ -86,6 +86,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+</br>
 
 ### :paw_prints: JSX: declarative syntax for UI elements
 **Docs:** [Introduction](https://reactjs.org/docs/introducing-jsx.html) | [In Depth](https://reactjs.org/docs/jsx-in-depth.html)
@@ -123,15 +124,18 @@ ReactDOM.render(
 
 - JSX comments are in curly braces too, combined with `/*...*/` - this applies to both inline and multi-line comments. `{/* this is a comment */}`
 
+</br>
 
 ### :paw_prints: Components
-A [component](https://reactjs.org/docs/components-and-props.html) is a piece of UI that you can reuse. Being able to split your UI code into independent, reusable pieces, and think about each piece in isolation is one the most embraced features of React.
+A [component](https://reactjs.org/docs/components-and-props.html) is a piece of UI that you can reuse. Being able to split your UI code into independent, reusable pieces, and think about each piece in isolation is one of the most embraced features of React.
 
 React components are written in plain JavaScript, with the help of JSX, and they contain the logic required to display a small part of your UI.
 
 Creating a React component is a 2-step process:
 1. define the component as [either a function or class](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
 2. display the component with a JSX tag: JSX lets you define your own tags. A JSX tag can not only represent an HTML element (like `<h1>`, `<span>`, and `<header>`), it can also represent a user-defined component.
+
+_______________
 
 **TODO: Tidy up notes & add example**
 
