@@ -6,9 +6,9 @@
 ## Contents
 - [Setup](#setup)
 - [React Basics](#react-basics)
-  - [Creating & rendering React elements](#creating--rendering-react-elements)
-  - [JSX: declarative syntax for UI elements](#jsx-declarative-syntax-for-ui-elements)
-  - [Components](#components)
+  - [Creating & rendering React elements](#-creating--rendering-react-elements)
+  - [JSX: declarative syntax for UI elements](#-jsx-declarative-syntax-for-ui-elements)
+  - [Components](#-components)
 
 _______________
 ## To Do
@@ -31,7 +31,7 @@ There are 2 common ways to add React to a new project:
 _______________
 
 ## React Basics
-### Creating & rendering React elements
+### :paw_prints: Creating & rendering React elements
 > :bulb: *React elements are the smallest building blocks of React apps.*
 
 You can call [**`createElement()`**](https://reactjs.org/docs/react-api.html#createelement), using the React API to create and return React elements. This takes three arguments:
@@ -87,7 +87,7 @@ ReactDOM.render(
 );
 ```
 
-### JSX: declarative syntax for UI elements
+### :paw_prints: JSX: declarative syntax for UI elements
 **Docs:** [Introduction](https://reactjs.org/docs/introducing-jsx.html) | [In Depth](https://reactjs.org/docs/jsx-in-depth.html)
 
 JSX is a syntax extension to JavaScript that is used with React to describe elements in the UI. It uses a markup-like syntax to create React elements, and is used by most React developers as it resembles writing HTML.
@@ -124,7 +124,7 @@ ReactDOM.render(
 - JSX comments are in curly braces too, combined with `/*...*/` - this applies to both inline and multi-line comments. `{/* this is a comment */}`
 
 
-### Components
+### :paw_prints: Components
 A [component](https://reactjs.org/docs/components-and-props.html) is a piece of UI that you can reuse. Being able to split your UI code into independent, reusable pieces, and think about each piece in isolation is one the most embraced features of React.
 
 React components are written in plain JavaScript, with the help of JSX, and they contain the logic required to display a small part of your UI.
