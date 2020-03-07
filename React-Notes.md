@@ -129,21 +129,67 @@ ReactDOM.render(
 ### :paw_prints: Components
 A [component](https://reactjs.org/docs/components-and-props.html) is a piece of UI that you can reuse. Being able to split your UI code into independent, reusable pieces, and think about each piece in isolation is one of the most embraced features of React.
 
-React components are written in plain JavaScript, with the help of JSX, and they contain the logic required to display a small part of your UI.
+React components are written in plain JavaScript, with the help of JSX, and they contain the logic required to display a small part of your UI. Components accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.
 
-Creating a React component is a 2-step process:
+To create a React component:
 1. define the component as [either a function or class](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
-2. display the component with a JSX tag: JSX lets you define your own tags. A JSX tag can not only represent an HTML element (like `<h1>`, `<span>`, and `<header>`), it can also represent a user-defined component.
+2. display the component with a JSX tag: JSX lets you define your own tags. A JSX tag can not only represent an HTML element (like `<h1>`, `<span>`, and `<header>`), it can also represent a user-defined component (e.g. `<App />`, `<Header />`, `<Player />`, `<Counter />` below).
+
+#### Example - App using components (defined as functions) & JSX
+```js
+const Header = () => {
+  return (
+    <header>
+      <h1>Scoreboard</h1>
+      <span className="stats">Players: { playerCount }</span>
+    </header>
+  );
+}
+
+const Player = () => {
+  return (
+    <div className="player">
+      <span className="player-name">{ currentPlayerName }</span>
+      <Counter />
+    </div>
+  );
+}
+
+const Counter = () => {
+  return (
+    <div className="counter">
+      <button className="counter-action decrement"> - </button>
+      <span className="counter-score">{ currentPlayerScore }</span>
+      <button className="counter-action increment"> + </button>
+    </div>
+  );
+}
+
+const App = () => {
+  return(
+    <div className="scoreboard">
+      <Header />
+      <Player />
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+```
+
+> :bulb: **Things to note:**
+
+- **Capitalised component names:** React components are required to start with an uppercase letter both in the function definition and when using it in JSX - the latter is to differentiate custom components from native DOM elements
+
+- The **self-closing form of the tag** (e.g. `<Header />`) can be used if the component has no children
+
+- Usually only pass the **top-level component** to the `ReactDOM.render()` method
+
+> :bulb: When a component contains another component, it's called [**COMPOSITION**](https://reactjs.org/docs/components-and-props.html#composing-components). Composing components is a core principle in React, and you typically have parent components with one or many child components. This gives the parent component the ability to control how its child components are rendered.
 
 _______________
-
-**TODO: Tidy up notes & add example**
-
-// notice capitalised function: React components are required to start with uppercase letter.
-
-// capital H is necessary to differentiate custom components from native DOM elements
-// you can use the self-closing form of the tag if the component has no children
-
-When a component contains another component, it's called composition. Composing components is a core principle in React. You'll usually have parent components with one or many child components. This gives the parent component the ability to control how its child components are rendered.
 
 
