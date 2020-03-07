@@ -9,6 +9,7 @@
   - [Creating & rendering React elements](#paw_prints-creating--rendering-react-elements)
   - [JSX: declarative syntax for UI elements](#paw_prints-jsx-declarative-syntax-for-ui-elements)
   - [Components](#paw_prints-components)
+  - [Props](#paw_prints-props)
 
 _______________
 ## To Do
@@ -129,7 +130,7 @@ ReactDOM.render(
 ### :paw_prints: Components
 A [component](https://reactjs.org/docs/components-and-props.html) is a piece of UI that you can reuse. Being able to split your UI code into independent, reusable pieces, and think about each piece in isolation is one of the most embraced features of React.
 
-React components are written in plain JavaScript, with the help of JSX, and they contain the logic required to display a small part of your UI. Components accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.
+React components are written in plain JavaScript, with the help of JSX, and they contain the logic required to display a small part of your UI. Components accept arbitrary inputs (called ["props" - see next section](#paw_prints-props)) and return React elements describing what should appear on the screen.
 
 To create a React component:
 1. define the component as [either a function or class](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
@@ -188,7 +189,61 @@ ReactDOM.render(
 
 - Usually only pass the **top-level component** to the `ReactDOM.render()` method
 
-> :bulb: When a component contains another component, it's called [**COMPOSITION**](https://reactjs.org/docs/components-and-props.html#composing-components). Composing components is a core principle in React, and you typically have parent components with one or many child components. This gives the parent component the ability to control how its child components are rendered.
+> :bulb: **When a component contains another component, it's called [COMPOSITION](https://reactjs.org/docs/components-and-props.html#composing-components).** Composing components is a core principle in React, and you typically have parent components with one or many child components. This gives the parent component the ability to control how its child components are rendered.
+
+</br>
+
+### :paw_prints: Props
+Every React component and element can receive a list of attributes called properties (or props). Props are a core concept in React as it's how you get data into a component: most of the components in your UI will be configured with props. For example, you'll add functionality to a component, have it behave a certain way, and display its contents with props.
+
+>*Props look like custom HTML attributes.*
+
+Using props:
+1. Define the props in a component's JSX tag, using attribute syntax (`<MyComponent propName={ someValue } />`)
+2. Enable the use of props in a component - when defined as a function, React provides one default argument: a props object (customarily called `props`) containing a list of props given to the component (`const MyComponent = (props) => {...}`)
+
+#### Previous example, updated with props:
+```js
+const Player = (props) => {
+  return (
+    <div className="player">
+      <span className="player-name">{ props.name }</span>
+      <Counter score={ props.score } />
+    </div>
+  );
+}
+
+const Counter = (props) => {
+  return (
+    <div className="counter">
+      ...
+      <span className="counter-score">{ props.score }</span>
+      ...
+    </div>
+  );
+}
+
+const App = () => {
+  return(
+    <div className="scoreboard">
+      ...
+      <Player name="Guil" score={ 50 } />
+      <Player name="Treasure" score={ 90 } />
+      <Player name="Ashley" score={ 85 } />
+      <Player name="James" score={ 80 } />
+    </div>
+  );
+}
+
+```
+
+> :bulb: **Things to note:**
+
+- Prop names in JSX (like all [JSX attributes](https://reactjs.org/docs/introducing-jsx.html#specifying-attributes-with-jsx)) use **`camelCasing`**
+
+- Whenever passing a prop a value other than a string, place it within curly braces, i.e. `totalPlayers={1}`, so it gets evaluated as a JSX expression
+
+- All props are **immutable**, so a component can read the props given to it, but never change them (attempting to assign to a prop will throw an error). The (parent) component higher in the tree owns and controls the property values.
 
 _______________
 
