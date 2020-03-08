@@ -202,7 +202,7 @@ Using props:
 1. Define the props in a component's JSX tag, using attribute syntax (`<MyComponent propName={ someValue } />`)
 2. Enable the use of props in a component - when defined as a function, React provides one default argument: a props object (customarily called `props`) containing a list of props given to the component (`const MyComponent = (props) => {...}`)
 
-#### Previous example, updated with props:
+#### Previous example, updated with props, making player data dynamic:
 ```js
 const Player = (props) => {
   return (
@@ -223,18 +223,21 @@ const Counter = (props) => {
   );
 }
 
-const App = () => {
+const App = (props) => {
   return(
     <div className="scoreboard">
-      ...
-      <Player name="Guil" score={ 50 } />
-      <Player name="Treasure" score={ 90 } />
-      <Player name="Ashley" score={ 85 } />
-      <Player name="James" score={ 80 } />
+      <Header title="Scoreboard" totalPlayers={props.initialPlayers.length} />
+      {props.initialPlayers.map( player => 
+        <Player name={player.name} score={player.score} />
+      )}
     </div>
   );
 }
 
+ReactDOM.render(
+  <App initialPlayers={ players } />,
+  document.getElementById('root')
+);
 ```
 
 > :bulb: **Things to note:**
