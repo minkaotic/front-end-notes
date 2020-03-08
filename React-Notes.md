@@ -234,6 +234,7 @@ const App = (props) => {
   );
 }
 
+// players is an array of objects with the data needed by the app
 ReactDOM.render(
   <App initialPlayers={ players } />,
   document.getElementById('root')
@@ -247,6 +248,30 @@ ReactDOM.render(
 - Whenever passing a prop a value other than a string, place it within curly braces, i.e. `totalPlayers={1}`, so it gets evaluated as a JSX expression
 
 - All props are **immutable**, so a component can read the props given to it, but never change them (attempting to assign to a prop will throw an error). The (parent) component higher in the tree owns and controls the property values.
+
+- :warning: The above example would create a React console error, as the `<Player />` elements created with an iteration method haven't been given a unique key - see below for more details.
+
+#### A note about React keys
+> :bulb: **Pass a key prop to a component any time you are creating elements by iterating over an array of items!**
+
+React manages what gets rendered to the DOM. In order for this process to be fast and efficient, React needs a way to quickly know which items were changed, added, or removed. For this, React gives elements a special built-in prop named `key` - a unique identifier for an element in a list. [The React docs on keys](https://reactjs.org/docs/lists-and-keys.html#keys) recommend this should be a string.
+
+> React does not recommend using `index` for unique keys, because the `index` might not always uniquely identify elements. It's usually best to use a unique id.
+
+##### Updated example using keys for each player
+```js
+const App = (props) => {
+  return(
+    <div className="scoreboard">
+      <Header title="Scoreboard" totalPlayers={props.initialPlayers.length} />
+      {props.initialPlayers.map( player => 
+        <Player name={player.name} score={player.score} key={ player.id.toString() } />
+      )}
+    </div>
+  );
+}
+
+```
 
 _______________
 
