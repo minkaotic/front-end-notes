@@ -10,6 +10,7 @@
   - [JSX: declarative syntax for UI elements](#paw_prints-jsx-declarative-syntax-for-ui-elements)
   - [Components](#paw_prints-components)
   - [Props](#paw_prints-props)
+  - [State](#paw_prints-state)
 
 _______________
 ## To Do
@@ -272,6 +273,15 @@ const App = (props) => {
 }
 
 ```
+
+</br>
+
+### :paw_prints: State
+
+#### TODO: rewatch intro video & read teacher's notes to update notes below
+There are 2 ways data gets handled in React: Props & State
+- props are immutable, so for any data that's going to change, we have to use state
+- state is what keeps your UI in sync with the data, as the data changes, different components of the app will update what they show to the user
 
 _______________
 
