@@ -134,7 +134,7 @@ A [component](https://reactjs.org/docs/components-and-props.html) is a piece of 
 React components are written in plain JavaScript, with the help of JSX, and they contain the logic required to display a small part of your UI. Components accept arbitrary inputs (called ["props" - see next section](#paw_prints-props)) and return React elements describing what should appear on the screen.
 
 To create a React component:
-1. define the component as [either a function or class](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
+1. define the component as [either a function or class](https://reactjs.org/docs/components-and-props.html#function-and-class-components) (see [Example 2](#example-2---function-vs-class-component) below for side-by-side comparison!)
 2. display the component with a JSX tag: JSX lets you define your own tags. A JSX tag can not only represent an HTML element (like `<h1>`, `<span>`, and `<header>`), it can also represent a user-defined component (e.g. `<App />`, `<Header />`, `<Player />`, `<Counter />` below).
 
 #### Example 1 - App using components (defined as functions) & JSX
