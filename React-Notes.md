@@ -297,6 +297,46 @@ State is optional. Since state increases complexity and reduces predictability, 
 
 > :pushpin: **State is only available to class components** - [see this section of the docs](https://reactjs.org/docs/state-and-lifecycle.html#converting-a-function-to-a-class) for more info.
 
+#### Initialising state
+Since state is an object, you create and initialise state within a component class
+
+##### OPTION 1: Constructor syntax
+```js
+constructor() {
+  super()  // call constructor of the Component class
+  this.state = {
+    score: 0  // set initial state, before the component mounts
+  }
+}
+```
+
+##### OPTION 2: Class property syntax
+> This is not supported in all browsers, but since we transpile with Babel anyway, it doesn't really matter!
+```js
+state = {
+  score: 0
+};
+```
+
+##### Full component example using class property syntax:
+```js
+class Counter extends React.Component {
+  state = {
+    score: 0
+  };
+  
+  render() {
+    return (
+      <div className="counter">
+        <button className="counter-action decrement"> - </button>
+        <span className="counter-score">{ this.state.score }</span>
+        <button className="counter-action increment"> + </button>
+      </div>
+    );
+  }
+}
+```
+
 _______________
 
 
