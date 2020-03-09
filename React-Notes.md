@@ -137,7 +137,7 @@ To create a React component:
 1. define the component as [either a function or class](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
 2. display the component with a JSX tag: JSX lets you define your own tags. A JSX tag can not only represent an HTML element (like `<h1>`, `<span>`, and `<header>`), it can also represent a user-defined component (e.g. `<App />`, `<Header />`, `<Player />`, `<Counter />` below).
 
-#### Example - App using components (defined as functions) & JSX
+#### Example 1 - App using components (defined as functions) & JSX
 ```js
 const Header = () => {
   return (
@@ -191,6 +191,11 @@ ReactDOM.render(
 - Usually only pass the **top-level component** to the `ReactDOM.render()` method
 
 > :bulb: **When a component contains another component, it's called [COMPOSITION](https://reactjs.org/docs/components-and-props.html#composing-components).** Composing components is a core principle in React, and you typically have parent components with one or many child components. This gives the parent component the ability to control how its child components are rendered.
+
+#### Example 2 - function vs class component
+| Function component  | Class component |
+| ------------- | ------------- |
+| ![test](/img/function-component.png)  | ![test](/img/class-component.png)   |
 
 </br>
 
