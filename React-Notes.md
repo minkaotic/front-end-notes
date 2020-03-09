@@ -277,11 +277,20 @@ const App = (props) => {
 </br>
 
 ### :paw_prints: State
+#### Props vs State
+There are 2 ways data gets handled in React components: props & state. Both props and state changes trigger a *render update*. However:
+- Since props are immutable, *if a component needs to alter one of its attributes at some point in time, that attribute should be part of its STATE, otherwise it should just be a PROP for that component.*
+- A component cannot change its own props, but it is responsible for putting together the props of its child components.
+- The state starts with a default value when a component mounts, and then gets mutated (typically in response to user events).
+- A component manages its own state internally, but (besides setting an initial state) has no business fiddling with the state of its children. You could say the state is *private*.
+- Data from state in one component is still likely distributed *to other components* through props.
 
-#### TODO: rewatch intro video & read teacher's notes to update notes below
-There are 2 ways data gets handled in React: Props & State
-- props are immutable, so for any data that's going to change, we have to use state
-- state is what keeps your UI in sync with the data, as the data changes, different components of the app will update what they show to the user
+:point_right: Source: [this detailed discussion of props vs state](https://github.com/uberVU/react-guide/blob/master/props-vs-state.md); see in particular this nice [table overview of when props/state change](https://github.com/uberVU/react-guide/blob/master/props-vs-state.md#changing-props-and-state)
+
+#### Should this component have state?
+State is optional. Since state increases complexity and reduces predictability, a component without state is preferable. Even though you clearly can't do without state in an interactive app, you should avoid having too many stateful components.
+
+> :pushpin: **State is only available to class components** - [see this section of the docs](https://reactjs.org/docs/state-and-lifecycle.html#converting-a-function-to-a-class) for more info.
 
 _______________
 
