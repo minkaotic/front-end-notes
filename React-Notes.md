@@ -11,6 +11,7 @@
   - [Components](#paw_prints-components)
   - [Props](#paw_prints-props)
   - [State](#paw_prints-state)
+  - [Handling events](#paw_prints-handling-events)
 - [React Context API](#react-context-api)
 
 _______________
@@ -337,6 +338,61 @@ class Counter extends React.Component {
   }
 }
 ```
+#### The `setState()` method
+**NB:** state cannot be modified directly, i.e. `this.state.score += 1;` *would not work*! Instead, the built-in [**`setState()`**](https://reactjs.org/docs/react-component.html#setstate) method needs to be used. You pass this an object containing the part of the state that should update, and the value it should update to, i.e.:
+
+```js
+this.setState({
+  score: this.state.score + 1
+});
+```
+
+> Using `setState()` ensures that the component is re-rendered on state changes.
+
+</br>
+
+### :paw_prints: Handling events
+[React docs on Handling Events](https://reactjs.org/docs/handling-events.html) | [Passing arguments to Event Handlers](https://reactjs.org/docs/handling-events.html#passing-arguments-to-event-handlers)
+
+In class components, a common pattern is to create event handlers as a method on the class - see `incrementScore()` and `decrementScore()` methods in the [example](#example-of-component-with-event-handling) below. This is then called using React's events, e.g. `onClick` - which are defined inline in the JSX template, and take a reference to the event handler they should call.
+
+> :zap: When you create a class component that extends from `React.Component`, any custom methods you create are not bound to the component by default. You need to bind your custom methods, so that `this` refers to the component instance. There are several ways to do this, including:
+- call `bind()` in the `render()` method where the React event is set up, e.g. `onClick={this.incrementScore.bind(this)}`
+- pass an arrow function to the React event, e.g. `onClick={() => this.incrementScore}` (may cause performance issues in some cases, as a different callback is created each time the component renders - see [docs](https://reactjs.org/docs/handling-events.html) for more details)
+- define the event handler method itself as an arrow function (`incrementScore = () => {...}`; also see [example](#example-of-component-with-event-handling) below), or bind the event handler in the constructor (`constructor() { this.incrementScore = this.incrementScore.bind(this); }`) - both of these approaches enable you to just reference `this` in the event: `onClick={this.incrementScore}`
+
+#### Example of component with event handling
+```js
+class Counter extends React.Component {
+  state = {
+    score: 0
+  };
+
+  incrementScore = () => {
+    this.setState({
+      score: this.state.score + 1
+    })
+  }
+
+  decrementScore = () => {
+    this.setState({
+      score: this.state.score - 1
+    })
+  }
+
+  render() {
+    return (
+      <div className="counter">
+        <button className="counter-action decrement" onClick={this.decrementScore}> - </button>
+        <span className="counter-score">{ this.state.score }</span>
+        <button className="counter-action increment" onClick={this.incrementScore}> + </button>
+      </div>
+    );
+  }
+}
+```
+
+:point_right: [List of built-in React events](https://reactjs.org/docs/events.html#supported-events)
 
 _______________
 
