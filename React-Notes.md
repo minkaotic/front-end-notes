@@ -347,7 +347,9 @@ this.setState({
 });
 ```
 
-> Using `setState()` ensures that the component is re-rendered on state changes.
+Using `setState()` ensures that the component is re-rendered on state changes.
+
+> :zap: Be aware that `this.props` and `this.state` may be updated asynchronously; hence the example above isn't best practice. [See docs](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous) for more detail.
 
 </br>
 
