@@ -13,6 +13,9 @@
   - [State](#paw_prints-state)
   - [Handling events](#paw_prints-handling-events)
 - [React Context API](#react-context-api)
+  - [Background: Prop drilling](#paw_prints-background-prop-drilling)
+  - [Application state vs. Component state](#paw_prints-application-state-vs-component-state)
+
 
 _______________
 ## To Do
@@ -407,8 +410,16 @@ class Counter extends React.Component {
 _______________
 
 ## React Context API
+### :paw_prints: Background: Prop drilling
 In the typical React data flow, components communicate with each other via [props](#paw_prints-props). A parent passes props down to child components. Sometimes the intermediary components get props passed to them *with the sole purpose of passing that data down one (or several) more levels*. This cascade of props is often referred to as ["prop drilling"](https://kentcdodds.com/blog/prop-drilling).
 
 :point_right: **The React [Context API](https://reactjs.org/docs/context.html) provides a way to pass data to components without having to pass props manually at every single level.**
 
 > Prior to Context being a stable feature in React, developers would use state management libraries like [MobX](https://mobx.js.org/README.html) and [Redux](https://redux.js.org/) instead.
+
+</br>
+
+### :paw_prints: Application state vs. Component state
+**1. Application State** (global) - Main state; data that is available to the entire application (Flux or a flux-like library like Redux, use what they call "stores" to hold application state. That means any component, anywhere in the app can access it so long as they hook into it.)
+
+**2. Component State** (local) - State that is specific to a component and not shared outside of that component. As such, it can only be updated within that component and passed down to its children via props.
