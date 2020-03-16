@@ -339,7 +339,7 @@ class Counter extends React.Component {
 }
 ```
 #### The `setState()` method
-**NB:** state cannot be modified directly, i.e. `this.state.score += 1;` *would not work*! Instead, the built-in [**`setState()`**](https://reactjs.org/docs/react-component.html#setstate) method needs to be used. You pass this an object containing the part of the state that should update, and the value it should update to, i.e.:
+**NB: state cannot be modified directly**, i.e. `this.state.score += 1;` *would not work*! Instead, React's built-in [**`setState()`**](https://reactjs.org/docs/react-component.html#setstate) method needs to be used. You pass this an object containing the part of the state that should update, and the value it should update to, i.e.:
 
 ```js
 this.setState({
@@ -349,14 +349,14 @@ this.setState({
 
 Using `setState()` ensures that the component is re-rendered on state changes.
 
-> :zap: Be aware that `this.props` and `this.state` may be updated asynchronously; hence the example above isn't best practice. [See docs](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous) for more detail.
+> :zap: Be aware that `this.props` and `this.state` may be updated asynchronously, so relying on their values for calculating the next state, as in the above example, isn't best practice and can lead to race conditions. [See docs](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous) for more detail.
 
 </br>
 
 ### :paw_prints: Handling events
 [React docs on Handling Events](https://reactjs.org/docs/handling-events.html) | [Passing arguments to Event Handlers](https://reactjs.org/docs/handling-events.html#passing-arguments-to-event-handlers)
 
-In class components, a common pattern is to create event handlers as a method on the class - see `incrementScore()` and `decrementScore()` methods in the [example](#example-of-component-with-event-handling) below. This is then called using React's events, e.g. `onClick` - which are defined inline in the JSX template, and take a reference to the event handler they should call.
+In class components, a common pattern is to create event handlers as a method on the class - see `incrementScore()` and `decrementScore()` methods in the [example](#example-of-component-with-event-handling) below. This is then hooked up with React's built-in events, e.g. `onClick` - which are defined inline in the JSX template, and take a reference to the event handler they should call.
 
 > :zap: When you create a class component that extends from `React.Component`, any custom methods you create are not bound to the component by default. You need to bind your custom methods, so that `this` refers to the component instance. There are several ways to do this, including:
 - call `bind()` in the `render()` method where the React event is set up, e.g. `onClick={this.incrementScore.bind(this)}`
