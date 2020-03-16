@@ -349,7 +349,13 @@ this.setState({
 
 Using `setState()` ensures that the component is re-rendered on state changes.
 
-> :zap: Be aware that `this.props` and `this.state` may be updated asynchronously, so relying on their values for calculating the next state, as in the above example, isn't best practice and can lead to race conditions. [See docs](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous) for more detail.
+> :zap: Be aware that `this.props` and `this.state` may be updated asynchronously, so relying on their values for calculating the next state, as in the above example, isn't best practice and can lead to race conditions. [See docs](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous) for more detail, but in short, `setState()` alternatively accepts a callback function that produces state based on the previous state in a more reliable way:
+
+```js
+this.setState( prevState => ({
+  score: prevState.score + 1
+}));
+```
 
 </br>
 
@@ -373,16 +379,16 @@ class Counter extends React.Component {
 
   // event handler 1
   incrementScore = () => {
-    this.setState({
-      score: this.state.score + 1
-    })
+    this.setState( prevState => ({
+      score: prevState.score + 1
+    }));
   }
 
   // event handler 2
   decrementScore = () => {
-    this.setState({
-      score: this.state.score - 1
-    })
+    this.setState( prevState => ({
+      score: prevState.score - 1
+    }));
   }
 
   render() {
