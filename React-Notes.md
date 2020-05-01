@@ -12,6 +12,8 @@
   - [Props](#paw_prints-props)
   - [State](#paw_prints-state)
   - [Handling events](#paw_prints-handling-events)
+- [React Components in Depth](#react-components-in-depth)
+  - [Lifecycle Methods](#paw_prints-lifecycle-methods)
 - [React Context API](#react-context-api)
   - [Background: Prop drilling](#paw_prints-background-prop-drilling)
   - [Application state vs. Component state](#paw_prints-application-state-vs-component-state)
@@ -296,7 +298,7 @@ There are 2 ways data gets handled in React components: props & state. Both prop
 - Since props are immutable, *if a component needs to alter one of its attributes at some point in time, that attribute should be part of its STATE, otherwise it should just be a PROP for that component.*
 - A component cannot change its own props, but it is responsible for putting together the props of its child components.
 - The state starts with a default value when a component mounts, and then gets mutated (typically in response to user events).
-- A component manages its own state internally, but (besides setting an initial state) has no business fiddling with the state of its children. You could say the state is *private*.
+- A component manages its own state internally, but (besides setting an initial state) has no business fiddling with the state of its children. You could say the state is *private*, or encapsulated.
 - Data from state in one component is still likely distributed *to other components* through props.
 
 :point_right: Source: [this detailed discussion of props vs state](https://github.com/uberVU/react-guide/blob/master/props-vs-state.md); see in particular this nice [table overview of when props/state change](https://github.com/uberVU/react-guide/blob/master/props-vs-state.md#changing-props-and-state)
@@ -410,6 +412,18 @@ class Counter extends React.Component {
   }
 }
 ```
+
+_______________
+
+## React Components in Depth
+
+### :paw_prints: Lifecycle Methods
+
+- **Mounting** refers to the moment a React component is rendered to the DOM for the first time. The `render()` method is called just before this (so React can determine what should be displayed on the screen). The lifecycle method which runs straight after this first render is `componentDidMount() {...}`.
+
+- **Unmounting** refers to the moment the component is removed from the DOM - and the lifecycle method `componentWillUnmount() {...}` runs straight after this, and is useful for running any teardown to free up resources.
+
+- Whenever the **component updates** e.g. due to `setState()` being called, the `render()` is called again (= the component is re-rendered).
 
 _______________
 
