@@ -125,11 +125,13 @@ ReactDOM.render(
 
 - Use parentheses to surround multi-line JSX - this is not required, but good practice
 
+- The first part of a JSX tag determines the type of the React element. Capitalized types indicate that the JSX tag is referring to a React component (see [next section]((#paw_prints-components))).
+
 - JSX allows embedding JavaScript expressions within it, written inside curly braces. This allows making your JSX dynamic.
 
 - No `"..."` needed in the `<h1>`'s attribute when using a JSX expression
 
-- JSX attributes aren't always like for like; e.g. to set classes, use JSX attribute `className` (this is due to `class` being reserved word in JS)
+- JSX attributes aren't always like for like; e.g. to set classes, use JSX attribute `className` (this is due to `class` being a reserved word in JS)
 
 - JSX comments are in curly braces too, combined with `/*...*/` - this applies to both inline and multi-line comments. `{/* this is a comment */}`
 
