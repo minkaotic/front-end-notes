@@ -31,8 +31,18 @@ _______________
 
 ## Setup
 There are 2 common ways to add React to a new project:
-1. Using [React toolchains](https://reactjs.org/docs/create-a-new-react-app.html), for example [Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)
-2. with [React's CDN links](https://reactjs.org/docs/cdn-links.html)
+1. Using [React toolchains](https://reactjs.org/docs/create-a-new-react-app.html), e.g. [Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) (see below) - suitable for developing production-ready apps.
+2. With [React's CDN links](https://reactjs.org/docs/cdn-links.html) - can be convenient for quick experiments or demos.
+
+#### Create React App
+- To create a project, run `npx create-react-app my-app`
+- This sets up your development environment with tools like *Babel* (to compile JSX to JavaScript), *Webpack* (to process and bundle your JS files and project assetts) and *Jest* (JS testing framework).
+- It also provides helpful runtime errors in the browser.
+- It sets you up with a few starting commands for your project:
+  - `npm start` - starts the development server
+  - `npm run build` - bundles the app into static files for production
+  - `npm test` - starts the test runner
+
 
 #### Why 2 separate libraries?
 :bulb: When building web applications in React, you use two libraries: `React` and `ReactDom`:
