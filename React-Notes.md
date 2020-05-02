@@ -25,8 +25,8 @@ _______________
   - [ ] Extra reading: [Why we need to bind event handlers in Class Components in React](https://www.freecodecamp.org/news/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb/)
   - [ ] Extra reading: [React - To bind, or not to bind](https://medium.com/shoutem/react-to-bind-or-not-to-bind-7bf58327e22a)
 - [ ] Finish [Learn React](https://teamtreehouse.com/tracks/learn-react) track on Treehouse
-- [ ] Look into testing
-- [ ] [Set up](https://teamtreehouse.com/library/add-react-to-a-project) a practice project locally (also see [this article](https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html) for more setup bantz)
+- [ ] Look into [testing](https://reactjs.org/docs/testing.html)
+- [ ] Set up a practice project locally (also see [this article](https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html) for more setup bantz)
 _______________
 
 ## Setup
