@@ -21,7 +21,7 @@
 
 _______________
 ## To Do
-- [ ] Read the "Main Concepts" in docs, including [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
+- [ ] Read remaining "Main Concepts" in docs, starting from ["Conditional Rendering"](https://reactjs.org/docs/conditional-rendering.html)
   - [ ] Extra reading: [Why we need to bind event handlers in Class Components in React](https://www.freecodecamp.org/news/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb/)
   - [ ] Extra reading: [React - To bind, or not to bind](https://medium.com/shoutem/react-to-bind-or-not-to-bind-7bf58327e22a)
 - [ ] Finish [Learn React](https://teamtreehouse.com/tracks/learn-react) track on Treehouse
@@ -371,13 +371,7 @@ this.setState( prevState => ({
 ### :paw_prints: Handling events
 [React docs on Handling Events](https://reactjs.org/docs/handling-events.html) | [Passing arguments to Event Handlers](https://reactjs.org/docs/handling-events.html#passing-arguments-to-event-handlers)
 
-In class components, a common pattern is to create event handlers as a method on the class - see `incrementScore()` and `decrementScore()` methods in the [example](#example-of-component-with-event-handling) below. This is then hooked up with [React's built-in events](https://reactjs.org/docs/events.html#supported-events), e.g. `onClick` - which are defined inline in the JSX template, and take a reference to the event handler they should call.
-
-#### A note on method binding and `this` in React components
-> :zap: When you create a class component that extends from `React.Component`, any custom methods you create are not bound to the component by default. You need to bind your custom methods, so that `this` refers to the component instance. There are several ways to do this, including:
-- call `bind()` in the `render()` method where the React event is set up, e.g. `onClick={this.incrementScore.bind(this)}`
-- pass an arrow function to the React event, e.g. `onClick={() => this.incrementScore}` (may cause performance issues in some cases, as a different callback is created each time the component renders - see [docs](https://reactjs.org/docs/handling-events.html) for more details)
-- define the event handler method itself as an arrow function (`incrementScore = () => {...}`; cf. [example](#example-of-component-with-event-handling) below), or bind the event handler in the constructor (`constructor() { this.incrementScore = this.incrementScore.bind(this); }`) - both of these approaches enable you to just reference `this` in the event: `onClick={this.incrementScore}`
+In class components, a common pattern is to create event handlers as a method on the class - see `incrementScore()` and `decrementScore()` methods in the example below. This is then hooked up with [React's built-in events](https://reactjs.org/docs/events.html#supported-events), e.g. `onClick` - which are defined inline in the JSX template, and take a reference to the event handler they should call.
 
 #### Example of component with event handling
 ```js
@@ -412,6 +406,13 @@ class Counter extends React.Component {
   }
 }
 ```
+
+#### A note on method binding and `this` in React components
+> :zap: When you create a class component that extends from `React.Component`, any custom methods you create are not bound to the component by default. You need to bind your custom methods, so that `this` refers to the component instance. There are several ways to do this, including:
+- call `bind()` in the `render()` method where the React event is set up, e.g. `onClick={this.incrementScore.bind(this)}`
+- pass an arrow function to the React event, e.g. `onClick={() => this.incrementScore}` (may cause performance issues in some cases, as a different callback is created each time the component renders - see [docs](https://reactjs.org/docs/handling-events.html) for more details)
+- define the event handler method itself as an arrow function (`incrementScore = () => {...}`; cf. [example](#example-of-component-with-event-handling) below), or bind the event handler in the constructor (`constructor() { this.incrementScore = this.incrementScore.bind(this); }`) - both of these approaches enable you to just reference `this` in the event: `onClick={this.incrementScore}`
+
 
 _______________
 
