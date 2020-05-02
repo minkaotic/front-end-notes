@@ -43,11 +43,27 @@ There are 2 common ways to add React to a new project:
   - `npm run build` - bundles the app into static files for production
   - `npm test` - starts the test runner
 
+###### PWA by default
+`create-react-app` sets up a **progressive web app** by default. PWAs rely on special scripts called *service workers* to give users that app-like experience. This caches assets locally, allowing your app to be performant even on slower, unreliable networks. Another key feature of PWAs is the web app manifest (`manifest.json`) - a json file containing metadata associated with your app, the main purpose of which is to install the app to the home screen of the device, for quicker access / richer experience.
 
 #### Why 2 separate libraries?
 :bulb: When building web applications in React, you use two libraries: `React` and `ReactDom`:
 - React started out as a library for building interfaces in the browser, but the patterns and tools it provided proved so useful that it has since been extended to native application development.
 - When React Native came along, `React` (as the core library), and `ReactDom` (for web app development) were split into two libraries.
+
+#### Bonus: React Bootstrap
+= a popular framework [for integrating Bootstrap with React apps](https://react-bootstrap.github.io/). To add it to your React project:
+```npm
+npm install --save react-bootstrap bootstrap
+```
+To add the Bootstrap styles to your project, add the following import to your `src/index.js` or `App.js` file:
+```js
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
+And to use Bootstrap components in a React component:
+```js
+import { Container, Jumbotron } from 'react-bootstrap';
+```
 
 _______________
 
