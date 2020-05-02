@@ -258,7 +258,7 @@ This is useful because it allows us to add an event listener to a parent element
 - makes the code resilient to changes to the DOM that dynamically add or remove children
 - ***But: How does the parent know which child triggered the event?***
 
-...by passing the `event` object as an argument to the `eventListener`! This allows us to call the **event target**. E.g.:
+...this information is still preserved in `event.target`, even if the event listener was added on an ancestor:
 ```javascript
 document.addEventListener('click', (event) => {
   console.log(event.target);
@@ -274,6 +274,7 @@ document.addEventListener('click', (event) => {
 - Technically, propagation doesn't only bubble up, but flows down from the Window during the capture phase first. This is explained well in the article ["What Is Event Bubbling in JavaScript? Event Propagation Explained"](https://www.sitepoint.com/event-bubbling-javascript/)
 - The event propagation can be stopped in any listener by invoking the `stopPropagation()` method of the event object. (Any other remaining listeners attached on the current target will still receive the event, but it won't be bubbled up further from there.)
 - *Event Cancellation:* Some events are associated with a default action that the browser executes at the end of the propagation. For instance, the click on a link element or the click on a form submit button causes the browser to navigate to a new page, or submit the form respectively. It is possible to avoid the execution of such default actions by calling the event object's `event.preventDefault()`, in a listener.
+- You can also create your own events - see [MDN - Creating and triggering events](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events)
 
 __________
 
