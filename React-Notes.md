@@ -25,7 +25,7 @@ _______________
   - [ ] Extra reading: [Why we need to bind event handlers in Class Components in React](https://www.freecodecamp.org/news/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb/)
   - [ ] Extra reading: [React - To bind, or not to bind](https://medium.com/shoutem/react-to-bind-or-not-to-bind-7bf58327e22a)
 - [ ] Finish [Learn React](https://teamtreehouse.com/tracks/learn-react) track on Treehouse
-- [ ] Look into [testing](https://reactjs.org/docs/testing.html)
+- [ ] Look into testing: [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html) | [React Testing Library intro](https://testing-library.com/docs/react-testing-library/example-intro)
 - [ ] Set up a practice project locally (also see [this article](https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html) for more setup bantz)
 _______________
 
@@ -42,6 +42,7 @@ There are 2 common ways to add React to a new project:
   - `npm start` - starts the development server
   - `npm run build` - bundles the app into static files for production
   - `npm test` - starts the test runner
+  - `npm eject` - removes the single build dependency on `react-scripts` which wraps all the default build configurations, therefore allowing you to customise your own build setup (Babel, Webpack, ESLint...) - *this cannot be undone!*
 
 ###### PWA by default
 `create-react-app` sets up a **progressive web app** by default. PWAs rely on special scripts called *service workers* to give users that app-like experience. This caches assets locally, allowing your app to be performant even on slower, unreliable networks. Another key feature of PWAs is the web app manifest (`manifest.json`) - a json file containing metadata associated with your app, the main purpose of which is to install the app to the home screen of the device, for quicker access / richer experience.
