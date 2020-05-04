@@ -13,10 +13,11 @@
   - [State](#paw_prints-state)
   - [Handling events](#paw_prints-handling-events)
 - [React Components in Depth](#react-components-in-depth)
+  - [Unidirectional Data Flow](#paw_prints-unidirectional-data-flow)
   - [Lifecycle Methods](#paw_prints-lifecycle-methods)
 - [React Context API](#react-context-api)
   - [Background: Prop drilling](#paw_prints-background-prop-drilling)
-  - [Application state vs. Component state](#paw_prints-application-state-vs-component-state)
+
 
 
 _______________
@@ -445,6 +446,22 @@ _______________
 
 ## React Components in Depth
 
+### :paw_prints: Unidirectional Data Flow 
+#### Application state vs. Component state
+1. **Application State** (global) - Main state; data that is available to the entire application (Flux or a flux-like library like Redux, use what they call "stores" to hold application state. That means any component, anywhere in the app can access it so long as they hook into it.)
+
+2. **Component State** (local) - State that is specific to a component and not shared outside of that component. As such, it can only be updated within that component and passed down to its children via props.
+
+#### Data flows down
+> :bulb: In React, data naturally flows *down* the component tree, from the app's top-level component down to the child components, via props. This is called **"unidirectional data flow"**.
+
+> :bulb: When two or more components need access to the same state, we move the state into their common parent. This is called **["lifting state up"](https://reactjs.org/docs/lifting-state-up.html)**.
+
+But if we lift state up, and if data flows down, how can a child component communicate information back up to its ancestors?
+:point_right: Instead of passing state to a component, a parent can pass down **[a callback function](https://medium.com/@thejasonfile/callback-functions-in-react-e822ebede766)** that can allow children to communicate events and changes upwards - meanwhile data can continue to flow down!
+
+</br>
+
 ### :paw_prints: Lifecycle Methods
 
 - **Mounting** refers to the moment a React component is rendered to the DOM for the first time. The `render()` method is called just before this (so React can determine what should be displayed on the screen). The lifecycle method which runs straight after this first render is `componentDidMount() {...}`.
@@ -457,15 +474,10 @@ _______________
 
 ## React Context API
 ### :paw_prints: Background: Prop drilling
-In the typical React data flow, components communicate with each other via [props](#paw_prints-props). A parent passes props down to child components. Sometimes the intermediary components get props passed to them *with the sole purpose of passing that data down one (or several) more levels*. This cascade of props is often referred to as ["prop drilling"](https://kentcdodds.com/blog/prop-drilling).
+In the [typical React data flow](#paw_prints-unidirectional-data-flow), components communicate with each other via [props](#paw_prints-props). A parent passes props down to child components. Sometimes the intermediary components get props passed to them *with the sole purpose of passing that data down one (or several) more levels*. This cascade of props is often referred to as ["prop drilling"](https://kentcdodds.com/blog/prop-drilling).
 
 :point_right: **The React [Context API](https://reactjs.org/docs/context.html) provides a way to pass data to components without having to pass props manually at every single level.**
 
 > Prior to Context being a stable feature in React, developers would use state management libraries like [MobX](https://mobx.js.org/README.html) and [Redux](https://redux.js.org/) instead.
 
 </br>
-
-### :paw_prints: Application state vs. Component state
-**1. Application State** (global) - Main state; data that is available to the entire application (Flux or a flux-like library like Redux, use what they call "stores" to hold application state. That means any component, anywhere in the app can access it so long as they hook into it.)
-
-**2. Component State** (local) - State that is specific to a component and not shared outside of that component. As such, it can only be updated within that component and passed down to its children via props.
