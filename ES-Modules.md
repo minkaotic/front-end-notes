@@ -1,6 +1,22 @@
 ## ES Modules
 
 EcmaScript modules (ESM) bring an official, standardized module system to JavaScript, allowing programmers to write independent units of code that other programmers can explicitly include (or mark as “required”) in their Javascript code.
+_______
+### To Do
+- [ ] Re-read notes below
+- [ ] Re-read https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/
+- [ ] Read recommended Treehouse article: https://ponyfoo.com/articles/es6-modules-in-depth
+- [ ] Optional further reading:
+  - MDN docs on [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) and [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) 
+  - https://flaviocopes.com/es-modules/
+  - https://nodejs.org/api/esm.html#esm_notable_differences_between_import_and_require
+  - https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
+- [ ] Optional re-reading:
+  - http://exploringjs.com/es6/ch_modules.html
+  - https://medium.com/@trekinbami/a-not-so-in-depth-explanation-of-es6-modules-import-and-export-13a80300f2f0
+
+
+_______
 
 ### Contents
 - [What problems do Modules solve?](#what-problems-do-modules-solve)
@@ -8,6 +24,8 @@ EcmaScript modules (ESM) bring an official, standardized module system to JavaSc
 - [How ES Modules work](#how-es-modules-work)
 - [How to use Modules](#how-to-use-modules)
 - [History of Modules in JavaScript](#history-of-modules-in-javascript)
+
+_______
 
 ## What problems do Modules solve?
 All revolves around how variables are managed in ES:
