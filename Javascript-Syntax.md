@@ -232,15 +232,9 @@ movies.forEach( movie => alert(movie) );
 ```
 
 ### Immediately-invoked function expression
-An [Immediately-invoked Function Expression (IIFE)](https://flaviocopes.com/javascript-iife/) is a way to execute functions immediately, as soon as they are created.
+An [Immediately-invoked Function Expression (IIFE)](https://flaviocopes.com/javascript-iife/) is a way to execute functions immediately, as soon as they are created. IIFEs are very useful because they don’t pollute the global object, and they are a simple way to isolate variables declarations.
 
-IIFEs are very useful because they don’t pollute the global object, and they are a simple way to isolate variables declarations.
-
-| **Traditional IIFE**  | **Arrow function IIFE** |
-|---|---|
-| ![trad](https://github.com/minkaotic/front-end-notes/blob/master/img/trad-iife.png) | ![arrow](https://github.com/minkaotic/front-end-notes/blob/master/img/arrow-iife.png) |
-
-
+#### Traditional function IIFE
 Syntax definition:
 ```js
 (function() {
