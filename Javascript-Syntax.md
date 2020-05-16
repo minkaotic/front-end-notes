@@ -488,23 +488,45 @@ console.log(elsie.owner);
 ____________________
 
 ## `this` in Javascript
-Sources: [Codeburst article](https://codeburst.io/all-about-this-and-new-keywords-in-javascript-38039f71780c) | Treehouse (content since removed)
+Sources: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) | [Gentle Explanation of "this" in JavaScript](https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/)
 
-There are 4 ways in which `this` takes a value in JS:
+**In JS, `this` refers to *the current execution context*.** Used by itself, i.e.:
+```js
+const x = this;
+```
+`this` refers to the *global scope* or *global context*; i.e. the `Window` object when run in a browser, or the module context when run in Node. But this pure use by itself is very rare (and not that useful).
 
-***1. In normal function calls***
+The complexity arises because where `this` is used within a *function*, the context - and thus the value of `this` - depends on what invocation type the given function is!
+
+JS has 4 function invocation types:
+- function invocation: `alert('Hello World!')`
+- method invocation: `console.log('Hello World!')`
+- constructor invocation: `new RegExp('\\d')`
+- indirect invocation: `alert.call(undefined, 'Hello World!')`
+> :point_right: Each invocation type defines the context in its own way.
+
+Moreover, [`strict` mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) also affects the execution context!
+
+### Function invocation
+*a.k.a. 'a normal function call'*
 ```js
 function tryingThis() {
   console.log(this);
 };
+
+tryingThis();
 ```
-- Here, `this` refers to the *global scope* or *global context* when run in a browser, i.e. the `Window` object, or it refers to the module context if run in Node.
+- Here, `this` refers to the *global scope* or *global context*; i.e. when run in a browser this is the `Window` object; or when run in Node it refers to the module context.
 
-***2. Within methods on objects***
+...but only if it's not strict mode; in strict mode it's `undefined` instead
+
+
+### Method invocation
+Within methods on objects
 - see [JS Class Syntax](#js-class-syntax) for an example - although the same possibilities apply to object literals
-- in this case, `this` refers to the object itself, and is usually used to reference its properties
+- in this case, `this` refers to the (currently executing) object itself, and is usually used to reference its properties
 
-***3. In a constructor function***
+### Constructor invokation
 ```js
 let City = function(name, state) {
     this.name = name || 'Portland';
@@ -514,4 +536,7 @@ let City = function(name, state) {
 - Constructor functions are essentially the old syntax for object creation, prior to [JS Class Syntax](#js-class-syntax).
 - Here, `this` refers to the instance that will be instantiated when `new City()` is called.
 
-4. A function invoked with `.call`, `.apply` or `.bind` (advanced use; not explained here)
+### Indirect invokation
+ A function invoked with `.call`, `.apply` or `.bind` (advanced use; not explained here)
+### Bound function
+### Arrow function
