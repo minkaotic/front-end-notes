@@ -9,6 +9,7 @@
 - **[Arrow Functions](#arrow-functions)**
   - [First Class Functions in JS](#first-class-functions-in-js)
   - [Example with Callback](#example-with-callback)
+  - [Immediately-invoked function expression](#immediately-invoked-function-expression)
 - **[Loops & Iteration Methods](#loops--iteration-methods)**
   - [Various Loops](#various-loops)
   - [`filter()`](#the-filter-method)
@@ -229,6 +230,49 @@ movies.forEach( movie => {
 ```js
 movies.forEach( movie => alert(movie) );
 ```
+
+### Immediately-invoked function expression
+An [Immediately-invoked Function Expression (IIFE)](https://flaviocopes.com/javascript-iife/) is a way to execute functions immediately, as soon as they are created.
+
+IIFEs are very useful because they don’t pollute the global object, and they are a simple way to isolate variables declarations.
+
+| **Traditional IIFE**  | **Arrow function IIFE** |
+|---|---|
+| ![trad](https://github.com/minkaotic/front-end-notes/blob/master/img/trad-iife.png) | ![arrow](https://github.com/minkaotic/front-end-notes/blob/master/img/arrow-iife.png) |
+
+
+Syntax definition:
+```js
+(function() {
+  /* */
+})()
+```
+
+Example:
+```js
+const message = (function(name) {
+  return 'Hello ' + name + '!';
+})('World');
+console.log(message) // => 'Hello World!'
+```
+
+#### Arrow function IIFE
+Syntax definition:
+```js
+(() => {
+  /* */
+})()
+```
+
+Example:
+```js
+const message = (name => {
+  return 'Hello ' + name + '!';
+})('World');
+console.log(message) // => 'Hello World!'
+```
+
+:point_right: *We basically have a function defined inside parentheses, and then we append `()` to execute that function.* The wrapping parantheses turn the function declaration into an expression. The invoking parentheses at the end can alternatively be inside the wrapping parentheses too: `(() => {...}())`.
 
 _______________
 
