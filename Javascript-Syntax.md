@@ -20,7 +20,8 @@
   - [Accessing object properties & methods](#accessing-object-properties--methods)
   - [JS Class Syntax](#js-class-syntax)
   - [Getters & Setters](#getters--setters)
-  - ['this' in Javascript](#this-in-javascript)
+- **[`this` in Javascript](#this-in-javascript)**
+
 _______________
 
 ## Language Fundamentals / ES2015
@@ -486,7 +487,9 @@ console.log(elsie.owner);
 ```
 ____________________
 
-## 'this' in Javascript
+## `this` in Javascript
+Sources: [Codeburst article](https://codeburst.io/all-about-this-and-new-keywords-in-javascript-38039f71780c) | Treehouse (content since removed)
+
 There are 4 ways in which `this` takes a value in JS:
 
 ***1. In normal function calls***
