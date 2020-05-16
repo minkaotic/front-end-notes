@@ -457,7 +457,7 @@ _______________
 
 > :bulb: When two or more components need access to the same state, we move the state into their common parent. This is called **["lifting state up"](https://reactjs.org/docs/lifting-state-up.html)**.
 
-But if we lift state up, and if data flows down, how can a child component communicate information back up to its ancestors?
+But if we lift state up, and if data flows down, how can a child component communicate information back up to its ancestors? <br/>
 :point_right: Instead of passing state to a component, a parent can pass down **[a callback function](https://medium.com/@thejasonfile/callback-functions-in-react-e822ebede766)** that can allow children to communicate events and changes upwards - meanwhile data can continue to flow down!
 
 </br>
