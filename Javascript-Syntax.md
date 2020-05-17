@@ -532,9 +532,9 @@ Sources: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 ```js
 const x = this;
 ```
-`this` refers to the *global scope* or *global context*; i.e. the `Window` object when run in a browser, or the module context when run in Node. But this pure use by itself is very rare (and not that useful).
+`this` refers to the *global scope* or *global context*; i.e. the `window` object when run in a browser, or the module context when run in Node. But this use by itself, outside of any function scope, is very rare (and not that useful).
 
-The complexity arises because where `this` is used within a *function*, the context - and thus the value of `this` - depends on what invocation type the given function is!
+The complexity arises because **where `this` is used within a *function***, the context - and thus the value of `this` - depends on what invocation type the given function is!
 
 JS has 4 function invocation types:
 - function invocation: `alert('Hello World!')`
@@ -543,28 +543,67 @@ JS has 4 function invocation types:
 - indirect invocation: `alert.call(undefined, 'Hello World!')`
 > :point_right: Each invocation type defines the context in its own way.
 
-Moreover, [`strict` mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) also affects the execution context!
+Moreover, **[`strict` mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)** (a restricted variant of JavaScript, that provides better security and stronger error checking) also affects the execution context!
 
 ### Function invocation
 *a.k.a. 'a normal function call'*
 ```js
-function tryingThis() {
-  console.log(this);
+function foo() {
+  console.log(this === window); // => true
+  this.myNumber = 20; // add 'myNumber' property to global object
 };
 
-tryingThis();
+foo();
+window.myNumber; // => 20
 ```
-- Here, `this` refers to the *global scope* or *global context*; i.e. when run in a browser this is the `Window` object; or when run in Node it refers to the module context.
+- Here, `this` refers to the *global object* (i.e. `window` object in a browser) - same as if `this` was used by itself.
+- ...but only if it's not strict mode; in strict mode, `this` is `undefined` instead:
 
-...but only if it's not strict mode; in strict mode it's `undefined` instead
+```js
+"use strict";
+function foo() {
+  console.log(this === window); // => false
+  console.log(this === undefined); // => true
+};
 
+foo();
+```
 
 ### Method invocation
 Within methods on objects
 - see [JS Class Syntax](#js-class-syntax) for an example - although the same possibilities apply to object literals
 - in this case, `this` refers to the (currently executing) object itself, and is usually used to reference its properties
 
-### Constructor invokation
+#### :warning: Complication: nested functions of different invocation types
+If you have function nested within a function, the inner function's context only depends on its own invocation type, not on the outer functions context.
+
+```js
+const numbers = {
+  numberA: 5,
+  numberB: 10,
+
+  sum: function() {
+    console.log(this === numbers); // => true
+
+    function calculate() {
+      // this is window or undefined in strict mode
+      console.log(this === numbers); // => false
+      return this.numberA + this.numberB;
+    }
+
+    return calculate();
+  }
+};
+
+numbers.sum(); // => NaN or throws TypeError in strict mode
+```
+To solve this, you can either:
+- modify the inner function’s context with [indirect invocation](#indirect-invocation)
+- create a [bound function](#bound-function)
+- rewrite the inner function as an [arrow function](#arrow-function)
+
+
+### Constructor invocation
 ```js
 let City = function(name, state) {
     this.name = name || 'Portland';
@@ -574,7 +613,53 @@ let City = function(name, state) {
 - Constructor functions are essentially the old syntax for object creation, prior to [JS Class Syntax](#js-class-syntax).
 - Here, `this` refers to the instance that will be instantiated when `new City()` is called.
 
-### Indirect invokation
- A function invoked with `.call`, `.apply` or `.bind` (advanced use; not explained here)
+### Indirect invocation
+A function invoked with `.call`, `.apply` 
+ 
+One solution to the nested function problem discussed in the [Method invocation](#method-invocation) section, is to explicitely change the context of the inner function `calculate()` to the desired one by calling `calculate.call(this)` (an indirect invocation of a function):
+
+```js
+const numbers = {
+  numberA: 5,
+  numberB: 10,
+  sum: function() {
+    console.log(this === numbers); // => true
+
+    function calculate() {
+      console.log(this === numbers); // => true
+      return this.numberA + this.numberB;
+    }
+
+    // use .call() method to modify the context
+    return calculate.call(this);
+  }
+};
+numbers.sum(); // => 15
+```
+ 
 ### Bound function
+`.bind`
 ### Arrow function
+
+Another solution to our nested function issue:
+
+```js
+const numbers = {
+  numberA: 5,
+  numberB: 10,
+  sum: function() {
+    console.log(this === numbers); // => true
+
+    const calculate = () => {
+      console.log(this === numbers); // => true
+      return this.numberA + this.numberB;
+    }
+
+    return calculate();
+  }
+};
+
+numbers.sum(); // => 15
+```
+
+The arrow function binds `this` lexically, so `this` has the same value as the containing `sum()` method.
