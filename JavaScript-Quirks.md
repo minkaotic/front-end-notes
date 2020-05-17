@@ -101,11 +101,12 @@ To solve this, you can either:
 - create a [bound function](#bound-function)
 - rewrite the inner function as an [arrow function](#arrow-function)
 
-##### :warning: Complication 2: separating method from its object:
+##### :warning: Complication 2: separating a method from its object:
 Methods can be extracted from the object and assigned to a variable, e.g. `const alone = myObj.myMethod;` - **in this case calling `alone()` consitutes a function invocation**, so `this` will be either the global object `window` or `undefined`, rather than the object that the method was originally defined on.
 
-- Workaround: a [bound function](#bound-function) `const alone = myObj.myMethod.bind(myObj)` fixes the context by binding `this` to the object that owns the method.
+The same is true when a method is passed by reference as an argument to another function, e.g. `setTimeout(myObj.myMethod, 1000);`
 
+- Workaround: a [bound function](#bound-function) `const alone = myObj.myMethod.bind(myObj)` fixes the context by binding `this` to the object that owns the method. Alternatively, defining `myMethod` as an [arrow function](#arrow-function) achieves the same result.
 
 
 #### CONSTRUCTOR INVOCATION
@@ -114,9 +115,16 @@ let City = function(name, state) {
     this.name = name || 'Portland';
     this.state = state || 'Oregon';
 };
+
+new City('Boulder', 'Colorado');
 ```
-- Constructor functions are essentially the old syntax for object creation, prior to [JS Class Syntax](#js-class-syntax).
-- Here, `this` refers to the instance that will be instantiated when `new City()` is called.
+- Constructor functions are essentially the old syntax for object creation, prior to [JS Class Syntax](#js-class-syntax), but constructor invocation applies equally to constructors defined in class syntax!
+- Essentially, constructor invocation happens anytime a function call is preceded by the `new` keyword.
+- Here, `this` refers to the newly created object that will be instantiated when `new City()` is called.
+
+##### :warning: Complication: not using `new` keyword:
+Oddly enough, it is possible to call a constructor without the `new` keyword. For the above example constructor, calling `City('Boulder', 'Colorado');` would not cause an error - but it would result in the `name` and `state` properties being set *on the global object* (i.e. `window` in the browser), rather than on an instance of `City` - so best avoid this usage and always make sure you use `new` with a constructor call.
+
 
 #### INDIRECT INVOCATION
 A function invoked with `.call`, `.apply` 
