@@ -8,23 +8,22 @@
 _____________
 
 ## `this` in Javascript
-Sources: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) | [Gentle Explanation of "this" in JavaScript](https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/)
+Sources: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) | [w3schools](https://www.w3schools.com/js/js_this.asp) | [Gentle Explanation of "this" in JavaScript](https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/)
 
-**In JS, `this` refers to *the current execution context*.** Used by itself, i.e.:
+**In JS, `this` refers to *the current execution context*.** When used by itself, i.e.:
 ```js
 const x = this;
 ```
-`this` refers to the *global scope* or *global context*; i.e. the `window` object when run in a browser, or the module context when run in Node. But this use by itself, outside of any function scope, is very rare (and not that useful).
+`this` always refers to the *global scope* or *global context*; i.e. the `window` object when run in a browser, or the module context when run in Node. But this use by itself, outside of any function scope, is very rare (and not that useful).
 
-The complexity arises because **where `this` is used within a *function***, the context - and thus the value of `this` - depends on what invocation type the given function is! <br/>
-Moreover, **[`strict` mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)** (a restricted variant of JavaScript, that provides better security and stronger error checking) also affects the execution context!
+The complexity arises because **where `this` is used within a *function***, the context - and thus the value of `this` - depends on what invocation type the given function is! Moreover, **[`strict` mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)** (a restricted variant of JavaScript offering better security and stronger error checking) also affects the execution context within function scopes!
 
 ### Different invocation types
 JS has 4 function invocation types:
-- function invocation: `alert('Hello World!')`
-- method invocation: `console.log('Hello World!')`
-- constructor invocation: `new RegExp('\\d')`
-- indirect invocation: `alert.call(undefined, 'Hello World!')`
+- [function invocation](#function-invocation): `alert('Hello World!')`
+- [method invocation](#method-invocation): `console.log('Hello World!')`
+- [constructor invocation](#constructor-invocation): `new RegExp('\\d')`
+- [indirect invocation](#indirect-invocation): `alert.call(undefined, 'Hello World!')`
 > :point_right: Each invocation type defines the context in its own way.
 
 
@@ -51,14 +50,31 @@ function foo() {
 
 foo();
 ```
+- this is because in non-strict mode, the 'owner' of the function (i.e. global context or `window`) is the default binding for `this`, whereas in strict mode, default bindings are not allowed.
+
 
 #### METHOD INVOCATION
-Within methods on objects
-- see [JS Class Syntax](/Javascript-Syntax.md#js-class-syntax) for an example - although the same possibilities apply to object literals
-- in this case, `this` refers to the (currently executing) object itself, and is usually used to reference its properties
+Refers to functions stored as the property of an object, and therefore called as methods.
+- in this case, `this` refers to the object that owns the method, and is usually used to reference its properties
+- see [JS Class Syntax](/Javascript-Syntax.md#js-class-syntax) for an example - although the same possibilities apply to object literals:
 
-##### :warning: Complication: nested functions of different invocation types
-If you have function nested within a function, the inner function's context only depends on its own invocation type, not on the outer functions context.
+```js
+const calc = {
+  num: 0,
+  increment() {
+    console.log(this === calc); // => true
+    this.num += 1;
+    return this.num;
+  }
+};
+
+// method invocation. this is calc
+calc.increment(); // => 1
+calc.increment(); // => 2
+```
+
+##### :warning: Complication 1: nested functions of different invocation types:
+If you have a function nested within a function, the inner function's context *only depends on its own invocation type*, not on the outer function's context.
 
 ```js
 const numbers = {
@@ -84,6 +100,12 @@ To solve this, you can either:
 - modify the inner function’s context with [indirect invocation](#indirect-invocation)
 - create a [bound function](#bound-function)
 - rewrite the inner function as an [arrow function](#arrow-function)
+
+##### :warning: Complication 2: separating method from its object:
+Methods can be extracted from the object and assigned to a variable, e.g. `const alone = myObj.myMethod;` - **in this case calling `alone()` consitutes a function invocation**, so `this` will be either the global object `window` or `undefined`, rather than the object that the method was originally defined on.
+
+- Workaround: a [bound function](#bound-function) `const alone = myObj.myMethod.bind(myObj)` fixes the context by binding `this` to the object that owns the method.
+
 
 
 #### CONSTRUCTOR INVOCATION
