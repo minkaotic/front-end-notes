@@ -127,9 +127,28 @@ Oddly enough, it is possible to call a constructor without the `new` keyword. Fo
 
 
 #### INDIRECT INVOCATION
-A function invoked with `.call`, `.apply` 
- 
-One solution to the nested function problem discussed in the [Method invocation](#method-invocation) section, is to explicitely change the context of the inner function `calculate()` to the desired one by calling `calculate.call(this)` (an indirect invocation of a function):
+Indirect invocation is performed when a function is called using the `myFunc.call()` or `myFunc.apply()` methods.
+
+> :bulb: Functions in JavaScript are first-class objects, which means that a function is an object. The type of this object is `Function`. From the [list of methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function#Methods) that a function object has, **`.call()` and `.apply()` are used to invoke the function with a configurable context.**
+
+Both `.call()` and `.apply()` take a first argument defining the context of the invocation. The main difference between the two is that
+`.call()` accepts a list of arguments (eg. `myFunc.call(thisValue, 'val1', 'val2')` that specify the args to be passed to the called function (if it takes any), whereas `.apply()` takes a list of values in an array-like object for the same purpose (eg. `myFunc.apply(thisValue, ['val1', 'val2'])`.
+
+```js
+// random object that we want to apply as context
+const rabbit = { name: 'White Rabbit' };
+
+function concatName(string) {
+  console.log(this === rabbit); // => true
+  return string + this.name;
+}
+
+// Indirect invocations
+concatName.call(rabbit, 'Hello ');  // => 'Hello White Rabbit'
+concatName.apply(rabbit, ['Bye ']); // => 'Bye White Rabbit'
+```
+
+:point_right: Thus, one solution to the nested function problem discussed in the [Method invocation](#method-invocation) section, is to explicitely change the context of the inner function `calculate()` to the desired one by calling `calculate.call(this)`:
 
 ```js
 const numbers = {
@@ -151,11 +170,34 @@ numbers.sum(); // => 15
 ```
  
 ### Bound function
-`.bind`
+A bound function is a function whose context and/or arguments are bound to specific values. You create a bound function using the `.bind()` method, which takes a first argument defining the context of the invocation, and an optional list of arguments `arg1, arg2, ...` that are passed as arguments to the called function (if it takes any).
+
+> :bulb: Contrary to `.apply()` and `.call()`, which invoke the function right away, `.bind()` only returns a new function (to be invoked later) with a pre-defined `this` value.
+
+```js
+const numbers = {
+  array: [3, 5, 10],
+
+  getNumbers() {
+    return this.array;
+  }
+};
+
+// Create a bound function
+const boundGetNumbers = numbers.getNumbers.bind(numbers);
+boundGetNumbers(); // => [3, 5, 10]
+
+// Extract method from object
+const simpleGetNumbers = numbers.getNumbers;
+simpleGetNumbers(); // => undefined or throws an error in strict mode
+```
+> :exclamation: `.bind()` makes a **permanent context link** that cannot be changed later, so using `.call()`, `.apply()` or even `bind()` on an already bound function with a different context doesn’t have any effect.
+
 
 ### Arrow function
+An arrow function doesn’t create its own execution context, but takes `this` from the outer function / enclosing context where it is defined. In other words, arrow functions bind `this` lexically.
 
-Another solution to our nested function issue:
+Thus, another solution to our nested function issue in the [Method invocation](#method-invocation) section is to rewrite the inner function as an arrow function:
 
 ```js
 const numbers = {
@@ -176,4 +218,4 @@ const numbers = {
 numbers.sum(); // => 15
 ```
 
-The arrow function binds `this` lexically, so `this` has the same value as the containing `sum()` method.
+Here, the arrow function binds `this` to have the same value as `this` in the containing `sum()` method.
