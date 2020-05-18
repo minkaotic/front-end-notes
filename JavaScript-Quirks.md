@@ -20,14 +20,14 @@ The complexity arises because **where `this` is used within a *function***, the 
 
 ### Different invocation types
 JS has 4 function invocation types:
-- [function invocation](#function-invocation): `alert('Hello World!')`
-- [method invocation](#method-invocation): `console.log('Hello World!')`
-- [constructor invocation](#constructor-invocation): `new RegExp('\\d')`
-- [indirect invocation](#indirect-invocation): `alert.call(undefined, 'Hello World!')`
+1. [function invocation](#1-function-invocation): `alert('Hello World!')`
+1. [method invocation](#2-method-invocation): `console.log('Hello World!')`
+1. [constructor invocation](#3-constructor-invocation): `new RegExp('\\d')`
+1. [indirect invocation](#4-indirect-invocation): `alert.call(undefined, 'Hello World!')`
 > :point_right: Each invocation type defines the context in its own way.
 
 
-#### FUNCTION INVOCATION
+#### 1. FUNCTION INVOCATION
 *a.k.a. 'a normal function call'*
 ```js
 function foo() {
@@ -53,10 +53,10 @@ foo();
 - this is because in non-strict mode, the 'owner' of the function (i.e. global context or `window`) is the default binding for `this`, whereas in strict mode, default bindings are not allowed.
 
 
-#### METHOD INVOCATION
+#### 2. METHOD INVOCATION
 Refers to functions stored as the property of an object, and therefore called as methods.
 - in this case, `this` refers to the object that owns the method, and is usually used to reference its properties
-- see [JS Class Syntax](/Javascript-Syntax.md#js-class-syntax) for an example - although the same possibilities apply to object literals:
+- see [JS Class Syntax notes](/Javascript-Syntax.md#js-class-syntax) for an example - although the same possibilities apply to object literals:
 
 ```js
 const calc = {
@@ -97,7 +97,7 @@ const numbers = {
 numbers.sum(); // => NaN or throws TypeError in strict mode
 ```
 To solve this, you can either:
-- modify the inner function’s context with [indirect invocation](#indirect-invocation)
+- modify the inner function’s context with [indirect invocation](#4-indirect-invocation)
 - create a [bound function](#bound-function)
 - rewrite the inner function as an [arrow function](#arrow-function)
 
@@ -109,7 +109,7 @@ The same is true when a method is passed by reference as an argument to another 
 - Workaround: a [bound function](#bound-function) `const alone = myObj.myMethod.bind(myObj)` fixes the context by binding `this` to the object that owns the method. Alternatively, defining `myMethod` as an [arrow function](#arrow-function) achieves the same result.
 
 
-#### CONSTRUCTOR INVOCATION
+#### 3. CONSTRUCTOR INVOCATION
 ```js
 let City = function(name, state) {
     this.name = name || 'Portland';
@@ -126,7 +126,7 @@ new City('Boulder', 'Colorado');
 Oddly enough, it is possible to call a constructor without the `new` keyword. For the above example constructor, calling `City('Boulder', 'Colorado');` would not cause an error - but it would result in the `name` and `state` properties being set *on the global object* (i.e. `window` in the browser), rather than on an instance of `City` - so best avoid this usage and always make sure you use `new` with a constructor call.
 
 
-#### INDIRECT INVOCATION
+#### 4. INDIRECT INVOCATION
 Indirect invocation is performed when a function is called using the `myFunc.call()` or `myFunc.apply()` methods.
 
 > :bulb: Functions in JavaScript are first-class objects, which means that a function is an object. The type of this object is `Function`. From the [list of methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function#Methods) that a function object has, **`.call()` and `.apply()` are used to invoke the function with a configurable context.**
@@ -148,7 +148,7 @@ concatName.call(rabbit, 'Hello ');  // => 'Hello White Rabbit'
 concatName.apply(rabbit, ['Bye ']); // => 'Bye White Rabbit'
 ```
 
-:point_right: Thus, one solution to the nested function problem discussed in the [Method invocation](#method-invocation) section, is to explicitely change the context of the inner function `calculate()` to the desired one by calling `calculate.call(this)`:
+:point_right: Thus, one solution to the nested function problem discussed in the [Method invocation](#2-method-invocation) section, is to explicitely change the context of the inner function `calculate()` to the desired one by calling `calculate.call(this)`:
 
 ```js
 const numbers = {
@@ -197,7 +197,7 @@ simpleGetNumbers(); // => undefined or throws an error in strict mode
 ### Arrow function
 An arrow function doesn’t create its own execution context, but takes `this` from the outer function / enclosing context where it is defined. In other words, arrow functions bind `this` lexically.
 
-Thus, another solution to our nested function issue in the [Method invocation](#method-invocation) section is to rewrite the inner function as an arrow function:
+Thus, another solution to our nested function issue in the [Method invocation](#2-method-invocation) section is to rewrite the inner function as an arrow function:
 
 ```js
 const numbers = {
@@ -219,3 +219,10 @@ numbers.sum(); // => 15
 ```
 
 Here, the arrow function binds `this` to have the same value as `this` in the containing `sum()` method.
+
+:+1: **Using arrow functions to bind the context is a cleaner and less verbose option than manually binding the context with `.apply()`, `call()`, or `bind()`.**
+
+> :exclamation: As with `.bind()`, arrow function bindings are permanent. The function will remain bound to the lexical context even when using the context modification methods (i.e., using `.apply()`, `call()`, or `bind()` to try and change the context has no effect).
+
+> :warning: As arrow functions always bind the context from their enclosing context, using them when defining methods on an object outside the object declaration itself will cause unintended side-effects and should be avoided. See [this explanation](https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/#72-pitfall-defining-method-with-an-arrow-function) for more detail and an example.
+
