@@ -435,6 +435,15 @@ _______________
   }
   ```
 - To add a property or method to an object literal, simply assign it to the object: `ernie.color = 'black';`
+- Since ES2015, a [shorter syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions) for method definitions is available: 
+  ```js
+  const ernie = {
+      ...
+      bark(){
+        console.log('Woof!');
+      }
+    }
+  ```
 
 ### Accessing object properties & methods
 - Object properties can be accessed through either dot notation or bracket notation:
