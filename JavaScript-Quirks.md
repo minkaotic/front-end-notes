@@ -5,6 +5,7 @@
   - [Different invocation types](#different-invocation-types)
   - [Bound function](#bound-function)
   - [Arrow function](#arrow-function)
+  - [Bonus: `this` in Event Handlers](#bonus-this-in-event-handlers)
 _____________
 
 ## `this` in Javascript
@@ -226,3 +227,22 @@ Here, the arrow function binds `this` to have the same value as `this` in the co
 
 > :warning: As arrow functions always bind the context from their enclosing context, using them when defining methods on an object outside the object declaration itself will cause unintended side-effects and should be avoided. See [this explanation](https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/#72-pitfall-defining-method-with-an-arrow-function) for more detail and an example.
 
+
+### Bonus: `this` in Event Handlers
+When a function is used as a **DOM event handler**, its `this` is set to the **element on which the listener is placed**:
+
+```js
+function bluify(e) {
+  console.log(this === e.currentTarget); // always true
+  console.log(this === e.target); // true when currentTarget and target are the same object
+  this.style.backgroundColor = '#A5D9F3';
+}
+
+var elements = document.getElementsByTagName('*');
+
+// Add bluify as a click listener to all elements
+for (var i = 0; i < elements.length; i++) {
+  elements[i].addEventListener('click', bluify, false);
+}
+```
+> :point_right: For notes on **inline on-event handlers** (e.g. `<button onclick="alert(this.tagName);">`), see [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this#In_an_inline_event_handler).
