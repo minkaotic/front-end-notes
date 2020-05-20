@@ -4,33 +4,33 @@
 ## Contents
 
 ### 📝 Markdown, styling and a11y
-- [HTML Notes](/HTML-Notes.md)
-- [CSS Fundamentals](/CSS-Fundamentals.md)
-- [CSS Layout Techniques](/CSS-Layout-Techniques.md)
-- [SASS Notes](/SASS-Notes.md)
-- [Bootstrap](/Bootstrap.md)
-- [Using SVGs](/Using-SVGs.md)
-- [Accessibility](/Accessibility.md)
+- [HTML Notes](/notes/HTML-Notes.md)
+- [CSS Fundamentals](/notes/CSS-Fundamentals.md)
+- [CSS Layout Techniques](/notes/CSS-Layout-Techniques.md)
+- [SASS Notes](/notes/SASS-Notes.md)
+- [Bootstrap](/notes/Bootstrap.md)
+- [Using SVGs](/notes/Using-SVGs.md)
+- [Accessibility](/notes/Accessibility.md)
 
 ### 🧙 JavaScript & co.
-- [JavaScript Syntax](/Javascript-Syntax.md)
-- [JavaScript & the DOM](/Javascript-and-the-DOM.md)
-- [Asynchrony in JavaScript](/Asychrony-in-JS.md)
-- [JavaScript Quirks](/JavaScript-Quirks.md)
-- [ES Modules](/ES-Modules.md)
-- [TypeScript](/Typescript.md)
-- [AJAX](/AJAX-Notes.md)
+- [JavaScript Syntax](/notes/Javascript-Syntax.md)
+- [JavaScript & the DOM](/notes/Javascript-and-the-DOM.md)
+- [Asynchrony in JavaScript](/notes/Asychrony-in-JS.md)
+- [JavaScript Quirks](/notes/JavaScript-Quirks.md)
+- [ES Modules](/notes/ES-Modules.md)
+- [TypeScript](/notes/Typescript.md)
+- [AJAX](/notes/AJAX-Notes.md)
 
 ### 🏭 Front-end Frameworks
-- [Frameworks Overview](/Frameworks-Overview.md)
-- [React Notes](/React-Notes.md)
-- [Vue.JS Notes](/Vue-JS-Notes.md)
-- [Angular (JS) Notes](/Angular-Notes.md)
-- [ASP.NET (Core) MVC & Razor](/MVC-and-Razor.md)
+- [Frameworks Overview](/notes/Frameworks-Overview.md)
+- [React Notes](/notes/React-Notes.md)
+- [Vue.JS Notes](/notes/Vue-JS-Notes.md)
+- [Angular (JS) Notes](/notes/Angular-Notes.md)
+- [ASP.NET (Core) MVC & Razor](/notes/MVC-and-Razor.md)
 
 ### 🛠️ Building & Testing
-- [Front End Testing](/Front-End-Testing.md)
-- [JavaScript Build Tools](/JavaScript-Build-Tools.md)
+- [Front End Testing](/notes/Front-End-Testing.md)
+- [JavaScript Build Tools](/notes/JavaScript-Build-Tools.md)
 
 ## External introductions
 *Articles & other resources that are useful for reference, and not covered specifically in any of my notes & summaries.*
