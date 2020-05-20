@@ -33,6 +33,7 @@ _______________
 - [ ] https://dmitripavlutin.com/7-architectural-attributes-of-a-reliable-react-component/
 - [ ] https://dmitripavlutin.com/orthogonal-react-components/
 - [ ] https://dmitripavlutin.com/react-fetch-lifecycle-methods-hooks-suspense/
+- [ ] [React Europe 2020 conf videos](https://www.youtube.com/watch?v=nzeL1wZltf0&list=PLCC436JpVnK0Q4WHoB85ZYBwcCyTaMgAl)
 _______________
 
 ## Setup
