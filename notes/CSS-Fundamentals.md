@@ -132,7 +132,7 @@ Add a web font to your style sheet like this:
 
 ## The CSS Box Model
 
-![CSS Box Model](https://github.com/minkaotic/front-end-notes/blob/master/img/box_model.png)
+![CSS Box Model](/img/box_model.png)
 
 ### Borders
 - **Border shorthand**: `border: [width] [style] [color]` - or do each of them individually for control over each side, eg.: `border-width: 10px 20px`, or `border-top: 2px solid lightgrey;`. NB:

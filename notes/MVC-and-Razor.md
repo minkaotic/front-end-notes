@@ -313,7 +313,7 @@ The following example shows how to access properties of the `Request` object and
 
 The result displayed in a browser:
 
-![Request object props](https://github.com/minkaotic/front-end-notes/blob/master/img/request-object-properties.PNG)
+![Request object props](/img/request-object-properties.PNG)
 
 #### Reading user input
 An important feature of dynamic web pages is that you can read user input. In Razor, input is read via `Request["input-name"]`, and posting input is tested by the `IsPost` condition:

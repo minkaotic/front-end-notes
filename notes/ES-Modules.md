@@ -47,7 +47,7 @@ Modules make it possible to group the variables and functions that are related t
 - This is done through explicitely exporting the variables, classes or functions from the module that should be available to others.
 - Other modules can explicitely state that they depend on an exported variable, class or function.
 
-![JS scope with and without modules](https://github.com/minkaotic/front-end-notes/blob/master/img/js-scope.PNG)
+![JS scope with and without modules](/img/js-scope.PNG)
 *Source: [Lin Clark - ES Modules: A Cartoon Deep Dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)*
 
 As an additional benefit on top of avoiding the problems above, the the ability to export and import variables between modules also makes it a lot easier to (re)organise code into small chunks that can work independently of each other, and can be combined and re-combined.

@@ -35,7 +35,7 @@ _______________
 ## Templates & Data
 [Vue](https://vuejs.org/) helps separate a website's *data* from the user's *view* of the website and provides better seperation from the *view logic* (where, when and how certain information is displayed). Vue also allows you to define behaviour and connect data to a template, that is used to render the view.
 
-![Vue.js purpose overview](https://github.com/minkaotic/front-end-notes/blob/master/img/vue_overview.png)
+![Vue.js purpose overview](/img/vue_overview.png)
 
 Every Vue app starts with at least 2 things: some data, and a template (= the representation of how you want the structure of your application - i.e. the HTML - to relate to your data), for example:
 

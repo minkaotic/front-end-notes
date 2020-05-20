@@ -64,11 +64,11 @@ The [`ng-model`](#adding-data-to-an-app-using-ng-model) directive is a great exa
   
 - ***Scope*** is the part of the application that allows you to manipulate data and make changes to the user interface. Every controller, directive and view can have its own scope.
 
-  ![Angular concepts](https://github.com/minkaotic/front-end-notes/blob/master/img/angular-concepts.png)
+  ![Angular concepts](/img/angular-concepts.png)
 
 - A controller and directive can also share scope - as in, a place where they can access the same data and variables.
 
-  ![Angular shared scope](https://github.com/minkaotic/front-end-notes/blob/master/img/angular-shared-scope.png)
+  ![Angular shared scope](/img/angular-shared-scope.png)
 
 - Each controller's scope inherits from the `$rootScope`, of which there is one per application. It is best practice to not use `$rootScope` directly, as any variables created here are available anywhere in the application (defying the idea of sensible scoping).
 - Controllers can be nested within one another in the template, in which case the child controller's scope will inherit the functions and values of the parent controller's scope. In other words, anything on the parent controller's scope will be accessible to both the parent and the child controller.

@@ -251,7 +251,7 @@ _______________
 
 An event received by an element doesn't stop with that one element. That event moves to other elements like the parent, and other ancestors of the element. This is called "event bubbling".
 
-![DOM tree](https://github.com/minkaotic/front-end-notes/blob/master/img/dom_tree.png)
+![DOM tree](/img/dom_tree.png)
 
 This is useful because it allows us to add an event listener to a parent element and let it handle events on its children:
 - without the need for *for loops* for each child that we want the event to be handled for

@@ -41,7 +41,7 @@ Other CSS reset methods:
 ### Layout Wrapper
 A *wrapper* (or *container*) is commonly used to center a layout on the page. The wrapper keeps a layout from looking too wide or too narrow depending on the device or viewport width.
 
-![Wrapper diagram](https://github.com/minkaotic/front-end-notes/blob/master/img/wrapper_diagram.png)
+![Wrapper diagram](/img/wrapper_diagram.png)
 
 Using a wrapper `div` to contain the other elements on the page:
 
@@ -97,7 +97,7 @@ The question of where you should set your breakpoints is much debated, with the 
 1. **Breakpoints between clusters of screen sizes:** fit breakpoints around clusters of common screen sizes - see diagram below
 1. **Breakpoints based on content:** Rather than being defined by devices, breakpoints reflect the points at which a given design 'breaks' (stops working well) and needs to be adjusted
 
-![Breakpoints according to camp 2](https://github.com/minkaotic/front-end-notes/blob/master/img/breakpoints.png)
+![Breakpoints according to camp 2](/img/breakpoints.png)
 *Breakpoints between clusters of screen sizes ([Source](https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862))*
 
 - According to this perspective from the 2nd camp, sensible breakpoints would be `600, 900, 1200, 1800`
@@ -190,7 +190,7 @@ Floats are one of the most commonly used methods for laying out a page with CSS.
 #### Collapsing parents
 If a block element contains floated children, its height will collapse (bar any `padding` or fixed `height` value), causing elements to overlap where they shouldn't...
 
-![Collapsing Height](https://github.com/minkaotic/front-end-notes/blob/master/img/float-collapsing-height.png)
+![Collapsing Height](/img/float-collapsing-height.png)
 
 Options for resolving this:
 
@@ -252,7 +252,7 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 
 > Flexbox plays an important role in modern [responsive web design](#responsive-design) due to it's ability to easily switch between a vertical column layout (more suited to mobile sceens) and a horizontal layout of the items in a container (better suited to tablet and desktop screens).
 
-![Layout examples using Flexbox](https://github.com/minkaotic/front-end-notes/blob/master/img/flexbox-example.png)
+![Layout examples using Flexbox](/img/flexbox-example.png)
 
 ### Flex container properties
 ***To define a flex container***, and turn all its direct children into flex items, set the `display` property of an element to one of the flexbox layout values: `flex` or `inline-flex`:
@@ -268,7 +268,7 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 - **Distribute items along main axis:**
   - The **`justify-content`** property will distribute the space that's available after the container's padding and items' margins are accounted for. It defaults to `flex-start`, which places items towards the start of each flex line. By contrast, `justify-content: center;` will center the items on the line, and `justify-content: space-between;` and `..space-around;` will *evenly* distribute the children across a line.
   - If you want to distribute some items to the left and some to the right, with space in between, you can use `margin-right: auto;` on the *flex item* after which the dynamic gap should be inserted:
-  ![Flex and margin: auto](https://github.com/minkaotic/front-end-notes/blob/master/img/flex-and-margin-auto.png)
+  ![Flex and margin: auto](/img/flex-and-margin-auto.png)
   - This also works well in a flex `column` layout, when wanting to align an item (such as a CTA) to the bottom of the container.
 
 - **Distribute items along cross axis:**
