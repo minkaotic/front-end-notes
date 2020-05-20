@@ -3,7 +3,7 @@
 
 ## Contents
 
-### HTML, CSS & SVGs
+### 📝 Markdown, styling and a11y
 - [HTML Notes](/HTML-Notes.md)
 - [CSS Fundamentals](/CSS-Fundamentals.md)
 - [CSS Layout Techniques](/CSS-Layout-Techniques.md)
@@ -12,7 +12,7 @@
 - [Using SVGs](/Using-SVGs.md)
 - [Accessibility](/Accessibility.md)
 
-### JavaScript & co.
+### 🧙 JavaScript & co.
 - [JavaScript Syntax](/Javascript-Syntax.md)
 - [JavaScript & the DOM](/Javascript-and-the-DOM.md)
 - [Asynchrony in JavaScript](/Asychrony-in-JS.md)
@@ -21,18 +21,19 @@
 - [TypeScript](/Typescript.md)
 - [AJAX](/AJAX-Notes.md)
 
-### Frontend Frameworks
+### 🏭 Front-end Frameworks
 - [Frameworks Overview](/Frameworks-Overview.md)
 - [React Notes](/React-Notes.md)
 - [Vue.JS Notes](/Vue-JS-Notes.md)
 - [Angular (JS) Notes](/Angular-Notes.md)
 - [ASP.NET (Core) MVC & Razor](/MVC-and-Razor.md)
 
-### Building & Testing
+### 🛠️ Building & Testing
 - [Front End Testing](/Front-End-Testing.md)
 - [JavaScript Build Tools](/JavaScript-Build-Tools.md)
 
 ## External introductions
 *Articles & other resources that are useful for reference, and not covered specifically in any of my notes & summaries.*
 
+- [Front-End Developer Roadmap](https://roadmap.sh/frontend)
 - [Learn How HTTP Cookies Work](https://flaviocopes.com/cookies/)
