@@ -240,7 +240,7 @@ header {
 ```
 ➭ since both `<nav>` and `<ul>` are block-level elements, the navigation elements won't be centered
 
-To fix this, set `<nav>` to `display: inline-block;` - et voila! :raised_hands:
+To fix this, set `<nav>` to `display: inline-block;` - et voila! :raised_hands: ([Codepen here!](https://codepen.io/minkaotic/pen/JjYwVpz))
 
 
 ## Flexbox
