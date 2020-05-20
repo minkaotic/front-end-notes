@@ -1,4 +1,4 @@
-# Notes & Learnings about Front End Development
+# 👩‍💻 Notes & Learnings about Front End Development
 *Largely based on https://teamtreehouse.com/tracks/front-end-web-development and related courses on that platform. Other resources detailed as applicable in each section.*
 
 ## Contents
