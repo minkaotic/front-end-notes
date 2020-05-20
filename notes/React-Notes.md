@@ -29,6 +29,7 @@ _______________
 - [ ] Look into testing: [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html) | [React Testing Library intro](https://testing-library.com/docs/react-testing-library/example-intro)
 - [ ] Set up a practice project locally (also see [this article](https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html) for more setup bantz)
 - [ ] [React Authentication workshop](https://teamtreehouse.com/library/react-authentication/introducing-the-authentication-project/what-is-basic-authentication)
+
 **Bonus!**
 - [ ] https://dmitripavlutin.com/7-architectural-attributes-of-a-reliable-react-component/
 - [ ] https://dmitripavlutin.com/orthogonal-react-components/
