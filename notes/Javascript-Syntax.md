@@ -19,6 +19,7 @@
   - [`reduce()`](#the-reduce-method)
   - [`find()`](#the-find-method)
 - **[Spread Operator & Rest Parameters](#spread-operator--rest-parameters)**
+  - [Destructuring](#destructuring)
 - **[Objects & Classes](#objects--classes)**
   - [Object literals](#object-literals)
   - [Accessing object properties & methods](#accessing-object-properties--methods)
@@ -476,7 +477,7 @@ _______________
 
 > :bulb: Even though both use the `...` syntax and thus look quite similar, they are pretty different. Whilst a rest parameter *collects* the arguments passed to a function, a spread operator *expands* an array (or any type of expression).
 
-### Rest parameter example
+#### Rest parameter example
 
 ```js
 function myFunction(name, ...params) { 
@@ -491,6 +492,60 @@ myFunction('Andrew', 1)                    // Andrew [ 1 ]
 - it must be the *last parameter* defined in the function signature
 - can be named anything - doesn't have to be `params`
 
+#### Spread operator examples
+
+1. Spread operator passes ("spreads") all the values of `originalFlavors` and `newFlavors` into the `inventory` array:
+```js
+const originalFlavors = ['Chocolate', 'Vanilla'];
+const newFlavors = ['Strawberry', 'Mint Chocolate Chip'];
+
+const inventory = ['Rocky Road', ...originalFlavors, 'Neapolitan', ...newFlavors];
+
+console.log(inventory);
+// [ 'Rocky Road', 'Chocolate', 'Vanilla', 'Neapolitan', 'Strawberry', 'Mint Chocolate Chip' ]
+```
+
+2. Spread operator splits array into single values to be passed to a function as separate arguments:
+
+```js
+function myFunction (name, iceCreamFlavor) {
+  console.log(`${name} really likes ${iceCreamFlavor} ice cream.`)
+}
+
+const args = ['Gabe', 'Vanilla'];
+
+myFunction(...args);
+```
+
+### Destructuring
+[Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) makes it possible to extract values from arrays or object, then assign those values to distinct variables.
+
+#### Destructuring objects:
+```js
+// given an object
+let toybox = { item1: 'car', item2: 'frisbee', item3: 'ball' };
+
+// destructure some of its properties
+let {item1, item3} = toybox;
+
+// destructure property to a differently named variable
+let {item2: disc} = toybox;
+
+console.log(item1, item3, disc);  // car ball frisbee
+```
+:point_right: the destructured variables either need to match the property key, or they need to be associated with the key using `{keyName: varName}` syntax.
+
+#### Destructuring arrays: 
+```js
+let widgets = ['widget1', 'widget2', 'widget3', 'widget4', 'widget5'];
+
+// use destructuring to assign first 3 items to distinct variables,
+// using spread operator to store remaining items into separate array
+let [a, b, c, ...d ] = widgets;
+
+console.log(a);  // widget 1
+console.log(d);  // [ 'widget4', 'widget5' ]
+```
 
 
 _______________
