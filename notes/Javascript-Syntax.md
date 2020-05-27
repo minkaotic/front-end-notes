@@ -472,6 +472,25 @@ _______________
 
 ## Spread Operator & Rest Parameters
 
+[Rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) let you specify an unknown number of parameters. The [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) lets you specify an unknown number of array properties, which allows you to quickly build and manipulate arrays. 
+
+> :bulb: Even though both use the `...` syntax and thus look quite similar, they are pretty different. Whilst a rest parameter *collects* the arguments passed to a function, a spread operator *expands* an array (or any type of expression).
+
+### Rest parameter example
+
+```js
+function myFunction(name, ...params) { 
+  console.log(name, params);
+}
+
+myFunction('Andrew', 1, 2, 3, 'kittens');  // Andrew [ 1, 2, 3, 'kittens' ]
+myFunction('Andrew', 1)                    // Andrew [ 1 ]
+```
+**Things to note:**
+- the rest parameter gathers any number of parameters given to a function into an array
+- it must be the *last parameter* defined in the function signature
+- can be named anything - doesn't have to be `params`
+
 
 
 _______________
