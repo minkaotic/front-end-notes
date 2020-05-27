@@ -117,6 +117,8 @@ document.querySelector('.vegetables').innerHTML = vegetableList;
 ### Default Parameters
 [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) let you set default values for parameters accepted by a function. 
 
+Default values can be strings, booleans, objects, arrays or functions.
+
 ```js
 function greet(name = 'Guil', timeOfDay = 'Day') {
   console.log(`Good ${timeOfDay}, ${name}!`);
@@ -132,7 +134,7 @@ greet(undefined, 'Afternoon');  // Good Afternoon, Guil!
 
 
 ### String Search Methods
-`startsWith`, `endsWith` and `includes` essentially replace the cumbersome `indexOf` method.
+`startsWith()`, `endsWith()` and `includes()` essentially replace the cumbersome `indexOf()` method.
 
 Given:
 ```javascript
