@@ -5,6 +5,7 @@
   - [Data Types](#data-types)
   - [`const` & `let` in JavaScript](#const--let-in-javascript)
   - [Template Literals](#template-literals)
+  - [Default Parameters](#default-parameters)
   - [String Search Methods](#string-search-methods)
 - **[Arrow Functions](#arrow-functions)**
   - [First Class Functions in JS](#first-class-functions-in-js)
@@ -112,6 +113,23 @@ const vegetableList =
 document.querySelector('.fruits').innerHTML = fruitList;
 document.querySelector('.vegetables').innerHTML = vegetableList;
 ```
+
+### Default Parameters
+[Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) let you set default values for parameters accepted by a function. 
+
+```js
+function greet(name = 'Guil', timeOfDay = 'Day') {
+  console.log(`Good ${timeOfDay}, ${name}!`);
+}
+
+greet();                        // Good Day, Guil!
+greet('Hermes');                // Good Day, Hermes!
+greet('Hermes', 'Morning');     // Good Morning, Hermes!
+greet(undefined, 'Afternoon');  // Good Afternoon, Guil!
+```
+
+:exclamation: Note the use of `undefined` to use the default value for the first parameter, whilst setting a value for the second. By comparison, when only setting the first parameter (`greet('Hermes')`), this isn't needed.
+
 
 ### String Search Methods
 `startsWith`, `endsWith` and `includes` essentially replace the cumbersome `indexOf` method.
