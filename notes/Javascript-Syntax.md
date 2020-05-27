@@ -10,12 +10,14 @@
   - [First Class Functions in JS](#first-class-functions-in-js)
   - [Example with Callback](#example-with-callback)
   - [Immediately-invoked function expression](#immediately-invoked-function-expression)
+  - [Neater code!](#neater-code)
 - **[Loops & Iteration Methods](#loops--iteration-methods)**
   - [Various Loops](#various-loops)
   - [`filter()`](#the-filter-method)
   - [`map()`](#the-map-method)
   - [`reduce()`](#the-reduce-method)
   - [`find()`](#the-find-method)
+- **[Spread Operator & Rest Parameters](#spread-operator--rest-parameters)**
 - **[Objects & Classes](#objects--classes)**
   - [Object literals](#object-literals)
   - [Accessing object properties & methods](#accessing-object-properties--methods)
@@ -267,6 +269,33 @@ console.log(message) // => 'Hello World!'
 
 :point_right: *We basically have a function defined inside parentheses, and then we append `()` to execute that function.* The wrapping parantheses turn the function declaration into an expression. The invoking parentheses at the end can alternatively be inside the wrapping parentheses too: `(() => {...}())`.
 
+### Neater code!
+:bulb: Due to their [lexical context binding](https://github.com/minkaotic/front-end-notes/blob/master/notes/JavaScript-Quirks.md#arrow-function) and simpler syntax, arrow functions have potential to greatly simplify our code - see [the second part of this video](https://teamtreehouse.com/library/arrow-functions) for an extreme example using IIFEs to resolve promises on a class method, where rewriting the following method inside a `classroom` object using arrow syntax:
+
+```js
+this.greet = function () {
+  this.teacher.greet(this.students.length).then(
+    // IIFE wrapping to ensure context is set as classroom object - not needed when using arrow functions!
+    (function (classroom) {
+      return function (greeting) {
+        console.log(`${classroom.teacher.name} says: `, greeting);
+      }
+    })(this),
+    function (err) {
+      console.log(err);
+    }
+  )
+}
+```
+...results in *this*!
+```js
+this.greet = () => {
+  this.teacher.greet(this.students.length).then(
+    greeting => console.log(`${classroom.teacher.name} says: `, greeting),
+    err => console.log(err));
+}
+```
+
 _______________
 
 ## Loops & Iteration Methods
@@ -418,6 +447,12 @@ const startsWithG = names.reduce((sum, name) => {
 ```
 
 ### The `find()` method
+
+_______________
+
+## Spread Operator & Rest Parameters
+
+
 
 _______________
 
