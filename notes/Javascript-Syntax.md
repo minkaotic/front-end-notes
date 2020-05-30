@@ -650,6 +650,20 @@ console.log(item1, item3, disc);  // car ball frisbee
 ```
 :point_right: the destructured variables either need to match the property key, or they need to be associated with the key using `{keyName: varName}` syntax.
 
+##### Destructuring nested objects:
+```js
+let parentObject = {
+  title: 'Super Important',
+  childObject: {
+    title: 'Equally Important'
+  }
+}
+
+let { title, childObject: { title: childTitle } } = parentObject
+
+console.log(childTitle);  // 'Equally Important'
+```
+
 #### Destructuring arrays: 
 - Whilst destructuring objects uses curly braces (`let {prop1, prop2, prop3} = myObj`), destructuring arrays ues square brackets (`let [a, b, c] = myArray`).
 - Since we're dealing with arrays, we can combine destructuring with the spread operator.
