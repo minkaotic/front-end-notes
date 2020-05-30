@@ -5,8 +5,9 @@
   - [Data Types](#data-types)
   - [`const` & `let` in JavaScript](#const--let-in-javascript)
   - [Template Literals](#template-literals)
-  - [Default Parameters](#default-parameters)
   - [String Search Methods](#string-search-methods)
+  - [Default Parameters](#default-parameters)
+  - [Spread Operator & Rest Parameters](#spread-operator--rest-parameters)
 - **[Arrow Functions](#arrow-functions)**
   - [First Class Functions in JS](#first-class-functions-in-js)
   - [Example with Callback](#example-with-callback)
@@ -18,17 +19,16 @@
   - [`map()`](#the-map-method)
   - [`reduce()`](#the-reduce-method)
   - [`find()`](#the-find-method)
-- **[Spread Operator & Rest Parameters](#spread-operator--rest-parameters)**
-  - [Destructuring](#destructuring)
 - **[Objects & Classes](#objects--classes)**
   - [Object literals](#object-literals)
   - [Accessing object properties & methods](#accessing-object-properties--methods)
   - [JS Class Syntax](#js-class-syntax)
   - [Getters & Setters](#getters--setters)
-
+- **[Destructuring](#destructuring)**
 _______________
 
 ## Language Fundamentals / ES2015
+> Whilst many of the syntax features described in this doc were introduced in ES2015, this section focuses on those that are more quickly explained. Other ES2015 features ([arrow functions](#arrow-functions), [destructuring](#destructuring)) have their own dedicated section, or are covered as part of a wider subject (e.g. [`find()`](#the-find-method) in [Loops & Iteration Methods](#loops--iteration-methods)).
 
 ### Data Types
 The latest ECMAScript standard defines seven data types for JavaScript - **six [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) data types:**
@@ -58,7 +58,7 @@ let x;
 alert(typeof x); // returns "undefined"
 ```
 
-### const & let in JavaScript
+### `const` & `let` in JavaScript
 **Best practice:**
 > `const` is your first / best option when declaring variables in JavaScript, as it avoids re-assignment bugs. Use `let` only if you have an explicit need to re-assign a given variable. However, you may need to use `var` if there is a need to support older browsers - check *[Can I Use](https://caniuse.com/#search=let)*.
 
@@ -115,25 +115,6 @@ document.querySelector('.fruits').innerHTML = fruitList;
 document.querySelector('.vegetables').innerHTML = vegetableList;
 ```
 
-### Default Parameters
-[Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) let you set default values for parameters accepted by a function. 
-
-Default values can be strings, booleans, objects, arrays or functions.
-
-```js
-function greet(name = 'Guil', timeOfDay = 'Day') {
-  console.log(`Good ${timeOfDay}, ${name}!`);
-}
-
-greet();                        // Good Day, Guil!
-greet('Hermes');                // Good Day, Hermes!
-greet('Hermes', 'Morning');     // Good Morning, Hermes!
-greet(undefined, 'Afternoon');  // Good Afternoon, Guil!
-```
-
-:exclamation: Note the use of `undefined` to use the default value for the first parameter, whilst setting a value for the second. By comparison, when only setting the first parameter (`greet('Hermes')`), this isn't needed.
-
-
 ### String Search Methods
 `startsWith()`, `endsWith()` and `includes()` essentially replace the cumbersome `indexOf()` method.
 
@@ -165,6 +146,72 @@ if (stringToSearch.includes('nice')) {...}
 
 - `startsWith` and `includes` take an optional second parameter to specify the index at which to start searching
 - `endsWith` takes an optional second parameter to specify the index at which to end the search
+
+
+### Default Parameters
+[Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) let you set default values for parameters accepted by a function. 
+
+Default values can be strings, booleans, objects, arrays or functions.
+
+```js
+function greet(name = 'Guil', timeOfDay = 'Day') {
+  console.log(`Good ${timeOfDay}, ${name}!`);
+}
+
+greet();                        // Good Day, Guil!
+greet('Hermes');                // Good Day, Hermes!
+greet('Hermes', 'Morning');     // Good Morning, Hermes!
+greet(undefined, 'Afternoon');  // Good Afternoon, Guil!
+```
+
+:exclamation: Note the use of `undefined` to use the default value for the first parameter, whilst setting a value for the second. By comparison, when only setting the first parameter (`greet('Hermes')`), this isn't needed.
+
+
+### Spread Operator & Rest Parameters
+
+[Rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) let you specify an unknown number of parameters. The [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) lets you specify an unknown number of array properties, which allows you to quickly build and manipulate arrays. 
+
+> :bulb: Even though both use the `...` syntax and thus look quite similar, they are pretty different. Whilst a rest parameter *collects* the arguments passed to a function, a spread operator *expands* an array (or any type of expression).
+
+#### Rest parameter example
+
+```js
+function myFunction(name, ...params) { 
+  console.log(name, params);
+}
+
+myFunction('Andrew', 1, 2, 3, 'kittens');  // Andrew [ 1, 2, 3, 'kittens' ]
+myFunction('Andrew', 1)                    // Andrew [ 1 ]
+```
+**Things to note:**
+- the rest parameter gathers any number of parameters given to a function into an array
+- it must be the *last parameter* defined in the function signature
+- can be named anything - doesn't have to be `params`
+
+#### Spread operator examples
+
+1. Spread operator passes ("spreads") all the values of `originalFlavors` and `newFlavors` into the `inventory` array:
+```js
+const originalFlavors = ['Chocolate', 'Vanilla'];
+const newFlavors = ['Strawberry', 'Mint Chocolate Chip'];
+
+const inventory = ['Rocky Road', ...originalFlavors, 'Neapolitan', ...newFlavors];
+
+console.log(inventory);
+// [ 'Rocky Road', 'Chocolate', 'Vanilla', 'Neapolitan', 'Strawberry', 'Mint Chocolate Chip' ]
+```
+
+2. Spread operator splits array into single values to be passed to a function as separate arguments:
+
+```js
+function myFunction (name, iceCreamFlavor) {
+  console.log(`${name} really likes ${iceCreamFlavor} ice cream.`)
+}
+
+const args = ['Gabe', 'Vanilla'];
+
+myFunction(...args);
+```
 
 _______________
 
@@ -469,84 +516,6 @@ const startsWithG = names.reduce((sum, name) => {
 
 ### The `find()` method
 
-_______________
-
-## Spread Operator & Rest Parameters
-
-[Rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) let you specify an unknown number of parameters. The [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) lets you specify an unknown number of array properties, which allows you to quickly build and manipulate arrays. 
-
-> :bulb: Even though both use the `...` syntax and thus look quite similar, they are pretty different. Whilst a rest parameter *collects* the arguments passed to a function, a spread operator *expands* an array (or any type of expression).
-
-#### Rest parameter example
-
-```js
-function myFunction(name, ...params) { 
-  console.log(name, params);
-}
-
-myFunction('Andrew', 1, 2, 3, 'kittens');  // Andrew [ 1, 2, 3, 'kittens' ]
-myFunction('Andrew', 1)                    // Andrew [ 1 ]
-```
-**Things to note:**
-- the rest parameter gathers any number of parameters given to a function into an array
-- it must be the *last parameter* defined in the function signature
-- can be named anything - doesn't have to be `params`
-
-#### Spread operator examples
-
-1. Spread operator passes ("spreads") all the values of `originalFlavors` and `newFlavors` into the `inventory` array:
-```js
-const originalFlavors = ['Chocolate', 'Vanilla'];
-const newFlavors = ['Strawberry', 'Mint Chocolate Chip'];
-
-const inventory = ['Rocky Road', ...originalFlavors, 'Neapolitan', ...newFlavors];
-
-console.log(inventory);
-// [ 'Rocky Road', 'Chocolate', 'Vanilla', 'Neapolitan', 'Strawberry', 'Mint Chocolate Chip' ]
-```
-
-2. Spread operator splits array into single values to be passed to a function as separate arguments:
-
-```js
-function myFunction (name, iceCreamFlavor) {
-  console.log(`${name} really likes ${iceCreamFlavor} ice cream.`)
-}
-
-const args = ['Gabe', 'Vanilla'];
-
-myFunction(...args);
-```
-
-### Destructuring
-[Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) makes it possible to extract values from arrays or object, then assign those values to distinct variables.
-
-#### Destructuring objects:
-```js
-// given an object
-let toybox = { item1: 'car', item2: 'frisbee', item3: 'ball' };
-
-// destructure some of its properties
-let {item1, item3} = toybox;
-
-// destructure property to a differently named variable
-let {item2: disc} = toybox;
-
-console.log(item1, item3, disc);  // car ball frisbee
-```
-:point_right: the destructured variables either need to match the property key, or they need to be associated with the key using `{keyName: varName}` syntax.
-
-#### Destructuring arrays: 
-```js
-let widgets = ['widget1', 'widget2', 'widget3', 'widget4', 'widget5'];
-
-// use destructuring to assign first 3 items to distinct variables,
-// using spread operator to store remaining items into separate array
-let [a, b, c, ...d ] = widgets;
-
-console.log(a);  // widget 1
-console.log(d);  // [ 'widget4', 'widget5' ]
-```
-
 
 _______________
 
@@ -659,4 +628,36 @@ class Pet {
 const elsie = new Pet();
 elsie.owner = 'Mia';
 console.log(elsie.owner);
+```
+
+_______________
+
+### Destructuring
+[Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) makes it possible to extract values from arrays or object, then assign those values to distinct variables.
+
+#### Destructuring objects:
+```js
+// given an object
+let toybox = { item1: 'car', item2: 'frisbee', item3: 'ball' };
+
+// destructure some of its properties
+let {item1, item3} = toybox;
+
+// destructure property to a differently named variable
+let {item2: disc} = toybox;
+
+console.log(item1, item3, disc);  // car ball frisbee
+```
+:point_right: the destructured variables either need to match the property key, or they need to be associated with the key using `{keyName: varName}` syntax.
+
+#### Destructuring arrays: 
+```js
+let widgets = ['widget1', 'widget2', 'widget3', 'widget4', 'widget5'];
+
+// use destructuring to assign first 3 items to distinct variables,
+// using spread operator to store remaining items into separate array
+let [a, b, c, ...d ] = widgets;
+
+console.log(a);  // widget 1
+console.log(d);  // [ 'widget4', 'widget5' ]
 ```
