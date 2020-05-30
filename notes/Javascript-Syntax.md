@@ -651,13 +651,42 @@ console.log(item1, item3, disc);  // car ball frisbee
 :point_right: the destructured variables either need to match the property key, or they need to be associated with the key using `{keyName: varName}` syntax.
 
 #### Destructuring arrays: 
+- Whilst destructuring objects uses curly braces (`let {prop1, prop2, prop3} = myObj`), destructuring arrays ues square brackets (`let [a, b, c] = myArray`).
+- Since we're dealing with arrays, we can combine destructuring with the spread operator.
+
 ```js
 let widgets = ['widget1', 'widget2', 'widget3', 'widget4', 'widget5'];
 
 // use destructuring to assign first 3 items to distinct variables,
-// using spread operator to store remaining items into separate array
+// and store remaining items into separate array using spread operator
 let [a, b, c, ...d ] = widgets;
 
 console.log(a);  // widget 1
 console.log(d);  // [ 'widget4', 'widget5' ]
 ```
+
+#### Destructuring to set default values for function parameters:
+- Objects are commonly passed as parameters to a function
+- Sometimes we may want to set default parameters for some of the properties of an object used in function, in case that property isn't set on the object passed
+- Destructuring the object in the function's parameter definition allows us to do this!
+- in this case, rather than specifying the object parameter (`function getData(myObj) {...}`), we specify all the properties of the object we care about: `function getData({prop1, prop2, prop3 = 'foo'} = {}) {}`
+
+In the following example, for whatever reason we are happy with the passed object's `url` property being null or undefined, but want to set a default of `'post'` for it's `method` property to fall back to:
+```js
+// destructuring the passed object in the parameter definition
+function getData({ url, method = 'post' } = {}, callback) {
+  callback(url, method);
+}
+
+getData({ url: 'myposturl.com' }, function (url, method) {
+  console.log(url, method);
+});
+// myposturl.com post
+
+getData({ url: 'myputurl.com', method: 'put' }, function (url, method) {
+ console.log(url, method);
+});
+// myputurl.com put
+```
+
+
