@@ -527,7 +527,7 @@ _______________
     species: 'dog',
     age: 1,
     breed: 'pug',
-    bark: function(){
+    bark: function() {
       console.log('Woof!');
     }
   }
@@ -537,11 +537,29 @@ _______________
   ```js
   const ernie = {
       ...
-      bark(){
+      bark() {
         console.log('Woof!');
       }
     }
   ```
+#### Object property shorthand 
+Also since ES2015, [object property shorthand](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) provides a shorter syntax for defining property keys in objects: when the interpreter encounters a variable assignment without a property key, *the variable name itself is used as the property key*.
+
+```js
+function submit(name, comments, rating = 5) {  
+  let data = { name, comments, rating };  // object property shorthand
+  
+  for (let key in data) {
+    console.log(key + ':', data[key]);
+  }
+}
+              
+submit('Paul', 'What a lovely man!', 10);
+// name: Paul
+// comments: What a lovely man!
+// rating: 10
+```
+
 
 ### Accessing object properties & methods
 - Object properties can be accessed through either dot notation or bracket notation:
@@ -600,7 +618,7 @@ ernie.speak();
 ```js
 class Pet {
   get activity() {
-    ///code to return something
+    // code to return something
   }
 }
 
