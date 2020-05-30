@@ -384,7 +384,7 @@ _______________
 
   movies.forEach( movie => alert(movie) );
   ```
-> :zap: Unlike the older [`for`](#for) and [`while`](#while) loops, you cannot break out of `forEach` early, it always runs on all members of the array.
+> :zap: Unlike the older [`for`](#for) and [`while`](#while) loops, **`forEach` does not allow to break out early, it always runs on all members of the array.** ES2015 introduced [`for...of`](#forof) to provide additional capabilities, incl. breaking out early. 
 
 > :bulb: The [`forEach`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) callback function takes two additional optional parameters: `index` - the index in the array of the current item, and `array`, the whole array.
 
@@ -394,6 +394,22 @@ _______________
   for (let movie of movies) {
     console.log(movie);
   }
+  ```
+- Unlike `forEach`, `for...of` allows you to *break out of a loop early* when needed!
+  ```js
+  let teachers = [
+    { name: 'Ken', comments: 'Amazing', rating: 4 },
+    { name: 'Nick', comments: 'Automating', rating: 6 },
+    { name: 'Sarah', comments: 'Amplifying', rating: 7 },
+    { name: 'Alena', comments: 'Appending', rating: 8 }
+  ];
+
+  for(let teacher of teachers => {
+    if (teacher.name === 'Nick') {
+      console.log(teacher.rating);
+      break; // skip checking rest of array items as it isn't needed
+    }
+  });
   ```
 - It can also do funky things when used on some types of iterables, such operating on both the `key` and `value` of a `Map` object:
   ```js
