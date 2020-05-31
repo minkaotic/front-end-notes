@@ -213,6 +213,14 @@ const args = ['Gabe', 'Vanilla'];
 myFunction(...args);
 ```
 
+
+> :bulb: You can in fact use the spread operator **on *any* [iterables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)**, not just arrays! This includes: strings, Sets, Maps and even Generator functions!
+
+Spread operator used on a string:
+```js
+...'abc' // -> 'a', 'b', 'c'
+```
+
 _______________
 
 ## Arrow Functions
