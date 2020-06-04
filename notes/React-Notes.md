@@ -529,9 +529,7 @@ class App extends Component {
     return (
       <Provider value={this.state.importantThing}>
         <div className="main">
-          <ChildComp1>
-            <GrandChildComp />
-          </ChildComp1>
+          <ChildComp1 />  // which contains a <GrandChildComp /> that needs to access importantThing
           <ChildComp2 />
           <ChildComp3 />          
         </div>
