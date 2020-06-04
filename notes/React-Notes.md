@@ -26,6 +26,8 @@ _______________
   - [ ] Extra reading: [Why we need to bind event handlers in Class Components in React](https://www.freecodecamp.org/news/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb/)
   - [ ] Extra reading: [React - To bind, or not to bind](https://medium.com/shoutem/react-to-bind-or-not-to-bind-7bf58327e22a)
 - [ ] Finish [Learn React](https://teamtreehouse.com/tracks/learn-react) track on Treehouse
+  - [ ] revisit [this video](https://teamtreehouse.com/library/the-provider-and-consumer-solution) at 2:19 and make separate notes about using spread operator for props!
+  - [ ] also make separate notes about https://reactjs.org/docs/render-props.html
 - [ ] Look into testing: [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html) | [React Testing Library intro](https://testing-library.com/docs/react-testing-library/example-intro)
 - [ ] Set up a practice project locally (also see [this article](https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html) for more setup bantz)
 - [ ] [React Authentication workshop](https://teamtreehouse.com/library/react-authentication/introducing-the-authentication-project/what-is-basic-authentication)
