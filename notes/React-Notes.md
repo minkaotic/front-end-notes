@@ -515,6 +515,7 @@ Next, set up Provider in `src\components\App.js`:
 - this Provider component provides the data that needs to be shared in the component tree
 - the Provider component requires a `value` prop to share data (usually the application state, and any actions / event handlers shared between components) - any descendent component will have access to this
 ```js
+import React from 'react';
 import { Provider } from './Context';
 
 class App extends Component {
@@ -542,6 +543,7 @@ Finally, set up Consumers that will subscribe to the Provider in order to make u
 > :bulb: [**Render props**](https://reactjs.org/docs/render-props.html) is a pattern/technique in React for sharing code between components, by using a prop whose value is a function that returns a React element. It is also sometimes called 'function as a child', because you can also write the function in between the opening and closing tags of the component.
 
 ```js
+import React from 'react';
 import { Consumer } from './Context';
 
 const Stats = () => {
