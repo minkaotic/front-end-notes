@@ -487,6 +487,8 @@ In the [typical React data flow](#paw_prints-unidirectional-data-flow), componen
 
 > Prior to Context being a stable feature in React, developers would use state management libraries like [MobX](https://mobx.js.org/README.html) and [Redux](https://redux.js.org/) instead.
 
+</br>
+
 ### :paw_prints: Using Context
 #### To use or not to use Context?
 
