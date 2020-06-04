@@ -17,7 +17,7 @@
   - [Lifecycle Methods](#paw_prints-lifecycle-methods)
 - [React Context API](#react-context-api)
   - [Background: Prop drilling](#paw_prints-background-prop-drilling)
-
+  - [Using Context](#paw_prints-using-context)
 
 
 _______________
@@ -487,4 +487,90 @@ In the [typical React data flow](#paw_prints-unidirectional-data-flow), componen
 
 > Prior to Context being a stable feature in React, developers would use state management libraries like [MobX](https://mobx.js.org/README.html) and [Redux](https://redux.js.org/) instead.
 
-</br>
+### :paw_prints: Using Context
+#### To use or not to use Context?
+
+:point_right: Context is mainly used when certain data needs to be accessed by many components at different nesting levels.
+
+#### 3 parts of the Context API
+1. **`React.createContext()`** - sets up a context and returns an object with a *Provider* and *Consumer* (the two main components of the context API)
+2. **Provider** - a single Provider component, used as high as possible in the component tree, which allows Consumer components to subscribe to context changes
+3. **Consumer(s)** - access the Provider to get any data they need - thus avoiding "prop drilling"
+
+> :bulb: The communication between the Provider and Consumers is what makes Context work.
+
+#### Example
+First, set up context in file `src\components\Context\index.js`:
+```js
+import React from React;
+
+const MyAppContext = React.createContext();
+
+export const Provider = MyAppContext.Provider;
+export const Consumer = MyAppContext.Consumer;
+```
+
+Next, set up Provider in `src\components\App.js`:
+- to provide the context to all children of `App`, wrap all the JSX returned in `<Provider>` tags
+- this Provider component provides the data that needs to be shared in the component tree
+- the Provider component requires a `value` prop to share data (usually the application state, and any actions / event handlers shared between components) - any descendent component will have access to this
+```js
+import { Provider } from './Context';
+
+class App extends Component {
+  ...
+  
+  render() {
+    return (
+      <Provider value={this.state.importantThing}>
+        <div className="main">
+          <ChildComp1>
+            <GrandChildComp />
+          </ChildComp1>
+          <ChildComp2 />
+          <ChildComp3 />          
+        </div>
+      </Provider>
+    );
+  }
+```
+
+Finally, set up Consumers that will subscribe to the Provider in order to make use of Context;  in `src\components\GrandChildComp.js`:
+- move all JSX into the [**render prop**](https://reactjs.org/docs/render-props.html) of the `<Consumer>` component
+- `context` (sometimes named `value` instead) is equal to the `value` prop set on the Provider! (In our case, `importantThing`.)
+
+> :bulb: [**Render props**](https://reactjs.org/docs/render-props.html) is a pattern/technique in React for sharing code between components, by using a prop whose value is a function that returns a React element. It is also sometimes called 'function as a child', because you can also write the function in between the opening and closing tags of the component.
+
+```js
+import { Consumer } from './Context';
+
+const Stats = () => {
+  return (
+    <Consumer>
+      { context => {
+        const foo = context.something;
+        const bar = context.somethingElse;
+
+        return (
+          <table>
+            <tbody>
+              <tr>
+                <td>Cool:</td>
+                <td>{ foo }</td>
+              </tr>
+              <tr>
+                <td>Lovely:</td>
+                <td>{ bar }</td>
+              </tr>
+            </tbody>
+          </table>
+        )
+      }}
+    </Consumer>
+  ); 
+}
+```
+
+:point_right: All this allows the parent component (`ChildComp1`) to not have to worry about `importantThing` data, and be a much simpler, stateless component instead.
+
+
