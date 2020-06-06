@@ -1,7 +1,10 @@
 # React Notes ⚛️
-[React](https://reactjs.org/) is a JavaScript library for building user interfaces.
+Main Resources: [Treehouse React Track](https://teamtreehouse.com/tracks/learn-react) | [React docs](https://reactjs.org/docs/getting-started.html)
+
+**[React](https://reactjs.org/) is a JavaScript library for building user interfaces.**
 - Simplifies building and maintaining the UI of your application by breaking it up into smaller, reusable *components*.
 - Reduces the complexity of updating your DOM elements when users interact with your application, thanks to the *virtual DOM*: when your application's data changes, React figures out which parts of your document need to be changed, and immediately updates only those parts.
+
 
 ## Contents
 - [Setup](#setup)
@@ -22,20 +25,15 @@
 
 _______________
 ## To Do
-- [ ] Read remaining "Main Concepts" in docs, starting from ["Conditional Rendering"](https://reactjs.org/docs/conditional-rendering.html)
-  - [ ] Extra reading: [Why we need to bind event handlers in Class Components in React](https://www.freecodecamp.org/news/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb/)
-  - [ ] Extra reading: [React - To bind, or not to bind](https://medium.com/shoutem/react-to-bind-or-not-to-bind-7bf58327e22a)
+- [ ] **Docs:** Read remaining "Main Concepts", starting from ["Conditional Rendering"](https://reactjs.org/docs/conditional-rendering.html) | Understand [render props](https://reactjs.org/docs/render-props.html)
 - [ ] Finish [Learn React](https://teamtreehouse.com/tracks/learn-react) track on Treehouse
   - [ ] revisit [this video](https://teamtreehouse.com/library/the-provider-and-consumer-solution) at 2:19 and make separate notes about using spread operator for props!
-  - [ ] also make separate notes about https://reactjs.org/docs/render-props.html
-- [ ] Look into testing: [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html) | [React Testing Library intro](https://testing-library.com/docs/react-testing-library/example-intro)
+- [ ] **Testing:** [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-components) | [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html) | [React Testing Library intro](https://testing-library.com/docs/react-testing-library/example-intro)
 - [ ] Set up a practice project locally (also see [this article](https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html) for more setup bantz)
 - [ ] [React Authentication workshop](https://teamtreehouse.com/library/react-authentication/introducing-the-authentication-project/what-is-basic-authentication)
 
 **Bonus!**
-- [ ] https://dmitripavlutin.com/7-architectural-attributes-of-a-reliable-react-component/
-- [ ] https://dmitripavlutin.com/orthogonal-react-components/
-- [ ] https://dmitripavlutin.com/react-fetch-lifecycle-methods-hooks-suspense/
+- [ ] Dmitri Pavlutin: [7 Architectural Attributes of a Reliable React Component](https://dmitripavlutin.com/7-architectural-attributes-of-a-reliable-react-component/) | [Orthogonal React Components](https://dmitripavlutin.com/orthogonal-react-components/) | [3 Rules of React State Management](https://dmitripavlutin.com/react-state-management/) | [Lifecycle methods, hooks, suspense: which is best for fetching in React?](https://dmitripavlutin.com/react-fetch-lifecycle-methods-hooks-suspense/)
 - [ ] [React Europe 2020 conf videos](https://www.youtube.com/watch?v=nzeL1wZltf0&list=PLCC436JpVnK0Q4WHoB85ZYBwcCyTaMgAl)
 _______________
 
