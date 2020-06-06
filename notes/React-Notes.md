@@ -393,7 +393,7 @@ this.setState({
 
 Using `setState()` ensures that the component is re-rendered on state changes.
 
-> :zap: Be aware that `this.props` and `this.state` may be updated asynchronously, so relying on their values for calculating the next state, as in the above example, isn't best practice and can lead to race conditions. [See docs](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous) for more detail, but in short, `setState()` alternatively accepts a callback function that produces state based on the previous state in a more reliable way:
+> :zap: Be aware that `this.props` and `this.state` may be updated asynchronously, so relying on their values for calculating the next state, as in the above example, isn't best practice and can lead to race conditions. [See docs](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous) for more detail, but in short, the above usage of `setState()` should be reserved for setting state that isn't dependent on previous state, and where previous state is involved, use an alternative signature of `setState()` instead, which accepts a callback function that produces state based on the previous state in a more reliable way:
 
 ```js
 this.setState( prevState => ({
@@ -443,11 +443,12 @@ class Counter extends React.Component {
 ```
 
 #### A note on method binding and `this` in React components
-> :zap: When you create a class component that extends from `React.Component`, any custom methods you create are not bound to the component by default. You need to bind your custom methods, so that `this` refers to the component instance. There are several ways to do this, including:
+> :zap: When you create a class component that extends `React.Component`, any custom methods you create are not bound to the component by default. You need to bind your custom methods, so that `this` refers to the component instance. There are several ways to do this, including:
 - call `bind()` in the `render()` method where the React event is set up, e.g. `onClick={this.incrementScore.bind(this)}`
 - pass an arrow function to the React event, e.g. `onClick={() => this.incrementScore}` (may cause performance issues in some cases, as a different callback is created each time the component renders - see [docs](https://reactjs.org/docs/handling-events.html) for more details)
-- define the event handler method itself as an arrow function (`incrementScore = () => {...}`; cf. [example](#example-of-component-with-event-handling) below), or bind the event handler in the constructor (`constructor() { this.incrementScore = this.incrementScore.bind(this); }`) - both of these approaches enable you to just reference `this` in the event: `onClick={this.incrementScore}`
+- define the event handler method itself as an arrow function (`incrementScore = () => {...}` - as used in above example), or bind the event handler in the constructor (`constructor() { this.incrementScore = this.incrementScore.bind(this); }`) - both of these approaches enable you to just reference `this` in the event: `onClick={this.incrementScore}`
 
+(For more context on this, see notes on [`this` in JavaScript](/JavaScript-Quirks.md#this-in-javascript), and [this article](https://www.freecodecamp.org/news/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb/) focusing specifically on React class components.)
 
 _______________
 
