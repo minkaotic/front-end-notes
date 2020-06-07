@@ -15,13 +15,13 @@ Main Resources: [Treehouse React Track](https://teamtreehouse.com/tracks/learn-r
   - [Props](#paw_prints-props)
   - [State](#paw_prints-state)
   - [Handling events](#paw_prints-handling-events)
+  - [Forms](#paw_prints-forms)
 - [React Components in Depth](#react-components-in-depth)
   - [Unidirectional Data Flow](#paw_prints-unidirectional-data-flow)
   - [Lifecycle Methods](#paw_prints-lifecycle-methods)
 - [React Context API](#react-context-api)
   - [Background: Prop drilling](#paw_prints-background-prop-drilling)
   - [Using Context](#paw_prints-using-context)
-
 
 _______________
 ## To Do
@@ -35,6 +35,9 @@ _______________
 **Bonus!**
 - [ ] Dmitri Pavlutin: [7 Architectural Attributes of a Reliable React Component](https://dmitripavlutin.com/7-architectural-attributes-of-a-reliable-react-component/) | [Orthogonal React Components](https://dmitripavlutin.com/orthogonal-react-components/) | [3 Rules of React State Management](https://dmitripavlutin.com/react-state-management/) | [Lifecycle methods, hooks, suspense: which is best for fetching in React?](https://dmitripavlutin.com/react-fetch-lifecycle-methods-hooks-suspense/)
 - [ ] [React Europe 2020 conf videos](https://www.youtube.com/watch?v=nzeL1wZltf0&list=PLCC436JpVnK0Q4WHoB85ZYBwcCyTaMgAl)
+
+</br>
+
 _______________
 
 ## Setup
@@ -73,6 +76,8 @@ And to use Bootstrap components in a React component:
 ```js
 import { Container, Jumbotron } from 'react-bootstrap';
 ```
+
+</br>
 
 _______________
 
@@ -450,6 +455,64 @@ class Counter extends React.Component {
 
 (For more context on this, see notes on [`this` in JavaScript](/JavaScript-Quirks.md#this-in-javascript), and [this article](https://www.freecodecamp.org/news/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb/) focusing specifically on React class components.)
 
+</br>
+
+### :paw_prints: Forms
+[Form elements in React](https://reactjs.org/docs/forms.html) work differently from other elements, because form elements naturally keep some internal state. For example, `<input>`, `<textarea>` and `<select>` elements in HTML are typically considered stateful, and maintain their own state based on user input. 
+
+In React, a form element's state needs to be handled explicitely:
+- The React component that renders a form also controls what happens in that form on subsequent user input.
+- Mutable state is typically kept in the [state](#paw_prints-state) property of components, and only updated with [`setState()`](#the-setstate-method).
+
+:point_right: A React component that controls an input form element's state in this way is called a **“Controlled Component”**.
+
+Creating a controlled component usually involves the following:
+1. initialise state for the value of the input
+2. listen for changes on the input to detect when value is updated
+3. create event handler that updates the value state
+
+```js
+class AddPlayerForm extends Component {
+  state = {
+    value: ''  // initialise state for the value of the input
+  };
+
+  // event handler that updates the value state
+  handleValueChanged = (e) => {
+    this.setState({ value: e.target.value });
+  }
+
+  render() {
+    return (
+      <form>
+        <input
+          type="text"
+          value={this.state.value}            // use state for value of the input
+          onChange={this.handleValueChanged}  // listen for changes on the input to detect when value is updated
+          placeholder="Enter a player's name"
+        />
+        <input
+          type="submit"
+          value="Add Player"
+        />
+      </form>
+    );
+  }   
+}
+```
+
+**Things to note:**
+- Since the `value` attribute is set on our form element, the displayed value will always be `this.state.value`, making the React state the **source of truth**.
+- `onChange` gets triggered immediately after each change / keystroke.
+- The DOM event `e` passed to the event handler is in fact a normalised event created by React. React uses a cross-browser wrapper around the browser's native event called [**'synthetic event'**](https://reactjs.org/docs/events.html), so that cross-browser differences of DOM events won't get in our way.
+- JSX requires a **closing tag** on `<input>` elements (omitting this results in a syntax error).
+
+For details on **how other input elements differ between HTML and React**, see the React docs on [`<textarea>`](https://reactjs.org/docs/forms.html#the-textarea-tag) and [`<select>`](https://reactjs.org/docs/forms.html#the-textarea-tag).
+
+> :fire: **[Controlled vs uncontrolled components](https://reactjs.org/docs/glossary.html#controlled-vs-uncontrolled-components):** it is possible to use [uncontrolled components](https://reactjs.org/docs/uncontrolled-components.html) in React, but most of the time controlled components are preferable. [File inputs](https://reactjs.org/docs/glossary.html#controlled-vs-uncontrolled-components) are a noteworthy exception.
+
+</br>
+
 _______________
 
 ## React Components in Depth
@@ -477,6 +540,8 @@ But if we lift state up, and if data flows down, how can a child component commu
 - **Unmounting** refers to the moment the component is removed from the DOM - and the lifecycle method `componentWillUnmount() {...}` runs straight after this, and is useful for running any teardown to free up resources.
 
 - Whenever the **component updates** e.g. due to `setState()` being called, the `render()` is called again (= the component is re-rendered).
+
+</br>
 
 _______________
 
