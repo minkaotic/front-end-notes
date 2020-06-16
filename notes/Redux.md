@@ -10,7 +10,9 @@ This is achieved by keeping application state in a single container (and followi
 ### Redux Terms
 - **Store:** Refers to the application state container for the entire application
 - **Action:** Refers to an explicit event that occurs within a Redux application that will impact application state
-- **Container:** A React component that subscribes to specific Reducer updates and propagates data to other React components known as presentational components
+- **Container component:** A React component that usually defines no markup of its own but is responsible for propagating data to other React components known as *presentational components* (see next points). It typically sits at the top of the React component tree and subscribes to specific Reducer updates.
+- **Logical Component:** Presentational component that has its own state to manage and may or may not make use of React lifecycle events
+- **Pure Component:** Presentation component that is implemented as a pure function. These components are passed props and return markup with no side-effects. That means they do not manage a state of their own and do not take part in React lifecycle events.
 - **[React-Redux](https://react-redux.js.org/):** A library that simplifies the amount of boiler plate code needed to use Redux in React apps 
 
 ### When To Use Redux?
