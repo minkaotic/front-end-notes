@@ -4,6 +4,7 @@
 ## Intro
 [Redux](https://redux.js.org/) is a popular JavaScript framework for managing and maintaining application state in a scaleable, predictable and testable way. It is often used with React, although it can be used with other frameworks too.
 
+*Redux provides a single source of truth for your app, making it easier to keep application state in sync and distribute data.* -
 This is achieved by keeping application state in a single container (and following a number of design patterns and [key principles](https://redux.js.org/introduction/three-principles)). It also offers data governance / data tracking and makes data universally accessible to all parts of your application.
 
 ### Redux Terms
