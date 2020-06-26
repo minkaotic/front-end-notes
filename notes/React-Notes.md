@@ -11,6 +11,7 @@ Main Resources: [Treehouse React Track](https://teamtreehouse.com/tracks/learn-r
 - [React Basics](#react-basics)
   - [Creating & rendering React elements](#paw_prints-creating--rendering-react-elements)
   - [JSX: declarative syntax for UI elements](#paw_prints-jsx-declarative-syntax-for-ui-elements)
+  - [Iteration in rendering](#paw_prints-iteration-in-rendering)
   - [Components](#paw_prints-components)
   - [Props](#paw_prints-props)
   - [State](#paw_prints-state)
@@ -179,6 +180,37 @@ ReactDOM.render(
 
 </br>
 
+### :paw_prints: Iteration in Rendering
+You can use any common [iteration methods](/notes/Javascript-Syntax.md#loops--iteration-methods) to generate [lists of elements](https://reactjs.org/docs/lists-and-keys.html) in React:
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((number) =>
+  <li>{number}</li>
+);
+```
+
+#### Keys
+:warning: The above example would create a React console warning, as the `<li>` elements created with an iteration method haven't been given a unique key.
+
+> :bulb: **Pass a key prop to a component any time you are creating elements by iterating over an array of items!**
+
+React manages what gets rendered to the DOM. In order for this process to be fast and efficient, React needs a way to quickly know which items were changed, added, or removed. For this, React gives elements a special built-in prop named `key` - a unique identifier for an element in a list. [The React docs on keys](https://reactjs.org/docs/lists-and-keys.html#keys) recommend this should be a string.
+
+> React does not recommend using `index` for unique keys, because the `index` might not always uniquely identify elements. It's usually best to use a unique id.
+
+##### Updated example using keys
+```js
+const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((number) =>
+  <li key={number.toString()}>
+    {number}
+  </li>
+);
+```
+
+</br>
+
 ### :paw_prints: Components
 A [component](https://reactjs.org/docs/components-and-props.html) is a piece of UI that you can reuse. Being able to split your UI code into independent, reusable pieces, and think about each piece in isolation is one of the most embraced features of React.
 
@@ -285,7 +317,7 @@ const App = (props) => {
     <div className="scoreboard">
       <Header title="Scoreboard" totalPlayers={props.initialPlayers.length} />
       {props.initialPlayers.map( player => 
-        <Player name={player.name} score={player.score} />
+        <Player name={player.name} score={player.score} key={player.id.toString()} />
       )}
     </div>
   );
@@ -306,29 +338,6 @@ ReactDOM.render(
 
 - All props are **immutable**, so a component can read the props given to it, but never change them (attempting to assign to a prop will throw an error). The (parent) component higher in the tree owns and controls the property values.
 
-- :warning: The above example would create a React console error, as the `<Player />` elements created with an iteration method haven't been given a unique key - see below for more details.
-
-#### A note about React keys
-> :bulb: **Pass a key prop to a component any time you are creating elements by iterating over an array of items!**
-
-React manages what gets rendered to the DOM. In order for this process to be fast and efficient, React needs a way to quickly know which items were changed, added, or removed. For this, React gives elements a special built-in prop named `key` - a unique identifier for an element in a list. [The React docs on keys](https://reactjs.org/docs/lists-and-keys.html#keys) recommend this should be a string.
-
-> React does not recommend using `index` for unique keys, because the `index` might not always uniquely identify elements. It's usually best to use a unique id.
-
-##### Updated example using keys for each player
-```js
-const App = (props) => {
-  return(
-    <div className="scoreboard">
-      <Header title="Scoreboard" totalPlayers={props.initialPlayers.length} />
-      {props.initialPlayers.map( player => 
-        <Player name={player.name} score={player.score} key={ player.id.toString() } />
-      )}
-    </div>
-  );
-}
-
-```
 
 </br>
 
