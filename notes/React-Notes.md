@@ -20,6 +20,7 @@ Main Resources: [Treehouse React Track](https://teamtreehouse.com/tracks/learn-r
 - [React Components in Depth](#react-components-in-depth)
   - [Unidirectional Data Flow](#paw_prints-unidirectional-data-flow)
   - [Lifecycle Methods](#paw_prints-lifecycle-methods)
+  - [PureComponent](#paw_prints-purecomponent)
 - [React Context API](#react-context-api)
   - [Background: Prop drilling](#paw_prints-background-prop-drilling)
   - [Using Context](#paw_prints-using-context)
@@ -559,6 +560,32 @@ componentWillUnmount() {
     clearInterval(this.intervalId);
 }
 ```
+
+</br>
+
+### :paw_prints: PureComponent
+React provides a special type of component, called [`PureComponent`](https://reactjs.org/docs/react-api.html#reactpurecomponent), that helps prevent unnecessary re-renders. If your component’s `render()` method renders the same result given the same props and state, you can use `PureComponent` for a performance boost in some cases.
+
+`PureComponent` implements the lifecycle method [`shouldComponentUpdate()`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate), which does a shallow prop and state comparison and only calls `render()` when it detects changes.
+
+```js
+import React, { PureComponent } from 'react';
+
+class Player extends PureComponent {
+  render() {
+    return (
+      // JSX for this component
+    );
+  }
+}
+```
+
+#### When to use it
+> :warning: **A `PureComponent` should only contain child components that are also `PureComponents`.**
+
+Use `PureComponent` when you have performance issues and have determined that a specific component is rerendering too often.
+
+Further reading: [Using a <PureComponent/> in React (by Chris Burgin)](https://medium.com/front-end-weekly/using-a-purecomponent-in-reacts-262972f9f1e0)
 
 </br>
 
