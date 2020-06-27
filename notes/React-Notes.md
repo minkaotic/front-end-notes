@@ -20,8 +20,9 @@ Main Resources: [Treehouse React Track](https://teamtreehouse.com/tracks/learn-r
 - [React Components in Depth](#react-components-in-depth)
   - [Unidirectional Data Flow](#paw_prints-unidirectional-data-flow)
   - [Lifecycle Methods](#paw_prints-lifecycle-methods)
-  - [PureComponent](#paw_prints-purecomponent)
   - [Advanced props](#paw_prints-advanced-props)
+  - [PureComponent](#paw_prints-purecomponent)
+  - [Refs](#paw_prints-refs)
 - [React Context API](#react-context-api)
   - [Background: Prop drilling](#paw_prints-background-prop-drilling)
   - [Using Context](#paw_prints-using-context)
@@ -564,32 +565,6 @@ componentWillUnmount() {
 
 </br>
 
-### :paw_prints: PureComponent
-React provides a special type of component, called [`PureComponent`](https://reactjs.org/docs/react-api.html#reactpurecomponent), that helps prevent unnecessary re-renders. If your component’s `render()` method renders the same result given the same props and state, you can use `PureComponent` for a performance boost in some cases.
-
-`PureComponent` implements the lifecycle method [`shouldComponentUpdate()`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate), which does a shallow prop and state comparison and only calls `render()` when it detects changes.
-
-```js
-import React, { PureComponent } from 'react';
-
-class Player extends PureComponent {
-  render() {
-    return (
-      // JSX for this component
-    );
-  }
-}
-```
-
-#### When to use it
-> :warning: **A `PureComponent` should only contain child components that are also `PureComponents`.**
-
-Use `PureComponent` when you have performance issues and have determined that a specific component is rerendering too often.
-
-Further reading: [Using a <PureComponent/> in React (by Chris Burgin)](https://medium.com/front-end-weekly/using-a-purecomponent-in-reacts-262972f9f1e0)
-
-</br>
-
 ### :paw_prints: Advanced props
 #### Destructuring props
 [Destructuring](/notes/Javascript-Syntax.md#destructuring) provides a more concise way to write your props, and can make components cleaner and easier to understand as you don't have to repeat `props.` everywhere. Instead of doing this:
@@ -636,6 +611,47 @@ class MyComponent extends Component {
   }
 }
 ```
+
+</br>
+
+### :paw_prints: PureComponent
+React provides a special type of component, called [`PureComponent`](https://reactjs.org/docs/react-api.html#reactpurecomponent), that helps prevent unnecessary re-renders. If your component’s `render()` method renders the same result given the same props and state, you can use `PureComponent` for a performance boost in some cases.
+
+`PureComponent` implements the lifecycle method [`shouldComponentUpdate()`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate), which does a shallow prop and state comparison and only calls `render()` when it detects changes.
+
+```js
+import React, { PureComponent } from 'react';
+
+class Player extends PureComponent {
+  render() {
+    return (
+      // JSX for this component
+    );
+  }
+}
+```
+
+#### When to use it
+> :warning: **A `PureComponent` should only contain child components that are also `PureComponents`.**
+
+Use `PureComponent` when you have performance issues and have determined that a specific component is rerendering too often.
+
+Further reading: [Using a <PureComponent/> in React (by Chris Burgin)](https://medium.com/front-end-weekly/using-a-purecomponent-in-reacts-262972f9f1e0)
+
+</br>
+
+### :paw_prints: Refs
+In React, you typically do not target elements directly and modify them as you would when working in [JavaScript with the DOM](/notes/Javascript-and-the-DOM.md).
+
+There may however be times when you need to target elements outside the normal React data flow: [**React Refs**](https://reactjs.org/docs/refs-and-the-dom.html) let you access and interact with DOM nodes created in the `render()` method, and make it possible to do the more traditional DOM manipulation.
+
+They're commonly used to access form elements and get their values, which avoids having to use [controlled components for a form in React](#paw_prints-forms).
+
+#### To use a Ref:
+1. Create a Ref using `React.createRef()` method
+2. Attach the Ref to a React element via the `ref` attribute
+
+> :fire: **Use refs sparingly, as they go against the intended React data flow and can comprise an antipattern.**
 
 </br>
 
