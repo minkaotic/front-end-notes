@@ -21,6 +21,7 @@ Main Resources: [Treehouse React Track](https://teamtreehouse.com/tracks/learn-r
   - [Unidirectional Data Flow](#paw_prints-unidirectional-data-flow)
   - [Lifecycle Methods](#paw_prints-lifecycle-methods)
   - [PureComponent](#paw_prints-purecomponent)
+  - [Advanced props](#paw_prints-advanced-props)
 - [React Context API](#react-context-api)
   - [Background: Prop drilling](#paw_prints-background-prop-drilling)
   - [Using Context](#paw_prints-using-context)
@@ -586,6 +587,55 @@ class Player extends PureComponent {
 Use `PureComponent` when you have performance issues and have determined that a specific component is rerendering too often.
 
 Further reading: [Using a <PureComponent/> in React (by Chris Burgin)](https://medium.com/front-end-weekly/using-a-purecomponent-in-reacts-262972f9f1e0)
+
+</br>
+
+### :paw_prints: Advanced props
+#### Destructuring props
+[Destructuring](/notes/Javascript-Syntax.md#destructuring) provides a more concise way to write your props, and can make components cleaner and easier to understand as you don't have to repeat `props.` everywhere. Instead of doing this:
+
+```js
+const MyComponent = (props) => {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+      <ChildComponent name={props.childName} />
+      <button onClick={() => props.doSomething()}>Click me!</button>
+    </header>
+  );
+};
+```
+
+...in a **function component** you can do:
+
+```js
+const MyComponent = ({ title, childName, doSomething }) => {
+  return (
+    <div>
+      <h1>{title}</h1>
+      <ChildComponent name={childName} />
+      <button onClick={() => doSomething()}>Click me!</button>
+    </header>
+  );
+};
+```
+
+For **class components**, you have to explicitely assign the destructure like this:
+
+```js
+class MyComponent extends Component {
+  render() {
+    const { title, childName, doSomething } = this.props;
+    return (
+      <div>
+        <h1>{title}</h1>
+        <ChildComponent name={childName} />
+        <button onClick={() => doSomething()}>Click me!</button>
+      </header>
+    );
+  }
+}
+```
 
 </br>
 
