@@ -11,6 +11,8 @@ Notes based on: [TypeScript for Beginners 2020](https://www.youtube.com/watch?v=
 > :bulb: TS features are compiled to JS 'workarounds'
 
 
+## TypeScript and React
+- For more info on using TypeScript with React, see this [dedicated section in the docs](https://reactjs.org/docs/static-type-checking.html#typescript).
 
 ## Typewriter
 [Typewriter](https://frhagn.github.io/Typewriter/) is a free extension for Visual Studio that generates TypeScript files from C# code files using TypeScript Templates.
