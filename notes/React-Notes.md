@@ -652,8 +652,46 @@ MyComponent.propTypes = {
 };
 ```
 
-</br>
+Defining `propTypes` in this way (outside the component itself) works for **class components** too. But a commonly used alternative is to define the types at the top of the class, with an assigment to `static propTypes`:
 
+```js
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+class MyComponent extends Component {
+  static propTypes = {
+    players: PropTypes.arrayOf(PropTypes.object),
+    title: PropTypes.string
+    score: PropTypes.number,
+    changeScore: PropTypes.func
+  };
+  
+  render() {
+    return (
+      // some JSX
+    );
+  }
+};
+```
+
+To **mark a prop as required**, simply add `.isRequired` to the validator:
+
+```js
+MyComponent.propTypes = {
+  players: PropTypes.arrayOf(PropTypes.object).isRequired,
+  ...
+};
+```
+
+You can also define **[default values](https://reactjs.org/docs/typechecking-with-proptypes.html#default-prop-values) for props**, by assigning to the special `defaultProps` property:
+
+```js
+MyComponent.defaultProps = {
+  title: 'Scoreboard'
+}
+```
+
+</br>
 
 ### :paw_prints: PureComponent
 React provides a special type of component, called [`PureComponent`](https://reactjs.org/docs/react-api.html#reactpurecomponent), that helps prevent unnecessary re-renders. If your component’s `render()` method renders the same result given the same props and state, you can use `PureComponent` for a performance boost in some cases.
