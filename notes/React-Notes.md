@@ -33,7 +33,6 @@ _______________
 - [ ] Finish [Learn React](https://teamtreehouse.com/tracks/learn-react) track on Treehouse
   - [ ] revisit [this video](https://teamtreehouse.com/library/the-provider-and-consumer-solution) at 2:19 and make separate notes about using spread operator for props!
 - [ ] **Testing:** [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-components) | [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html) | [React Testing Library intro](https://testing-library.com/docs/react-testing-library/example-intro)
-- [ ] Set up a practice project locally (also see [this article](https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html) for more setup bantz)
 - [ ] [React Authentication workshop](https://teamtreehouse.com/library/react-authentication/introducing-the-authentication-project/what-is-basic-authentication)
 
 **Bonus!**
@@ -566,7 +565,7 @@ componentWillUnmount() {
 </br>
 
 ### :paw_prints: Advanced props
-#### Destructuring props
+#### 1. DESTRUCTURING PROPS
 [Destructuring](/notes/Javascript-Syntax.md#destructuring) provides a more concise way to write your props, and can make components cleaner and easier to understand as you don't have to repeat `props.` everywhere. Instead of doing this:
 
 ```js
@@ -612,7 +611,49 @@ class MyComponent extends Component {
 }
 ```
 
+#### 2. VALIDATE PROPS WITH PROPTYPES
+As your app grows, it's a good practice to "type check" or validate the data a component receives from props. There are **3 popular ways** to handle type checking in React: **[PropTypes](https://www.npmjs.com/package/prop-types)**, **[TypeScript](https://www.typescriptlang.org/)** and **[Flow](https://flow.org/)**.
+
+- Proptypes used to be built into React, but is now separate library; cf. [React docs on using PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
+- PropTypes provide helpful warnings at runtime if the type passed to a prop doesn't match its defined type. This not only helps you catch and avoid bugs, but PropTypes also serve as documentation for components.
+- For performance reasons, PropTypes are only checked in development mode.
+
+> :bulb: **Static type checkers like Flow and TypeScript** identify certain types of problems before you even run your code. They can also improve developer workflow by adding features like auto-completion. For this reason, [React recommends](https://reactjs.org/docs/static-type-checking.html) using Flow or TypeScript instead of PropTypes for larger code bases. (See also: docs on [using TypeScript with React](https://reactjs.org/docs/static-type-checking.html#typescript))
+
+##### Using PropTypes
+To run type checking on a component, you assign it the `propTypes` property. For a function component: `MyComponent.propTypes = {...};` - the `propTypes` object describes the props being passed to the component, and defines what type they should be using one of the [available `PropTypes` validators](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes):
+
+```js
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const MyComponent = ({ players, title, score, changeScore }) => {
+  return (
+    // some JSX
+  );
+};
+
+MyComponent.propTypes = {
+  players: PropTypes.arrayOf(PropTypes.object),
+  title: PropTypes.string
+  score: PropTypes.number,
+  changeScore: PropTypes.func
+};
+```
+
+You can define key properties of an object passed as a prop even more specifically, by using `PropTypes.shape()` instead of `PropTypes.object`:
+
+```js
+MyComponent.propTypes = {
+  players: PropTypes.arrayOf(PropTypes.shape({
+        score: PropTypes.number
+    })),
+  ...
+};
+```
+
 </br>
+
 
 ### :paw_prints: PureComponent
 React provides a special type of component, called [`PureComponent`](https://reactjs.org/docs/react-api.html#reactpurecomponent), that helps prevent unnecessary re-renders. If your component’s `render()` method renders the same result given the same props and state, you can use `PureComponent` for a performance boost in some cases.
@@ -651,7 +692,7 @@ They're commonly used to access form elements and get their values, which avoids
 1. Create a Ref using `React.createRef()` method
 2. Attach the Ref to a React element via the `ref` attribute
 
-> :fire: **Use refs sparingly, as they go against the intended React data flow and can comprise an antipattern.**
+> :zap: **Use refs sparingly, as they go against the intended React data flow and can comprise an antipattern.**
 
 </br>
 
