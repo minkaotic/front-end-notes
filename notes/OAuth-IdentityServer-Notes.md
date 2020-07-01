@@ -41,9 +41,9 @@ ________________
 = this type of token is also referred to as **Access Token** or **Identity Token**
 
 #### What's an authorisation server?
-:point_right: an application using the OAuth and OpenId Connect security protocols in order to trade a username and password (or other such credentials) for a secure token. The authorisation server signs the token with a private key that *only it has access to*. The public key can be accessed by any interacting application, and is used for token validation.
+:point_right: an application using the [OAuth and OpenId Connect](#oauth--openid-connect) security protocols in order to trade a username and password (or other such credentials) for a secure token. The authorisation server signs the token with a private key that *only it has access to*. The public key can be accessed by any interacting application, and is used for token validation.
 
-> :bulb: **It's the responsibility of the API receiving the token in the request (the consumer) to ensure that the signature is intact and the token is valid** (using the public key).
+:fire: **It's the responsibility of the API receiving the token in the request (the consumer) to ensure that the signature is intact and the token is valid** (using the public key).
 
 ![signing tokens](/img/token-signing.PNG)
 
