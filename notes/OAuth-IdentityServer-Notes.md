@@ -32,8 +32,7 @@ ________________
 > :fire: **Treat tokens like passwords**, as they do provide unrestricted access to a user's data, while they are valid
 
 #### What's in a token?
-- "Token" = JSON Web Token (JWT)
-- Base64 encoded
+- "Token" = JSON Web Token (JWT), Base64 encoded
 - contains some user data, such as email address
 - contains information about the authorisation server
 - signed by the authorisation server
