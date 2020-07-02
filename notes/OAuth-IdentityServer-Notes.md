@@ -6,6 +6,7 @@ Notes based on [this Pluralsight course](https://app.pluralsight.com/library/cou
 ## Contents
 1. [Introduction to Token-based security](#introduction-to-token-based-security)
 1. [OAuth & OpenID Connect](#oauth--openid-connect)
+1. [Obtaining, inspecting and working with Access Tokens](#obtaining-inspecting-and-working-with-access-tokens)
 ________________
 
 ## Introduction to Token-based security
@@ -50,10 +51,14 @@ ________________
 ## OAuth & OpenID Connect
 Both are protocols stipulating how to build APIs such that they can be accessed to retrieve data in a common and secure manner. 
 
-- **[OAuth 2.0](https://oauth.net/2/)** is a token-based security protocol. It is the industry-standard protocol for authorisation, focusing on client developer simplicity while providing specific authorisation flows for web apps, desktop apps, mobile devices IoT devices. It's *not backwards compatible* with older versions of OAuth.
-- **[OpenID Connect](https://openid.net/connect/)** complements OAuth 2.0, by providing a simple identity layer on top of it, which allows clients to: 
-  - verify the identity of an end-user based on the authentication performed by an authorisation server
-  - obtain basic profile information about the end-user
+**[OAuth 2.0](https://oauth.net/2/)** is a token-based security protocol. It is the industry-standard protocol for authorisation, focusing on client developer simplicity while providing specific authorisation flows for web apps, desktop apps, mobile devices IoT devices. It's *not backwards compatible* with older versions of OAuth. Examples of different authorisation flows supported by OAuth 2.0:
+- POST to authorisation server to request a new access token
+- redirect to enter user name and password, then redirect back to original website
+- provide credentials that identify software to retrieve access
+
+**[OpenID Connect](https://openid.net/connect/)** complements OAuth 2.0, by providing a simple identity layer on top of it, which allows clients to: 
+- verify the identity of an end-user based on the authentication performed by an authorisation server
+- obtain basic profile information about the end-user
 
 ### Authentication vs. Authorisation
 - Authorisation is about gaining access (to certain resources / to data / to a building etc.)
@@ -70,11 +75,8 @@ Three options are:
 ### Available endpoints
 
 **OAuth Endpoints** (described in **[RFC 6749](https://tools.ietf.org/html/rfc6749)**) allow us to work with the Authorisation server:
-- `/authorize`- supports multiple different authorisation flows, for example:
-  - POST to authorisation server to request a new access token
-  - redirect to enter user name and password, then redirect back to original website
-  - provide credentials that identify software to retrieve access
-- `/token` - also allows performing a new access token request; but additionally allows refreshing an access token, & trading an authorisation code for an access token
+- `/authorize`- used to request tokens via the browser - typically involving authentication of the end-user and user-agent redirection
+- `/token` - used to programmatically request a new access token; additionally allows refreshing an access token & trading an authorisation code for an access token
 - `/revocation` - revoke (access or refresh) token (described in the additional [RFC 7009](https://tools.ietf.org/html/rfc7009))
 
 **OpenID Connect** additionally allows us to work with the identity of the user that is currently authorised:
@@ -85,9 +87,37 @@ Three options are:
 - `/.well-known/jwks` - information about JWTs and the public keys - used for token validation
 
 
-What are flows, grants, claims and tokens?
+## Obtaining, inspecting and working with Access Tokens
+Demo example:
+1. Call `/token` endpoint with a POST request containing `client_id`, `client_secret`, `grant_type`, `username` and `password` in a form-urlencoded body
+1. Receive a response containing the `access_token`, `expires_in` and `token_type` ("Bearer")
+1. Use the access token to requests resources that that user is authorised for from our API: GET request to relevant resource endpoint with an `Authorization` header specifying the type of token (Bearer) and token itself
+
+### Inside the Access Token
+> :bulb: You can inspect any token on [jwt.io](https://jwt.io/)!
+
+Tokens break down into:
+- **Header** - Information about how the token is structured
+- **Payload** - *a.k.a. Claims*, containing any relevant information about the user; commonly contains details about:
+  - Issuer
+  - Audience
+  - Expiry
+  - Valid from
+  - Client ID
+  - Scopes (which parts of an API access is granted to)
+  - Custom data (could include pretty much anything that is persistent and won't change between the the token being issued and it being used)
+- **Signature** - ensures payload is intact
+
+#### Scopes
+- Scopes limit access to functionality
+- Clients use scope values as defined in [3.3 of OAuth 2.0 [RFC6749]](https://tools.ietf.org/html/rfc6749#section-3.3) to specify what access privileges are being requested for Access Tokens. The scopes associated with Access Tokens determine what resources will be available when they are used to access OAuth 2.0 protected endpoints. 
+- [OpenID Connect Scope](https://openid.net/specs/openid-connect-basic-1_0.html#Scopes) values include for example: `openid`, `profile`, `email`, `address` and `offline_access`
+- We can also define **custom scopes**, for example `read` and `write` scopes - or anything else pertaining to different access levels applicable to our domain
+
+### Choosing a Flow
 
 
 
 
+### OAuth Flows, Grants, Claims and Tokens
 
