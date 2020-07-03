@@ -1,7 +1,7 @@
 # ASP.NET Core and OAuth
 *Securing ASP.Net Core applications using OAuth and OpenID Connect*
 
-Notes based on [this Pluralsight course](https://app.pluralsight.com/library/courses/asp-dot-net-core-oauth/table-of-contents) and [IdentityServer Quickstarts](https://identityserver4.readthedocs.io/en/latest/quickstarts/0_overview.html).
+Notes based on [this Pluralsight course](https://app.pluralsight.com/library/courses/asp-dot-net-core-oauth/table-of-contents), [RFC 6749](https://tools.ietf.org/html/rfc6749) and [IdentityServer Quickstarts](https://identityserver4.readthedocs.io/en/latest/quickstarts/0_overview.html).
 
 ## Contents
 1. [Introduction to Token-based security](#introduction-to-token-based-security)
@@ -107,18 +107,24 @@ Tokens break down into:
 
 #### Scopes
 - Scopes limit access to functionality
-- Clients use scope values as defined in [3.3 of OAuth 2.0 [RFC6749]](https://tools.ietf.org/html/rfc6749#section-3.3) to specify what access privileges are being requested for Access Tokens. The scopes associated with Access Tokens determine what resources will be available when they are used to access OAuth 2.0 protected endpoints. 
+- Clients use scope values as defined in [3.3 of the OAuth 2.0 RFC](https://tools.ietf.org/html/rfc6749#section-3.3) to specify what access privileges are being requested for Access Tokens. The scopes associated with Access Tokens determine what resources will be available when they are used to access OAuth 2.0 protected endpoints. 
 - [OpenID Connect Scope](https://openid.net/specs/openid-connect-basic-1_0.html#Scopes) values include for example: `openid`, `profile`, `email`, `address` and `offline_access`
 - We can also define **custom scopes**, for example `read` and `write` scopes - or anything else pertaining to different access levels applicable to our domain
 
 ### Choosing a Flow
-OAuth provides different flows for retrieving an access token ("authorisation flows"):
+[OAuth defines different flows](https://tools.ietf.org/html/rfc6749#section-1.2) for retrieving an access token ("authorisation flows"). The full stages of a flow typically break down as follows:
+1. Client makes **authorisation request** to authorisation server
+1. Authorisation server issues **authorisation grant** issued by authorisation server
+1. Client uses authorisation grant to trade for an **access token**
+1. Client uses access token to **access protected resources**
 
-#### Redirect Flows
-- **Implicit Grant** (sequence diagram below) - Redirect the user to the authorisation server, where they provide their user name and password. They are then redirected back to website with an access token which allows them to have logged-in access (best for JavaScript clients / browser-based flows)
-- **Authorisation Code** flow - similar to Implicit Grant, but instead of getting an access token when redirected to the website, we get an authorisation code instead. This authorisation code can then be traded by the website for an access token, by providing Client Credentials (see below) to the authorisation server (adds an extra layer of security; best for server based applications where you want to be able to continue to refresh the access token)
+An *authorization grant* is a credential representing the resource owner's authorisation to access their protected resources. OAuth 2.0 defines 4 different redirect flows, based on four grant types used: authorization code, implicit, resource owner password credentials, and client credentials.
 
-#### Credential Flows
+#### Redirect Flows (browser based)
+- **Implicit Grant** flow (sequence diagram below) - Redirect the user to the authorisation server, where they provide their user name and password. They are then redirected back to website with an access token which allows them to have logged-in access (best for JavaScript clients)
+- **Authorisation Code** flow - similar to Implicit Grant flow, but instead of getting an access token when redirected to the website, we get an authorisation code instead. This authorisation code can then be traded by the website for an access token, by providing Client Credentials (see below) to the authorisation server (adds an extra layer of security; best for server based applications where you want to be able to continue to refresh the access token)
+
+#### Credential Flows (POST requests with client authentication)
 - **Resource Owner Password Credentials** flow - trades user name and password
 - **Client Credentials** flow - each client is issued a client Id and secret, which can be traded for an access token, these can be used:
   - as part of the Authorisation Code flow (above) in order to get an access token
@@ -130,9 +136,4 @@ OAuth provides different flows for retrieving an access token ("authorisation fl
 
 ![sequence diagram for Implicit Grant redirect flow](/img/oauth-redirect-flow.PNG)
 
-### TO DO
-Read "Protocol Flow", "Authorization Grant" and "Endpoint" sections in RFC
-- Flows vs Grants?
-- Which of these would use a POST to auth server to request a new token?
-- Confirm delineation between browser-based and programmatic flows
-- Add links to RFC
+
