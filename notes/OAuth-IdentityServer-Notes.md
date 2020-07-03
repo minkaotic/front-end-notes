@@ -51,14 +51,11 @@ ________________
 ## OAuth & OpenID Connect
 Both are protocols stipulating how to build APIs such that they can be accessed to retrieve data in a common and secure manner. 
 
-**[OAuth 2.0](https://oauth.net/2/)** is a token-based security protocol. It is the industry-standard protocol for authorisation, focusing on client developer simplicity while providing specific authorisation flows for web apps, desktop apps, mobile devices IoT devices. It's *not backwards compatible* with older versions of OAuth. Examples of different authorisation flows supported by OAuth 2.0:
-- POST to authorisation server to request a new access token
-- redirect to enter user name and password, then redirect back to original website
-- provide credentials that identify software to retrieve access
+- **[OAuth 2.0](https://oauth.net/2/)** is a token-based security protocol. It is the industry-standard protocol for authorisation, focusing on client developer simplicity while providing specific authorisation flows for web apps, desktop apps, mobile devices IoT devices. It's *not backwards compatible* with older versions of OAuth.
 
-**[OpenID Connect](https://openid.net/connect/)** complements OAuth 2.0, by providing a simple identity layer on top of it, which allows clients to: 
-- verify the identity of an end-user based on the authentication performed by an authorisation server
-- obtain basic profile information about the end-user
+- **[OpenID Connect](https://openid.net/connect/)** complements OAuth 2.0, by providing a simple identity layer on top of it, which allows clients to: 
+  - verify the identity of an end-user based on the authentication performed by an authorisation server
+  - obtain basic profile information about the end-user
 
 ### Authentication vs. Authorisation
 - Authorisation is about gaining access (to certain resources / to data / to a building etc.)
@@ -115,9 +112,27 @@ Tokens break down into:
 - We can also define **custom scopes**, for example `read` and `write` scopes - or anything else pertaining to different access levels applicable to our domain
 
 ### Choosing a Flow
+OAuth provides different flows for retrieving an access token ("authorisation flows"):
 
+#### Redirect Flows
+- **Implicit Grant** (sequence diagram below) - Redirect the user to the authorisation server, where they provide their user name and password. They are then redirected back to website with an access token which allows them to have logged-in access (best for JavaScript clients / browser-based flows)
+- **Authorisation Code** flow - similar to Implicit Grant, but instead of getting an access token when redirected to the website, we get an authorisation code instead. This authorisation code can then be traded by the website for an access token, by providing Client Credentials (see below) to the authorisation server (adds an extra layer of security; best for server based applications where you want to be able to continue to refresh the access token)
 
+#### Credential Flows
+- **Resource Owner Password Credentials** flow - trades user name and password
+- **Client Credentials** flow - each client is issued a client Id and secret, which can be traded for an access token, these can be used:
+  - as part of the Authorisation Code flow (above) in order to get an access token
+  - to access resources on an API without a particular user connected to that session (incl. creating a user!)
 
+:bulb: We can **combine different flows & grants** in our system in order to grant access to our API, for example when creating a new user:
+1. First, use *Client Credentials* flow to get an access token that can be used to create a user on the API
+1. Then use *Resource Owner Password Credentials* flow (using the new user's user name and password) to retrieve an access token for that user
 
-### OAuth Flows, Grants, Claims and Tokens
+![sequence diagram for Implicit Grant redirect flow](/img/oauth-redirect-flow.PNG)
 
+### TO DO
+Read "Protocol Flow", "Authorization Grant" and "Endpoint" sections in RFC
+- Flows vs Grants?
+- Which of these would use a POST to auth server to request a new token?
+- Confirm delineation between browser-based and programmatic flows
+- Add links to RFC
