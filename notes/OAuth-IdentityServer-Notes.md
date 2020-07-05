@@ -86,9 +86,9 @@ Three options are:
 
 ## Obtaining, inspecting and working with Access Tokens
 Demo example:
-1. Call `/token` endpoint with a POST request containing `client_id`, `client_secret`, `grant_type`, `username` and `password` in a form-urlencoded body
+1. Call `/token` endpoint using [Resource Owner Password Credentials](#credential-flows-post-requests-with-client-authentication) flow: `POST` request containing `client_id`, `client_secret`, `grant_type`, `username` and `password`
 1. Receive a response containing the `access_token`, `expires_in` and `token_type` ("Bearer")
-1. Use the access token to requests resources that that user is authorised for from our API: GET request to relevant resource endpoint with an `Authorization` header specifying the type of token (Bearer) and token itself
+1. Use the access token to request resources that the user is authorised for from our API: `GET` request to relevant resource endpoint with an `Authorization` header specifying the type of token (Bearer) and token itself
 
 ### Inside the Access Token
 > :bulb: You can inspect any token on [jwt.io](https://jwt.io/)!
@@ -114,11 +114,11 @@ Tokens break down into:
 ### Choosing a Flow
 [OAuth defines different flows](https://tools.ietf.org/html/rfc6749#section-1.2) for retrieving an access token ("authorisation flows"). The full stages of a flow typically break down as follows:
 1. Client makes **authorisation request** to authorisation server
-1. Authorisation server issues **authorisation grant** issued by authorisation server
+1. Authorisation server issues **authorisation grant**
 1. Client uses authorisation grant to trade for an **access token**
 1. Client uses access token to **access protected resources**
 
-An *authorization grant* is a credential representing the resource owner's authorisation to access their protected resources. OAuth 2.0 defines 4 different redirect flows, based on four grant types used: authorization code, implicit, resource owner password credentials, and client credentials.
+> An *authorisation grant* is a credential representing the resource owner's authorisation to access their protected resources. OAuth 2.0 defines 4 different authorisation flows, based on four grant types used: **authorization code, implicit, resource owner password credentials**, and **client credentials**.
 
 #### Redirect Flows (browser based)
 - **Implicit Grant** flow (sequence diagram below) - Redirect the user to the authorisation server, where they provide their user name and password. They are then redirected back to website with an access token which allows them to have logged-in access (best for JavaScript clients)
@@ -126,9 +126,11 @@ An *authorization grant* is a credential representing the resource owner's autho
 
 #### Credential Flows (POST requests with client authentication)
 - **Resource Owner Password Credentials** flow - trades user name and password
+  - `POST` request to `/token` endpoint containing `client_id`, `client_secret`, **`grant_type` of `password`**, `username` and `password` in a x-www-form-urlencoded body
 - **Client Credentials** flow - each client is issued a client Id and secret, which can be traded for an access token, these can be used:
   - as part of the Authorisation Code flow (above) in order to get an access token
   - to access resources on an API without a particular user connected to that session (incl. creating a user!)
+  - `POST` request to `/token` endpoint containing `client_id`, `client_secret`and **`grant_type` of `client_credentials`** in a x-www-form-urlencoded body
 
 :bulb: We can **combine different flows & grants** in our system in order to grant access to our API, for example when creating a new user:
 1. First, use *Client Credentials* flow to get an access token that can be used to create a user on the API
