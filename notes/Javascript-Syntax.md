@@ -540,7 +540,19 @@ const startsWithG = names.reduce((sum, name) => {
 
 ### The `find()` method
 
+**Example** - finding the highest scoring player in a players array
 
+```js
+const players = [
+  {name:"Roger", score:5},
+  {name:"Elsie", score:4}
+];
+
+const highestScore = Math.max(...players.map(p => p.score))
+const highestScoringPlayer = players.find(p => p.score == highestScore)
+
+// highestScoringPlayer has value: {name: "Roger", score: 5}
+```
 _______________
 
 ## Objects & Classes
