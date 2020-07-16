@@ -539,8 +539,17 @@ const startsWithG = names.reduce((sum, name) => {
 ```
 
 ### The `find()` method
+[`find()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) returns the value of the first element in the provided array that satisfies the provided testing function.
 
-**Example** - finding the highest scoring player in a players array
+**Example 1** - find first number greater than 10
+```js
+const numbers = [5, 12, 8, 130, 44];
+
+const result = numbers.find(number => number > 10);
+// value of result: 12
+```
+
+**Example 2** - find the highest scoring player in a players array
 
 ```js
 const players = [
