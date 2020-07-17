@@ -417,6 +417,32 @@ this.setState( prevState => ({
 }));
 ```
 
+> :fire: **Likewise, avoid mutating `prevState`!**
+
+:x: Avoid doing things like:
+```js
+this.setState( prevState => ({
+  score: prevState.players[index].score += delta
+}));
+```
+
+:heavy_check_mark: Instead, do this:
+```js
+this.setState( prevState => {
+  // using spread operator to make a new copy, independent of the old objects
+  const updatedPlayers = [ ...prevState.players ];
+  const updatedPlayer = { ...updatedPlayers[index] };
+
+  // Update the target player's score
+  updatedPlayer.score += delta;
+  updatedPlayers[index] = updatedPlayer;
+
+  return {
+    players: updatedPlayers
+  };
+});
+```
+
 </br>
 
 ### :paw_prints: Handling events
