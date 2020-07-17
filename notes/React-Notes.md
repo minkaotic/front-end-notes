@@ -858,4 +858,54 @@ const Stats = () => {
 
 :point_right: All this allows the parent component (`ChildComp1`) to not have to worry about `importantThing` data, and be a much simpler, stateless component instead.
 
+#### Partially wrapping JSX in Consumer
+The `Consumer` **doesn't have to wrap all of the JSX** - you can wrap it around just the parts of the UI that need to consume the `context`:
+
+```js
+render() {
+    ...
+
+    return (
+      <div className="player">
+        <Consumer>
+          { context => (
+            <span className="player-name">
+              <button className="remove-player" onClick={() => context.actions.removePlayer(id)}>✖</button>
+              { name }
+            </span> 
+          )}
+        </Consumer>
+        <Counter 
+          score={score}
+          index={index}
+        />
+      </div>
+    );
+  }
+```
+
+#### Passing more complex context
+It's common to pass the `Provider`'s `value` prop an object to store multiple properties in application state, as well as any callback functions, i.e. *actions* you want to perform on the data which need to be triggered in other components.
+
+```js
+render() {
+  return (
+    <Provider value={{
+      players: this.state.players,
+      actions: {
+        changeScore: this.handleScoreChange,
+        removePlayer: this.handleRemovePlayer,
+        addPlayer: this.handleAddPlayer
+      }
+    }}>
+      <div className="scoreboard">
+        <Header />
+        <PlayerList />   
+        <AddPlayerForm />
+      </div>
+    </Provider>
+  );
+}
+```
+
 
