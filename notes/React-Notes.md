@@ -31,7 +31,6 @@ _______________
 ## To Do
 - [ ] **Docs:** Read remaining "Main Concepts", starting from ["Conditional Rendering"](https://reactjs.org/docs/conditional-rendering.html) | Understand [render props](https://reactjs.org/docs/render-props.html)
 - [ ] Finish [Learn React](https://teamtreehouse.com/tracks/learn-react) track on Treehouse
-  - [ ] revisit [this video](https://teamtreehouse.com/library/the-provider-and-consumer-solution) at 2:19 and make separate notes about using spread operator for props!
 - [ ] **Testing:** [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-components) | [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html) | [React Testing Library intro](https://testing-library.com/docs/react-testing-library/example-intro)
 - [ ] [React Authentication workshop](https://teamtreehouse.com/library/react-authentication/introducing-the-authentication-project/what-is-basic-authentication)
 
@@ -521,7 +520,7 @@ class AddPlayerForm extends Component {
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>     // onSubmit captures return key events as well as mouse click etc.
         <input
           type="text"
           value={this.state.value}            // use state for value of the input
@@ -640,7 +639,7 @@ class MyComponent extends Component {
 #### 2. VALIDATE PROPS WITH PROPTYPES
 As your app grows, it's a good practice to "type check" or validate the data a component receives from props. There are **3 popular ways** to handle type checking in React: **[PropTypes](https://www.npmjs.com/package/prop-types)**, **[TypeScript](https://www.typescriptlang.org/)** and **[Flow](https://flow.org/)**.
 
-- Proptypes used to be built into React, but is now separate library; cf. [React docs on using PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
+- PropTypes used to be built into React, but is now separate library; cf. [React docs on using PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 - PropTypes provide helpful warnings at runtime if the type passed to a prop doesn't match its defined type. This not only helps you catch and avoid bugs, but PropTypes also serve as documentation for components.
 - For performance reasons, PropTypes are only checked in development mode.
 
