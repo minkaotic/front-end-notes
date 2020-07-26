@@ -754,8 +754,4 @@ They're commonly used to access form elements and get their values, which avoids
 
 > :zap: **Use refs sparingly, as they go against the intended React data flow and can comprise an antipattern.**
 
-</br>
-
-_______________
-
 
