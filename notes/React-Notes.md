@@ -25,13 +25,9 @@ Main Resources: [Treehouse React Track](https://teamtreehouse.com/tracks/learn-r
   - [Refs](#paw_prints-refs)
 
 _______________
-## To Do
-- [ ] **Docs:** Read remaining "Main Concepts", starting from ["Lists and keys"](https://reactjs.org/docs/lists-and-keys.html) | Understand [composition](https://reactjs.org/docs/composition-vs-inheritance.html) and [render props](https://reactjs.org/docs/render-props.html)
-- [ ] Finish [Learn React](https://teamtreehouse.com/tracks/learn-react) track on Treehouse
-- [ ] **Testing:** [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-components) | [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html) | [React Testing Library intro](https://testing-library.com/docs/react-testing-library/example-intro)
-- [ ] [React Authentication workshop](https://teamtreehouse.com/library/react-authentication/introducing-the-authentication-project/what-is-basic-authentication)
-
-**Bonus!**
+## To Do:
+- [ ] **Docs:** Read remaining "Main Concepts", starting from ["Lists and keys"](https://reactjs.org/docs/lists-and-keys.html); understand [composition](https://reactjs.org/docs/composition-vs-inheritance.html) and [render props](https://reactjs.org/docs/render-props.html)
+- [ ] Finish [Learn React](https://teamtreehouse.com/tracks/learn-react) track and [React Authentication workshop](https://teamtreehouse.com/library/react-authentication/introducing-the-authentication-project/what-is-basic-authentication) on Treehouse
 - [ ] Dmitri Pavlutin: [7 Architectural Attributes of a Reliable React Component](https://dmitripavlutin.com/7-architectural-attributes-of-a-reliable-react-component/) | [Orthogonal React Components](https://dmitripavlutin.com/orthogonal-react-components/) | [3 Rules of React State Management](https://dmitripavlutin.com/react-state-management/) | [Lifecycle methods, hooks, suspense: which is best for fetching in React?](https://dmitripavlutin.com/react-fetch-lifecycle-methods-hooks-suspense/)
 - [ ] [React Europe 2020 conf videos](https://www.youtube.com/watch?v=nzeL1wZltf0&list=PLCC436JpVnK0Q4WHoB85ZYBwcCyTaMgAl)
 
