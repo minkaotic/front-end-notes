@@ -1,6 +1,6 @@
 # State Management in React
-In which we cover: [React Context API](#react-context-api) and [Redux](#redux)
-Sources: Team Treehouse React/Redux courses
+<ins>In which we cover</ins>: [React Context API](#react-context-api) and [Redux](#redux) </br>
+<ins>Sources</ins>: Team Treehouse React/Redux courses
 
 _______________________________
 ## React Context API 
