@@ -1,12 +1,8 @@
 # React Notes ⚛️
-Main Resources: [Treehouse React Track](https://teamtreehouse.com/tracks/learn-react) | [React docs](https://reactjs.org/docs/getting-started.html)
-
-**[React](https://reactjs.org/) is a JavaScript library for building user interfaces.**
-- Simplifies building and maintaining the UI of your application by breaking it up into smaller, reusable *components*.
-- Reduces the complexity of updating your DOM elements when users interact with your application, thanks to the *virtual DOM*: when your application's data changes, React figures out which parts of your document need to be changed, and immediately updates only those parts.
-
+**[React](https://reactjs.org/) is a JavaScript library for building user interfaces.** | Main resources used: [Treehouse React Track](https://teamtreehouse.com/tracks/learn-react) | [React docs](https://reactjs.org/docs/getting-started.html)
 
 ## Contents
+- [Intro](#intro)
 - [Setup](#setup)
 - [React Basics](#react-basics)
   - [Creating & rendering React elements](#paw_prints-creating--rendering-react-elements)
@@ -30,6 +26,48 @@ _______________
 - [ ] Finish [Learn React](https://teamtreehouse.com/tracks/learn-react) track and [React Authentication workshop](https://teamtreehouse.com/library/react-authentication/introducing-the-authentication-project/what-is-basic-authentication) on Treehouse
 - [ ] Dmitri Pavlutin: [7 Architectural Attributes of a Reliable React Component](https://dmitripavlutin.com/7-architectural-attributes-of-a-reliable-react-component/) | [Orthogonal React Components](https://dmitripavlutin.com/orthogonal-react-components/) | [3 Rules of React State Management](https://dmitripavlutin.com/react-state-management/) | [Lifecycle methods, hooks, suspense: which is best for fetching in React?](https://dmitripavlutin.com/react-fetch-lifecycle-methods-hooks-suspense/)
 - [ ] [React Europe 2020 conf videos](https://www.youtube.com/watch?v=nzeL1wZltf0&list=PLCC436JpVnK0Q4WHoB85ZYBwcCyTaMgAl)
+
+</br>
+
+_______________
+
+## Intro
+This section is based on [React: The Big Picture](https://app.pluralsight.com/library/courses/react-big-picture/table-of-contents):
+- Simplifies building and maintaining the UI of your application by breaking it up into smaller, reusable *components*.
+- Differs from frameworks like Vue/Angular in that it favours a flexible library approach, and embraces explicit, JS-centric syntax over most frameworks' concise, template-centric syntax (ie. use JS conditionals rather than `ng-if`; use JS `.map()` function rather than `ng-for`).
+
+#### High level history
+2011 - Created by Facebook </br>
+2012 - Used on Instagram </br>
+2013 - Open sourced </br>
+2014 - Embraced by many large companies </br>
+2015 - React Native released </br>
+2016 - React 15 released; now mature and stable platform </br>
+
+#### Why Use React?
+**1. Flexibility**
+  - embeds fewer opinions than its competition; tries to function as a library (that can be used with other libraries of choice), rather than a full framework - *see overview below*
+  - can be used for web apps, static sites (via Gatsby), server-rendered sites (using Next.js), native mobile apps, VR and even Mac/Windows desktop apps (via Electron) and offers separate renderers depending on the use case (react-dom/react-native/react-vr + many more)
+  - lends itself well to gradually replacing existing applications
+
+![overview of additional react libraries](/img/react-building-blocks.png)
+
+**2. Developer Experience**
+  - rapid feedback dev experience
+  - small, logical API that is easy to learn
+  - setup with `create-react-app` is super straightforward
+  - testing is configured out of the box and fast to run in-memory (via Node) rather than in the browser
+  - test approach is deterministic, so less brittle than traditional UI tests
+  - React itself embraces deterministic no side-effects approach, which also makes it more reliable to develop with
+
+**3. Corporate Investment & Active Community**
+  - committed development team; FB provides code-mods with each release, automating upgrades for any breaking changes
+  - huge adoption rate; likely long-term stability
+  - well documented & vibrant ecosystem with loads of libraries and options
+
+**4. Performance**
+  - Updating the DOM is expensive, so React minimises DOM changes: *Virtual DOM* aims to update DOM in the most efficient way, rather than blindly rerendering large parts of the page with every small change - this was a novel approach at the time & gave React its edge
+  - Smaller bundle size than many competitors (and there's [Preact](https://preactjs.com/) if you want it even smaller)
 
 </br>
 
