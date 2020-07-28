@@ -78,4 +78,6 @@ Sources: [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-
 
 #### Testing with Test Renderer
 
-
+### Testing component events
+### Testing components with state and effects
+### Testing components with state management
