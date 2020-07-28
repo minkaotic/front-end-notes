@@ -16,7 +16,7 @@ Even if you roll your own frontend implementation using **vanilla JavaScript** y
 
 * [Mocha](https://mochajs.org/) is one of the most used JS testing frameworks. It runs on Node as well as in the browser.
 * [Jasmine](https://jasmine.github.io/), as well as being a general popular BDD-centric testing framework, is a particularly common choice for testing Angular applications.
-* [Jest](https://jestjs.io/) is a testing library created by Facebook and is setup automatically when creating a React app. It is built for unit- and integration testing, and can also be used with other client side frameworks, as well as Typescript or Node.
+* [Jest](https://jestjs.io/) is a JS test runner and assertion library created by Facebook and is setup automatically when creating a React app. It is built for unit- and integration testing, and can also be used with other client side frameworks, as well as Typescript or Node.
 * [Enzyme](https://airbnb.io/enzyme/) is a JS testing utility library developed by AirBnB for testing React compontents; originally built for use with Mocha, but is also compatible with other testing libraries.
 
 Additionally, [Karma](https://karma-runner.github.io/latest/index.html) is a test runner that aims to simplify the testing & debugging process.
@@ -44,7 +44,38 @@ For details on taking **full page** screenshots, see the [sample code here](http
 ____________________________________
 
 ## Testing React Components
-Sources: [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-components) | [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html) | [React Testing Library intro](https://testing-library.com/docs/react-testing-library/example-intro)
+Sources: [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-components) | [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html)r
+> :bulb: Test *logic* (behaviour), not implementation, to avoid brittle tests
 
+### Setting up a test environment
+- **`create-react-app`** will set up a test environment (using Jest) out of the box, which can be run straightaway with `npm test`
+- In order to test components *in isolation* from the rest of the application, you can use [Storybook](https://storybook.js.org/) ([setup instructions for React](https://www.learnstorybook.com/intro-to-storybook/react/en/get-started/))
+  - this allows us to mock hard to reach use cases, as we can render components in key states that are tricky to reproduce in an app
+  - it also offers visual verification of each component in isolation
+
+**What to test?** - React ultimately has two responsibilities:
+1. render user interfaces based on some state
+2. produces and manages user interface events
+
+:point_right: These are the responsibilies we want to test in our components!
+
+### Testing component rendering
+#### What's with all the different libraries??
+- You can use a full testing library ([React Testing Library](https://testing-library.com/docs/react-testing-library/example-intro) being the most popular choice), or *test components directly without any special tooling*.
+- [Test Renderer](https://reactjs.org/docs/test-renderer.html) is a half-way house between direct testing of the `render()` function and testing with React Testing Library, as it provides some level of abstraction that you run assertions against.
+- [Test Utilities](https://reactjs.org/docs/test-utils.html) is a selection of useful functions to test React components.
+
+> :+1: The next few sections provide more detail on all of the above.
+
+#### Testing with React Testing Library
+- aims to support writing tests that avoid including implementation details
+
+
+#### Testing components directly
+
+
+#### Testing with Test Utilities
+
+#### Testing with Test Renderer
 
 
