@@ -6,10 +6,10 @@
 
 ____________________________________
 
-## Overview
+# Overview
 Sources: [Ham Vocke: The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) | [Super high-level library overview on Treehouse](https://teamtreehouse.com/library/testing-javascript)
 
-### Client-side rendered applications 
+## Client-side rendered applications 
 Modern **single page application frameworks** (React, Vue.js, Angular and the like) often come with their own tools and helpers that allow you to thoroughly test these interactions in a pretty low-level (unit test) fashion - see list below for a few libraries/frameworks.
 
 Even if you roll your own frontend implementation using **vanilla JavaScript** you can use general purpose testing tools like Jasmine or Mocha.
@@ -21,12 +21,12 @@ Even if you roll your own frontend implementation using **vanilla JavaScript** y
 
 Additionally, [Karma](https://karma-runner.github.io/latest/index.html) is a test runner that aims to simplify the testing & debugging process.
 
-### Server-side rendered applications 
+## Server-side rendered applications 
 With more traditional, server-side rendered applications, [Selenium](https://www.seleniumhq.org/)-based tests will be your best choice.
 
 ____________________________________
 
-## Taking Screenshots with Selenium in .NET
+# Taking Screenshots with Selenium in .NET
 Use the Selenium `ITakesScreenshot` interface:
 ```c#
 private Image GetScreenshot(IWebDriver webDriver)
@@ -43,35 +43,35 @@ For details on taking **full page** screenshots, see the [sample code here](http
 
 ____________________________________
 
-## Testing React Components
+# Testing React Components
 Sources: [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-components) | [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html)r
 > :bulb: Test *logic* (behaviour), not implementation, to avoid brittle tests
 
-### Setting up a test environment
-- **`create-react-app`** will set up a test environment (using Jest) out of the box, which can be run straightaway with `npm test`
-- In order to test components *in isolation* from the rest of the application, you can use [Storybook](https://storybook.js.org/) ([setup instructions for React](https://www.learnstorybook.com/intro-to-storybook/react/en/get-started/))
-  - this allows us to mock hard to reach use cases, as we can render components in key states that are tricky to reproduce in an app
-  - it also offers visual verification of each component in isolation
+## Setting up a test environment
+- **`create-react-app`** will set up a test environment (using Jest and React Testing Library) out of the box, which can be run straightaway with `npm test`
+- In order to test components *in isolation* from the rest of the application, you can use [Storybook](https://storybook.js.org/) ([setup instructions for React](https://www.learnstorybook.com/intro-to-storybook/react/en/get-started/)):
+  - easier to mock hard to reach use cases, as we can render components in key states that are tricky to reproduce in an app
+  - offers visual verification of each component in isolation
 
 **What to test?** - React ultimately has two responsibilities:
 1. render user interfaces based on some state
-2. produces and manages user interface events
+2. produce and manage user interface events
 
 :point_right: These are the responsibilies we want to test in our components!
 
-### Testing component rendering
-#### What's with all the different libraries??
+## Testing component rendering
+### What's with all the different libraries??
 - You can use a full testing library ([React Testing Library](https://testing-library.com/docs/react-testing-library/example-intro) being the most popular choice), or *test components directly without any special tooling*.
 - [Test Renderer](https://reactjs.org/docs/test-renderer.html) is a half-way house between direct testing of the `render()` function and testing with React Testing Library, as it provides some level of abstraction that you run assertions against.
 - [Test Utilities](https://reactjs.org/docs/test-utils.html) is a selection of useful functions to test React components.
 
 > :+1: The next few sections provide more detail on all of the above.
 
-#### Testing with React Testing Library (RTL)
+### Testing with React Testing Library (RTL)
 - aims to support writing tests that avoid including implementation details
 - guiding principle: tests should resemble the way the software is used:
   - encourages rendering components to DOM nodes and making assertions against those
-  - **testing strategy:** Pick things that should be visible to the user, based on different sitations
+  - **testing strategy:** test things that should be visible to the user, based on different sitations
   
 Basic sample test:
 ```js
@@ -99,19 +99,59 @@ test('renders important text', () => {
   container.getByText(/some text/i);   // find text by RegEx
   container.getByTitle('Title text');   // find element with matching title attribute
   ```
+- as the container div is a DOM element, you can also use any [element properties](https://developer.mozilla.org/en-US/docs/Web/API/Element) too:
+  ```js
+  container.innerHTML;
   
-> :bulb: These query functions intend to approach the component under test in the same way a user would look at the UI, avoiding any implementation specifics (e.g. querying by class or id selectors or based on DOM structure).
+  ```
 
- 
-
-
-#### Testing components directly
+> :bulb: RTL query functions intend to approach the component under test in the same way a user would look at the UI, avoiding any implementation specifics (e.g. querying by class or id selectors or based on DOM structure).
 
 
-#### Testing with Test Utilities
+### Testing components directly
+You don't need any libraries at all if you prefer testing from first principles: you can just invoke the component function directly. To test a `Message` component:
+```js
+const Message = (props) => {
+    return (
+      <p>
+        {props.isImportant 
+          ? <strong title='Important content'>{props.content}</strong> 
+          : <span title='Regular content'>{props.content}</span>}    
+      </p>);
+  };
+```
+You invoke the component like so: `Message({ content: "I see everything twice", isImportant: false })`
+```js
+import Message from './Message';
 
-#### Testing with Test Renderer
+describe('Message', () => {
+    it('should always render the message', () => {
+        const notImportantMessage = Message({ content: "I see everything twice", isImportant: false });
+        expect(notImportantMessage.props.children.props.children).toBe('I see everything twice');
+        const importantMessage = Message({ content: "I see everything twice", isImportant: true });
+        expect(importantMessage.props.children.props.children).toBe('I see everything twice');
+    });
 
-### Testing component events
-### Testing components with state and effects
-### Testing components with state management
+    it('should make important messages strong', () => {
+        const importantMessage = Message({ content: "I see everything twice", isImportant: true });
+        expect(importantMessage.props.children.type).toBe('strong');
+    });
+
+    it('should not make not important messages strong', () => {
+        const importantMessage = Message({ content: "I see everything twice", isImportant: false });
+        expect(importantMessage.props.children.type).not.toBe('strong');
+    });
+});
+```
+- *Disadvantage:* having to navigate deeply nested structures; this is not only noisy, but also encodes the implementation of the component
+
+
+### Testing with Test Utilities
+
+
+
+### Testing with Test Renderer
+
+## Testing component events
+## Testing components with state and effects
+## Testing components with state management
