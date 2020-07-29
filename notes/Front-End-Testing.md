@@ -67,8 +67,42 @@ Sources: [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-
 
 > :+1: The next few sections provide more detail on all of the above.
 
-#### Testing with React Testing Library
+#### Testing with React Testing Library (RTL)
 - aims to support writing tests that avoid including implementation details
+- guiding principle: tests should resemble the way the software is used:
+  - encourages rendering components to DOM nodes and making assertions against those
+  - **testing strategy:** Pick things that should be visible to the user, based on different sitations
+  
+Basic sample test:
+```js
+import React from 'react';
+import { render } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('renders important text', () => {
+  const { getByText } = render(<MyComponent />);
+  const linkElement = getByText(/important text here/i);
+  expect(linkElement).toBeInTheDocument();
+});
+```
+
+**The `render()` function** is at the heart of RTL
+- renders React component into a simulated browser environment (good compromise of speed and being a realistic emulation)
+- returns the container div which the component has been rendered into:
+  ```js
+  const container = render(<MyComponent prop1="foo" prop2={true} />);
+  ```
+- it also returns [a set of query functions](https://testing-library.com/docs/dom-testing-library/api-queries#queries), that are bound to the rendered component, and provide an effective way to query for specific DOM elements to trigger events or make assertions about the rendered content:
+  ```js
+  container.getByLabelText('First Name');   // find a form field with a given label
+  container.getByText('some text');   // find text by string
+  container.getByText(/some text/i);   // find text by RegEx
+  container.getByTitle('Title text');   // find element with matching title attribute
+  ```
+  
+> :bulb: These query functions intend to approach the component under test in the same way a user would look at the UI, avoiding any implementation specifics (e.g. querying by class or id selectors or based on DOM structure).
+
+ 
 
 
 #### Testing components directly
