@@ -44,7 +44,7 @@ For details on taking **full page** screenshots, see the [sample code here](http
 ____________________________________
 
 # Testing React Components
-Sources: [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-components) | [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html)r
+Sources: [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-components) | [Enzyme vs react-testing-library](https://medium.com/@boyney123/my-experience-moving-from-enzyme-to-react-testing-library-5ac65d992ce) | [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html)
 > :bulb: Test *logic* (behaviour), not implementation, to avoid brittle tests
 
 ## Setting up a test environment
@@ -59,15 +59,16 @@ Sources: [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-
 
 :point_right: These are the responsibilies we want to test in our components!
 
+
 ## Testing component rendering
 ### What's with all the different libraries??
-- You can use a full testing library ([React Testing Library](https://testing-library.com/docs/react-testing-library/example-intro) being the most popular choice), or *test components directly without any special tooling*.
+- You can use a full testing library ([React Testing Library](https://testing-library.com/docs/react-testing-library/example-intro) being the most popular choice, [Enzyme]() being another option), or *test components directly without any special tooling*.
 - [Test Renderer](https://reactjs.org/docs/test-renderer.html) is a half-way house between direct testing of the `render()` function and testing with React Testing Library, as it provides some level of abstraction that you run assertions against.
 - [Test Utilities](https://reactjs.org/docs/test-utils.html) is a selection of useful functions to test React components.
 
-> :+1: The next few sections provide more detail on all of the above.
+> **Ultimately, Test Utilities and Test Renderer contain a subset of functionality, and Enzyme and React Testing Library were built upon them.** :+1: The next few sections provide more detail on all of the above.
 
-### Testing with React Testing Library (RTL)
+### React Testing Library (RTL)
 - aims to support writing tests that avoid including implementation details
 - guiding principle: tests should resemble the way the software is used:
   - encourages rendering components to DOM nodes and making assertions against those
@@ -108,6 +109,16 @@ test('renders important text', () => {
 > :bulb: RTL query functions intend to approach the component under test in the same way a user would look at the UI, avoiding any implementation specifics (e.g. querying by class or id selectors or based on DOM structure).
 
 
+### Enzyme vs React Testing Library
+Different philosophies:
+- Enzyme allows you to access the internal workings of your components. You can read and set the state, and you can mock children to make tests run faster.
+- By contrast, react-testing-library doesn't give you any access to the implementation details. It renders the components and provides utility methods to interact with them. The idea is that you should communicate with your application in the same way a user would. So rather than set the state of a component you reproduce the actions a user would do to reach that state.
+
+Maintainability:
+- Enzyme is easier to grasp but in the long run, it's harder to maintain.
+- react-testing-library forces you to write tests that are a bit more complex on average but rewards with higher confidence in your code.
+
+
 ### Testing components directly
 You don't need any libraries at all if you prefer testing from first principles: you can just invoke the component function directly. To test a `Message` component:
 ```js
@@ -143,15 +154,46 @@ describe('Message', () => {
     });
 });
 ```
-- *Disadvantage:* having to navigate deeply nested structures; this is not only noisy, but also encodes the implementation of the component
+- *Disadvantage:* having to navigate deeply nested structures; this is not only noisy, but also encodes the implementation of the component, therefore making the tests very brittle
 
 
 ### Testing with Test Utilities
-
+- library that can be used with different testing frameworks, not just Jest
+- has functions for rendering components into a virtual browser environment, mocking components, triggering events on elements and much more
+- `act()` function provides a wrapper for component rendering and updating components:
+  ```js
+  act(() => {
+    ReactDOM.render(<Message content="some stuff" isImportant={true} />, container);
+  });
+  ```
+- can then use DOM methods like `queryselector()` to find elements to assert against/dispatch events on:
+  ```js
+  const button = container.querySelector('button');
+  
+  act(() => {
+    button.dispatchEvent(new MouseEvent('click', {bubbles: true}))
+  });
+  ```
+- *Disadvantages:* very limited API compared to feature set of RTL/Enzyme libaries; much more boilerplate (e.g. having to wrap event triggers in `act()` method and having to explicitely render components into a container); makes tests harder to read
 
 
 ### Testing with Test Renderer
+- renders React components to pure JS objects (= object representations of the component hierarchy), without depending on the DOM
+- allows to test against React abstractions such as components and props
+- not using virtual DOM approach like Enzyme/RTL, but closer to actual user impression of a component than when testing components directly
+- renders components using `create()` function:
+  ```js
+  const root = TestRenderer.create(<Message content="Some stuff" isImportant={true} />).root;
+  ```
+- provides an API for traversing the component graph:
+  ```js
+  root.findAllByType("div");
+  root.findByProps({"data-testid": "rover-curiosity"});
+  root.findAll((i) => i.children.length > 0);
+  ```
+
 
 ## Testing component events
 ## Testing components with state and effects
 ## Testing components with state management
+
