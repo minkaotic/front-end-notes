@@ -100,6 +100,7 @@ test('renders important text', () => {
   container.getByText(/some text/i);   // find text by RegEx
   container.getByTitle('Title text');   // find element with matching title attribute
   ```
+  - RTL exposes a way to find elements by a `data-testid` as an "escape hatch" for elements where user-related queries do not make sense or are not practical
 - as the container div is a DOM element, you can also use any [element properties](https://developer.mozilla.org/en-US/docs/Web/API/Element) too:
   ```js
   container.innerHTML;
