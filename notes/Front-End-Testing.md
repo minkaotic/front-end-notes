@@ -108,15 +108,28 @@ test('renders important text', () => {
 
 > :bulb: RTL query functions intend to approach the component under test in the same way a user would look at the UI, avoiding any implementation specifics (e.g. querying by class or id selectors or based on DOM structure).
 
+**Accessibility**
+- RTL selectors encourage you to use things like `placeholder`, `aria`, `title`, `alt` etc. to get access to elements
+- This encourages building more accessible components, and offers a great feedback loop of *Write tests* > *Build accessible components* > *Tests pass*
+
 
 ### Enzyme vs React Testing Library
 Different philosophies:
-- Enzyme allows you to access the internal workings of your components. You can read and set the state, and you can mock children to make tests run faster.
-- By contrast, react-testing-library doesn't give you any access to the implementation details. It renders the components and provides utility methods to interact with them. The idea is that you should communicate with your application in the same way a user would. So rather than set the state of a component you reproduce the actions a user would do to reach that state.
+- Enzyme focuses on the implementation, and allows you to access the internal workings of your components. You can read and set the state, and you can mock children to make tests run faster.
+- By contrast, react-testing-library focuses on user behaviour and doesn't give you any access to the implementation details. It renders the components and provides utility methods to interact with them. The idea is that you should communicate with your application in the same way a user would. So rather than set the state of a component, you reproduce the actions a user would take to reach that state.
+
+> Moving to RTL from Enzyme requires a mindset shift
 
 Maintainability:
-- Enzyme is easier to grasp but in the long run, it's harder to maintain.
-- react-testing-library forces you to write tests that are a bit more complex on average but rewards with higher confidence in your code.
+- Enzyme is easier to grasp but in the long run, it's harder to maintain, as tests are coupled to implementation.
+- RTL tests may be a bit more complex to write due to mindset change, but make future refactoring easier (user experience is the same regardless of implementation details), both in the sense of having more confidence in it and in the sense of being less brittle.
+- Once comfortable with the paradigm, RTL tests often faster to get working
+
+Shallow render:
+- RTL doesn’t provide a way to “shallowly” render a component without its children, but you can achieve this via Jest mocking
+
+Other:
+- both have great documentation and an extensive API (albeit with different focus points)
 
 
 ### Testing components directly
