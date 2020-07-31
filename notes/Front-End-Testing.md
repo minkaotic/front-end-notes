@@ -101,10 +101,14 @@ test('renders important text', () => {
   container.getByTitle('Title text');   // find element with matching title attribute
   ```
   - RTL exposes a way to find elements by a `data-testid` as an "escape hatch" for elements where user-related queries do not make sense or are not practical
-- as the container div is a DOM element, you can also use any [element properties](https://developer.mozilla.org/en-US/docs/Web/API/Element) too:
+- as the container div is a DOM element, you can also use any [element properties](https://developer.mozilla.org/en-US/docs/Web/API/Element) too, and testing library also provides [custom Jest matchers](https://github.com/testing-library/jest-dom#tocontainelement) for assertions:
   ```js
-  container.innerHTML;
+  container.innerHTML;  // element property example
   
+  // make assertions with custom Jest matchers
+  const returnButton = container.getByRole("button");
+  expect(returnButton).toBeInTheDocument();
+  expect(returnButton).toHaveTextContent("Return to website");
   ```
 
 > :bulb: RTL query functions intend to approach the component under test in the same way a user would look at the UI, avoiding any implementation specifics (e.g. querying by class or id selectors or based on DOM structure).
