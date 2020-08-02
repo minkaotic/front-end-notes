@@ -53,21 +53,36 @@ Sources: [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-
   - easier to mock hard to reach use cases, as we can render components in key states that are tricky to reproduce in an app
   - offers visual verification of each component in isolation
 
+### What's with all the different libraries??
+- You can use a full testing library ([React Testing Library](https://testing-library.com/docs/react-testing-library/example-intro) being the most popular choice, [Enzyme](https://enzymejs.github.io/enzyme/) being another option), or *test components directly without any special tooling*.
+- [Test Renderer](https://reactjs.org/docs/test-renderer.html) is a half-way house between direct testing of the `render()` function and testing with React Testing Library, as it provides some level of abstraction that you run assertions against.
+- [Test Utilities](https://reactjs.org/docs/test-utils.html) is a selection of useful functions to test React components.
+
+> **Ultimately, Test Utilities and Test Renderer contain a subset of functionality, and Enzyme and React Testing Library were built upon them.** :+1: The [Testing component rendering](#testing-component-rendering) section provides more detail on all of the above.
+
+
+### Principles & strategies
 **What to test?** - React ultimately has two responsibilities:
 1. render user interfaces based on some state
 2. produce and manage user interface events
 
-:point_right: These are the responsibilies we want to test in our components!
+:point_right: These are the responsibilies we want to test in our components! The **testing strategy** we choose differs depending on which of those we're testing:
+
+- **Testing component rendering:**
+  1. Set props and render
+  1. Make assertions against the output
+- **Testing component events:**
+  1. Set props and render
+  1. Find the elements you need
+  1. Trigger events on elements
+  1. Make assertions against the events produced
+
+**Other principles:**
+- *Never test through a UI component what can be tested some other way.* If you have application logic in your component that needs testing - could this be extracted to a service instead, and thus unit tested directly?
+- *Never test the same thing twice.* If some implementation logic changes and becomes incorrect, ideally exactly 1 test should fail, no more.
 
 
 ## Testing component rendering
-### What's with all the different libraries??
-- You can use a full testing library ([React Testing Library](https://testing-library.com/docs/react-testing-library/example-intro) being the most popular choice, [Enzyme]() being another option), or *test components directly without any special tooling*.
-- [Test Renderer](https://reactjs.org/docs/test-renderer.html) is a half-way house between direct testing of the `render()` function and testing with React Testing Library, as it provides some level of abstraction that you run assertions against.
-- [Test Utilities](https://reactjs.org/docs/test-utils.html) is a selection of useful functions to test React components.
-
-> **Ultimately, Test Utilities and Test Renderer contain a subset of functionality, and Enzyme and React Testing Library were built upon them.** :+1: The next few sections provide more detail on all of the above.
-
 ### React Testing Library (RTL)
 - aims to support writing tests that avoid including implementation details
 - guiding principle: tests should resemble the way the software is used:
@@ -88,7 +103,7 @@ test('renders important text', () => {
 ```
 
 **The `render()` function** is at the heart of RTL
-- renders React component into a simulated browser environment (good compromise of speed and being a realistic emulation)
+- renders React component into a simulated browser environment, producing a DOM tree from the component (=good compromise of speed and being a realistic emulation)
 - returns the container div which the component has been rendered into:
   ```js
   const container = render(<MyComponent prop1="foo" prop2={true} />);
@@ -210,8 +225,17 @@ describe('Message', () => {
   root.findAll((i) => i.children.length > 0);
   ```
 
-
 ## Testing component events
+### Events with React Testing Library
+- RTL's `render()` method produces a DOM tree from the component - once we have the DOM tree, testing is no longer specific to React, and uses general Testing Library concepts/apis instead.
+- Testing Library provides [`fireEvent`](https://testing-library.com/docs/dom-testing-library/api-events), which offers a lot of convenience methods for firing events on rendered components, e.g.:
+  ```js
+  const {getByText} = render(<Counter count={0} />);
+  const button = getByText('OK');
+  fireEvent.click(button);
+  ```
+
+
 ## Testing components with state and effects
 ## Testing components with state management
 
