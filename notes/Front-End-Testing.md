@@ -235,6 +235,41 @@ describe('Message', () => {
   fireEvent.click(button);
   ```
 
+## Testing Async code
+**Jest supports testing asynchronous programs**, with one requirement: *test functions that include asynchronisity must return a promise*. (Jest doesn't know that a test is async unless the test function returns a promise; without it it just won't wait.)
+  ```js
+  it('should do something async', () => {
+    return Promise.resolve(1 + 1).then((v) => expect(2).toBe(v));
+  });
+  ```
+- alternatively to returning a `Promise` object explicitely, you can also return a promise by making the function async (as awaiting an operation or returning a value from an async function result in the function returning a promise):
+  ```js
+  it('should do something async', async () => {
+    await Promise.resolve(1 + 1).then((v) => expect(2).toBe(v));
+  });
+- or equivalent, using `resolves` property provided by Jest:
+  ```js
+  it('should do something async', async () => {
+    await expect(Promise.resolve(1 + 1)).resolves.toBe(2));
+  });
+  ```
+**React Testing Library** provides a `wait` function that can be used to wrap assertions that will be true in the future, and waits for the assertion to be true:
+  ```js
+  it("should increment on click", async () => {
+    const { queryByText } = render(
+        <CounterAsync />
+    );
+    const paragraph = queryByText(/times clicked/);
+    await wait(() => {
+        expect(paragraph.textContent).toBe('0 times clicked');
+    });
+    fireEvent.click(paragraph);
+    await wait(() => {
+        expect(paragraph.textContent).toBe('1 ah ah ah');
+    });
+  });
+  ```
+
 
 ## Testing components with state and effects
 ## Testing components with state management
