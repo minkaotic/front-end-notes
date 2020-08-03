@@ -259,13 +259,13 @@ describe('Message', () => {
     const { queryByText } = render(
         <CounterAsync />
     );
+    
     const paragraph = queryByText(/times clicked/);
+    expect(paragraph.textContent).toBe('0 times clicked');
+    
+    fireEvent.click(paragraph);  // triggers some asynchronous logic
     await wait(() => {
-        expect(paragraph.textContent).toBe('0 times clicked');
-    });
-    fireEvent.click(paragraph);
-    await wait(() => {
-        expect(paragraph.textContent).toBe('1 ah ah ah');
+        expect(paragraph.textContent).toBe('1 times clicked');
     });
   });
   ```
