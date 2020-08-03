@@ -45,7 +45,8 @@ ____________________________________
 
 # Testing React Components
 Sources: [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-components) | [Enzyme vs react-testing-library](https://medium.com/@boyney123/my-experience-moving-from-enzyme-to-react-testing-library-5ac65d992ce) | [Tutorial](https://jestjs.io/docs/en/tutorial-react) | [Testing recipes](https://reactjs.org/docs/testing-recipes.html)
-> :bulb: Test *logic* (behaviour), not implementation, to avoid brittle tests
+
+Contents: [Setting up a test environment](#setting-up-a-test-environment) | [Testing component rendering](#testing-component-rendering) | [Testing component events](#testing-component-events) | [Testing async code](#testing-async-code)
 
 ## Setting up a test environment
 - **`create-react-app`** will set up a test environment (using Jest and React Testing Library) out of the box, which can be run straightaway with `npm test`
@@ -78,6 +79,7 @@ Sources: [Pluralsight Course](https://www.pluralsight.com/courses/testing-react-
   1. Make assertions against the events produced
 
 **Other principles:**
+- *Test logic (behaviour), not implementation*, to avoid brittle tests.
 - *Never test through a UI component what can be tested some other way.* If you have application logic in your component that needs testing - could this be extracted to a service instead, and thus unit tested directly?
 - *Never test the same thing twice.* If some implementation logic changes and becomes incorrect, ideally exactly 1 test should fail, no more.
 
@@ -235,7 +237,7 @@ describe('Message', () => {
   fireEvent.click(button);
   ```
 
-## Testing Async code
+## Testing async code
 **Jest supports testing asynchronous programs**, with one requirement: *test functions that include asynchronisity must return a promise*. (Jest doesn't know that a test is async unless the test function returns a promise; without it it just won't wait.)
   ```js
   it('should do something async', () => {
@@ -270,7 +272,27 @@ describe('Message', () => {
   });
   ```
 
+## Mocks
+To create a mock with Jest, use `jest.fn()` - this can be called, but won't return anything; it will record that it was called, and the arguments passed.
 
-## Testing components with state and effects
-## Testing components with state management
+```js
+const f = jest.fn();
 
+f(1,2,3);
+f('a');
+
+expect(f.mock.calls).toEqual(
+  [ [1,2,3], ['a'] ]
+);
+```
+- To create mock functions with implementation:
+  ```js
+  const f = jest.fn((a,b) => a + b);
+  ```
+- To mock functions to return fixed results, use `mockReturnValue` or `mockReturnValueOnce`, which can be chained as well:
+  ```js
+  const f = jest.fn();
+  f.mockReturnValueOnce(12).mockReturnValue(0);  // will return 12 when first called, and 0 on all subsequent calls 
+  ```
+  
+  
