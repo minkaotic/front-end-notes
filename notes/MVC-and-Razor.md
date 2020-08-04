@@ -464,6 +464,13 @@ For the most part, Razor markup using Tag Helpers looks like standard HTML. A ri
 #### How it works
 The Razor View Engine scans for valid Tag Helpers on any given Razor view page (it can identify them because they implement the `ITagHelper` interface, typically by inheriting from the `TagHelper` class). When it finds one, it calls its `Process()` method.
 
+#### Tag Helpers & Razor invocations
+Using the `@`  symbol is usually used to invoke the Razor parser on a piece of HTML at render time on the server. However, because tag helpers are a .NET feature and not HTML, when using a tag helper in a view the C# context of the view has already been invoked on that line, so we don't need to re-invoke it by using `@`, i.e. in front of `Model` here:
+
+```html
+<secondary-callouts deal=Model></secondary-callouts>
+```
+
 ### Built-in Tag Helpers
 
 
