@@ -19,6 +19,8 @@
   - [Advanced props](#paw_prints-advanced-props)
   - [PureComponent](#paw_prints-purecomponent)
   - [Refs](#paw_prints-refs)
+- [React Router](#react-router)
+  - [Setup](#paw_prints-setup)
 
 _______________
 ## To Do:
@@ -584,7 +586,7 @@ _______________
 
 ## React Components in Depth
 
-### :paw_prints: Unidirectional Data Flow 
+### :paw_prints: Unidirectional Data Flow
 #### Application state vs. Component state
 1. **Application State** (global) - Main state; data that is available to the entire application (Flux or a flux-like library like [Redux](/notes/Redux.md), use what they call "stores" to hold application state. That means any component, anywhere in the app can access it so long as they hook into it.)
 
@@ -786,6 +788,23 @@ They're commonly used to access form elements and get their values, which avoids
 1. Create a Ref using `React.createRef()` method
 2. Attach the Ref to a React element via the `ref` attribute
 
-> :zap: **Use refs sparingly, as they go against the intended React data flow and can comprise an antipattern.**
+> :zap: **Use refs sparingly, as they go against the intended React data flow and can be an antipattern.**
+
+
+</br>
+
+_______________
+
+## React Router
+[React Router](https://reactrouter.com/web/guides/quick-start) is a declarative routing solution for React, to manage navigation and rendering of components in your applications.
+- Allows matching a URL to the set of components being rendered
+- Dynamically loads and unloads components to changes what's displayed in the browser as users navigate an app, all without reloading the page
+- A good routing solution should keep track of browser history (so users can use the browsers back/forth buttons to navigate) and seamlessly link users to specific sections of your app (so users can bookmark specific sections of the app)
+
+> **Single-page app (SPA) recap:** HTML, CSS and JS are only loaded once by the browser, and content changes dynamically as user interacts with the app. The app itself never reloads, unless manually refreshed by the user.
+
+
+### :paw_prints: Setup
+
 
 
