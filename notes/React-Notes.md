@@ -21,6 +21,7 @@
   - [Refs](#paw_prints-refs)
 - [React Router](#react-router)
   - [Setup](#paw_prints-setup)
+  - [Links & NavLinks](#paw_prints-links--navlinks)
 
 _______________
 ## To Do:
@@ -805,6 +806,54 @@ _______________
 
 
 ### :paw_prints: Setup
+```
+$ npm install --save react-router-dom
+```
+React Router lets you declare routes from anywhere in your component tree, but is commonly used inside the root app component uses JSX syntax to declare routes. It provides 2 core components:
+- [**`<BrowserRouter />`**](https://reactrouter.com/web/api/BrowserRouter) - Route routing component that keeps your UI in sync with the URL; it wraps all your app components - and renders the root router that listens for URL changes and provides other React Router components information about the current URL and which components to render
+- [**`<Route />`**](https://reactrouter.com/web/api/Route) - responsible for rendering a component in your app when the URL matches its path; create a route by specifying the path and the component you want to render for that path
+- Use the [`exact`](https://reactrouter.com/web/api/Route/exact-bool) property on a route to only render the component when the path matches exactly (i.e. not just partial match)
+- Use [`render`](https://reactrouter.com/web/api/Route/render-func) instead of `component` on a route when you need to pass props to the component you're rendering
+
+```js
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+// etc.
+
+export const App = () => (
+  <BrowserRouter>
+    <div className="container">
+      <Header />
+      <Route exact path="/" component={Home} />
+      <Route path="/about" render={() => <About title="About"/>} />
+      <Route path="/teachers" component={Teachers} />
+      <Route path="/courses" component={Courses} />
+    </div>
+  </BrowserRouter>
+);
+```
+
+### :paw_prints: Links & NavLinks
+- with React Router, you don't use regular `<a>` tags to link to the routes in your app
+- [**`<Link />`**](https://reactrouter.com/web/api/Link) renders fully accessible anchor tags and will load the component without a page refresh
+
+```js
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Header = () => (
+  <header>
+    <span className="icn-logo"><i className="material-icons">code</i></span>
+    <ul className="main-nav">
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/about">About</Link></li>
+      <li><Link to="/teachers">Teachers</Link></li>
+      <li><Link to="/courses">Courses</Link></li>
+    </ul>    
+  </header>
+);
+```
+
 
 
 
