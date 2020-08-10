@@ -854,6 +854,20 @@ const Header = () => (
 );
 ```
 
+- The [**`<NavLink>`**](https://reactrouter.com/web/api/NavLink) component is a special version of `<Link>` that can recognize when it matches the current URL, and will give those links a default class of `active`.
+  ```js
+  <li><NavLink to="/courses">Courses</NavLink></li>
+  ```
+- Use the `exact` prop to only make the link appear active only if it matches exactly:
+  ```js
+  <li><NavLink exact to="/">Home</NavLink></li>
+  ```
+- Alternatively to using the default `active` class, assign a custom class with the `activeClassName` prop, or define active styles inline with the `activeStyle` prop:
+  ```js
+  <li><NavLink to="/about" activeClassName="selected">About</NavLink></li>
+  <li><NavLink to="/teachers" activeStyle={{ background: "tomato" }}>Teachers</NavLink></li>
+  ```
+
 
 
 
