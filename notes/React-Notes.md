@@ -22,6 +22,7 @@
 - [React Router](#react-router)
   - [Setup](#paw_prints-setup)
   - [Links & NavLinks](#paw_prints-links--navlinks)
+  - [More Routing Options](#paw_prints-more-routing-options)
 
 _______________
 ## To Do:
@@ -867,6 +868,27 @@ const Header = () => (
   <li><NavLink to="/about" activeClassName="selected">About</NavLink></li>
   <li><NavLink to="/teachers" activeStyle={{ background: "tomato" }}>Teachers</NavLink></li>
   ```
+  
+### :paw_prints: More Routing Options
+#### Match & Redirect
+- React Router provides a [**`<Redirect>`**](https://reactrouter.com/web/api/Redirect) component that redirects from one route to another
+
+- The [**`match` object**](https://reactrouter.com/web/api/match) can be accessed from inside components being rendered by `<Route>`, and contains information about how a route is matching the URL. This can be used to dynamically match `<Route>` and `<NavLink>` to the current URL and path.
+
+**Example:** Using `match` and `<Redirect>` in a lower level component in the routing tree:
+```js
+const Courses = ({ match }) => (
+  <div className="main-content courses">
+    <SubHeader />
+    <Route exact path={match.path} render={() => <Redirect to={`${match.url}/html`} />} />
+    <Route path={`${match.url}/html`} component={HTML} />
+    <Route path={`${match.url}/css`} component={CSS} />
+    <Route path={`${match.url}/javascript`} component={JavaScript} />
+  </div>
+);
+```
+- This provides sub-routing for the path associated with `Courses`, and sets one of it's children as the default via the redirect, to ensure that some content is rendered when the user navigates to `/courses`
+- As the `Courses` component has been associated with the `/courses` path, its children are navigable via `/courses/html`, `/courses/css` etc.
 
 
 
