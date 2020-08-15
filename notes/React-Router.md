@@ -6,22 +6,26 @@
 ## Contents
 - [Setup](#paw_prints-setup)
 - [Links & NavLinks](#paw_prints-links--navlinks)
-- [More Routing Options](#paw_prints-more-routing-options)
+- [Match & Redirect](#paw_prints-match--redirect)
+- [Switch](#paw_prints-switch)
+- [URL Parameters](#paw_prints-url-parameters)
 
-
-
+____________
+### Basic concepts
 > **Single-page app (SPA) recap:** HTML, CSS and JS are only loaded once by the browser, and content changes dynamically as user interacts with the app. The app itself never reloads, unless manually refreshed by the user.
 
-> :bulb: A good routing solution should keep track of browser history (so users can use the browsers back/forth buttons to navigate) and seamlessly link users to specific sections of your app (so users can bookmark specific sections of the app)
+> **A good routing solution** should *keep track of browser history* - so users can use the browsers back/forth buttons to navigate - and seamlessly *link users to specific sections of your app* - so users can bookmark specific sections. React Router allows for this.
+____________
+
 
 ## :paw_prints: Setup
 ```
 $ npm install --save react-router-dom
 ```
-React Router lets you declare routes from anywhere in your component tree, but is commonly used inside the root app component uses JSX syntax to declare routes. It provides 2 core components:
+React Router lets you declare routes from anywhere in your component tree, but is commonly used inside the root app component. It uses JSX syntax to declare routes and provides 2 core components:
 - [**`<BrowserRouter />`**](https://reactrouter.com/web/api/BrowserRouter) - Route routing component that keeps your UI in sync with the URL; it wraps all your app components - and renders the root router that listens for URL changes and provides other React Router components information about the current URL and which components to render
 - [**`<Route />`**](https://reactrouter.com/web/api/Route) - responsible for rendering a component in your app when the URL matches its path; create a route by specifying the path and the component you want to render for that path
-- Use the [`exact`](https://reactrouter.com/web/api/Route/exact-bool) property on a route to only render the component when the path matches exactly (i.e. not just partial match)
+  - Use the [`exact`](https://reactrouter.com/web/api/Route/exact-bool) property on a route to only render the component when the path matches exactly (i.e. not just partial match)
 
 ```js
 import React from 'react';
@@ -84,8 +88,7 @@ const Header = () => (
   <li><NavLink to="/teachers" activeStyle={{ background: "tomato" }}>Teachers</NavLink></li>
   ```
   
-## :paw_prints: More Routing Options
-### Match & Redirect
+## :paw_prints: Match & Redirect
 - React Router provides a [**`<Redirect>`**](https://reactrouter.com/web/api/Redirect) component that redirects from one route to another
 
 - The [**`match` object**](https://reactrouter.com/web/api/match) can be accessed from inside components being rendered by `<Route>`, and contains information about how a route is matching the URL. This can be used to dynamically match `<Route>` and `<NavLink>` to the current URL and path, and is particularly useful for [nested routing](https://reactrouter.com/web/guides/quick-start/2nd-example-nested-routing).
@@ -119,7 +122,7 @@ const Courses = () => {
 - This provides sub-routing for the path associated with `Courses`, and sets one of its children as the default via the redirect, to ensure that some content is rendered when the user navigates to `/courses`
 - As the `Courses` component has been associated with the `/courses` path, its children are navigable via `/courses/html`, `/courses/css` etc.
 
-### Switch
+## :paw_prints: Switch
 - [**`<Switch>`**](https://reactrouter.com/web/api/Switch) can wrap your routes, and only renders the first route / redirect that matches the path.
 - This allows us to include a **fallback route** at the bottom of the switch statement, i.e. to display 404 if none of our routes matched the requested URL
 
@@ -138,32 +141,32 @@ const Courses = () => {
 </Switch>
 ```
 
-### URL parameters
+## :paw_prints: URL parameters
 - Dynamic routes can be declared using special [**URL parameters**](https://reactrouter.com/web/example/url-params):
-  ```js
-  <Route path="/teachers/:topic/:fname-:lname">
-    <Featured />
-  </Route>
-  ```
+```js
+<Route path="/teachers/:topic/:fname-:lname">
+  <Featured />
+</Route>
+```
 - The data passed to the URL parameters can be accessed via `match.params` in the component rendered for that route; for example:
-  ```js
-  import React from 'react';
-  import { useRouteMatch } from 'react-router-dom';
+```js
+import React from 'react';
+import { useRouteMatch } from 'react-router-dom';
 
-  const Featured = () => {
-    let match = useRouteMatch();
-    let name = `${match.params.fname} ${match.params.lname}`;
-    let topic = match.params.topic;
+const Featured = () => {
+  let match = useRouteMatch();
+  let name = `${match.params.fname} ${match.params.lname}`;
+  let topic = match.params.topic;
 
-    return (
-      <div className="main-content">
-        <h2>{name}</h2>
-        <p>Introducing <strong>{name}</strong>, a teacher who loves teaching courses about <strong>{topic}</strong>!</p>
-      </div>
-    );
-  }
-  ```
+  return (
+    <div className="main-content">
+      <h2>{name}</h2>
+      <p>Introducing <strong>{name}</strong>, a teacher who loves teaching courses about <strong>{topic}</strong>!</p>
+    </div>
+  );
+}
+```
 - As with any other route, you can create Links or NavLinks that match URL parameterised routes:
-  ```js
-  <Link to="teachers/Chicken/Roger-Cat">Roger the cat</Link>` somewhere in your app, the `<Featured />
-  ```
+```js
+<Link to="teachers/Chicken/Roger-Cat">Roger the cat</Link>` somewhere in your app, the `<Featured />
+```
