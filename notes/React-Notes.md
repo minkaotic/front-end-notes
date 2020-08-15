@@ -814,7 +814,6 @@ React Router lets you declare routes from anywhere in your component tree, but i
 - [**`<BrowserRouter />`**](https://reactrouter.com/web/api/BrowserRouter) - Route routing component that keeps your UI in sync with the URL; it wraps all your app components - and renders the root router that listens for URL changes and provides other React Router components information about the current URL and which components to render
 - [**`<Route />`**](https://reactrouter.com/web/api/Route) - responsible for rendering a component in your app when the URL matches its path; create a route by specifying the path and the component you want to render for that path
 - Use the [`exact`](https://reactrouter.com/web/api/Route/exact-bool) property on a route to only render the component when the path matches exactly (i.e. not just partial match)
-- Use [`render`](https://reactrouter.com/web/api/Route/render-func) instead of `component` on a route when you need to pass props to the component you're rendering
 
 ```js
 import React from 'react';
@@ -825,10 +824,18 @@ export const App = () => (
   <BrowserRouter>
     <div className="container">
       <Header />
-      <Route exact path="/" component={Home} />
-      <Route path="/about" render={() => <About title="About"/>} />
-      <Route path="/teachers" component={Teachers} />
-      <Route path="/courses" component={Courses} />
+      <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/about" >
+          <About />
+        </Route>
+        <Route path="/teachers">
+          <Teachers />
+        </Route>
+        <Route path="/courses">
+          <Courses />
+        </Route>
     </div>
   </BrowserRouter>
 );
@@ -873,22 +880,56 @@ const Header = () => (
 #### Match & Redirect
 - React Router provides a [**`<Redirect>`**](https://reactrouter.com/web/api/Redirect) component that redirects from one route to another
 
-- The [**`match` object**](https://reactrouter.com/web/api/match) can be accessed from inside components being rendered by `<Route>`, and contains information about how a route is matching the URL. This can be used to dynamically match `<Route>` and `<NavLink>` to the current URL and path.
+- The [**`match` object**](https://reactrouter.com/web/api/match) can be accessed from inside components being rendered by `<Route>`, and contains information about how a route is matching the URL. This can be used to dynamically match `<Route>` and `<NavLink>` to the current URL and path, and is particularly useful for [nested routing](https://reactrouter.com/web/guides/quick-start/2nd-example-nested-routing).
 
 **Example:** Using `match` and `<Redirect>` in a lower level component in the routing tree:
 ```js
-const Courses = ({ match }) => (
-  <div className="main-content courses">
+import { Route, Redirect, useRouteMatch } from 'react-router-dom';
+// etc.
+
+const Courses = () => {
+  // one way of accessing match is via the useRouteMatch hook
+  let match = useRouteMatch();
+
+  return (<div className="main-content courses">
     <SubHeader />
-    <Route exact path={match.path} render={() => <Redirect to={`${match.url}/html`} />} />
-    <Route path={`${match.url}/html`} component={HTML} />
-    <Route path={`${match.url}/css`} component={CSS} />
-    <Route path={`${match.url}/javascript`} component={JavaScript} />
-  </div>
-);
+    <Route exact path={match.path}>
+      <Redirect to={`${match.url}/html`} />
+    </Route>
+    <Route path={`${match.url}/html`}>
+      <HTML />
+    </Route>
+    <Route path={`${match.url}/css`}>
+      <CSS />
+    </Route>
+    <Route path={`${match.url}/javascript`}>
+      <JavaScript />
+    </Route>
+  </div>)
+};
 ```
-- This provides sub-routing for the path associated with `Courses`, and sets one of it's children as the default via the redirect, to ensure that some content is rendered when the user navigates to `/courses`
+- This provides sub-routing for the path associated with `Courses`, and sets one of its children as the default via the redirect, to ensure that some content is rendered when the user navigates to `/courses`
 - As the `Courses` component has been associated with the `/courses` path, its children are navigable via `/courses/html`, `/courses/css` etc.
+
+#### Switch
+- [**`<Switch>`**](https://reactrouter.com/web/api/Switch) can wrap your routes, and only renders the first route / redirect that matches the path.
+- This allows us to include a **fallback route** at the bottom of the switch statement, i.e. to display 404 if none of our routes matched the requested URL
+
+```js
+<Switch>
+  <Route exact path="/">
+    <Home />
+  </Route>
+  ...
+  <Route path="/courses">
+    <Courses />
+  </Route>
+  <Route>
+    <NotFound />
+  </Route>
+</Switch>
+```
+
 
 
 
