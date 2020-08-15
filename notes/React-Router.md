@@ -1,4 +1,6 @@
 # React Router
+> *Notes largely based on [React Router course on Treehouse](https://teamtreehouse.com/library/react-router-4-basics-2), but updated to match the latest recommended syntax for React Router.*
+
 [React Router](https://reactrouter.com/web/guides/quick-start) is a declarative routing solution for React, to manage navigation and rendering of components in your applications.
 - Allows matching a URL to the set of components being rendered
 - Dynamically loads and unloads components to changes what's displayed in the browser as users navigate an app, all without reloading the page
@@ -142,9 +144,11 @@ const Courses = () => {
 ```
 
 ## :paw_prints: URL parameters
-- Dynamic routes can be declared using special [**URL parameters**](https://reactrouter.com/web/example/url-params):
+- Dynamic routes can be declared using special [**URL parameters**](https://reactrouter.com/web/example/url-params)
+  - Use `:` to denote a parameter
+  - To make a parameter optional, add a `?` to the end:
 ```js
-<Route path="/teachers/:topic/:fname-:lname">
+<Route path="/teachers/:topic/:fname-:lname?">
   <Featured />
 </Route>
 ```
@@ -168,5 +172,5 @@ const Featured = () => {
 ```
 - As with any other route, you can create Links or NavLinks that match URL parameterised routes:
 ```js
-<Link to="teachers/Chicken/Roger-Cat">Roger the cat</Link>` somewhere in your app, the `<Featured />
+<Link to="teachers/Chicken/Roger-Cat">Roger the cat</Link>
 ```
