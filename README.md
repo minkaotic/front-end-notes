@@ -18,13 +18,13 @@
 
 ### 🏭 Front-end Frameworks
 - [Frameworks Overview](/notes/Frameworks-Overview.md)
-- [React Notes](/notes/React-Notes.md) | [State Management in React](/notes/State-Management-in-React.md) | [Testing React Components](/notes/Front-End-Testing.md#testing-react-components)
+- [React Notes](/notes/React-Notes.md) | [State Management in React](/notes/State-Management-in-React.md) | [React Router](/notes/React-Router.md)
 - [Vue.JS Notes](/notes/Vue-JS-Notes.md)
 - [Angular (JS) Notes](/notes/Angular-Notes.md)
 - [ASP.NET (Core) MVC & Razor](/notes/MVC-and-Razor.md)
 
 ### 🛠️ Building & Testing
-- [Front End Testing](/notes/Front-End-Testing.md)
+- [Front End Testing](/notes/Front-End-Testing.md) | [Testing React Components](/notes/Front-End-Testing.md#testing-react-components)
 - [JavaScript Build Tools](/notes/JavaScript-Build-Tools.md)
 
 ## External introductions
