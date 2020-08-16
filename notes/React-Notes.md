@@ -473,6 +473,23 @@ this.setState( prevState => {
 });
 ```
 
+**:bulb: Avoiding unneccessary re-renders**
+- Calling `setState` will cause the component to re-render. To avoid re-rendering when the state hasn't actually changed, it can be advisable in some scenarios to check whether the old state is the same as the new state and only re-render when it isn't.
+- `setState` supports this by allowing you to `return null` when no state updates are needed after all:
+
+```js
+updateTeacher = teacher => {
+  const newTeacher = teacher;
+  this.setState(prevState => {
+    if (prevState.teacher === newTeacher) {
+      return null;
+    } else {
+      return { teacher };
+    }
+  });
+}
+```
+
 </br>
 
 ### :paw_prints: Handling events
