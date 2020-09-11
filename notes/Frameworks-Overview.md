@@ -9,8 +9,8 @@
 
 ## To do
 - [ ] Add notes about SPAs
+- [ ] Add notes about JAMstack
 - [ ] Add notes about PWAs
-- [ ] Add notes about modern preference for component approach
 
 ________________
 ## Overview
