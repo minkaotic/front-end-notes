@@ -1,4 +1,5 @@
 # Styling React Components
+> :mortar_board: Notes based on [this Pluralsight course](https://app.pluralsight.com/library/courses/react-components-styling/table-of-contents)
 
 Different approaches for styling React components include:
 - [Inline styling](#inline-styling)
