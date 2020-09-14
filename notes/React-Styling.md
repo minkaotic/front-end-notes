@@ -7,6 +7,8 @@ Different approaches for styling React components include:
 1. [Traditional CSS stylesheets](#three-traditional-css-stylesheets)
 1. [CSS modules](#four-css-modules)
 
+###### :point_right: For example implementations of each of these, see [the first 4 directories in this repo](https://github.com/jaketrent/styling-react-components).
+
 </br>
 
 ## :one: Inline styling
