@@ -2,13 +2,14 @@
 > :mortar_board: Notes based on [this Pluralsight course](https://app.pluralsight.com/library/courses/react-components-styling/table-of-contents)
 
 Different approaches for styling React components include:
-- [Inline styling](#inline-styling)
-- [CSS-in-JS libraries](#css-in-js-libraries)
-- [Traditional CSS stylesheets](#traditional-css-stylesheets)
-- [CSS modules](#css-modules)
+1. [Inline styling](#one-inline-styling)
+1. [CSS-in-JS libraries](#two-css-in-js-libraries)
+1. [Traditional CSS stylesheets](#three-traditional-css-stylesheets)
+1. [CSS modules](#four-css-modules)
 
+</br>
 
-## Inline styling
+## :one: Inline styling
 - allows encapsulating style information along with the logic and markup
 - achieved by using `style` attributes in the markup, with the actual styles supplied as a JS object:
   ```js
@@ -38,14 +39,16 @@ Different approaches for styling React components include:
 
 > :pencil: **Verdict:** This approach is good if you have relatively simple style requirements, prefer co-locating your styles with your components and want to avoid having to use any libraries for styling. It's very JavaScript-centric and is regarded by some as a version of CSS-in-JS.
 
+</br>
 
-## CSS-in-JS libraries
+
+## :two: CSS-in-JS libraries
 - many conceptual overlaps with inline styling, but uses styling library to achieve the same goals
 - the library adds features and properties that would usually be achieved in CSS itself
 - many libraries available: `styled-components`, `emotion`, `aphrodite`, `glamor`, `styled-jsx`, `radium`, `astroturf`...
 - some libraries use JS object syntax, whilst others emulate CSS syntax
 
-### Example: [styled-components](https://styled-components.com/)
+### Example: [styled-components :nail_care:](https://styled-components.com/)
 - uses CSS syntax via tagged template literals
 - creates new React components bound to defined styles
 
@@ -83,8 +86,10 @@ function MyComponent() {
 
 > :pencil: **Verdict:** This approach is good if you value co-locating your styles with your components and want to use the full power of CSS, through a more robust toolset than with plain inline styles.
 
+</br>
 
-## Traditional CSS stylesheets
+
+## :three: Traditional CSS stylesheets
 I.e.:
 ```html
 <link rel="stylesheet" href="/css/my-styles.css" />
@@ -100,8 +105,10 @@ I.e.:
 
 > :pencil: **Verdict:** This approach is good if you feel at home in CSS and don't want to introduce a new process.
 
+</br>
 
-## CSS modules
+
+## :four: CSS modules
 - Feels similar to traditional stylesheets (you write CSS in a `.css` file)
 - But files are called 'modules' and are not `<link />`ed directly in the html
 - Instead, they rely on a CSS build step using a Module Bundler (such as Webpack), and are imported into your components, e.g. `import '../App.css'`
