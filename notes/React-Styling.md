@@ -7,7 +7,7 @@ Different approaches for styling React components include:
 1. [Traditional CSS stylesheets](#three-traditional-css-stylesheets)
 1. [CSS modules](#four-css-modules)
 
-###### :point_right: For example implementations of each of these, see [the first 4 directories in this repo](https://github.com/jaketrent/styling-react-components).
+:point_right: For example implementations of each of these, see [the first 4 directories in this repo](https://github.com/jaketrent/styling-react-components). -- A **5th option**, not mentioned in the above course, consists of [adding SASS stylesheets](https://create-react-app.dev/docs/adding-a-sass-stylesheet), which does enable you to share variables between your stylesheets.
 
 </br>
 
@@ -114,8 +114,9 @@ I.e.:
 - Feels similar to traditional stylesheets (you write CSS in a `.css` file)
 - But files are called 'modules' and are not `<link />`ed directly in the html
 - Instead, they rely on a CSS build step using a Module Bundler (such as Webpack), and are imported into your components, e.g. `import '../App.css'`
+- Use the `some-styles.module.css` naming convention to tell React that the file imported is not an ordinary stylesheet, but a CSS module - which will be treated differently by the bundler than the general (see [docs for further detail](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet)!)
 
-> :bulb: It is also possible to import and use specific exports, e.g.:
+> :bulb: With modules, it's possible to import and use specific exports, e.g.:
 ```js
 import React from 'react';
 import * as css from './component-styles.module.css';
@@ -126,11 +127,12 @@ function MyComponent() {
 ```
 
 :smile: **Benefits:**
-- When compiled, selectors become hashed and thus isolated to specific components, so no longer risk of global collision / accidental overrides
+- When compiled, module selectors become hashed and thus isolated to specific components, so no longer risk of global collision / accidental overrides
 - Full power of CSS
 - Explicit dependencies due to clear imports (making dead code elimination easier)
 
 :disappointed: **Disadvantages:**
+- intentional overrides require creating an abstraction layer in JS (or using a library like `react-css-themr`)
 - sharing code / constants is not possible :C
 
 
