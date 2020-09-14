@@ -1,5 +1,12 @@
 # React Notes ⚛️
-**[React](https://reactjs.org/) is a JavaScript library for building user interfaces.** | Main resources used: [Treehouse React Track](https://teamtreehouse.com/tracks/learn-react) | [React docs](https://reactjs.org/docs/getting-started.html)
+**[React](https://reactjs.org/) is a JavaScript library for building user interfaces.** | Main resources: [Treehouse React Track](https://teamtreehouse.com/tracks/learn-react) | [React docs](https://reactjs.org/docs/getting-started.html)
+
+These notes focus on core React concepts. Separate notes on related subjects live here:
+- [Testing React Components](/notes/Front-End-Testing.md#testing-react-components)
+- [State Management in React](/notes/State-Management-in-React.md)
+- [React Router](/notes/React-Router.md)
+- [Styling React Components](/notes/React-Styling.md)
+
 
 ## Contents
 - [Intro](#intro)
