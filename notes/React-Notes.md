@@ -29,9 +29,10 @@ These notes focus on core React concepts. Separate notes on related subjects liv
 
 _______________
 ## To Do:
-- [ ] **Docs:** understand [render props](https://reactjs.org/docs/render-props.html)
+- [ ] **Docs:** understand [render props](https://reactjs.org/docs/render-props.html) and [higher-order components](https://reactjs.org/docs/higher-order-components.html)
 - [ ] Finish [Learn React](https://teamtreehouse.com/tracks/learn-react) track and [React Authentication workshop](https://teamtreehouse.com/library/react-authentication/introducing-the-authentication-project/what-is-basic-authentication) on Treehouse
 - [ ] Dmitri Pavlutin: [7 Architectural Attributes of a Reliable React Component](https://dmitripavlutin.com/7-architectural-attributes-of-a-reliable-react-component/) | [Orthogonal React Components](https://dmitripavlutin.com/orthogonal-react-components/) | [3 Rules of React State Management](https://dmitripavlutin.com/react-state-management/) | [Lifecycle methods, hooks, suspense: which is best for fetching in React?](https://dmitripavlutin.com/react-fetch-lifecycle-methods-hooks-suspense/)
+- [ ] [React Component Patterns](https://dev.to/alexi_be3/react-component-patterns-49ho)
 - [ ] [React Europe 2020 conf videos](https://www.youtube.com/watch?v=nzeL1wZltf0&list=PLCC436JpVnK0Q4WHoB85ZYBwcCyTaMgAl)
 
 </br>
