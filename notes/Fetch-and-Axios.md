@@ -11,19 +11,36 @@ Both [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) and [Ax
 fetch("http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC")
     .then(response => response.json())
     .then(responseData => {
-      // do something with the data
+        // do something with responseData
     })
     // if something goes wrong with the fetch request
     .catch(error => {
-      console.log("Error fetching and parsing data", error);
+        console.log("Error fetching and parsing data", error);
     });
 ```
 
 ## Axios
-- popular data fetching tool (more specifically, a HTTP client for the browser and node.js) with a few additional features over Fetch:
+- popular data fetching library ("HTTP client for the browser and node.js") with additional features over Fetch:
+  - stronger browser support - incl. IE11
+  - intercept request and response
+  - automatically converts data to JSON
+  - supports protection against XSRF attacks
+
+### Feature matrix
 
 ![feature matrix](https://miro.medium.com/max/864/1*tQUlDPG6wBJ6TjwzMwd4CQ.png)
 
+### Usage examples
+```js
+axios.get('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
+    .then(response => {
+        // data is exposed through response.data in Axios
+        // do something with that here
+    })
+    .catch(error => {
+        console.log('Error fetching and parsing data', error);
+    });
+```
 
 ## Sources
 - [Data Fetching in React](https://teamtreehouse.com/library/data-fetching-in-react) course on Treehouse
