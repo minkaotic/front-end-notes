@@ -26,9 +26,6 @@ fetch("http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC")
   - automatically converts data to JSON
   - supports protection against XSRF attacks
 
-### Feature matrix
-![feature matrix](https://miro.medium.com/max/864/1*tQUlDPG6wBJ6TjwzMwd4CQ.png)
-
 ### Usage examples
 ```js
 axios.get('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
@@ -40,6 +37,11 @@ axios.get('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
         console.log('Error fetching and parsing data', error);
     });
 ```
+
+
+## XHR vs. Fetch vs Axios feature matrix
+![feature matrix](https://miro.medium.com/max/864/1*tQUlDPG6wBJ6TjwzMwd4CQ.png)
+
 
 ## Sources
 - [Data Fetching in React](https://teamtreehouse.com/library/data-fetching-in-react) course on Treehouse
