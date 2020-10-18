@@ -27,7 +27,6 @@ fetch("http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC")
   - supports protection against XSRF attacks
 
 ### Feature matrix
-
 ![feature matrix](https://miro.medium.com/max/864/1*tQUlDPG6wBJ6TjwzMwd4CQ.png)
 
 ### Usage examples
