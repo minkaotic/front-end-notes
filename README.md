@@ -14,7 +14,7 @@
 - [JavaScript Syntax](/notes/Javascript-Syntax.md) | [JavaScript & the DOM](/notes/Javascript-and-the-DOM.md) | [Asynchrony in JavaScript](/notes/Asychrony-in-JS.md) | [JavaScript Quirks](/notes/JavaScript-Quirks.md)
 - [ES Modules](/notes/ES-Modules.md)
 - [TypeScript](/notes/Typescript.md)
-- [AJAX](/notes/AJAX-Notes.md)
+- [AJAX](/notes/AJAX-Notes.md) | [Fetch & Axios](/notes/Fetch-and-Axios.md)
 
 ### 🏭 Front-end Frameworks
 - [Frameworks Overview](/notes/Frameworks-Overview.md)
