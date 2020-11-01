@@ -5,47 +5,57 @@
 
 
 ## WHERE statements
-
 Negative condition
 ```sql
 WHERE <column> != <value>
 ```
 
-searching with a set of values
+Searching with a set of values
+```sql
 WHERE <column> IN (<value1>, <value2>, <value3>)
 WHERE <column> NOT IN (<value1>, <value2>, <value3>)
+```
 
-searching in a range
-(rather than using ">= <value1> AND <= <value2>")
+Searching in a range (rather than using `>= <value1> AND <= <value2>`)
+```sql
 WHERE <column> BETWEEN <minimum> AND <maximum>
 WHERE <column> NOT BETWEEN <minimum> AND <maximum>
+```
 
-searching for a pattern
-(unlike =, it's case insensitive)
+Searching for a pattern (unlike `=`, it's case insensitive!)
+```sql
 WHERE title LIKE "Harry Potter%Fire"
 WHERE title NOT LIKE "Harry Potter%Fire"
+```
 
-searching for empty values
+Searching for empty values
+```sql
 WHERE <column> IS NULL
 WHERE <column> IS NOT NULL
-
+```
 
 ## Modifying data
-
-insert values in the order of the columns prescribed in the schema
+Insert values in the order of the columns prescribed in the schema
+```sql
 INSERT INTO <table> VALUES (<value 1>, <value 2>)
+```
 
-insert values (flexible column/value order)
+Insert values - flexible column/value order
+```sql
 INSERT INTO <table> (<column 1>, <column 2>) VALUES (<value 1>, <value 2>)
+```
 - NB: specifying the columns like this allows us to leave out the values for columns that are nullable (by dropping them from both the list of columns and the list of values)
 
-insert multiple rows
+Insert multiple rows
+```sql
 INSERT INTO <table> (<column 1>, <column 2>, ...) 
              VALUES 
                     (<value 1>, <value 2>, ...),
                     (<value 1>, <value 2>, ...),
                     (<value 1>, <value 2>, ...)
+```
 
-update statement
+Update statement
+```sql
 UPDATE <table> SET <column 1> = <value 1>, <column 2> = <value 2>
-
+```
