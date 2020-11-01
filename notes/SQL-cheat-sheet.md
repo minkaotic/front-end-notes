@@ -41,10 +41,10 @@ INSERT INTO <table> VALUES (<value 1>, <value 2>)
 ```
 
 Insert values - flexible column/value order
+- NB: specifying the columns like this allows us to leave out the values for columns that are nullable (by dropping them from both the list of columns and the list of values)
 ```sql
 INSERT INTO <table> (<column 1>, <column 2>) VALUES (<value 1>, <value 2>)
 ```
-- NB: specifying the columns like this allows us to leave out the values for columns that are nullable (by dropping them from both the list of columns and the list of values)
 
 Insert multiple rows
 ```sql
