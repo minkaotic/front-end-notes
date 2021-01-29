@@ -1,15 +1,6 @@
 # JavaScript Build Tools
+**Contents: [Overview](#overview) |  [NPM Basics](#npm-basics) | [Webpack](#webpack)**
 
-### Contents
-- [Overview](#overview)
-- [NPM Basics](#npm-basics)
-- [Webpack](#webpack)
-
--------------
-### To do
-- [ ] Finish https://www.toptal.com/front-end/webpack-browserify-gulp-which-is-better & update overview / notes
-- [ ] Read https://medium.com/js-imaginea/comparing-bundlers-webpack-rollup-parcel-f8f5dc609cfd & update notes
-- [ ] Better grasp of Webpack, e.g. https://medium.com/ag-grid/webpack-tutorial-understanding-how-it-works-f73dfa164f01
 
 -------------
 
