@@ -119,6 +119,9 @@ CSS has [many data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_V
 |                | `%` is always relative to the parent container |
 |                | `vh` is a relative unit referring to the viewport, with `100vh` making an element the full width of the viewport (screen) |
 
+> :bulb: using `rem` (or `em`) everywhere on the page makes responsive design much easier, as font sizes across the page can be updated simply by adjusting the root font size: `html { font-size: 16px; }`
+
+- `rem` and `em` aren't limited to font sizes - it often makes sense to use them for `margin` and `padding` as well, in order for spacing to be proportional to font sizes
 
 ## Text & Fonts
 - Create a **font stack** to make sure we have fallbacks of *websafe fonts* as well as *generic font families* defined in case our desired font doesn't work on a given machine
