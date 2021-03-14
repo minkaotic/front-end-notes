@@ -7,7 +7,7 @@
   - [Advanced selector snippets](#advanced-selector-snippets)
 - **[Rule Precedence](#rule-precedence)**
   - [Selector specificity](#selector-specificity)
-- **[Units](#units)**
+- **[Common Units](#common-units)**
 - **[Text & Fonts](#text--fonts)**
   - [Web fonts](#web-fonts)
 - **[The CSS Box Model](#the-css-box-model)**
@@ -105,11 +105,16 @@ To apply some logic to all but the first sibling, `.item-class:not(:first-child)
 As with any other specificity calculations, if there are two `!important` rules, or two descendant selectors with the same specificity, then the decision is made on source order.
 
 
-## Units
+## Common Units
+CSS has [many data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units) for its values, for example:
+- textual data types such as pre-defined keywords, or 'url()'
+- numeric data types such as numbers, dimensions or percentages
+- other data types such as [color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)
 
+**Common units used in dimension values**
 | Absolute Units | Relative Units     |
-|----------------|------------|
-| pixels (`px`)  | `em`s are relative to parent element's pixel size, but the default of `1em` is `16px` (which is the value of `em` at the root value) |
+|----------------|--------------------|
+| pixels (`px`)  | `em`s are relative to parent element's pixel size, but the default of `1em` at the root is `16px` |
 |                | `rem`s are relative to root element's pixel size, i.e. avoid compounding issues when sizing up or down |
 |                | `%` is always relative to the parent container |
 |                | `vh` is a relative unit referring to the viewport, with `100vh` making an element the full width of the viewport (screen) |
