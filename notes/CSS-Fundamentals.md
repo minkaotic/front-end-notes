@@ -45,7 +45,7 @@ There are 3 different ways to add CSS to a page:
       </style>
     </head>
   ```
-- Link an **external stylesheet** in your page, typically in the `<head>` of the HTML. 👍 This may be a file in your project or a file hosted elsewhere:
+- Link an **external stylesheet** in your page, typically in the `<head>` of the HTML. :+1: This may be a file in your project or a file hosted elsewhere:
   ```html
   <head>
     <title>My page</title>
@@ -53,7 +53,7 @@ There are 3 different ways to add CSS to a page:
     <link href='styles/main.css' rel='stylesheet' type="text/css">
   </head>
   ```
-
+> :bulb: Linking styles in the `<head>` ensures that the browser loads the stylesheet first, before any elements in the body - i.e., the HTML is styled *before* being presented to the user.
 
 ## Selectors
 - A **universal selector** can be used via the `*` character
