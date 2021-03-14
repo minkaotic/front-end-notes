@@ -27,17 +27,32 @@
 ______________________
 
 ## Basics
-- To include a stylesheet in your page, you typically link it in the `head` of the HTML. You can either link to a file in your project or to a file hosted elsewhere:
+- A **CSS rule** is comprised of a *selector*, and a *declaration block* containing one or more declarations; each declaration contains a *property* and its chosen value.
+- A comment is denoted by `/* ....... */`
+- **Don't repeat yourself:** If you find that a certain style declaration is repeated in lots of different rules, it might be worth breaking out a different class rule for it.
+
+There are 3 different ways to add CSS to a page:
+- Add **inline styles**  directly to HTML elements: `<body style="background-color: orange;">` (:fire: bad practice; lowest level of cascade so will override all other styles)
+- Include **internal styles** in a `<style>` tag, typically in the `<head>` of the HTML (:warning: avoid for anything but but very basic or holding pages):
+  ```html
+    <head>
+      <title>My page</title>
+      <style>
+        p {
+          font-size: 20px;
+          font-weight: bold;
+        }
+      </style>
+    </head>
+  ```
+- Link an **external stylesheet** in your page, typically in the `<head>` of the HTML. 👍 This may be a file in your project or a file hosted elsewhere:
   ```html
   <head>
-    <title></title>
+    <title>My page</title>
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <link href='styles/main.css' rel='stylesheet' type="text/css">
   </head>
   ```
-- A **CSS rule** is comprised of a *selector*, and a *declaration block* containing one or more declarations; each declaration contains a *property* and its chosen value.
-- A comment is denoted by `/* ....... */`
-- **Don't repeat yourself:** If you find that a certain style declaration is repeated in lots of different rules, it might be worth breaking out a different class rule for it.
 
 
 ## Selectors
