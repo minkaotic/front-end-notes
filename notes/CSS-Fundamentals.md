@@ -90,8 +90,8 @@ To apply some logic to all but the first sibling, `.item-class:not(:first-child)
 
 ## Rule Precedence
 - The **cascade** determines which styles are assigned to a HTML element; follows 3 main steps to determine which rule to apply:
-  - **Importance:** User agent styles < User styles < Author styles
-  - **Specificity:** Styles with [more specific selectors](#selector-specificity) will override styles with less specific selectors: universal selector < element selectors < class selectors < id selectors < inline styles
+  - **Origin and importance:** User agent styles < User styles < Author styles
+  - **Seletor specificity:** Styles with [more specific selectors](#selector-specificity) will override styles with less specific selectors: universal selector < element selectors < class selectors < id selectors < inline styles
   - **Source order:** If there are two or more conflicting declarations within the same rule or level of specificity, the one appearing latest in the source takes precedence. (If there are multiple style sheets, the one linked in last takes precedance.)
 
 - **Inheritance:** if no specific rules are in place for them, elements will inherit the style values of their parent element.
