@@ -5,8 +5,9 @@
 - **[Selectors](#selectors)**
   - [Attribute selectors](#attribute-selectors)
   - [Advanced selector snippets](#advanced-selector-snippets)
-- **[Rule Precedence](#rule-precedence)**
+- **[Rule Precedence (the Cascade!)](#rule-precedence)**
   - [Selector specificity](#selector-specificity)
+  - [Inheritance](#inheritance)
 - **[Common Units](#common-units)**
 - **[Text & Fonts](#text--fonts)**
   - [Web fonts](#web-fonts)
@@ -94,8 +95,6 @@ To apply some logic to all but the first sibling, `.item-class:not(:first-child)
   - **Selector specificity:** Styles with [more specific selectors](#selector-specificity) will override styles with less specific selectors: universal selector < element selectors < class selectors < id selectors < inline styles
   - **Source order:** If there are two or more conflicting declarations within the same rule or level of specificity, the one appearing latest in the source takes precedence. (If there are multiple style sheets, the one linked in last takes precedance.)
 
-- **Inheritance:** if no specific rules are in place for them, elements will inherit the style values of their parent element.
-
 ### Selector specificity
 - **Exceptions:** When **`!important`** is used on a style declaration, this declaration overrides any other declarations. *This is bad practice and should be avoided.* 
 
@@ -103,6 +102,11 @@ To apply some logic to all but the first sibling, `.item-class:not(:first-child)
   - Use this [Specificity Calculator](https://specificity.keegan.st/) if in doubt about any two selectors :).
 
 As with any other specificity calculations, if there are two `!important` rules, or two descendant selectors with the same specificity, then the decision is made on source order.
+
+### Inheritance
+- Inherited properties (e.g. `color`) in CSS means that an HTML element’s style values are copied from its parent element, if no specific rules are in place for them.
+- Not all CSS properties are inherited! For non-inherited properties (e.g. `border`), the element will instead have the _initial_ value for that property.
+- Refer to any CSS property definition on MSDN to see whether a specific property inherits by default or not ("Inherited: yes/no").
 
 
 ## Common Units
