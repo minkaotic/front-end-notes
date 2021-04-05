@@ -104,8 +104,8 @@ To apply some logic to all but the first sibling, `.item-class:not(:first-child)
 As with any other specificity calculations, if there are two `!important` rules, or two descendant selectors with the same specificity, then the decision is made on source order.
 
 ### Inheritance
-- Inherited properties (e.g. `color`) in CSS means that an HTML element’s style values are copied from its parent element, if no specific rules are in place for them.
-- Not all CSS properties are inherited! For non-inherited properties (e.g. `border`), the element will instead have the _initial_ value for that property.
+- Inherited properties (e.g. `color`, `font-family`, `font-size`, `font-weight`, `line-height`, `list-style`, `text-align`) in CSS means that an HTML element’s style values are copied from its parent element, if no specific rules are in place for them.
+- Not all CSS properties are inherited! For non-inherited properties (e.g. `border`, `display`, `width`, `background`), the element will instead have the _initial_ value for that property.
 - Refer to any CSS property definition on MSDN to see whether a specific property inherits by default or not ("Inherited: yes/no").
 
 
