@@ -2,6 +2,7 @@
 **[React](https://reactjs.org/) is a JavaScript library for building user interfaces.** | Main resources: [Treehouse React Track](https://teamtreehouse.com/tracks/learn-react) | [React docs](https://reactjs.org/docs/getting-started.html)
 
 These notes focus on core React concepts. Separate notes on related subjects live here:
+- [React Hooks](/notes/React-Hooks.md)
 - [Testing React Components](/notes/Front-End-Testing.md#testing-react-components)
 - [State Management in React](/notes/State-Management-in-React.md)
 - [React Router](/notes/React-Router.md)
@@ -395,7 +396,7 @@ There are 2 ways data gets handled in React components: props & state. Both prop
 #### Should this component have state?
 State is optional. Since state increases complexity and reduces predictability, a component without state is preferable. Even though you clearly can't do without state in an interactive app, you should avoid having too many stateful components.
 
-> :pushpin: **State is only available to class components** - [see this section of the docs](https://reactjs.org/docs/state-and-lifecycle.html#converting-a-function-to-a-class) for more info.
+> :pushpin: **State used to only be available to class components** - but this has changed with the introduction of [React Hooks](/notes/React-Hooks.md)!
 
 #### Initialising state
 Since state is an object, you create and initialise state within a component class
