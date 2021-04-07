@@ -18,7 +18,7 @@
 
 ### 🏭 Front-end Frameworks
 - [Frameworks Overview](/notes/Frameworks-Overview.md)
-- [React Notes](/notes/React-Notes.md) | [State Management in React](/notes/State-Management-in-React.md) | [React Router](/notes/React-Router.md) | [React Styling](/notes/React-Styling.md)
+- [React Notes](/notes/React-Notes.md) | [React Hooks](/notes/React-Hooks.md) | [State Management in React](/notes/State-Management-in-React.md) | [React Router](/notes/React-Router.md) | [React Styling](/notes/React-Styling.md)
 - [Vue.JS Notes](/notes/Vue-JS-Notes.md)
 - [Angular (JS) Notes](/notes/Angular-Notes.md)
 - [ASP.NET (Core) MVC & Razor](/notes/MVC-and-Razor.md)
