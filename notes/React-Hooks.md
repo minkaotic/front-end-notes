@@ -72,8 +72,12 @@ To **update state *based on the previous state*** value, pass a function to the 
 > It is [recommended practice](https://reactjs.org/docs/hooks-faq.html#should-i-use-one-or-many-state-variables) to call `useState()` for each state variable that your component needs, rather than calling it once to initialise an object containing all the state properties.
 
 
+## `useRef`
+- allows us to access an element in the DOM directly
+- **ideally avoid direct access and use the flow of state/props to manage values being passed between components** - but sometimes this may not be possible
 
 ## `useEffect`
+- allows us to do things after the component renders / after the component unmounts
 
 
 ## `useContext`
