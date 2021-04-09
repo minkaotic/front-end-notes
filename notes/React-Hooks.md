@@ -1,7 +1,7 @@
 # React Hooks
 Notes based on [Treehouse React Hooks workshop](https://teamtreehouse.com/library/react-hooks) and [Pluralsight 'Using React Hooks' course](https://app.pluralsight.com/library/courses/using-react-hooks/table-of-contents)
 
-**Jump to: [`useState`](#usestate) | [`useEffect`](#usestate) | [`useContext`](#usecontext)**
+**Jump to: [`useState`](#usestate) | [`useRef`](#useref) | [`useEffect`](#useeffect) | [`useContext`](#usecontext)**
 
 ## Intro
 - Prior to hooks, React allowed developers to create and manage state based on [lifecycle methods](/React-Notes.md#paw_prints-lifecycle-methods), but this required writing the component as a _class_ component, which has a number of drawbacks compared to function components:
