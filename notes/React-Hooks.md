@@ -18,6 +18,7 @@ Notes based on [Treehouse React Hooks workshop](https://teamtreehouse.com/librar
 - offer a mechanism to extract code that can be reused between components
 - work in function components only (can't be used in class components)
 
+
 ## `useState`
 - adds React state to function components
 - equivalent of both `this.state` and `this.setState(`) in class components
@@ -37,10 +38,9 @@ function App() {
 - calling `useState()` with the initial state returns an array with two values:
   - a variable with the current state value (0 in this case) - similar to `this.state`
   - a function to update that value - similar to `this.setState()`
-- you can call `useState()` numerous times to declare multiple state variables 
+- 👍 The variable `score` now holds the current state, and you can use that value in your component as you would any variable.
 
-> 👍 The variable `score` now holds the current state, and you can use that value in your component as you would any variable.
-
+### Updating state
 To update the `score` state, call `setScore()` and pass it the new state:
 ```js
 function App() {
@@ -59,12 +59,17 @@ function App() {
 }
 ```
 
-To **update state based on the previous state** value, pass a function to the method updating state. The function receives the previous state value and uses it to return the updated value:
+To **update state *based on the previous state*** value, pass a function to the method updating state. The function receives the previous state value and uses it to return the updated value:
 ```js
 <button onClick={() => setScore(prevScore => prevScore + 1)}>
   Increase score by 1
 </button>
 ```
+
+### Multiple state variables
+- you can call `useState()` numerous times to declare multiple state variables
+
+> It is [recommended practice](https://reactjs.org/docs/hooks-faq.html#should-i-use-one-or-many-state-variables) to call `useState()` for each state variable that your component needs, rather than calling it once to initialise an object containing all the state properties.
 
 
 
