@@ -4,18 +4,19 @@ Notes based on [Treehouse React Hooks workshop](https://teamtreehouse.com/librar
 **Jump to: [`useState`](#usestate) | [`useEffect`](#usestate) | [`useContext`](#usecontext)**
 
 ## Intro
-- React has traditionally allowed developers to create and manage state based on the lifecycle of a component
-- class components provide one way to manage state based on [lifecycle methods](/React-Notes.md#paw_prints-lifecycle-methods)
-- however, class components have drawbacks compared to function components:
+- Prior to hooks, React allowed developers to create and manage state based on [lifecycle methods](/React-Notes.md#paw_prints-lifecycle-methods), but this required writing the component as a _class_ component, which has a number of drawbacks compared to function components:
   - require additional syntax (which can feel noisy) & learning/understanding classes in JS
   - optimising classes for minification can be slower
   - class components can interfere with some React tools/features, for example hot reloading
+- Additionally, there were ways of attaching reusable logic to a component, but this either required using [_render props_](https://reactjs.org/docs/render-props.html) or [_higher order components (HOC)_](https://reactjs.org/docs/higher-order-components.html).
 
-**👉 [React Hooks](https://reactjs.org/docs/hooks-intro.html) are special, built-in functions, that allow you to replicate the power of class components with a cleaner and more straightforward syntax.** They:
+
+**👉 [React Hooks](https://reactjs.org/docs/hooks-intro.html) are special, built-in functions, that allow you to replicate these capabilities with a cleaner and more straightforward syntax.** They:
 - manage state (+ rendering of UI when state changes)
 - provide easier access to your React app's context
 - update components with an alternative to lifecycle methods
-- work in functions only (can't be used in class components)
+- offer a mechanism to extract code that can be reused between components
+- work in function components only (can't be used in class components)
 
 ## `useState`
 - adds React state to function components
