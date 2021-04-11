@@ -1,14 +1,14 @@
 # React Hooks
 Notes based on [Treehouse React Hooks workshop](https://teamtreehouse.com/library/react-hooks) and [Pluralsight 'Using React Hooks' course](https://app.pluralsight.com/library/courses/using-react-hooks/table-of-contents)
 
-**Jump to: [`useState`](#usestate) | [`useRef`](#useref) | [`useEffect`](#useeffect) | [`useContext`](#usecontext)**
+**Jump to: [`useState`](#usestate) | [`useEffect`](#useeffect) | [`useContext`](#usecontext) | [`useRef`](#useref)**
 
 ## Intro
-- Prior to hooks, React allowed developers to create and manage state based on [lifecycle methods](/React-Notes.md#paw_prints-lifecycle-methods), but this required writing the component as a _class_ component, which has a number of drawbacks compared to function components:
+- Prior to hooks, React allowed developers to [create/manage state](React-Notes.md#paw_prints-state) and use [lifecycle methods](React-Notes.md#paw_prints-lifecycle-methods), but this required writing the component as a _class_ component, which has a number of drawbacks compared to function components:
   - require additional syntax (which can feel noisy) & learning/understanding classes in JS
   - optimising classes for minification can be slower
   - class components can interfere with some React tools/features, for example hot reloading
-- Additionally, there were ways of attaching reusable logic to a component, but this either required using [_render props_](https://reactjs.org/docs/render-props.html) or [_higher order components (HOC)_](https://reactjs.org/docs/higher-order-components.html).
+- Additionally, attaching reusable logic to a component also required understanding trickier concepts, such as using [_render props_](https://reactjs.org/docs/render-props.html) or [_higher order components (HOC)_](https://reactjs.org/docs/higher-order-components.html).
 
 
 **👉 [React Hooks](https://reactjs.org/docs/hooks-intro.html) are special, built-in functions, that allow you to replicate these capabilities with a cleaner and more straightforward syntax.** They:
@@ -72,12 +72,78 @@ To **update state *based on the previous state*** value, pass a function to the 
 > It is [recommended practice](https://reactjs.org/docs/hooks-faq.html#should-i-use-one-or-many-state-variables) to call `useState()` for each state variable that your component needs, rather than calling it once to initialise an object containing all the state properties.
 
 
-## `useRef`
-- allows us to access an element in the DOM directly
-- **ideally avoid direct access and use the flow of state/props to manage values being passed between components** - but sometimes this may not be possible
-
 ## `useEffect`
-- allows us to do things after the component renders / after the component unmounts
+- The code that is run via a component's lifecycle methods is sometimes referred to as "side effects"
+- The [`useEffect`](https://reactjs.org/docs/hooks-reference.html#useeffect) hook lets you perform side effects in function components, giving them access to common lifecycle events. This allows us to do things after the component renders or after the component unmounts.
+
+### Using it
+```js
+// import useEffect from React
+import React, { useState, useEffect } from 'react';
+
+function App() {
+  const [score, setScore] = useState(0);
+  const [message] = useState('Welcome!');
+
+  // Define the useEffect() hook
+  // The effect happens after render
+  useEffect(() => {
+    console.log('useEffect called!');   
+  });
+
+  return (...);
+}
+```
+- `useEffect()` receives a callback function as the first argument, which is where you perform any side effects
+- the provided callback function is called when the component first renders and after each subsequent re-render / update
+- `useEffect()` takes an optional array as a 2nd argument which specifies any dependencies for the effect - typically state variables that are used or updated inside `useEffect()`. The array instructs the `useEffect()` hook to **run only if one of its dependencies changes**, which can help prevent performance issues:
+
+```js
+// example with dependencies
+function App() {
+  const [score, setScore] = useState(0);
+  const [message] = useState('Welcome!');
+
+  // The effect happens whenever message or score change
+  useEffect(() => {
+    document.title = `${message}. Your score is ${score}`;
+  }, [message, score]);
+
+  return (...);
+}
+```
+
+- passing an *empty array* as the second argument will run `useEffect()` only *once* after the initial render - useful e.g. for inital data fetching, similar to when you would use `componentDidMount`.
+
+```js
+function App() {
+  const [data, setData] = useState('');
+
+  useEffect(() => {
+    fetch('https://dog.ceo/api/breeds/image/random')
+      .then(response => response.json())
+      .then(content => setData(content.message))
+      .catch(err => console.log('Oh noes!', err))
+  }, []);
+
+  return (
+    <div className="App">
+      <img src={data} alt="A random dog breed" />
+    </div>
+  );
+}
+```
+
+- With hooks, you don't need a separate function (akin to `componentWillUnmount()`) to perform **cleanup**. Returning a function from your effect [takes care of the cleanup, running the function when the component unmounts](https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup).
+- **Multiple effects to separate concerns:** 
+
+https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
 
 
 ## `useContext`
+
+
+
+## `useRef`
+- allows us to access an element in the DOM directly
+- **ideally avoid direct access and use the flow of state/props to manage values being passed between components** - but sometimes this may not be possible
