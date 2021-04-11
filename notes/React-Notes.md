@@ -404,7 +404,8 @@ Since state is an object, you create and initialise state within a component cla
 ##### OPTION 1: Constructor syntax
 ```js
 constructor() {
-  super()  // call constructor of the Component class
+  // calling super() lets us use 'this' in the constructor as a reference to our specific component rather than the 'Component' class
+  super()
   this.state = {
     score: 0  // set initial state, before the component mounts
   }
