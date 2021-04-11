@@ -118,12 +118,14 @@ function App() {
 ```js
 function App() {
   const [data, setData] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch('https://dog.ceo/api/breeds/image/random')
       .then(response => response.json())
       .then(content => setData(content.message))
       .catch(err => console.log('Oh noes!', err))
+      .finally(() => setIsLoading(false))  // ensure is loading is always set to false at the end, even if request fails
   }, []);
 
   return (
@@ -135,9 +137,35 @@ function App() {
 ```
 
 - With hooks, you don't need a separate function (akin to `componentWillUnmount()`) to perform **cleanup**. Returning a function from your effect [takes care of the cleanup, running the function when the component unmounts](https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup).
-- **Multiple effects to separate concerns:** 
 
-https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
+### Multiple effects to separate concerns
+- You call `useEffect()` multiple times, and it is best practice to use this [to separate unrelated logic into different effects](https://reactjs.org/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns) - something that wasn't possible with traditional lifecycle methods!
+- React will apply every effect used by the component, in the order they were specified
+- This allows us to group related bits of state + lifecycle logic as follows:
+
+```js
+function FriendStatusWithCounter(props) {
+  // logic for 'count'
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  });
+
+  // logic for 'isOnline', incl. adding subscriptions that need to be cleaned when component unmounts
+  const [isOnline, setIsOnline] = useState(null);
+  useEffect(() => {
+    function handleStatusChange(status) {
+      setIsOnline(status.isOnline);
+    }
+
+    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+    return () => {
+      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
+    };
+  });
+  // ...
+}
+```
 
 
 ## `useContext`
