@@ -4,6 +4,7 @@
 These notes focus on core React concepts. Separate notes on related subjects live here:
 - [React Hooks](/notes/React-Hooks.md)
 - [Testing React Components](/notes/Front-End-Testing.md#testing-react-components)
+- [TypeScript & React](/notes/TypeScript.md#typescript-and-react)
 - [State Management in React](/notes/State-Management-in-React.md)
 - [React Router](/notes/React-Router.md)
 - [Styling React Components](/notes/React-Styling.md)
