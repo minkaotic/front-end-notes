@@ -46,7 +46,13 @@ npx create-react-app my-app-name --template typescript
 #### In an existing app
 A common scenario is to update an existing React app to use TypeScript, allowing incremental adoption.
 
-- add appropriate types to your project
+1. Add appropriate types to your project:
+   ```
+   npm add typescript @types/react @types/react-dom @types/node
+   ```
+1. Update a file to have a `.tsx` file extension
+1. Run `npm start` - this will cause `react-scripts` to detect that a TS file has been added to the project, and a `tsconfig.js` file with default values will be generated!
+
 
 ### Declaring components and props
 
