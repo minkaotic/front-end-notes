@@ -28,14 +28,25 @@ Sources:
 
 ### Configuring TypeScript
 
-#### In a new app
+#### For a new app
+Most of the [common React toolchains](https://reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains) offer options for creating a TypeScript React app. If using `create-react-app`:
 ```
-npx create-react-app new-app --template typescript
+npx create-react-app my-app-name --template typescript
 ```
-
+- `tsconfig.json` at the root of the project provides configuration for how TS can be used in our project, and which files to include in typechecking
+- common types are imported as dependencies in `package.json`:
+  ```json
+  "@types/jest": "^26.0.22",
+  "@types/node": "^12.20.9",
+  "@types/react": "^17.0.3",
+  "@types/react-dom": "^17.0.3",
+  ```
+- project scaffolding files will have `.tsx` file extension, e.g. `index.tsx` and `App.tsx`
 
 #### In an existing app
+A common scenario is to update an existing React app to use TypeScript, allowing incremental adoption.
 
+- add appropriate types to your project
 
 ### Declaring components and props
 
