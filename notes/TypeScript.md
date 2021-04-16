@@ -50,11 +50,58 @@ A common scenario is to update an existing React app to use TypeScript, allowing
    ```
    npm add typescript @types/react @types/react-dom @types/node
    ```
+   - depending on your project, you may need to add further types, e.g. `@types/react-router-dom` etc.
 1. Update a file to have a `.tsx` file extension
 1. Run `npm start` - this will cause `react-scripts` to detect that a TS file has been added to the project, and a `tsconfig.js` file with default values will be generated!
-
+1. Files will be recognised for typechecking by the `.tsx` file ending
 
 ### Declaring components and props
+
+#### Functions
+- TypeScript will require us to provide types for our function arguments (implicitely typed arguments will show an error). The type is specified with a colon after the argument name, e.g.:
+  ```js
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+        ...
+    }
+  ```
+- This consequently adds autocomplete help when accessing properties of the argument
+
+#### Props
+- Here too we need to describe the type we want to work with; usually this is done by creating our own interface declarations:
+  ```js
+  interface Props {
+      children: React.ReactNode; // declare that there is a prop 'children' of type ReactNode
+  }
+  ```
+- This interface can then be used in the constructor (if using class components)
+  ```js
+  class MyComponent extends React.Component {
+      constructor(props: Props) {
+          super(props);
+          ...
+      }
+      ...
+  }
+  ```
+
+#### State
+- The interface for our state is declared in a similar vain as for Props:
+  ```js
+  interface State {
+      isLoading: boolean;
+  }
+  ```
+- Using generics, we can then specify both of these types `<Props, State>` to be used by our component:
+
+  ```js
+  class MyComponent extends React.Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
+        this.state = { isLoading: true };
+    }
+
+  ```
+
 
 
 ### Using Hooks with TypeScript
