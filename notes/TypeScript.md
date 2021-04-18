@@ -135,8 +135,23 @@ A common scenario is to update an existing React app to use TypeScript, allowing
 
 ### Using Hooks with TypeScript
 #### useState()
+- If a given state variable needs to hold a complex type with specific options, this can be declared as follows:
+  ```js
+  interface AuthInfo {
+      userData: UserData | null  // AuthInfo contains a nullable 'userData' property, which must match the 'UserData' interface below
+  }
 
-
+  interface UserData {
+      role: "ADMIN" | "USER"  // if UserData is defined (i.e. not null) its role property must be of value 'ADMIN' or 'USER'
+  }
+  ```
+- 👉 NB: when using the pipe operator to declare possible concrete values, the type declaration (e.g. `string` for the `role` example above) is implicit
+- We can then pass the complex type to the `useState()` hook via generic type arguments (in this case `<AuthInfo>`):
+  ```js
+  const [authInfo, setAuthInfo] = React.useState<AuthInfo>({
+      userData: null,
+  });
+  ```
 
 
 
