@@ -27,7 +27,7 @@ Sources: [Dedicated TypeScript section in the React docs](https://reactjs.org/do
 
 **Jump to:**
 - [Configuring TypeScript](#configuring-typescript)
-- [Typed function arguments](#typed-function-arguments)
+- [Typed function arguments + variables](#typed-function-arguments--variables)
 - [Type declarations in class components](#type-declarations-in-class-components)
 - [Declaring props in function components](#declaring-props-in-function-components)
 - [Using Hooks with TypeScript](#using-hooks-with-typescript)
@@ -62,13 +62,18 @@ A common scenario is to update an existing React app to use TypeScript, allowing
 1. Files will be recognised for typechecking by the `.tsx` file ending
 
 
-### Typed function arguments
+### Typed function arguments + variables
 - TypeScript will require us to provide types for our function arguments (implicitely typed arguments will show an error). The type is specified with a colon after the argument name, e.g.:
   ```js
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
       ...
   }
   ```
+- We can optionally declare types for local variables too, although not doing so won't yield an error:
+  ```js
+  const hasCats: boolean = true;
+  ```
+
 
 ### Type declarations in class components
 - We need to describe the types we want to work with for our props and state; this is commonly done by creating our own interface declarations:
@@ -109,15 +114,29 @@ A common scenario is to update an existing React app to use TypeScript, allowing
   }
   ```
 
-> 💡 If preferred, we can also use **inline type definitions**, rather than declaring a named interface:
-
-```js
-function MyComponent(props: { children: React.ReactNode; label: string }) {
-    ...
-}
-```
+#### Alternative syntax
+- 💡 If preferred, we can also use **inline type definitions**, rather than declaring a named interface:
+  ```js
+  function MyComponent(props: { children: React.ReactNode; label: string }) {
+      ...
+  }
+  ```
+- Type definitions can also be used alongside **props destructuring**:
+  ```js
+  interface Props {
+      children: React.ReactNode;
+      label: string;
+  }
+  
+  function MyComponent({ children, label }: Props) {
+      ...
+  }
+  ```
 
 ### Using Hooks with TypeScript
+#### useState()
+
+
 
 
 
