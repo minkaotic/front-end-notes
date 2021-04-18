@@ -66,7 +66,7 @@ A common scenario is to update an existing React app to use TypeScript, allowing
 - TypeScript will require us to provide types for our function arguments (implicitely typed arguments will show an error). The type is specified with a colon after the argument name, e.g.:
   ```js
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-      ...
+    ...
   }
   ```
 - We can optionally declare types for local variables too, although not doing so won't yield an error:
@@ -79,22 +79,22 @@ A common scenario is to update an existing React app to use TypeScript, allowing
 - We need to describe the types we want to work with for our props and state; this is commonly done by creating our own interface declarations:
   ```js
   interface Props {
-      children: React.ReactNode;  // declare a prop 'children' of type ReactNode
-      label: string;  // declare prop 'label' of type string
+    children: React.ReactNode;  // declare a prop 'children' of type ReactNode
+    label: string;  // declare prop 'label' of type string
   }
   
   interface State {
-      isLoading: boolean;  // declare a state variable 'isLoading' of type boolean
+    isLoading: boolean;  // declare a state variable 'isLoading' of type boolean
   }
   ```
 - We can then use generics syntax to specify both of these types `<Props, State>` to be used by our component. `Props` also needs to be specified in the constructor:
   ```js
   class MyComponent extends React.Component<Props, State> {
-      constructor(props: Props) {
-          super(props);
-          this.state = { isLoading: true };
-      }
-      ...
+    constructor(props: Props) {
+      super(props);
+      this.state = { isLoading: true };
+    }
+    ...
   }
   ```
 
@@ -103,14 +103,14 @@ A common scenario is to update an existing React app to use TypeScript, allowing
 - We declare the interface for our props:
   ```js
   interface Props {
-      children: React.ReactNode;
-      label: string;
+    children: React.ReactNode;
+    label: string;
   }
   ```
 - And then use this in the declaration of the function component:
   ```js
   function MyComponent(props: Props) {
-      ...
+    ...
   }
   ```
 
@@ -118,27 +118,27 @@ A common scenario is to update an existing React app to use TypeScript, allowing
 - 💡 If preferred, we can also use **inline type definitions**, rather than declaring a named interface:
   ```js
   function MyComponent(props: { children: React.ReactNode; label: string }) {
-      ...
+    ...
   }
   ```
 - Type definitions can also be used alongside **props destructuring**:
   ```js
   interface Props {
-      children: React.ReactNode;
-      label: string;
+    children: React.ReactNode;
+    label: string;
   }
   
   function MyComponent({ children, label }: Props) {
-      ...
+    ...
   }
   ```
 
 ### Using Hooks with TypeScript
-#### useState()
+**Type declarations and [`useState()`](/notes/React-Hooks.md#usestate)**
 - If a given state variable needs to hold a complex type with specific options, this can be declared as follows:
   ```js
   interface AuthInfo {
-      userData: UserData | null  // AuthInfo contains a nullable 'userData' property, which must match the 'UserData' interface below
+    userData: UserData | null  // AuthInfo contains a nullable 'userData' property, which must match the 'UserData' interface below
   }
 
   interface UserData {
@@ -149,9 +149,67 @@ A common scenario is to update an existing React app to use TypeScript, allowing
 - We can then pass the complex type to the `useState()` hook via generic type arguments (in this case `<AuthInfo>`):
   ```js
   const [authInfo, setAuthInfo] = React.useState<AuthInfo>({
-      userData: null,
+    userData: null,
   });
   ```
+
+**Type declarations when using [Context](/notes/React-Hooks.md#usecontext)**
+- In the **Provider**, define your context values via an interface, which can then be passed to `createContext`:
+  ```js
+  interface AuthContextValues {
+    authInfo: AuthInfo;
+    isAuthenticated: boolean;
+    setAuthInfo: React.Dispatch<React.SetStateAction<AuthInfo>>;  // definition of the setState function provided by React
+    isAdmin: boolean;
+  }
+
+  // declare AuthContext to either be undefined, or of type AuthContextValues, and set a default context of undefined
+  export const AuthContext = React.createContext<AuthContextValues | undefined>(undefined);
+  const Provider = AuthContext.Provider;
+  ```
+- this needs to match what we provide as values to the `Provider` wrapper:
+  ```js
+  export function AuthProvider({ children }: Props) {
+    ...
+    return (
+      <Provider value={{ authInfo, isAuthenticated, setAuthInfo, isAdmin }}>
+        {children}
+      </Provider>
+    );
+  }
+  ```
+- an **alternative** to using the lengthy `setState` function definition provided by React is to wrap the function returned by the `useState()` hook (`setAuthInfo` in this example) in our own local function, and use this wrapper in the `Provider` values:
+  ```js
+  export function AuthProvider({ children }: Props) {
+    ...
+    function handleAuthInfo(authInfo: AuthInfo) {
+      setAuthInfo(authInfo);
+    };
+    
+    return (
+      <Provider value={{ authInfo, isAuthenticated, setAuthInfo: handleAuthInfo, isAdmin }}>
+        {children}
+      </Provider>
+    );
+  }
+  ```
+- then we can update the interface to a function definition that takes `AuthInfo` and returns void:
+  ```js
+  interface AuthContextValues {
+    authInfo: AuthInfo;
+    isAuthenticated: boolean;
+    setAuthInfo: (authInfo: AuthInfo) => void;  // nicer
+    isAdmin: boolean;
+  }
+  ```
+
+
+👉 See [full file](https://github.com/mwarger/globomantics-react-ts/blob/m4-declaring-and-using-hooks-with-typescript-final/app/src/context/AuthProvider.tsx) which these snippets are from, for more context.
+
+
+
+
+
 
 
 
