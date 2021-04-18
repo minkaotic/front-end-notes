@@ -9,6 +9,7 @@ Typescript is a syntactical superset of ECMAScript developed by Microsoft, which
 - less error prone due to static typing (reducing need for manual validation / sanitisation)
 - additional features that don't exist in JS
 - not just a programming language, but also a powerful compiler that runs over your code and compiles it to JavaScript and provides compile-time errors, making it easier to catch errors earlier on in development
+- adds autocomplete help, e.g. when accessing properties of a typed entity
 
 > :bulb: TS features are compiled to JS 'workarounds'
 
@@ -55,54 +56,61 @@ A common scenario is to update an existing React app to use TypeScript, allowing
 1. Run `npm start` - this will cause `react-scripts` to detect that a TS file has been added to the project, and a `tsconfig.js` file with default values will be generated!
 1. Files will be recognised for typechecking by the `.tsx` file ending
 
-### Declaring components and props
 
-#### Functions
+### Declaring function argument types
 - TypeScript will require us to provide types for our function arguments (implicitely typed arguments will show an error). The type is specified with a colon after the argument name, e.g.:
   ```js
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-        ...
-    }
-  ```
-- This consequently adds autocomplete help when accessing properties of the argument
-
-#### Props
-- Here too we need to describe the type we want to work with; usually this is done by creating our own interface declarations:
-  ```js
-  interface Props {
-      children: React.ReactNode; // declare that there is a prop 'children' of type ReactNode
+      ...
   }
   ```
-- This interface can then be used in the constructor (if using class components)
+
+### Type declarations in class components
+- We need to describe the types we want to work with for our props and state; this is commonly done by creating our own interface declarations:
   ```js
-  class MyComponent extends React.Component {
+  interface Props {
+      children: React.ReactNode;  // declare a prop 'children' of type ReactNode
+      label: string;  // declare prop 'label' of type string
+  }
+  
+  interface State {
+      isLoading: boolean;  // declare a state variable 'isLoading' of type boolean
+  }
+  ```
+- We can then use generics syntax to specify both of these types `<Props, State>` to be used by our component. `Props` also needs to be specified in the constructor:
+  ```js
+  class MyComponent extends React.Component<Props, State> {
       constructor(props: Props) {
           super(props);
-          ...
+          this.state = { isLoading: true };
       }
       ...
   }
   ```
 
-#### State
-- The interface for our state is declared in a similar vain as for Props:
+### Declaring props in function components
+- Declaring the contract of our props via types/interfaces has similar benefits to using [PropTypes](/notes/React-Notes.md#2-validate-props-with-proptypes), but with the added advantage that the validation happens at compile time rather than run time
+- We declare the interface for our props:
   ```js
-  interface State {
-      isLoading: boolean;
+  interface Props {
+      children: React.ReactNode;
+      label: string;
   }
   ```
-- Using generics, we can then specify both of these types `<Props, State>` to be used by our component:
-
+- And then use this in the declaration of the function component:
   ```js
-  class MyComponent extends React.Component<Props, State> {
-    constructor(props: Props) {
-        super(props);
-        this.state = { isLoading: true };
-    }
-
+  function MyComponent(props: Props) {
+      ...
+  }
   ```
 
+> 💡 If preferred, we can also use **inline type definitions**, rather than declaring a named interface:
 
+```js
+function MyComponent(props: { children: React.ReactNode; label: string }) {
+    ...
+}
+```
 
 ### Using Hooks with TypeScript
 
