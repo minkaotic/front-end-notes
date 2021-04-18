@@ -23,9 +23,14 @@ By doing this you get TypeScript Intellisense and compile-time errors when the c
 
 
 ## TypeScript and React
-Sources:
-- [Dedicated TypeScript section in the React docs](https://reactjs.org/docs/static-type-checking.html#typescript).
-- [React + TypeScript Pluralsight course](https://app.pluralsight.com/library/courses/react-apps-typescript-building/table-of-contents)
+Sources: [Dedicated TypeScript section in the React docs](https://reactjs.org/docs/static-type-checking.html#typescript) | [React + TypeScript Pluralsight course](https://app.pluralsight.com/library/courses/react-apps-typescript-building/table-of-contents)
+
+**Jump to:**
+- [Configuring TypeScript](#configuring-typescript)
+- [Typed function arguments](#typed-function-arguments)
+- [Type declarations in class components](#type-declarations-in-class-components)
+- [Declaring props in function components](#declaring-props-in-function-components)
+- [Using Hooks with TypeScript](#using-hooks-with-typescript)
 
 ### Configuring TypeScript
 
@@ -57,7 +62,7 @@ A common scenario is to update an existing React app to use TypeScript, allowing
 1. Files will be recognised for typechecking by the `.tsx` file ending
 
 
-### Declaring function argument types
+### Typed function arguments
 - TypeScript will require us to provide types for our function arguments (implicitely typed arguments will show an error). The type is specified with a colon after the argument name, e.g.:
   ```js
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
