@@ -3,8 +3,8 @@ Sources: [Accessibility for Web Developers](https://teamtreehouse.com/library/ac
 
 ### Contents
 
-- [WCAG Overview](#-wcag-overview)
-- [Tools for Accessibility Auditing](#%EF%B8%8F-tools-for-accessibility-auditing)
+- [🌐 WCAG Overview](#-wcag-overview)
+- [🛠️ Tools for Accessibility Auditing](#%EF%B8%8F-tools-for-accessibility-auditing)
 
 -------------
 
