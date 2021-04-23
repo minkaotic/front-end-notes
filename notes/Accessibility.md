@@ -8,7 +8,7 @@ Sources: [Accessibility for Web Developers](https://teamtreehouse.com/library/ac
 
 -------------
 
-## WCAG Overview
+## 🌐 WCAG Overview
 The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) state that in order to be accessible, interfaces must follow **4 principles** (*POUR* - see below). WCAG 2 introduced **13 guidelines** to meet these principles, further broken down into **78 success criteria**. Two great resources for learning these are:
 - [Exploring The New Success Criteria](https://www.levelaccess.com/wcag-2-1-exploring-new-success-criteria/)
 - [13 Days of Accessibility](http://a11ycalendar.kaseybon.com/)
@@ -55,7 +55,7 @@ The success criteria are at **3 levels**: A, AA and AAA. On the modern web, achi
 - Provide sufficient context
 
 
-## Tools for Accessibility Auditing
+## 🛠️ Tools for Accessibility Auditing
 - Turn your CSS off so you can see a simpler version of the site
 - Zoom to 200% and ensure all parts of your site can still be accessed
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
