@@ -4,6 +4,7 @@ Sources: [Accessibility for Web Developers](https://teamtreehouse.com/library/ac
 ### Contents
 
 - [🌐 WCAG Overview](#-wcag-overview)
+- [:curly_haired_woman: User groups to keep in mind](#curly_haired_woman-user-groups-to-keep-in-mind)
 - [🛠️ Tools for Accessibility Auditing](#%EF%B8%8F-tools-for-accessibility-auditing)
 
 -------------
@@ -16,24 +17,34 @@ The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standar
 The success criteria are at **3 levels**: A, AA and AAA. On the modern web, achieving level A compliance should be easily within reach, and level AA should be the minimum accessibility standard for most projects.
 
 - **Perceivable** - information and user interface components must be presentable to users in ways they can perceive. This principle is all about providing alternative methods of understanding your web content. Its guidelines cover:
-  - text alternatives (e.g. `alt` attribute)
-  - time-based media (e.g. providing captions and transcripts)
-  - adaptable (e.g. use semantic HTML in a logical order; interfaces should be navigable in portrait as well as landscape orientation)
-  - distinguishable (e.g. colour contrast; combine multiple visual cues incl. messaging/iconography rather than relying on colour alone to convey information; avoid auto-starting audio or video; website can be resized to 200% without loss of content/functionality)
+  - *text alternatives* (e.g. `alt` attribute)
+  - *time-based media* (e.g. providing captions and transcripts)
+  - *adaptable* (e.g. use semantic HTML in a logical order; interfaces should be navigable in portrait as well as landscape orientation)
+  - *distinguishable* (e.g. colour contrast; combine multiple visual cues incl. messaging/iconography rather than relying on colour alone to convey information; avoid auto-starting audio or video; website can be resized to 200% without loss of content/functionality)
 - **Operable** - users must be able to operate your interface without barriers. This principle covers:
-  - keyboard-access (navigable via tab key; no keyboard traps; have obvious focus indicators and logical focus order)
-  - enough time (users should be able to adjust or remove time limits on bookings etc. if they need extra time)
-  - seizures + physical reactions (allow users to disable distracting content; avoid animations that flash more than 3 times/second)
-  - navigable (use proper HTML structure of [headings in a logical hierarchy](https://usability.yale.edu/web-accessibility/articles/headings) and semantic containers - this also helps skip content that is repeated on multiple pages, such as navigation; provide a descriptive page `<title>` tag; purpose of a link should be clear from the link text, i.e. avoid 'click here' being the link)
-  - input modalities (provide alternatives to complex interactions, e.g. complex touch screen gestures; use generous target sizes)
-- **Understandable**
-  - readable
-  - predictable
-  - input assistance 
-- **Robust**
-  - compantible
+  - *keyboard-access* (navigable via tab key; no keyboard traps; have obvious focus indicators and logical focus order)
+  - *enough time* (users should be able to adjust or remove time limits on bookings etc. if they need extra time)
+  - *seizures + physical reactions* (allow users to disable distracting content; avoid animations that flash more than 3 times/second)
+  - *navigable* (use proper HTML structure of [headings in a logical hierarchy](https://usability.yale.edu/web-accessibility/articles/headings) and semantic containers - this also helps skip content that is repeated on multiple pages, such as navigation; provide a descriptive page `<title>` tag; purpose of a link should be clear from the link text, i.e. avoid 'click here' being the link)
+  - *input modalities* (provide alternatives to complex interactions, e.g. complex touch screen gestures; use generous target sizes)
+- **Understandable** - users with disabilities must be able to understand your content:
+  - *readable* (use plain language; set language attributes appropriately so screen readers know how to pronounce content correctly - see example below)
+    ```html
+    <html lang="en">
+      ...
+      <body>
+        <p>Main text is in English</p>
+        <p lang="fr">Sauf pour cela qui est écrit en mauvais français</p>
+      </body>
+    </html>
+    ```
+  - *predictable* (create predicable navigation; avoid unexpected changes in context: opening a new window, loading a new page, significantly rearranging page content or moving focus to a new component should only happen in response to clear user interaction)
+  - *input assistance* (make errors easy to spot and correct; when reporting form errors: make messages easy to notice and understand, highlight errors visually, keep instructions simple and accessible)
+- **Robust** - content must be robust enough that it can be interpreted by a wide variety of user agents, including assistive technologies:
+  - *compatible* (write valid HTML; use semantic markup; appearing [status messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html) don't receive focus + use an appropriate role so they can be perceived without interrupting the user)
 
 
+## :curly_haired_woman: User groups to keep in mind
 #### For visual impairments
 - Use good colour contrast
 - Use accessible fonts such as Arial, Calibri, Century gothic, Helvetica, Tahoma and Verdana
@@ -58,8 +69,7 @@ The success criteria are at **3 levels**: A, AA and AAA. On the modern web, achi
 ## 🛠️ Tools for Accessibility Auditing
 - Turn your CSS off so you can see a simpler version of the site
 - Zoom to 200% and ensure all parts of your site can still be accessed
+- [W3C HTML Validator](https://validator.w3.org/) and [validator.nu](https://html5.validator.nu/) for HTML validation
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 - [WebAIM colour contrast checker](https://webaim.org/resources/contrastchecker/)
 - [Axe](https://www.deque.com/axe/) and [WAVE](https://wave.webaim.org/extension/) - browser extensions to evaluate web accessibility
-- NoCoffee
-- Voiceover (Mac only)
