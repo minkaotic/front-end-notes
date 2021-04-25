@@ -73,3 +73,4 @@ The success criteria are at **3 levels**: A, AA and AAA. On the modern web, achi
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 - [WebAIM colour contrast checker](https://webaim.org/resources/contrastchecker/)
 - [Axe](https://www.deque.com/axe/) and [WAVE](https://wave.webaim.org/extension/) - browser extensions to evaluate web accessibility
+- [Treehouse Accessibility Checklist for web devs](https://treehouse-project-downloads.s3.amazonaws.com/Accessibility-for-Web-Developers/Accessibility-Checklist-for-Web-Developers.pdf)
