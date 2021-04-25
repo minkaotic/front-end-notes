@@ -6,6 +6,7 @@ Sources: [Accessibility for Web Developers](https://teamtreehouse.com/library/ac
 - [🌐 WCAG Overview](#-wcag-overview)
 - [:curly_haired_woman: User groups to keep in mind](#curly_haired_woman-user-groups-to-keep-in-mind)
 - [🛠️ Tools for Accessibility Auditing](#%EF%B8%8F-tools-for-accessibility-auditing)
+- [:pencil: Accessible forms](#pencil-accessible-forms)
 
 -------------
 
@@ -74,3 +75,22 @@ The success criteria are at **3 levels**: A, AA and AAA. On the modern web, achi
 - [WebAIM colour contrast checker](https://webaim.org/resources/contrastchecker/)
 - [Axe](https://www.deque.com/axe/) and [WAVE](https://wave.webaim.org/extension/) - browser extensions to evaluate web accessibility
 - [Treehouse Accessibility Checklist for web devs](https://treehouse-project-downloads.s3.amazonaws.com/Accessibility-for-Web-Developers/Accessibility-Checklist-for-Web-Developers.pdf)
+
+
+## :pencil: Accessible forms
+Checkout forms tend to have a huge abandonment rate, and whilst some of this may be due to users not wanting to commit to a transaction, [studies by the Baymard Institute](https://baymard.com/lists/cart-abandonment-rate) have found that a significant proportion of abandonments are due to problems with checkout form usability.
+
+Principles of an accessible form:
+- *Avoid unnecessary questions* (common one: asking for people's telephone number)
+- *Minimize questions per screen* - benefits: faster loading; screenreaders can jump straight to the relevant information; correcting errors is easier with a limited set of fields; the presentation simplification reduces cognitive load - which benefits all users but especially those with cognitive disabilities
+- When 'chunking' a form (breaking it into steps), *provide context clues* - e.g. remind users of the purpose of the form, clearly label current step, how many tasks have been completed/how many remain
+- *Group related questions* (both visually and via screen-reader accessible HTML) - especially important when multiple sets of questions need to stay on the same screen / cannot be 'chunked' into separate steps
+- *Use clear input labels* - using just placeholder text is not good enough, as it disappears once the user starts typing, and can cause users to lose track of which field they were filling out
+- *Make focus indicators obvious* to help users who are unable to use a mouse
+- *Help users spot and correct errors* through easily understandable error messaging and highlighting of issues
+
+
+
+
+
+
