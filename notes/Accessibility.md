@@ -90,6 +90,12 @@ Principles of an accessible form:
 - *Help users spot and correct errors* through easily understandable error messaging and highlighting of issues
 
 
+Fieldsets:
+- must have a legend
+- should not be nested within each other
+
+Sources:
+- (add them here)
 
 
 
