@@ -80,7 +80,7 @@ The success criteria are at **3 levels**: A, AA and AAA. On the modern web, achi
 ## :pencil: Accessible forms
 Checkout forms tend to have a huge abandonment rate, and whilst some of this may be due to users not wanting to commit to a transaction, [studies by the Baymard Institute](https://baymard.com/lists/cart-abandonment-rate) have found that a significant proportion of abandonments are due to problems with checkout form usability.
 
-Principles of an accessible form:
+### Principles of an accessible form
 - *Avoid unnecessary questions* (common one: asking for people's telephone number)
 - *Minimize questions per screen* - benefits: faster loading; screenreaders can jump straight to the relevant information; correcting errors is easier with a limited set of fields; the presentation simplification reduces cognitive load - which benefits all users but especially those with cognitive disabilities
 - When 'chunking' a form (breaking it into steps), *provide context clues* - e.g. remind users of the purpose of the form, clearly label current step, how many tasks have been completed/how many remain
@@ -90,9 +90,13 @@ Principles of an accessible form:
 - *Help users spot and correct errors* through easily understandable error messaging and highlighting of issues
 
 
-Fieldsets:
-- must have a legend
-- should not be nested within each other
+### HTML recommendations
+- Use fieldsets to group related questions in a form.
+  - fieldsets must have a legend
+  - fieldsets should not be nested within each other
+- The `for` attribute of a `<label>` needs to match the `id` attribute of the `<input>` in order to properly associate the two. This also increases the area that can be interacted with, meeting the WCAG's call for generous target sizes.
+  - *what is `name` used for?*
+-  
 
 Sources:
 - (add them here)
