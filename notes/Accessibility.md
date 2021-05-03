@@ -141,11 +141,24 @@ This will produce the following form: ![Form example](../img/form-example.png)
 
 ### Error messages / validation
 - Highlight both input and label of fields that fail validation, for example by adding styleable classes to both:
-  ```js
+  ```html
   <label for="email" class="error-text">Your Email Address *</label>
   <input type="email" id="email" name="user-email" class="error-input">
   ```
 - Make use of iconography to highlight the failed field without purely relying on colour
 - Provide specific instructions for fixing the issue, i.e. "Email address must contain a single @." rather than just "Invalid email address"
+- Use `aria-describedby` to associate additional instructions with the failing field:
+  ```html
+  <input type="email" id="email" name="user-email" class="error-input" aria-describedby="email-desc">
+  <p class="hint error-text" id="email-desc">Email address must contain a single @.</p>
+  ```
 
+**Example of a form field in error state**
+```html
+<label for="email" class="error-text"><i class="fas fa-exclamation-triangle"></i> Your Email Address *</label>
+<input type="email" id="email" name="user-email" class="error-input" aria-describedby="email-desc">
+<p class="hint error-text" id="email-desc">Email address must contain a single @.</p>
+```
+Resulting in:
+![Form example](../img/failed-field-example.png)
 
