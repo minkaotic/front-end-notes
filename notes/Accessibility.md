@@ -46,6 +46,7 @@ The success criteria are at **3 levels**: A, AA and AAA. On the modern web, achi
 
 
 ## :curly_haired_woman: User groups to keep in mind
+> "Whereas usability considers how easy a site is to use and understand, accessibility is concerned with whether you can get there at all." - *[Article discussing the differences and overlap between usability and accessibility](https://ncdae.org/resources/articles/cognitive/)*
 #### For visual impairments
 - Use good colour contrast
 - Use accessible fonts such as Arial, Calibri, Century gothic, Helvetica, Tahoma and Verdana
@@ -95,20 +96,48 @@ Checkout forms tend to have a huge abandonment rate, and whilst some of this may
   - fieldsets must have a legend
   - fieldsets should not be nested within each other
 - The `for` attribute of a `<label>` needs to match the `id` attribute of the `<input>` in order to properly associate the two. This also increases the area that can be interacted with, meeting the WCAG's call for generous target sizes.
-  - *what is `name` used for?*
 - Use pre-defined input `type` attributes where appropriate, e.g. `type="email"` or `type="tel"`
 - `placeholder`s can cause colour contrast issues (two light and they will be hard to see, too dark and they will look like filled in text). Consider using input masks instead to suggest how a field's content should be formatted.
+- See *[HTML Notes > forms & inputs](https://github.com/minkaotic/front-end-notes/blob/master/notes/HTML-Notes.md#forms--inputs)* for further notes about HTML forms.
 
+**Example form**
+```html
+<form>
+  <fieldset>
+    <legend>Deliver Information</legend>
+    <p class="hint">* - required field</p>
+    <label for="name">Your Name *</label>
+    <input type="text" id="name" name="user-name">
+    <label for="email">Your Email Address *</label>
+    <input type="email" id="email" name="user-email">
+    <p class="hint">Receipt will be sent to this address.</p>
+    <label for="address1">Street Address *</label>
+    <input type="text" id="address1" name="user-address1">
+    <label for="address2">Apartment/Office Number</label>
+    <input type="text" id="address2" name="user-address2">
+    <label for="zip">Zip Code *</label>
+    <input type="text" id="zip" name="user-zip">
+    <p class="hint">City and state will be looked up from Zip Code.</p>
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" name="user-phone">
+    <p class="hint">No phone? Include alternate contact below.</p>
+    <label for="delivery-instructions">Delivery instructions</label>
+    <textarea type="text" id="delivery-instructions" name="user-delivery-instructions"></textarea>
+    <button type="submit">Continue to Billing</button>
+  </fieldset>
+</form>
+```
+This will produce the following form: ![Form example](../img/form-example.png)
 
 ### Textual guidance for users
-- Be as clear as possible in your label text, i.e. *Your Email Address* rather than just *Email*, to help users with cognitive impairments
+- Be as clear as possible in your label text, i.e. "Your Email Address" rather than just "Email", to help users with cognitive impairments
 - Clearly mark required fields with textual hints
 - Consider adding information alongside an input clarifying why this data is collected, i.e. `<p class="hint">Receipt will be sent to this address.</p>`
 - In a multi-step (multi-page) form, clearly reflect the progression pathway in the submit button text, i.e. "Continue to Billing Details" rather than just "Continue" or "Submit"
-
-Sources:
-- (add them here)
-
+- Confirmation messages [should state](https://alistapart.com/article/designing-for-cognitive-differences/#section7):
+  - what action was taken ("Thank you for signing up for our newsletter!")
+  - what data was posted ("Your email address, {email_address}, has been added to our distribution list.")
+  - what the user should do if they made a mistake ("If you want to stop receiving our newsletter at any time, you can unsubscribe on your user profile.")
 
 
 
