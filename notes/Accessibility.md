@@ -86,7 +86,7 @@ Checkout forms tend to have a huge abandonment rate, and whilst some of this may
 - *Minimize questions per screen* - benefits: faster loading; screenreaders can jump straight to the relevant information; correcting errors is easier with a limited set of fields; the presentation simplification reduces cognitive load - which benefits all users but especially those with cognitive disabilities
 - When 'chunking' a form (breaking it into steps), *provide context clues* - e.g. remind users of the purpose of the form, clearly label current step, how many tasks have been completed/how many remain
 - *Group related questions* (both visually and via screen-reader accessible HTML) - especially important when multiple sets of questions need to stay on the same screen / cannot be 'chunked' into separate steps
-- *Use clear input labels* - using just placeholder text is not good enough, as it disappears once the user starts typing, and can cause users to lose track of which field they were filling out. Also, remember that "[form labels are not a medium for creative expression; they’re a tool for users to know how to use a form](https://alistapart.com/article/designing-for-cognitive-differences/)". Don't sacrifice usability/accessibility for the sake of fancy form animations etc. 
+- *Use clear input labels* - don't rely on placeholders for key information; remember that "[form labels are not a medium for creative expression; they’re a tool for users to know how to use a form](https://alistapart.com/article/designing-for-cognitive-differences/)". Don't sacrifice usability/accessibility for the sake of fancy form animations etc. 
 - *Make focus indicators obvious* (via additional styles against the `:focus` pseudo class) to help users who are unable to use a mouse, and ensure the entire form can be navigated by keyboard
 - *Help users spot and correct errors* through easily understandable error messaging and highlighting of issues
 
@@ -97,7 +97,11 @@ Checkout forms tend to have a huge abandonment rate, and whilst some of this may
   - fieldsets should not be nested within each other
 - The `for` attribute of a `<label>` needs to match the `id` attribute of the `<input>` in order to properly associate the two. This also increases the area that can be interacted with, meeting the WCAG's call for generous target sizes.
 - Use pre-defined input `type` attributes where appropriate, e.g. `type="email"` or `type="tel"`
-- `placeholder`s can cause colour contrast issues (two light and they will be hard to see, too dark and they will look like filled in text). Consider using input masks instead to suggest how a field's content should be formatted.
+- **`placeholder` gotchas:**
+  - don't use placeholder text instead of labels, as it disappears once the user starts typing, and can cause users to lose track of which field they were filling out
+  - don't use placeholder text to contain instructions, for the same reason - put these in a separate text element (such as `<p>`) instead, which can be associated with the input it describes via an `aria-describedby` attribute
+  - placeholders can cause colour contrast issues (two light and they will be hard to see, too dark and they will look like filled in text)
+  - consider using input masks instead of placeholders to demonstrate to users how a field's content should be formatted.
 - See *[HTML Notes > forms & inputs](https://github.com/minkaotic/front-end-notes/blob/master/notes/HTML-Notes.md#forms--inputs)* for further notes about HTML forms.
 
 **Example form**
@@ -140,6 +144,7 @@ This will produce the following form: ![Form example](../img/form-example.png)
   - what the user should do if they made a mistake ("If you want to stop receiving our newsletter at any time, you can unsubscribe on your user profile.")
 
 ### Error messages / validation
+- Avoid error summaries - or at least don't rely on them alone; favour reporting errors next to the problematic field(s) themselves
 - Highlight both input and label of fields that fail validation, for example by adding styleable classes to both:
   ```html
   <label for="email" class="error-text">Your Email Address *</label>
@@ -147,6 +152,7 @@ This will produce the following form: ![Form example](../img/form-example.png)
   ```
 - Make use of iconography to highlight the failed field without purely relying on colour
 - Provide specific instructions for fixing the issue, i.e. "Email address must contain a single @." rather than just "Invalid email address"
+- Keep error messages polite and avoid blaming the user, i.e. stick with "Please enter your email address", rather than "You forgot to enter your email address"
 - Use `aria-describedby` to associate additional instructions with the failing field:
   ```html
   <input type="email" id="email" name="user-email" class="error-input" aria-describedby="email-desc">
