@@ -139,5 +139,13 @@ This will produce the following form: ![Form example](../img/form-example.png)
   - what data was posted ("Your email address, {email_address}, has been added to our distribution list.")
   - what the user should do if they made a mistake ("If you want to stop receiving our newsletter at any time, you can unsubscribe on your user profile.")
 
+### Error messages / validation
+- Highlight both input and label of fields that fail validation, for example by adding styleable classes to both:
+  ```js
+  <label for="email" class="error-text">Your Email Address *</label>
+  <input type="email" id="email" name="user-email" class="error-input">
+  ```
+- Make use of iconography to highlight the failed field without purely relying on colour
+- Provide specific instructions for fixing the issue, i.e. "Email address must contain a single @." rather than just "Invalid email address"
 
 
