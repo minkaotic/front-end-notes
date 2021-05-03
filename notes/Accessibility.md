@@ -81,22 +81,30 @@ The success criteria are at **3 levels**: A, AA and AAA. On the modern web, achi
 Checkout forms tend to have a huge abandonment rate, and whilst some of this may be due to users not wanting to commit to a transaction, [studies by the Baymard Institute](https://baymard.com/lists/cart-abandonment-rate) have found that a significant proportion of abandonments are due to problems with checkout form usability.
 
 ### Principles of an accessible form
-- *Avoid unnecessary questions* (common one: asking for people's telephone number)
+- *Avoid unnecessary questions* (common one: asking for people's telephone number - this should be optional, with a way for the user to specify an alternative ways of being contacted)
 - *Minimize questions per screen* - benefits: faster loading; screenreaders can jump straight to the relevant information; correcting errors is easier with a limited set of fields; the presentation simplification reduces cognitive load - which benefits all users but especially those with cognitive disabilities
 - When 'chunking' a form (breaking it into steps), *provide context clues* - e.g. remind users of the purpose of the form, clearly label current step, how many tasks have been completed/how many remain
 - *Group related questions* (both visually and via screen-reader accessible HTML) - especially important when multiple sets of questions need to stay on the same screen / cannot be 'chunked' into separate steps
 - *Use clear input labels* - using just placeholder text is not good enough, as it disappears once the user starts typing, and can cause users to lose track of which field they were filling out
-- *Make focus indicators obvious* to help users who are unable to use a mouse
+- *Make focus indicators obvious* (via additional styles against the `:focus` pseudo class) to help users who are unable to use a mouse, and ensure the entire form can be navigated by keyboard
 - *Help users spot and correct errors* through easily understandable error messaging and highlighting of issues
 
 
 ### HTML recommendations
-- Use fieldsets to group related questions in a form.
+- Use `<fieldset>`s to group related questions in a form.
   - fieldsets must have a legend
   - fieldsets should not be nested within each other
 - The `for` attribute of a `<label>` needs to match the `id` attribute of the `<input>` in order to properly associate the two. This also increases the area that can be interacted with, meeting the WCAG's call for generous target sizes.
   - *what is `name` used for?*
--  
+- Use pre-defined input `type` attributes where appropriate, e.g. `type="email"` or `type="tel"`
+- `placeholder`s can cause colour contrast issues (two light and they will be hard to see, too dark and they will look like filled in text). Consider using input masks instead to suggest how a field's content should be formatted.
+
+
+### Textual guidance for users
+- Be as clear as possible in your label text, i.e. *Your Email Address* rather than just *Email*, to help users with cognitive impairments
+- Clearly mark required fields with textual hints
+- Consider adding information alongside an input clarifying why this data is collected, i.e. `<p class="hint">Receipt will be sent to this address.</p>`
+- In a multi-step (multi-page) form, clearly reflect the progression pathway in the submit button text, i.e. "Continue to Billing Details" rather than just "Continue" or "Submit"
 
 Sources:
 - (add them here)
