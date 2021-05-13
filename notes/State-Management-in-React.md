@@ -1,24 +1,25 @@
 # State Management in React
-<ins>In which we cover</ins>: [React Context API](#react-context-api) and [Redux](#redux) </br>
-<ins>Sources</ins>: Team Treehouse React/Redux courses
+In which we cover: [React Context API](#react-context-api) and [Redux](#redux)
 
 _______________________________
 ## React Context API 
-  - [Background: Prop drilling](#background-prop-drilling)
-  - [Using Context](#using-context)
+Sources: [React Context API course](https://teamtreehouse.com/library/react-context-api) | [React docs](https://reactjs.org/docs/context.html)
+| [Application State Management with React](https://kentcdodds.com/blog/application-state-management-with-react) | [How to use React Context effectively](https://kentcdodds.com/blog/how-to-use-react-context-effectively)
 
-### Background: Prop drilling
+### When to use it
+#### Background: Prop drilling
 In the [typical React data flow](#paw_prints-unidirectional-data-flow), components communicate with each other via [props](#paw_prints-props). A parent passes props down to child components. Sometimes the intermediary components get props passed to them *with the sole purpose of passing that data down one (or several) more levels*. This cascade of props is often referred to as ["prop drilling"](https://kentcdodds.com/blog/prop-drilling).
 
 :point_right: **The React [Context API](https://reactjs.org/docs/context.html) provides a way to pass data to components without having to pass props manually at every single level.**
 
 > Prior to Context being a stable feature in React, developers would use state management libraries like [MobX](https://mobx.js.org/README.html) and [Redux](/notes/Redux.md) instead.
 
-
-### Using Context
 #### To use or not to use Context?
-
 :point_right: Context is mainly used when certain data needs to be accessed by many components at different nesting levels.
+
+
+### How to use it
+> ⚠️ The below is based on class components, see [separate notes for the React Hooks version](https://github.com/minkaotic/front-end-notes/blob/master/notes/React-Hooks.md#usecontext).
 
 #### 3 parts of the Context API
 1. **`React.createContext()`** - sets up a context and returns an object with a *Provider* and *Consumer* (the two main components of the context API)
@@ -154,6 +155,8 @@ render() {
 _______________________________
 
 ## Redux
+Source: Team Treehouse Redux course *(now retired)*
+
 ### Intro
 [Redux](https://redux.js.org/) is a popular JavaScript framework for managing and maintaining application state in a scaleable, predictable and testable way. It is often used with React, although it can be used with other frameworks too.
 
