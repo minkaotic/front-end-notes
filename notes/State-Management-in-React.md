@@ -6,7 +6,7 @@ _______________________________
 Sources: [React Context API course](https://teamtreehouse.com/library/react-context-api) | [React docs](https://reactjs.org/docs/context.html)
 | [Application State Management with React](https://kentcdodds.com/blog/application-state-management-with-react) | [How to use React Context effectively](https://kentcdodds.com/blog/how-to-use-react-context-effectively)
 
-### When to use it
+### 🧑‍🏫 When to use it
 #### Background: Prop drilling
 In the [typical React data flow](#paw_prints-unidirectional-data-flow), components communicate with each other via [props](#paw_prints-props). A parent passes props down to child components. Sometimes the intermediary components get props passed to them *with the sole purpose of passing that data down one (or several) more levels*. This cascade of props is often referred to as ["prop drilling"](https://kentcdodds.com/blog/prop-drilling).
 
@@ -15,10 +15,18 @@ In the [typical React data flow](#paw_prints-unidirectional-data-flow), componen
 > Prior to Context being a stable feature in React, developers would use state management libraries like [MobX](https://mobx.js.org/README.html) and [Redux](/notes/Redux.md) instead.
 
 #### To use or not to use Context?
-:point_right: Context is mainly used when certain data needs to be accessed by many components at different nesting levels.
+- Context is mainly used when certain data needs to be accessed *by many components at different nesting levels*
+- If you *just* want to avoid passing a value deep into the component tree (i.e. want to avoid passing props through multiple intermediary components), [consider using composition instead](https://reactjs.org/docs/context.html#before-you-use-context):
+  - Rather than passing several props down the tree into a final child component, pass down the child component itself (having been composed in the top level component), so the intermediary components don't need to know about its details, just about the end result to be rendered
+  - *Drawback:* this inversion of control does mean moving more complexity higher in the tree, making top-level components more complicated 
+- Think of using context as a form of 'broadcasting' data / establishing 'global state' to an application
+
+#### Problems with overusing Context
+- Makes component reuse more difficult
+- Unnecessary re-renders (with potential to cause performance issues): When a React `<Context.Provider>` gets a new value, all the components that consume that value are updated and have to render, even if it's a function component that only cares about part of the data
 
 
-### How to use it
+### 🧑‍🏫 How to use it
 > ⚠️ The below is based on class components, see [separate notes for the React Hooks version](https://github.com/minkaotic/front-end-notes/blob/master/notes/React-Hooks.md#usecontext).
 
 #### 3 parts of the Context API
