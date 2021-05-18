@@ -1,7 +1,7 @@
 # React Hooks
 Notes based on [Treehouse React Hooks workshop](https://teamtreehouse.com/library/react-hooks) and [Pluralsight 'Using React Hooks' course](https://app.pluralsight.com/library/courses/using-react-hooks/table-of-contents)
 
-**Jump to: [`useState`](#usestate) | [`useEffect`](#useeffect) | [`useContext`](#usecontext) | [`useRef`](#useref)**
+**Jump to: [`useState`](#usestate) | [`useEffect`](#useeffect) | [`useContext`](#usecontext) | [`useReducer`](#usereducer) | [`useRef`](#useref)**
 
 ## Intro
 - Prior to hooks, React allowed developers to [create/manage state](React-Notes.md#paw_prints-state) and use [lifecycle methods](React-Notes.md#paw_prints-lifecycle-methods), but this required writing the component as a _class_ component, which has a number of drawbacks compared to function components:
@@ -66,10 +66,20 @@ To **update state *based on the previous state*** value, pass a function to the 
 </button>
 ```
 
-### Multiple state variables
-- you can call `useState()` numerous times to declare multiple state variables
+To **update state for objects** (or arrays), you have to merge the state object using [spread syntax](/Javascript-Syntax.md#spread-operator--rest-parameters), for example given a state variable `cat` that is an object and is updated with `setCat`:
+```js
+onChange = {e => {
+  setCat(prevCat => ({ ...prevCat, name: e.target.value }));
+}}
+```
 
-> It is [recommended practice](https://reactjs.org/docs/hooks-faq.html#should-i-use-one-or-many-state-variables) to call `useState()` for each state variable that your component needs, rather than calling it once to initialise an object containing all the state properties.
+> ⚠️ **NB!** When working with **nested objects** or multidimensional arrays, the spread syntax will create a shallow copy instead of a deep copy. Ideally avoid nested objects, but [refer to this guide for more information and workarounds](https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/#howtoupdatestateinanestedobjectinreactwithhooks).
+
+
+### Multiple state variables vs state grouped into objects
+- `useState()` can be called numerous times to declare multiple state variables
+- In general, it is [recommended practice](https://reactjs.org/docs/hooks-faq.html#should-i-use-one-or-many-state-variables) to call `useState()` for each state variable that your component needs, rather than calling it once to initialise an object containing all the state properties.
+- But using an object makes sense for pieces of state that will likely *change together*. For things that change independently, use multiple state variables.
 
 
 ## `useEffect`
@@ -169,6 +179,17 @@ function FriendStatusWithCounter(props) {
 
 
 ## `useContext`
+
+
+
+## `useReducer`
+- an alternative to `useState`, which takes a reducer function and inital state value and returns an array that holds the current state value and a `dispatch` method:
+  ```js
+  const [state, dispatch] = useReducer(reducer, initialState);
+  ```
+
+- especially useful when you have complex state logic that uses multiple sub-values, or when a state depends on the previous one
+- If your state values are linked and often depend on the other state values, create a reducer
 
 
 
