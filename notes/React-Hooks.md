@@ -179,7 +179,12 @@ function FriendStatusWithCounter(props) {
 
 
 ## `useContext`
+> See [separate notes on *when* to use Context](State-Management-in-React.md#woman_teacher-when-to-use-it) for more background on this.
 
+- The [`useConext` hook](https://reactjs.org/docs/hooks-reference.html#usecontext) provides the functionality of the Context API in a single function.
+
+???
+- Once you've created your app's Context, call useContext() inside a function component to access any Context state and actions
 
 
 ## `useReducer`
