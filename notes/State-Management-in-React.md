@@ -6,7 +6,7 @@ _______________________________
 Sources: [React Context API course](https://teamtreehouse.com/library/react-context-api) | [React docs](https://reactjs.org/docs/context.html)
 | [Application State Management with React](https://kentcdodds.com/blog/application-state-management-with-react) | [How to use React Context effectively](https://kentcdodds.com/blog/how-to-use-react-context-effectively)
 
-### 🧑‍🏫 When to use it
+### :woman_teacher: When to use it
 #### Background: Prop drilling
 In the [typical React data flow](#paw_prints-unidirectional-data-flow), components communicate with each other via [props](#paw_prints-props). A parent passes props down to child components. Sometimes the intermediary components get props passed to them *with the sole purpose of passing that data down one (or several) more levels*. This cascade of props is often referred to as ["prop drilling"](https://kentcdodds.com/blog/prop-drilling).
 
@@ -26,7 +26,7 @@ In the [typical React data flow](#paw_prints-unidirectional-data-flow), componen
 - Unnecessary re-renders (with potential to cause performance issues): When a React `<Context.Provider>` gets a new value, all the components that consume that value are updated and have to render, even if it's a function component that only cares about part of the data
 
 
-### 🧑‍🏫 How to use it
+### :woman_teacher: How to use it
 > ⚠️ The below is based on class components, see [separate notes for the React Hooks version](https://github.com/minkaotic/front-end-notes/blob/master/notes/React-Hooks.md#usecontext).
 
 #### 3 parts of the Context API
