@@ -32,7 +32,7 @@ In the [typical React data flow](#paw_prints-unidirectional-data-flow), componen
 #### 3 parts of the Context API
 1. **`React.createContext()`** - sets up a context and returns an object with a *Provider* and *Consumer* (the two main components of the context API)
 2. **Provider** - a single Provider component, used as high as possible in the component tree, which allows Consumer components to subscribe to context changes
-3. **Consumer(s)** - access the Provider to get any data they need - thus avoiding "prop drilling"
+3. **Consumer(s)** - access the Provider to get any data they need
 
 > :bulb: The communication between the Provider and Consumers is what makes Context work.
 
