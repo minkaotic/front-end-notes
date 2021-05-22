@@ -632,7 +632,7 @@ But if we lift state up, and if data flows down, how can a child component commu
 
 - **Mounting** refers to the moment a React component is rendered to the DOM for the first time. The `render()` method is called just before this (so React can determine what should be displayed on the screen). The lifecycle method which runs straight after this first render is [`componentDidMount() {...}`](https://reactjs.org/docs/react-component.html#componentdidmount).
 
-- Whenever the **component updates** e.g. due to `setState()` being called, the `render()` is called again (= the component is re-rendered).
+- Whenever the **component updates** e.g. due to `setState()` being called, the `render()` is called again (= the component is re-rendered). To perform side effects upon re-render, use [`componentDidUpate() {...}`](https://reactjs.org/docs/react-component.html#componentdidupdate).
 
 - **Unmounting** refers to the moment the component is removed from the DOM - and the lifecycle method [`componentWillUnmount() {...}`](https://reactjs.org/docs/react-component.html#componentwillunmount) runs straight after this, and is useful for running any teardown to free up resources and help prevent memory leaks in your application.
 
