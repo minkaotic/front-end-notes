@@ -201,3 +201,33 @@ function FriendStatusWithCounter(props) {
 ## `useRef`
 - allows us to access an element in the DOM directly
 - **ideally avoid direct access and use the flow of state/props to manage values being passed between components** - but sometimes this may not be possible
+
+### Using it
+- initialise the ref object: `const imageRef = useRef(null);`
+- mount the ref on any element: `ref={imageRef}`
+- call the ref object's `current` property to interact with the mounted element: `imageRef.current.src = "/someImage.png"`
+
+The below example shows a component that toggles an element from one image to another on mouseover/mouse out:
+```js
+import React, { useRef } from 'react';
+
+export const ImageTogglerOnMouseOver = ({ primaryImg, secondaryImg }) => {
+  const imageRef = useRef(null);
+
+  return (
+    <img
+      onMouseOver={() => imageRef.current.src = secondaryImg}
+      onMouseOut={() => imageRef.current.src = primaryImg}
+      src={primaryImg}
+      alt=""
+      ref={imageRef}
+    />
+  );
+};
+```
+
+
+
+
+
+
