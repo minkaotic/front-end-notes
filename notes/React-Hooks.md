@@ -83,7 +83,7 @@ onChange = {e => {
 
 
 ## `useEffect`
-- The code that is run via a component's lifecycle methods is sometimes referred to as "side effects"
+- The code that is run via a component's [lifecycle methods](React-Notes.md#paw_prints-lifecycle-methods) is sometimes referred to as "side effects"
 - The [`useEffect`](https://reactjs.org/docs/hooks-reference.html#useeffect) hook lets you perform side effects in function components, giving them access to common lifecycle events. This allows us to do things after the component renders or after the component unmounts.
 
 ### Using it
@@ -105,8 +105,9 @@ function App() {
 }
 ```
 - `useEffect()` receives a callback function as the first argument, which is where you perform any side effects
-- the provided callback function is called when the component first renders and after each subsequent re-render / update
-- `useEffect()` takes an optional array as a 2nd argument which specifies any dependencies for the effect - typically state variables that are used or updated inside `useEffect()`. The array instructs the `useEffect()` hook to **run only if one of its dependencies changes**, which can help prevent performance issues:
+- `useEffect()` takes an optional array as a 2nd argument which specifies any dependencies for the effect - typically state variables that are used or updated inside `useEffect()`
+  - When no dependency array is specified, the provided callback function will be called when the component first renders and after each subsequent re-render / update
+  - When a dependency array is specified, the callback function is **run only if one of its dependencies changes**, which can help prevent performance issues:
 
 ```js
 // example with dependencies
@@ -146,10 +147,19 @@ function App() {
 }
 ```
 
-- With hooks, you don't need a separate function (akin to `componentWillUnmount()`) to perform **cleanup**. Returning a function from your effect [takes care of the cleanup, running the function when the component unmounts](https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup).
+- With hooks, you don't need a separate function (akin to `componentWillUnmount()`) to perform **cleanup**. *Returning a function* from within your your effect callback function [takes care of the cleanup, running the function when the component unmounts](https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup):
+```js
+useEffect(() => {
+  console.log("In use effect!");
+  return () => {
+    console.log("In use effect cleanup!");
+  }
+})
+```
+
 
 ### Multiple effects to separate concerns
-- You call `useEffect()` multiple times, and it is best practice to use this [to separate unrelated logic into different effects](https://reactjs.org/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns) - something that wasn't possible with traditional lifecycle methods!
+- You can call `useEffect()` multiple times, and it is best practice to use this [to separate unrelated logic into different effects](https://reactjs.org/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns) - something that wasn't possible with traditional lifecycle methods!
 - React will apply every effect used by the component, in the order they were specified
 - This allows us to group related bits of state + lifecycle logic as follows:
 
