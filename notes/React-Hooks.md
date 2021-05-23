@@ -104,8 +104,8 @@ function App() {
   return (...);
 }
 ```
-- `useEffect()` receives a callback function as the first argument, which is where you perform any side effects
-- `useEffect()` takes an optional array as a 2nd argument which specifies any dependencies for the effect - typically state variables that are used or updated inside `useEffect()`
+- `useEffect()` receives a **callback function as the 1st argument**, which is where you perform any side effects
+- `useEffect()` takes an **optional array as a 2nd argument** which specifies any dependencies for the effect - typically state variables that are used or updated inside `useEffect()`
   - When no dependency array is specified, the provided callback function will be called when the component first renders and after each subsequent re-render / update
   - When a dependency array is specified, the callback function is **run only if one of its dependencies changes**, which can help prevent performance issues:
 
