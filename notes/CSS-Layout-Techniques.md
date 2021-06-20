@@ -143,12 +143,11 @@ Most common values for the `display` property, and elements defaulting to that d
 | `ol`/`ul`/`li` |            |               |
 
 - `block` elements span the entire width of their container, forcing all subsequent elements to the next line
-
-- `inline` elements  only span the width of their contents, allowing any inline level element to flow up next to it on the same line. ***NB:** width and height properties, or top/bottom margin or padding settings won't be applied to inline elements*; only left/right margins and padding will work.
-
+- `inline` elements  only span the width of their contents, allowing any inline level element to flow up next to it on the same line.
+  - ***NB:** width and height properties, or top/bottom margin or padding settings won't be applied to inline elements*; only left/right margins and padding will work.
 - `inline-block`'s main two differences vs. `inline` is that it allows to set a width and height on the element, and that the top and bottom margins/paddings are respected.
 
-:sparkles: Interesting article on leveraging the display mode as an alternative to using floats: "[The Secret To Designing Website Layouts Without CSS Floats]( https://www.webdesignerdepot.com/2014/07/the-secret-to-designing-website-layouts-without-css-floats/)" :sparkles:
+:sparkles: Display mode can be leveraged as an alternative to using floats: "[The Secret To Designing Website Layouts Without CSS Floats]( https://www.webdesignerdepot.com/2014/07/the-secret-to-designing-website-layouts-without-css-floats/)" :sparkles:
 
 ### Using `inline-block` to lay out columns
 E.g., to lay out two `div`s as equal width side-by-side columns:
@@ -398,11 +397,11 @@ Common scenarios that form a new stacking context:
 - `absolute` or `relative` elements elements that have a `z-index` set on them
 - all `sticky` or `fixed` elements
 - child elements of a `flexbox` or `grid` container that have a `z-index` set on them
-- (see [Stacking context article](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) many more but less common scenarios)
+- (see [Stacking context article](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) for many more but less common scenarios)
 
 
 **Resources**
-- [Positioning module on Treehouse's 'CSS Layout Basics'](https://teamtreehouse.com/library/css-layout-basics)
+- [Positioning videos on Treehouse's 'CSS Layout' course](https://teamtreehouse.com/library/relative-and-absolute-positioning)
 - [CSS Positioning 101](http://alistapart.com/article/css-positioning-101/)
 - MDN 3-part guide on 1. [Stacking without the z-index property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Stacking_without_z-index) - 2. [Using z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Adding_z-index) - 3. [The stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
 
