@@ -14,7 +14,7 @@
 - **[The CSS Box Model](#the-css-box-model)**
   - [Borders](#borders)
   - [Margin, padding, width and box-sizing](#margin-padding-width-and-box-sizing)
-  - [Min-Height/Width & Max-Height/Width](#min-heightwidth--max-heightwidth)
+  - [Max-Width/Height & Min-Width/Height](#max-widthheight--min-widthheight)
   - [The calc() function](#the-calc-function)
   - [Why margins collapse](#why-margins-collapse)
 - **[Colour & Background Images](#colour--background-images)**
@@ -121,7 +121,7 @@ CSS has [many data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_V
 | pixels (`px`)  | `em`s are relative to parent element's pixel size, but the default of `1em` at the root is `16px` |
 |                | `rem`s are relative to root element's pixel size, i.e. avoid compounding issues when sizing up or down |
 |                | `%` is always relative to the parent container |
-|                | `vh` is a relative unit referring to the viewport, with `100vh` making an element the full width of the viewport (screen) |
+|                | `vh` + `vw` are relative units referring to percentages of the viewport height and width, respectively - e.g. `100vh` makes an element the full height of the viewport (screen) |
 
 > :bulb: using `rem` (or `em`) everywhere on the page makes responsive design much easier, as font sizes across the page can be updated simply by adjusting the root font size: `html { font-size: 16px; }`
 
@@ -165,23 +165,24 @@ Add a web font to your style sheet like this:
 - **Border shorthand**: `border: [width] [style] [color]` - or do each of them individually for control over each side, eg.: `border-width: 10px 20px`, or `border-top: 2px solid lightgrey;`. NB:
   - when not specifying a colour, the colour is inherited from the element's text colour.
   - When using **2 value shorthand**, the first value refers to top/bottom and the second to left/right.
-  - When using **3 value shorthand**, the values refer in order to: TOP, LEFT/RIGHT, BOTTOM
+  - When using **3 value shorthand**, the values refer in order to: top, left/right, bottom
 - *Similar rules apply to settings for margin and padding*
 
 ### Margin, padding, width and box-sizing
-- **`margin: auto`** will generally **centre** content on the page!
-- `width` values provided as **percentages** are applied in relation to the *parent container* - and `width` generally applies only to the *content* of the box, i.e. not including its padding and border, however...
-- **`box-sizing: border-box`** dynamically subtracts the borders and paddings of the element from the width and height properties we set, making it easier to define flexible widths and heights in our project (it's one of the few good uses for the universal selector!) *
-- `max-width` sets the maximum width of an element, preventing elements to become too large to look good on big screens; when set as percentage values can also be used as part of responsive design *
+- **`margin: auto`** will generally **centre** content horizontally on the page!
+  - this can also be used in conjunction with explicit top/bottom margins, e.g. `margin: 10px auto 20px`
+- `margin` and `padding` values provided as *percentages* will be based on the *parent element's width*, even for top/bottom values 
+- **`width`** values provided as *percentages* are applied in relation to the *parent container*
+- `width` generally applies only to the *content* of the box, i.e. not including its padding and border, however...
+- **`box-sizing: border-box`** dynamically subtracts the borders and paddings of the element from the width and height properties we set, making it easier to define flexible widths and heights in our project (it's one of the few good uses for the universal selector!)
 
-(* for more on `box-sizing` and `max-width` see https://teamtreehouse.com/library/boxsizing-and-maxwidth)
-
-### Min-Height/Width & Max-Height/Width
+### Max-Width/Height & Min-Width/Height
+- `max-width` sets the maximum width of an element, preventing elements from becoming too large to look good on big screens
+- a common approach for responsive layouts is to use `width: 100%` and `max-width: 600px` together (or vice versa)
 - `max-width`/`min-width` will override `width` (same for `height`)
 - `width`/`height` will *only* affect the element if they are *within the previously specified `min` or `max` values!*
 
 *Continue reading here: https://css3-tutorial.net/dimensions/min-width-max-width-min-height-max-height/*
-
 
 ### The calc() function
 - Allows to apply mathematical operations and assign the result to any CSS property that takes a length or other number value
@@ -189,10 +190,10 @@ Add a web font to your style sheet like this:
 - Leave whitespace around operator to ensure correct interpretation, e.g.: `height: calc(100% - 3em);`
 
 ### Why margins collapse
-- If there is no content, padding, or border area to interrupt two touching margins, the margins collapse to the largest of the two margin values.
-- Depending on what causes the collapsing, the collapsed margin can end up outside the parent.
-- You may experience margins collapsing in adjacent elements like paragraphs and divs.
-- If a div's bottom margin is larger than the top margin of the div below it, the margin area between the divs collapses to the largest of the two margin values.
+- The element size calculated by the browser only takes into account content, padding and border, but *not* margin
+- If there is no content, padding, or border area to interrupt two vertically touching margins, the margins collapse to the largest of the two margin values
+- Depending on what causes the collapsing, the collapsed margin can end up outside the parent
+- You may experience margins collapsing in adjacent elements like paragraphs and divs
 - **Only vertical margins are affected by this; horizontal margins do not collapse.**
 
 NB: The margins of floating and absolutely positioned elements never collapse.
