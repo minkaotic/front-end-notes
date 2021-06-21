@@ -265,14 +265,14 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 - **Automatically wrap based on available space:** With the **`flex-wrap`** property, you can control whether the flex container is a single-line (`flex-wrap: nowrap;`; default) or multi-line layout (`flex-wrap: wrap;`) - in the latter case, allowing items to wrap onto multiple lines as needed.
 
 - **Distribute items along main axis:**
-  - The **`justify-content`** property will distribute the space that's available after the container's padding and items' margins are accounted for. It defaults to `flex-start`, which places items towards the start of each flex line. By contrast, `justify-content: center;` will center the items on the line, and `justify-content: space-between;` and `..space-around;` will *evenly* distribute the children across a line.
+  - The [**`justify-content`**](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#justify-content) property will distribute the space that's available after the container's padding and items' margins are accounted for. It defaults to `flex-start`, which places items towards the start of each flex main axis. By contrast, `justify-content: flex-end` will place them towards the end of the main axis; `justify-content: center;` will center the items on the main axis, and `justify-content: space-between;` and `..space-around;` will *evenly* distribute the children.
   - If you want to distribute some items to the left and some to the right, with space in between, you can use `margin-right: auto;` on the *flex item* after which the dynamic gap should be inserted:
   ![Flex and margin: auto](/img/flex-and-margin-auto.png)
   - This also works well in a flex `column` layout, when wanting to align an item (such as a CTA) to the bottom of the container.
 
 - **Distribute items along cross axis:**
-  - The **`align-items`** property determines where a flex container's items are aligned along the cross axis. By default, flex items stretch to fill the flex container's height (`align-items: stretch;`), but common alternative values are `center` and `flex-start`.
-  - **NB:** an equivalent to `align-items` that works on the level of individual item properties is `align-self`.
+  - The [**`align-items`**](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#align-items) property determines where a flex container's items are aligned along the cross axis. By default, flex items stretch to fill the flex container's height (`align-items: stretch;`), but common alternative values are `center` and `flex-start`.
+  - **NB:** an equivalent to `align-items` that works on the level of individual item properties is [`align-self`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#align-self).
 
 ### Flex item properties
 - **Order:** The **`order`** property allows us to change the order of any flex item, without having to edit the HTML. The default `order` value of all flex items is `0`, and flex items will be placed relative to the other items' `order` values;
