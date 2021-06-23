@@ -283,7 +283,9 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
     - The higher the `flex-grow` value, the more an item grows relative to the other items.
     - However, contrary to common belief, `flex-grow: 2;` will not (always) make the item twice as wide as its `flex-grow: 1;` siblings. See the article ["Flex-grow is weird"](https://css-tricks.com/flex-grow-is-weird/) for a fuller explanation.
     - A handy use for `flex-grow` is to lay out the main content of a page alongside a side bar (both of which would be flex items in a parent flex container), so they would keep the same width-ratio regardless of browser size.
-    
+
+  - **`flex-shrink`** determines the rate at which flex items shrink when necessary due to insufficient container space. The default value is 1, i.e. all items shrinking equally.
+
   - **`flex-basis`** specifies the initial size of an item along the cross axis of a flex item (i.e. before any "remaining space" is distributed), which at the same time sets the minimum size value below which an item will be distributed to the next line (if using `flex-wrap`).
     
   - Since `flex-basis` is commonly used in conjunction with `flex-grow`, the **`flex`** shorthand can be used to set both. It also sets smart defaults for the optional values, for example, `flex: 1;` sets the `flex-basis` to `0` (default is `auto`). (See ["MDN - Flex"](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) for more details.)
