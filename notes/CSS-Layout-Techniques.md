@@ -286,7 +286,7 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
 
   - **`flex-shrink`** determines the rate at which flex items shrink when necessary due to insufficient container space. The default value is 1, i.e. all items shrinking equally.
 
-  - **`flex-basis`** specifies the initial size of an item along the cross axis of a flex item (i.e. before any "remaining space" is distributed), which at the same time sets the minimum size value below which an item will be distributed to the next line (if using `flex-wrap`).
+  - **`flex-basis`** specifies the initial size of an item along the cross axis of a flex item (i.e. before any "remaining space" is distributed), which at the same time sets the minimum size value below which an item will be distributed to the next line if using `flex-wrap`. It defaults to `auto`, which means falling back to an element's specified width/height.
     
   - Since `flex-basis` is commonly used in conjunction with `flex-grow`, the **`flex`** shorthand can be used to set both. It also sets smart defaults for the optional values, for example, `flex: 1;` sets the `flex-basis` to `0` (default is `auto`). (See ["MDN - Flex"](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) for more details.)
   ```css
@@ -297,6 +297,7 @@ CSS layout methods like floats, inline-block and absolute positioning have quirk
   
 #### More notes about item sizing in flexbox:
 - If no explicit `width` (or `flex-basis`) is set for a flex item, the browser will use the content size as the starting point. If both of them are set, then `flex-basis` will take precedence.
+  - *However*, if `min-width` / `max-width` (or, depending on flex-direction, their height equivalents) is set as well as `flex-basis`, this will act as a lower / upper limit for the `flex-basis`!
 
 - Any item(s) with `flex: auto;` will grow to absorb any extra free space in the flex container, and shrink to its minimum size to fit the container. (Equivalent to setting `flex: 1 1 auto;`.) -> Useful for responsive design!
 
