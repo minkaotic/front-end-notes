@@ -7,6 +7,7 @@ Sources: [Accessibility for Web Developers](https://teamtreehouse.com/library/ac
 - [:curly_haired_woman: User groups to keep in mind](#curly_haired_woman-user-groups-to-keep-in-mind)
 - [🛠️ Tools for Accessibility Auditing](#%EF%B8%8F-tools-for-accessibility-auditing)
 - [:pencil: Accessible forms](#pencil-accessible-forms)
+- [:monocle_face: A11y and hiding of elements](#monocle_face-a11y-and-hiding-of-elements)
 
 -------------
 
@@ -167,4 +168,18 @@ This will produce the following form: ![Form example](../img/form-example.png)
 ```
 Resulting in:
 ![Form example](../img/failed-field-example.png)
+
+
+## :monocle_face: A11y and hiding of elements
+- Different approaches for hiding content from a page will differently impact screen readers - see [this article](https://alistapart.com/article/now-you-see-me/) for an overview, and [this resource for more detail](https://webaim.org/techniques/css/invisiblecontent/)
+- In general, if you are purely hiding an element for 'cosmetic' reasons (such as the radio buttons of a radio input styled into clickable tiles), **don't use `display: none;`** - instead, use `position: absolute; left: -999em;` or a similar approach. **This is particularly important if the element needs to be interacted with, such as form controls!**
+- To hide something for screen readers *only* (e.g. to remove audible clutter) whilst leaving it visible on the page, use the `aria-hidden="true"` attribute.
+
+See also:
+- https://www.sarasoueidan.com/blog/inclusively-hiding-and-styling-checkboxes-and-radio-buttons/
+- https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+- https://24ways.org/2018/inclusive-considerations-when-restyling-form-controls/
+- https://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/
+- https://a11y-guidelines.orange.com/en/web/components-examples/accessible-hiding
+- https://webaim.org/techniques/css/invisiblecontent/
 
