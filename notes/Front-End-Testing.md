@@ -255,7 +255,7 @@ describe('Message', () => {
     await expect(Promise.resolve(1 + 1)).resolves.toBe(2));
   });
   ```
-**React Testing Library** provides a `wait` function that can be used to wrap assertions that will be true in the future, and waits for the assertion to be true:
+**React Testing Library** provides a `waitFor` function that can be used to wrap assertions that will be true in the future, and waits for the assertion to be true:
   ```js
   it("should increment on click", async () => {
     const { queryByText } = render(
