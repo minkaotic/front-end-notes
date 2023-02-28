@@ -149,11 +149,17 @@ Option 3 seems to have been the most commonly used one until `screen` was introd
 
 > :bulb: RTL query functions intend to approach the component under test in the same way a user would look at the UI, avoiding any implementation specifics (e.g. querying by class or id selectors or based on DOM structure).
 
-**Accessibility**
+#### Accessibility
 - RTL selectors/queries intentionally encourage using properties accessible to all users (`text`, `label`, `aria`, `title`, `alt` etc) - this encourages building more accessible components; if you can't find a query to check the element you're after, your component probably isn't very accessible!
 - Cf. [Which query should I use?](https://testing-library.com/docs/guide-which-query) guide
 - `getByRole` offers additional query options, and most elements have implicit roles - [cf. list of roles on MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#Roles).
 - RTL selectors encourage ou to use things like `placeholder`, `aria`, `title`, `alt` etc. to get access to elements
+
+#### Useful docs on RTL
+- [Useful custom Jest matchers](https://github.com/testing-library/jest-dom#jest-dom) for your assertions
+- RTL essentially re-exports DOM Testing Library with some React specific things thrown in the mix, so everything in the [DOM Testing Library docs](https://testing-library.com/docs/dom-testing-library/intro) also applies
+- ["Which query should I use?"](https://testing-library.com/docs/guide-which-query) best practice guide
+- More best practices: ["Common mistakes with React Testing Library"](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
 
 
 ### Enzyme vs React Testing Library
