@@ -127,12 +127,33 @@ test('renders important text', () => {
   expect(returnButton).toBeInTheDocument();
   expect(returnButton).toHaveTextContent("Return to website");
   ```
+  
+#### Alternatives to `container` 
+You can use `screen` by importing it, or destructure the object returned by the `render` method (this object has query functions scoped to it), so the following three ways of starting your test are equivalent:
+
+```js
+// Option 1
+render(<MyComponent />);
+screen.getByRole('button', {name: 'Submit'});
+
+// Option 2
+const container = render(<MyComponent />);
+container.getByRole('button', {name: 'Submit'});
+
+// Option 3
+const { getByRole } = render(<MyComponent />);
+getByRole('button', {name: 'Submit'});
+```
+
+Option 3 seems to have been the most commonly used one until `screen` was introduced, but since then [`screen` has become the recommended option](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library#not-using-screen) as you don't have to worry about keeping your destructures updated every time you need a new query in your test.
 
 > :bulb: RTL query functions intend to approach the component under test in the same way a user would look at the UI, avoiding any implementation specifics (e.g. querying by class or id selectors or based on DOM structure).
 
 **Accessibility**
-- RTL selectors encourage you to use things like `placeholder`, `aria`, `title`, `alt` etc. to get access to elements
-- This encourages building more accessible components, and offers a great feedback loop of *Write tests* > *Build accessible components* > *Tests pass*
+- RTL selectors/queries intentionally encourage using properties accessible to all users (`text`, `label`, `aria`, `title`, `alt` etc) - this encourages building more accessible components; if you can't find a query to check the element you're after, your component probably isn't very accessible!
+- Cf. [Which query should I use?](https://testing-library.com/docs/guide-which-query) guide
+- `getByRole` offers additional query options, and most elements have implicit roles - [cf. list of roles on MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#Roles).
+- RTL selectors encourage ou to use things like `placeholder`, `aria`, `title`, `alt` etc. to get access to elements
 
 
 ### Enzyme vs React Testing Library
