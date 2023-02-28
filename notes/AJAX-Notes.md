@@ -1,6 +1,7 @@
 # AJAX Notes
+One of the key tasks of modern frontend applications is to communicate with servers (backend) via HTTP without having to reload the page - often to add interactivity to a web UI. AJAX, [Fetch, and Axios](https://github.com/minkaotic/front-end-notes/blob/master/notes/Fetch-and-Axios.md) provide three different ways of doing this.
 
-AJAX ("Asynchronous JavaScript And XML") is an important front-end web technology that lets JavaScript communicate with a web server. It lets you update HTML without leaving or reloading the current page, creating a better, faster experience for users.
+[AJAX](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX) ("Asynchronous JavaScript And XML") is the original solution that allowed JavaScript to communicate with a web server, allowing web applications to make quick, incremental updates to the HTML in the user interface without reloading the entire browser page.
 
 ### Contents
 
