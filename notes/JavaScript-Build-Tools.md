@@ -123,6 +123,18 @@ To update specific packages:
 - `npm update [package_name]` for local (project specific) dependencies
 - `npm update [package_name] -g` for global packages
 
+#### Resolving transitive NPM dependencies 
+If a vulnerability is found in a transitive NPM dependency, using an overrides section in the package.json works best as a workaround - cf. https://medium.com/microsoftazure/how-to-fix-your-security-vulnerabilities-with-npm-override-c4b5be0ab4f6
+
+But first check the following:
+- What package is bringing in this dependency?
+- Is this package actually in use - can it be uninstalled?
+- Can the parent package be updated?
+- Can the parent package be replaced with something else?
+- If you can't do any of the above then overriding the version of the dependency is your last hope 
+
+For example we did this with dependencies of react-scripts. By comparison, force resolutions and using a resolutions section didn't work very well
+
 -------------
 
 ## Webpack
